@@ -15,6 +15,7 @@ export interface Client {
   signed_at: string | null
   signer_name: string | null
   signer_date: string | null
+  onboarding_completed: string[]
   created_at: string
   updated_at: string
 }
@@ -42,14 +43,18 @@ export interface PackageConfig {
 
 export const PACKAGES: Record<Package, PackageConfig> = {
   starter: {
-    name: 'Starter',
+    name: 'Foundation',
     price: 1500,
-    tagline: 'Get found locally.',
+    tagline: 'Get found and get calls.',
     features: [
       'Google Business Profile optimization',
-      'Local SEO (title tags + local content)',
-      'Review generation system',
-      'Monthly performance report',
+      'Website / landing page audit',
+      'Basic website fixes',
+      'Review request system',
+      'Lead capture form',
+      'Simple follow-up workflow',
+      'Monthly reporting',
+      'Monthly strategy call',
     ],
   },
   growth: {
@@ -57,24 +62,50 @@ export const PACKAGES: Record<Package, PackageConfig> = {
     price: 2500,
     tagline: 'Generate consistent leads.',
     features: [
-      'Everything in Starter, plus:',
-      'Google Local Services Ads (setup + management)',
-      'Google Search Ads management',
-      'Lead follow-up email sequence + CRM setup',
-      'Bi-weekly strategy calls',
+      'Everything in Foundation, plus:',
+      'Landing page or website refresh',
+      'Local SEO service pages',
+      'CRM setup',
+      'Review generation system',
+      'Email / SMS follow-up',
+      'Content planning',
+      'Basic ads readiness',
+      'Monthly growth call',
     ],
   },
   dominate: {
     name: 'Dominate',
-    price: 4500,
+    price: 4000,
     tagline: 'Own your market.',
     features: [
       'Everything in Growth, plus:',
-      'Meta Ads (Facebook + Instagram)',
-      'Monthly landing page builds',
-      '2 blog posts per month',
-      'Weekly calls + full reporting',
-      'Dedicated account manager',
+      'Paid ad setup and management',
+      'Campaign landing pages',
+      'Advanced CRM / automation',
+      'Reputation management',
+      'Offer testing',
+      'Conversion tracking',
+      'Detailed reporting',
+      'Biweekly strategy calls',
     ],
   },
 }
+
+export type OnboardingTaskKey =
+  | 'business_info'
+  | 'gbp_access'
+  | 'website_access'
+  | 'brand_assets'
+  | 'review_link'
+  | 'tracking_setup'
+  | 'kickoff_call'
+
+export const ONBOARDING_TASKS: { key: OnboardingTaskKey; label: string; description: string }[] = [
+  { key: 'business_info', label: 'Business info submitted', description: 'Name, address, phone, hours, and service area confirmed.' },
+  { key: 'gbp_access', label: 'Google Business Profile access', description: 'Manager access granted to your Google Business Profile.' },
+  { key: 'website_access', label: 'Website / CMS access', description: 'Login credentials or editor access to your website provided.' },
+  { key: 'brand_assets', label: 'Brand assets uploaded', description: 'Logo, brand colors, and any existing creative shared.' },
+  { key: 'review_link', label: 'Review link created', description: 'Direct Google review link confirmed and tested.' },
+  { key: 'tracking_setup', label: 'Tracking setup confirmed', description: 'Google Analytics / call tracking verified.' },
+  { key: 'kickoff_call', label: 'Kickoff call scheduled', description: 'First strategy call booked within 48 hours of sign-up.' },
+]

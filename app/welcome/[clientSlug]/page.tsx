@@ -3,7 +3,7 @@ import { createAdminClient } from '@/lib/supabase/server'
 import { PACKAGES, Package } from '@/lib/types'
 import { formatCurrency } from '@/lib/utils'
 import { WelcomeEffect } from './WelcomeEffect'
-import { CheckCircle, Mail, Calendar, LayoutDashboard } from 'lucide-react'
+import { CheckCircle, Mail, Calendar, Lock, LayoutDashboard } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -30,7 +30,7 @@ export default async function WelcomePage({
         <div className="max-w-2xl mx-auto px-5 sm:px-8 h-16 flex items-center">
           <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-accent" />
-            <span className="text-[14px] font-semibold tracking-tight">Berk Growth Co.</span>
+            <span className="text-[14px] font-semibold tracking-tight">Delko</span>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@ export default async function WelcomePage({
               You&apos;re in, {firstName}.
             </h1>
             <p className="text-[17px] text-white/50 max-w-md mx-auto leading-relaxed">
-              Welcome to Berk Growth Co. Your {pkg.name} plan for{' '}
+              Welcome to Delko. Your {pkg.name} plan for{' '}
               <span className="text-white/80">{client.business_name}</span> is active at{' '}
               {formatCurrency(pkg.price)}/mo.
             </p>
@@ -59,19 +59,19 @@ export default async function WelcomePage({
                 icon: Mail,
                 step: '01',
                 title: 'Check your inbox',
-                body: `We sent onboarding details to ${client.email} — account access, kickoff prep, and what to expect in the first 30 days.`,
+                body: `We sent a confirmation to ${client.email}. You'll hear from us within a few hours with onboarding next steps.`,
               },
               {
                 icon: Calendar,
                 step: '02',
                 title: 'Kickoff call within 48 hours',
-                body: "Keveen or Jack will reach out to schedule your kickoff. We'll align on goals, gather assets, and lock in your first-month plan.",
+                body: "We'll reach out to schedule your kickoff call — where we align on goals, gather assets, and lock in your first-month plan.",
               },
               {
-                icon: LayoutDashboard,
+                icon: Lock,
                 step: '03',
-                title: 'Your dashboard is live',
-                body: 'Track leads, reviews, ad spend, and monthly performance reports — all in one place. Bookmark the link below.',
+                title: 'Client portal access within 24 hours',
+                body: "We'll set up your client portal account and send you a login link. You'll be able to track onboarding, project progress, billing, and monthly reports.",
               },
             ].map(({ icon: Icon, step, title, body }) => (
               <div
@@ -92,21 +92,21 @@ export default async function WelcomePage({
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="text-center">
-            <a
-              href={`/dashboard/${client.slug}`}
-              className="inline-flex items-center gap-2 h-11 px-6 rounded-[10px] bg-accent text-[#0A0A0A] font-semibold text-[14px] hover:bg-[rgba(30,255,150,0.85)] transition-colors"
-            >
-              <LayoutDashboard size={15} />
-              Go to your dashboard
-            </a>
+          {/* Portal preview CTA */}
+          <div className="rounded-2xl bg-[rgba(30,255,150,0.04)] border border-[rgba(30,255,150,0.15)] p-6 text-center space-y-3">
+            <p className="text-[13px] text-white/60 leading-relaxed">
+              Once your portal is ready, you can track everything at:
+            </p>
+            <div className="inline-flex items-center gap-2 bg-[rgba(255,255,255,0.05)] rounded-lg px-4 py-2 font-mono text-[13px] text-accent border border-[rgba(30,255,150,0.1)]">
+              <LayoutDashboard size={13} />
+              delko.co/portal
+            </div>
           </div>
 
           <p className="text-center text-[12px] text-white/25">
             Questions? Email us at{' '}
-            <a href="mailto:hello@berkgrowth.co" className="text-accent hover:underline">
-              hello@berkgrowth.co
+            <a href="mailto:hello@delko.co" className="text-accent hover:underline">
+              hello@delko.co
             </a>
           </p>
         </div>
