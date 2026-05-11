@@ -105,8 +105,8 @@ export default async function WelcomePage({
 
           <p className="text-center text-[12px] text-white/25">
             Questions? Email us at{' '}
-            <a href="mailto:hello@delko.co" className="text-accent hover:underline">
-              hello@delko.co
+            <a href="mailto:keveend10@gmail.com" className="text-accent hover:underline">
+              keveend10@gmail.com
             </a>
           </p>
         </div>

@@ -123,7 +123,7 @@ export default function BillingPage() {
             <div className="rounded-xl bg-surface border border-border px-5 py-4">
               <p className="text-[13px] text-muted-foreground">
                 Billing portal will be available once your subscription is active.
-                Questions? <a href="mailto:hello@delko.co" className="text-accent hover:underline">Email us →</a>
+                Questions? <a href="mailto:keveend10@gmail.com" className="text-accent hover:underline">Email us →</a>
               </p>
             </div>
           )}

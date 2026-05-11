@@ -88,7 +88,7 @@ function PortalLogin() {
           </form>
           <p className="mt-6 text-center text-[12px] text-muted-foreground">
             Don&apos;t have access yet?{' '}
-            <a href="mailto:hello@delko.co" className="text-accent hover:underline">Contact Delko →</a>
+            <a href="mailto:keveend10@gmail.com" className="text-accent hover:underline">Contact Delko →</a>
           </p>
         </div>
       </div>
@@ -108,7 +108,7 @@ function NoClientFound() {
           Your email isn&apos;t linked to an active Delko client account yet. If you&apos;ve signed up, we&apos;ll have your portal ready within 24 hours.
         </p>
         <a
-          href="mailto:hello@delko.co"
+          href="mailto:keveend10@gmail.com"
           className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[13px] hover:brightness-105 transition-all"
         >
           Contact Delko
@@ -135,7 +135,8 @@ function PortalShell({ children }: { children: ReactNode }) {
   if (!client) return <NoClientFound />
 
   const currentLabel = nav.find(n => pathname.startsWith(n.href))?.label ?? 'Portal'
-  const initials = client.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
+  const displayName = client.name || client.contact_name || client.business_name || '?'
+  const initials = displayName.split(' ').map((w: string) => w[0]).join('').slice(0, 2).toUpperCase()
 
   return (
     <div className="min-h-screen bg-background text-foreground flex">
@@ -178,7 +179,7 @@ function PortalShell({ children }: { children: ReactNode }) {
             </div>
             <div className="min-w-0 flex-1">
               <div className="text-xs font-medium truncate">{client.business_name}</div>
-              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{client.name}</div>
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{displayName}</div>
             </div>
             <button onClick={signOut} className="text-muted-foreground hover:text-foreground transition-colors" title="Sign out">
               <LogOut size={15} />
@@ -201,7 +202,7 @@ function PortalShell({ children }: { children: ReactNode }) {
             <div className="ml-auto flex items-center gap-3">
               <div className="hidden sm:flex items-center gap-1.5">
                 <span className={`h-1.5 w-1.5 rounded-full ${client.subscription_status === 'active' ? 'bg-accent' : client.subscription_status === 'past_due' ? 'bg-red-400' : 'bg-yellow-400'}`} />
-                <span className="text-[11px] text-muted-foreground capitalize">{client.subscription_status.replace('_', ' ')}</span>
+                <span className="text-[11px] text-muted-foreground capitalize">{(client.subscription_status ?? 'pending').replace('_', ' ')}</span>
               </div>
               <Link href="/" className="text-[12px] text-muted-foreground hover:text-foreground transition-colors">← Site</Link>
             </div>

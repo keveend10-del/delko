@@ -109,7 +109,7 @@ export default function OnboardingPage() {
       </div>
 
       <p className="mt-6 text-[12px] text-muted-foreground text-center">
-        Need help with any of these? <a href="mailto:hello@delko.co" className="text-accent hover:underline">Email us →</a>
+        Need help with any of these? <a href="mailto:keveend10@gmail.com" className="text-accent hover:underline">Email us →</a>
       </p>
     </div>
   )
