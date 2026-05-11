@@ -21,8 +21,8 @@ export default function BillingPage() {
 
   if (!client) return null
 
-  const pkg = PACKAGES[client.package as Package]
-  const status = STATUS_MAP[client.subscription_status] ?? STATUS_MAP.pending
+  const pkg = PACKAGES[(client.package ?? 'growth') as Package] ?? PACKAGES.growth
+  const status = STATUS_MAP[client.subscription_status ?? 'pending'] ?? STATUS_MAP.pending
   const StatusIcon = status.icon
 
   const openBillingPortal = async () => {

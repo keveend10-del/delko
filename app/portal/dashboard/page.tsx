@@ -45,8 +45,8 @@ export default function PortalDashboard() {
 
   if (!client) return null
 
-  const pkg = PACKAGES[(client.package as Package) ?? 'growth'] ?? PACKAGES.growth
-  const status = STATUS_COLORS[client.subscription_status] ?? STATUS_COLORS.pending
+  const pkg = PACKAGES[(client.package ?? 'growth') as Package] ?? PACKAGES.growth
+  const status = STATUS_COLORS[client.subscription_status ?? 'pending'] ?? STATUS_COLORS.pending
   const latest = metrics[0]
   const completed = client.onboarding_completed ?? []
   const onboardingPct = Math.round((completed.length / ONBOARDING_TASKS.length) * 100)
