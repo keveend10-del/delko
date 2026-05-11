@@ -10,10 +10,10 @@ import { format, parseISO } from 'date-fns'
 
 interface Message {
   id: string
-  sender: 'client' | 'admin'
+  sender_role: 'client' | 'admin'
   body: string
   created_at: string
-  read: boolean
+  read_at: string | null
 }
 
 export default function MessagesPage() {
@@ -51,7 +51,8 @@ export default function MessagesPage() {
 
     const { error } = await supabase.from('client_messages').insert({
       client_id: client.id,
-      sender: 'client',
+      sender_id: user?.id ?? null,
+      sender_role: 'client',
       body: body.trim(),
     })
 
@@ -94,7 +95,7 @@ export default function MessagesPage() {
             </div>
           ) : (
             messages.map(msg => {
-              const isClient = msg.sender === 'client'
+              const isClient = msg.sender_role === 'client'
               return (
                 <div key={msg.id} className={`flex ${isClient ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[78%] rounded-2xl px-4 py-3 ${
