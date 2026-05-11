@@ -1,0 +1,44 @@
+export const Footer = () => (
+  <footer className="relative border-t border-border">
+    <div className="container mx-auto px-5 sm:px-8 py-16 sm:py-20">
+      <div className="grid lg:grid-cols-12 gap-10">
+        <div className="lg:col-span-5">
+          <div className="flex items-center gap-2.5 mb-5">
+            <span className="h-2.5 w-2.5 rounded-full bg-accent" />
+            <span className="text-[14px] font-semibold tracking-tight">
+              Berkshires
+              <span className="text-muted-foreground font-normal"> / Growth Studio</span>
+            </span>
+          </div>
+          <p className="text-[15px] text-muted-foreground max-w-sm leading-relaxed">
+            Websites, ads, and Google profiles that bring more calls to local businesses across Berkshire County and the North Shore of Massachusetts.
+          </p>
+        </div>
+
+        <div className="lg:col-span-3">
+          <div className="text-[10px] font-bold font-mono uppercase tracking-[0.22em] text-muted-foreground mb-5">Explore</div>
+          <ul className="space-y-3 text-[14px]">
+            {[{ label: 'Services', href: '#services' }, { label: 'Packages', href: '#packages' }, { label: 'Process', href: '#process' }, { label: 'Contact', href: '#audit' }].map(({ label, href }) => (
+              <li key={href}>
+                <a href={href} className="text-muted-foreground hover:text-accent transition-colors duration-200">{label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="lg:col-span-4">
+          <div className="text-[10px] font-bold font-mono uppercase tracking-[0.22em] text-muted-foreground mb-5">We Serve</div>
+          <p className="text-[14px] text-muted-foreground leading-relaxed">
+            Pittsfield, Lenox, Stockbridge, Great Barrington, Williamstown, North Adams, Marblehead, Salem, Gloucester, Beverly & everywhere in between.
+          </p>
+        </div>
+      </div>
+
+      <div className="hairline mt-14 mb-6" />
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-muted-foreground">
+        <div>© {new Date().getFullYear()} Berk Growth Co. All rights reserved.</div>
+        <div className="font-mono tracking-wider">42.5584° N — 70.8800° W</div>
+      </div>
+    </div>
+  </footer>
+)
