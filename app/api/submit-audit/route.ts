@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     }
 
     await resend.emails.send({
-      from: 'Berk Growth Portal <hello@berkgrowth.co>',
+      from: 'Delko <onboarding@resend.dev>',
       to: ['keveend10@gmail.com'],
       subject: `New Audit Request: ${business}`,
       html: `
