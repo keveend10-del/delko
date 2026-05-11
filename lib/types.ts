@@ -4,20 +4,34 @@ export type SubscriptionStatus = 'pending' | 'active' | 'past_due' | 'canceled'
 export interface Client {
   id: string
   slug: string
-  name: string
+  name: string | null
   business_name: string
   email: string
-  package: Package
+  package: Package | null
   custom_scope: string | null
+  contact_name: string | null
+  phone: string | null
+  town: string | null
+  business_type: string | null
+  website: string | null
+  instagram: string | null
+  package_purchased: string | null
+  project_value: number | null
+  monthly_retainer_value: number | null
+  start_date: string | null
+  client_status: string | null
+  payment_status: string | null
+  project_status: string | null
+  notes: string | null
   stripe_customer_id: string | null
   stripe_subscription_id: string | null
-  subscription_status: SubscriptionStatus
+  subscription_status: SubscriptionStatus | null
   signed_at: string | null
   signer_name: string | null
   signer_date: string | null
   onboarding_completed: string[]
   created_at: string
-  updated_at: string
+  updated_at: string | null
 }
 
 export interface MonthlyMetrics {
