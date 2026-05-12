@@ -6,7 +6,7 @@ import { PageHeader, Panel, StatusBadge, EmptyState, inputCls, selectCls, textar
 import { Sheet } from '@/components/admin/Sheet'
 import { Dialog } from '@/components/admin/Dialog'
 import { CLIENT_STATUSES, PAYMENT_STATUSES, PROJECT_STATUSES, PACKAGES, BUSINESS_TYPES, NORTH_SHORE_TOWNS } from '@/lib/admin-constants'
-import { Search, Plus } from 'lucide-react'
+import { Search, Plus, Send } from 'lucide-react'
 import { toast } from 'sonner'
 import { format, parseISO } from 'date-fns'
 
@@ -16,6 +16,7 @@ export default function Clients() {
   const [q, setQ] = useState('')
   const [open, setOpen] = useState<any | null>(null)
   const [createOpen, setCreateOpen] = useState(false)
+  const [invoiceOpen, setInvoiceOpen] = useState<any | null>(null)
 
   const load = async () => {
     const { data } = await supabase.from('clients').select('*').order('created_at', { ascending: false })
@@ -94,11 +95,18 @@ export default function Clients() {
               <label className="text-xs text-muted-foreground">Notes</label>
               <textarea value={open.notes ?? ''} onChange={e => setOpen((p: any) => ({ ...p, notes: e.target.value }))} onBlur={() => update(open.id, { notes: open.notes })} rows={4} className={textareaCls} />
             </div>
+
+            <div className="pt-2 border-t border-border">
+              <Btn accent onClick={() => setInvoiceOpen(open)}>
+                <Send size={13} /> Send invoice
+              </Btn>
+            </div>
           </div>
         )}
       </Sheet>
 
       <ClientCreate supabase={supabase} open={createOpen} onClose={() => setCreateOpen(false)} onSaved={load} />
+      <InvoiceModal client={invoiceOpen} onClose={() => setInvoiceOpen(null)} onSent={load} />
     </div>
   )
 }
@@ -140,6 +148,75 @@ function ClientCreate({ supabase, open, onClose, onSaved }: any) {
         <div className="sm:col-span-2 flex justify-end gap-2 pt-2">
           <Btn onClick={onClose}>Cancel</Btn>
           <Btn accent type="submit">Save</Btn>
+        </div>
+      </form>
+    </Dialog>
+  )
+}
+
+function InvoiceModal({ client, onClose, onSent }: { client: any | null; onClose: () => void; onSent: () => void }) {
+  const defaultDesc = client ? `${client.business_name} — ${client.package_purchased || 'Monthly Retainer'}` : ''
+  const [form, setForm] = useState({ amount: '', description: defaultDesc, mode: 'subscription' })
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    if (client) {
+      setForm({
+        amount: client.monthly_retainer_value ? String(client.monthly_retainer_value) : '',
+        description: `${client.business_name} — ${client.package_purchased || 'Monthly Retainer'}`,
+        mode: 'subscription',
+      })
+      setError('')
+    }
+  }, [client])
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!client) return
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/admin/send-invoice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ clientId: client.id, amount: Number(form.amount), description: form.description, mode: form.mode }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? 'Failed to send invoice')
+      toast.success(`Invoice sent to ${client.email}`)
+      onSent()
+      onClose()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <Dialog open={!!client} onClose={onClose} title={`Send invoice — ${client?.business_name ?? ''}`} maxWidth="max-w-md">
+      <form onSubmit={submit} className="space-y-3 mt-3">
+        <FF label="Description">
+          <input value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} required maxLength={200} className={inputCls} />
+        </FF>
+        <div className="grid grid-cols-2 gap-3">
+          <FF label="Amount ($)" req>
+            <input type="number" min="1" step="1" value={form.amount} onChange={e => setForm(f => ({ ...f, amount: e.target.value }))} required className={inputCls} />
+          </FF>
+          <FF label="Billing type">
+            <select value={form.mode} onChange={e => setForm(f => ({ ...f, mode: e.target.value }))} className={selectCls + ' h-[42px]'}>
+              <option value="subscription">Monthly recurring</option>
+              <option value="payment">One-time</option>
+            </select>
+          </FF>
+        </div>
+        {error && <p className="text-xs text-red-400">{error}</p>}
+        <div className="flex justify-end gap-2 pt-1">
+          <Btn onClick={onClose}>Cancel</Btn>
+          <Btn accent type="submit" disabled={loading}>
+            {loading ? 'Sending…' : <><Send size={13} /> Send invoice</>}
+          </Btn>
         </div>
       </form>
     </Dialog>

@@ -19,21 +19,35 @@ export async function POST(req: NextRequest) {
   switch (event.type) {
     case 'checkout.session.completed': {
       const session = event.data.object as Stripe.Checkout.Session
-      const clientSlug = session.metadata?.clientSlug
-      if (!clientSlug) break
-
       const subscriptionId = typeof session.subscription === 'string'
         ? session.subscription
         : (session.subscription as Stripe.Subscription | null)?.id
 
-      await supabase
-        .from('clients')
-        .update({
-          stripe_customer_id: session.customer as string,
-          stripe_subscription_id: subscriptionId ?? null,
-          subscription_status: 'active',
-        })
-        .eq('slug', clientSlug)
+      const clientSlug = session.metadata?.clientSlug
+      if (clientSlug) {
+        await supabase
+          .from('clients')
+          .update({
+            stripe_customer_id: session.customer as string,
+            stripe_subscription_id: subscriptionId ?? null,
+            subscription_status: 'active',
+          })
+          .eq('slug', clientSlug)
+        break
+      }
+
+      const clientId = session.metadata?.clientId
+      if (clientId) {
+        await supabase
+          .from('clients')
+          .update({
+            stripe_customer_id: session.customer as string,
+            stripe_subscription_id: subscriptionId ?? null,
+            subscription_status: session.mode === 'subscription' ? 'active' : null,
+            payment_status: session.mode === 'payment' ? 'Paid in full' : 'Monthly retainer active',
+          })
+          .eq('id', clientId)
+      }
       break
     }
 
