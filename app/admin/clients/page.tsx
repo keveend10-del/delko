@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
+import { useAdminAuth } from '@/contexts/AdminAuth'
 import { PageHeader, Panel, StatusBadge, EmptyState, inputCls, selectCls, textareaCls } from '@/components/admin/ui'
 import { Sheet } from '@/components/admin/Sheet'
 import { Dialog } from '@/components/admin/Dialog'
@@ -155,7 +156,7 @@ function ClientCreate({ supabase, open, onClose, onSaved }: any) {
 }
 
 function InvoiceModal({ client, onClose, onSent }: { client: any | null; onClose: () => void; onSent: () => void }) {
-  const supabase = createClient()
+  const { session } = useAdminAuth()
   const defaultDesc = client ? `${client.business_name} — ${client.package_purchased || 'Monthly Retainer'}` : ''
   const [form, setForm] = useState({ amount: '', description: defaultDesc, mode: 'subscription' })
   const [loading, setLoading] = useState(false)
@@ -178,7 +179,6 @@ function InvoiceModal({ client, onClose, onSent }: { client: any | null; onClose
     setLoading(true)
     setError('')
     try {
-      const { data: { session } } = await supabase.auth.getSession()
       const res = await fetch('/api/admin/send-invoice', {
         method: 'POST',
         headers: {
