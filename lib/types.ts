@@ -26,6 +26,7 @@ export interface Client {
   stripe_customer_id: string | null
   stripe_subscription_id: string | null
   subscription_status: SubscriptionStatus | null
+  pending_checkout_url: string | null
   signed_at: string | null
   signer_name: string | null
   signer_date: string | null

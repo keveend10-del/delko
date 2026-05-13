@@ -17,7 +17,7 @@ interface Message {
 }
 
 export default function MessagesPage() {
-  const { client, user } = usePortalAuth()
+  const { client } = usePortalAuth()
   const supabase = createClient()
   const [messages, setMessages] = useState<Message[]>([])
   const [loading, setLoading] = useState(true)
@@ -49,14 +49,13 @@ export default function MessagesPage() {
     if (!client || !body.trim()) return
     setSending(true)
 
-    const { error } = await supabase.from('client_messages').insert({
-      client_id: client.id,
-      sender_id: user?.id ?? null,
-      sender_role: 'client',
-      body: body.trim(),
+    const res = await fetch('/api/portal/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ client_id: client.id, body: body.trim() }),
     })
 
-    if (error) {
+    if (!res.ok) {
       toast.error('Failed to send message')
     } else {
       setBody('')

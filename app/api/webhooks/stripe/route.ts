@@ -45,6 +45,7 @@ export async function POST(req: NextRequest) {
             stripe_subscription_id: subscriptionId ?? null,
             subscription_status: session.mode === 'subscription' ? 'active' : null,
             payment_status: session.mode === 'payment' ? 'Paid in full' : 'Monthly retainer active',
+            pending_checkout_url: null,
           })
           .eq('id', clientId)
       }

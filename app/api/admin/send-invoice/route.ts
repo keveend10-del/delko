@@ -1,14 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
-import { createAdminClient } from '@/lib/supabase/server'
-import { cookies } from 'next/headers'
-import { verifyAdminToken } from '@/lib/admin'
+import { createAdminClient, createClient } from '@/lib/supabase/server'
 import { resend, invoiceEmailHtml } from '@/lib/resend'
 
 export async function POST(req: NextRequest) {
-  if (!verifyAdminToken(cookies().get('admin_token')?.value)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
+  const supabaseAuth = createClient()
+  const { data: { user } } = await supabaseAuth.auth.getUser()
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+
+  const supabase = createAdminClient()
+  const { data: roles } = await supabase
+    .from('user_roles')
+    .select('role')
+    .eq('user_id', user.id)
+  const isAdmin = (roles ?? []).some((r: any) => r.role === 'admin')
+  if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
 
   try {
     const { clientId, amount, description, mode } = await req.json()
@@ -20,7 +26,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid mode' }, { status: 400 })
     }
 
-    const supabase = createAdminClient()
     const { data: client, error: clientError } = await supabase
       .from('clients')
       .select('id, email, contact_name, business_name, stripe_customer_id')
@@ -66,8 +71,8 @@ export async function POST(req: NextRequest) {
       customer: stripeCustomerId,
       line_items: [{ price: price.id, quantity: 1 }],
       mode,
-      success_url: `${appUrl}/portal/billing`,
-      cancel_url: `${appUrl}/admin/clients`,
+      success_url: `${appUrl}/portal/billing?paid=1`,
+      cancel_url: `${appUrl}/portal/billing`,
       metadata: { clientId: client.id },
       ...(mode === 'subscription' && {
         subscription_data: { metadata: { clientId: client.id } },
@@ -80,13 +85,14 @@ export async function POST(req: NextRequest) {
       .update({
         stripe_customer_id: stripeCustomerId,
         payment_status: 'Invoice sent',
+        pending_checkout_url: session.url,
       })
       .eq('id', clientId)
 
     await resend.emails.send({
       from: 'Delko <onboarding@resend.dev>',
       to: client.email,
-      subject: `Invoice from Berk Growth Co. — ${description}`,
+      subject: `Invoice from Delko — ${description}`,
       html: invoiceEmailHtml(
         client.contact_name ?? 'there',
         client.business_name,
