@@ -155,6 +155,7 @@ function ClientCreate({ supabase, open, onClose, onSaved }: any) {
 }
 
 function InvoiceModal({ client, onClose, onSent }: { client: any | null; onClose: () => void; onSent: () => void }) {
+  const supabase = createClient()
   const defaultDesc = client ? `${client.business_name} — ${client.package_purchased || 'Monthly Retainer'}` : ''
   const [form, setForm] = useState({ amount: '', description: defaultDesc, mode: 'subscription' })
   const [loading, setLoading] = useState(false)
@@ -177,9 +178,13 @@ function InvoiceModal({ client, onClose, onSent }: { client: any | null; onClose
     setLoading(true)
     setError('')
     try {
+      const { data: { session } } = await supabase.auth.getSession()
       const res = await fetch('/api/admin/send-invoice', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
+        },
         body: JSON.stringify({ clientId: client.id, amount: Number(form.amount), description: form.description, mode: form.mode }),
       })
       const data = await res.json()
