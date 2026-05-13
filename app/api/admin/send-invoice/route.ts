@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
       .eq('id', clientId)
 
     await resend.emails.send({
-      from: 'Delko <onboarding@resend.dev>',
+      from: process.env.RESEND_FROM ?? 'Delko <onboarding@resend.dev>',
       to: client.email,
       subject: `Invoice from Delko — ${description}`,
       html: invoiceEmailHtml(

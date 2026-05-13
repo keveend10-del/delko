@@ -18,7 +18,7 @@ export function invoiceEmailHtml(
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Invoice from Berk Growth Co.</title>
+  <title>Invoice from Delko</title>
 </head>
 <body style="margin:0;padding:0;background:#0A0A0A;font-family:system-ui,-apple-system,sans-serif;">
   <div style="max-width:560px;margin:40px auto;padding:0 20px;">
@@ -26,7 +26,7 @@ export function invoiceEmailHtml(
 
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:32px;">
         <div style="width:8px;height:8px;border-radius:50%;background:#1EFF96;"></div>
-        <span style="color:#F5F5F5;font-size:14px;font-weight:600;letter-spacing:-0.02em;">Berk Growth Co.</span>
+        <span style="color:#F5F5F5;font-size:14px;font-weight:600;letter-spacing:-0.02em;">Delko</span>
       </div>
 
       <h1 style="color:#F5F5F5;font-size:26px;font-weight:700;letter-spacing:-0.03em;margin:0 0 8px;">
@@ -62,7 +62,7 @@ export function welcomeEmailHtml(clientName: string, businessName: string, dashb
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to Berk Growth Co.</title>
+  <title>Welcome to Delko</title>
 </head>
 <body style="margin:0;padding:0;background:#0A0A0A;font-family:system-ui,-apple-system,sans-serif;">
   <div style="max-width:560px;margin:40px auto;padding:0 20px;">
@@ -70,14 +70,14 @@ export function welcomeEmailHtml(clientName: string, businessName: string, dashb
 
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:32px;">
         <div style="width:8px;height:8px;border-radius:50%;background:#1EFF96;"></div>
-        <span style="color:#F5F5F5;font-size:14px;font-weight:600;letter-spacing:-0.02em;">Berk Growth Co.</span>
+        <span style="color:#F5F5F5;font-size:14px;font-weight:600;letter-spacing:-0.02em;">Delko</span>
       </div>
 
       <h1 style="color:#F5F5F5;font-size:28px;font-weight:700;letter-spacing:-0.03em;margin:0 0 8px;">
         You're in. Let's get to work.
       </h1>
       <p style="color:rgba(255,255,255,0.5);font-size:15px;line-height:1.6;margin:0 0 32px;">
-        Hi ${clientName}, welcome to Berk Growth Co. We're excited to work on ${businessName}.
+        Hi ${clientName}, welcome to Delko We're excited to work on ${businessName}.
       </p>
 
       <div style="background:rgba(30,255,150,0.05);border:1px solid rgba(30,255,150,0.15);border-radius:12px;padding:24px;margin-bottom:32px;">

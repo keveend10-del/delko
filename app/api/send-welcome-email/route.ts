@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
     const dashboardUrl = `${process.env.NEXT_PUBLIC_APP_URL}/dashboard/${client.slug}`
 
     await resend.emails.send({
-      from: 'Delko <onboarding@resend.dev>',
+      from: process.env.RESEND_FROM ?? 'Delko <onboarding@resend.dev>',
       to: client.email,
       subject: `You're in — welcome to Berk Growth Co., ${client.name}.`,
       html: welcomeEmailHtml(client.name, client.business_name, dashboardUrl),
