@@ -6,8 +6,7 @@ export const Footer = () => (
           <div className="flex items-center gap-2.5 mb-5">
             <span className="h-2.5 w-2.5 rounded-full bg-accent" />
             <span className="text-[14px] font-semibold tracking-tight">
-              Berkshires
-              <span className="text-muted-foreground font-normal"> / Growth Studio</span>
+              Delko
             </span>
           </div>
           <p className="text-[15px] text-muted-foreground max-w-sm leading-relaxed">
@@ -18,7 +17,7 @@ export const Footer = () => (
         <div className="lg:col-span-3">
           <div className="text-[10px] font-bold font-mono uppercase tracking-[0.22em] text-muted-foreground mb-5">Explore</div>
           <ul className="space-y-3 text-[14px]">
-            {[{ label: 'Services', href: '#services' }, { label: 'Packages', href: '#packages' }, { label: 'Process', href: '#process' }, { label: 'Contact', href: '#audit' }].map(({ label, href }) => (
+            {[{ label: 'Services', href: '#services' }, { label: 'Packages', href: '#packages' }, { label: 'Process', href: '#process' }, { label: 'Contact', href: '#audit' }, { label: 'Client Portal', href: '/portal/login' }].map(({ label, href }) => (
               <li key={href}>
                 <a href={href} className="text-muted-foreground hover:text-accent transition-colors duration-200">{label}</a>
               </li>
@@ -36,7 +35,7 @@ export const Footer = () => (
 
       <div className="hairline mt-14 mb-6" />
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-muted-foreground">
-        <div>© {new Date().getFullYear()} Berk Growth Co. All rights reserved.</div>
+        <div>© {new Date().getFullYear()} Delko. All rights reserved.</div>
         <div className="font-mono tracking-wider">42.5584° N — 70.8800° W</div>
       </div>
     </div>

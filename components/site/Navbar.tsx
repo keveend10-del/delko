@@ -38,8 +38,7 @@ export const Navbar = () => {
               <span className="relative h-2.5 w-2.5 rounded-full bg-accent" />
             </span>
             <span className="text-[14px] font-semibold tracking-tight">
-              Berkshires
-              <span className="text-muted-foreground font-normal"> / Growth Studio</span>
+              Delko
             </span>
           </a>
 
@@ -55,7 +54,10 @@ export const Navbar = () => {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-2">
+            <Button asChild variant="ghost" size="sm">
+              <a href="/portal/login">Client Portal</a>
+            </Button>
             <Button asChild variant="accent" size="sm">
               <a href="#audit">Free Audit</a>
             </Button>
@@ -91,7 +93,10 @@ export const Navbar = () => {
                   {l.label}
                 </a>
               ))}
-              <Button asChild variant="accent" className="mt-3 w-full">
+              <Button asChild variant="ghost" className="mt-2 w-full">
+                <a href="/portal/login" onClick={() => setOpen(false)}>Client Portal</a>
+              </Button>
+              <Button asChild variant="accent" className="mt-2 w-full">
                 <a href="#audit" onClick={() => setOpen(false)}>Free Audit</a>
               </Button>
             </div>

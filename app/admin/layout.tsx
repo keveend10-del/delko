@@ -154,7 +154,7 @@ function AdminShell({ children }: { children: ReactNode }) {
           <Link href="/admin" onClick={() => setSidebarOpen(false)}>
             <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Internal · Admin</div>
             <div className="mt-1 text-[17px] font-semibold tracking-tight">
-              Berkshires <span className="font-serif italic font-normal">Studio</span>
+              Delko
             </div>
           </Link>
         </div>

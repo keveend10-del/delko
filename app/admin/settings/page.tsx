@@ -52,7 +52,7 @@ export default function Settings() {
 
         <Panel className="p-6">
           <SectionTitle>Business info</SectionTitle>
-          <p className="mt-3 text-sm text-muted-foreground">Berk Growth Co. · Serving Berkshires + North Shore, MA businesses.</p>
+          <p className="mt-3 text-sm text-muted-foreground">Delko · Serving Berkshires + North Shore, MA businesses.</p>
         </Panel>
 
         <RefList title="Pipeline stages" items={PIPELINE_STAGES} />
