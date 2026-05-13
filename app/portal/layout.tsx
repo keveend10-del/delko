@@ -23,19 +23,27 @@ const nav = [
 
 function PortalLogin() {
   const supabase = createClient()
-  const router = useRouter()
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [busy, setBusy] = useState(false)
+  const [sent, setSent] = useState(false)
   const [msg, setMsg] = useState('')
+
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? (typeof window !== 'undefined' ? window.location.origin : '')
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setBusy(true)
     setMsg('')
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) { setMsg(error.message); setBusy(false) }
-    else router.push('/portal/dashboard')
+    const { error } = await supabase.auth.signInWithOtp({
+      email: email.trim(),
+      options: {
+        shouldCreateUser: false,
+        emailRedirectTo: `${appUrl}/auth/callback?next=/portal/dashboard`,
+      },
+    })
+    setBusy(false)
+    if (error) return setMsg(error.message)
+    setSent(true)
   }
 
   return (
@@ -53,39 +61,41 @@ function PortalLogin() {
           <h1 className="text-3xl tracking-tight font-bold">
             Client <span className="font-serif italic font-normal text-muted-foreground">portal</span>
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground">Sign in to track your project, onboarding, and billing.</p>
+          <p className="mt-2 text-sm text-muted-foreground">Enter your email and we&apos;ll send a sign-in link — no password needed.</p>
 
-          <form onSubmit={onSubmit} className="mt-7 space-y-4">
-            <div className="space-y-1.5">
-              <label className="text-[12px] font-medium text-muted-foreground">Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-                placeholder="you@yourbusiness.com"
-                className="h-11 w-full rounded-xl bg-surface border border-border px-4 text-[14px] outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground"
-              />
+          {sent ? (
+            <div className="mt-7 rounded-2xl border border-accent/20 bg-accent/5 px-5 py-6 text-center">
+              <div className="text-2xl mb-2">📬</div>
+              <p className="text-[14px] font-medium">Check your email</p>
+              <p className="mt-1 text-[13px] text-muted-foreground">We sent a sign-in link to <span className="text-foreground">{email}</span>. Click it to access your portal.</p>
+              <button onClick={() => { setSent(false); setEmail('') }} className="mt-4 text-[12px] text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2">
+                Use a different email
+              </button>
             </div>
-            <div className="space-y-1.5">
-              <label className="text-[12px] font-medium text-muted-foreground">Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                required
-                className="h-11 w-full rounded-xl bg-surface border border-border px-4 text-[14px] outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all"
-              />
-            </div>
-            {msg && <p className="text-[13px] text-red-400">{msg}</p>}
-            <button
-              type="submit"
-              disabled={busy}
-              className="w-full h-11 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] disabled:opacity-50 hover:brightness-105 transition-all"
-            >
-              {busy ? 'Signing in…' : 'Sign in'}
-            </button>
-          </form>
+          ) : (
+            <form onSubmit={onSubmit} className="mt-7 space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-medium text-muted-foreground">Email</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  placeholder="you@yourbusiness.com"
+                  className="h-11 w-full rounded-xl bg-surface border border-border px-4 text-[14px] outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground"
+                />
+              </div>
+              {msg && <p className="text-[13px] text-red-400">{msg}</p>}
+              <button
+                type="submit"
+                disabled={busy}
+                className="w-full h-11 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] disabled:opacity-50 hover:brightness-105 transition-all"
+              >
+                {busy ? 'Sending…' : 'Send sign-in link'}
+              </button>
+            </form>
+          )}
+
           <p className="mt-6 text-center text-[12px] text-muted-foreground">
             Don&apos;t have access yet?{' '}
             <a href="mailto:keveend10@gmail.com" className="text-accent hover:underline">Contact Delko →</a>

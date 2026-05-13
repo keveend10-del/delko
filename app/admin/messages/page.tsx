@@ -169,12 +169,17 @@ function InviteDialog({ supabase, open, onClose, clients, onDone }: any) {
       setBusy(false)
       return toast.error('No client record uses this email. Add the client first so we can link the account.')
     }
-    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-      redirectTo: `${window.location.origin}/reset-password`,
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? window.location.origin
+    const { error } = await supabase.auth.signInWithOtp({
+      email: email.trim(),
+      options: {
+        shouldCreateUser: true,
+        emailRedirectTo: `${appUrl}/auth/callback?next=/portal/dashboard`,
+      },
     })
     setBusy(false)
     if (error) return toast.error(error.message)
-    toast.success('Invite email sent. Client will set a password and land in their portal.')
+    toast.success('Invite sent. Client clicks the link in their email to access the portal instantly.')
     setEmail('')
     onClose()
     onDone()
