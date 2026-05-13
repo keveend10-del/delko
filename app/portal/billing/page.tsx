@@ -5,7 +5,7 @@ import { usePortalAuth } from '@/contexts/PortalAuth'
 import { PACKAGES, type Package } from '@/lib/types'
 import { formatCurrency } from '@/lib/utils'
 import { Panel, PageHeader } from '@/components/admin/ui'
-import { CreditCard, CheckCircle, ExternalLink, Loader2, AlertCircle, Clock, Receipt } from 'lucide-react'
+import { CreditCard, CheckCircle, ExternalLink, Loader2, AlertCircle, Clock } from 'lucide-react'
 
 const STATUS_MAP = {
   pending: { label: 'Pending setup', icon: Clock, color: 'text-yellow-300', bg: 'bg-yellow-400/10 border-yellow-400/20' },
@@ -17,6 +17,7 @@ const STATUS_MAP = {
 export default function BillingPage() {
   const { client } = usePortalAuth()
   const [loading, setLoading] = useState(false)
+  const [payLoading, setPayLoading] = useState(false)
   const [error, setError] = useState('')
 
   if (!client) return null
@@ -24,6 +25,7 @@ export default function BillingPage() {
   const pkg = PACKAGES[(client.package ?? 'growth') as Package] ?? PACKAGES.growth
   const status = STATUS_MAP[client.subscription_status ?? 'pending'] ?? STATUS_MAP.pending
   const StatusIcon = status.icon
+  const isActive = client.subscription_status === 'active'
 
   const openBillingPortal = async () => {
     setLoading(true)
@@ -36,6 +38,20 @@ export default function BillingPage() {
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
       setLoading(false)
+    }
+  }
+
+  const startCheckout = async () => {
+    setPayLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/portal/checkout', { method: 'POST' })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? 'Failed to create checkout')
+      window.location.href = data.url
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong')
+      setPayLoading(false)
     }
   }
 
@@ -106,17 +122,18 @@ export default function BillingPage() {
           )}
 
           <div className="flex flex-wrap gap-3">
-            {client.pending_checkout_url && (
-              <a
-                href={client.pending_checkout_url}
-                className="inline-flex items-center gap-2.5 h-11 px-5 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] hover:brightness-105 active:scale-[0.99] transition-all"
+            {!isActive && (
+              <button
+                onClick={startCheckout}
+                disabled={payLoading}
+                className="inline-flex items-center gap-2.5 h-11 px-5 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] disabled:opacity-60 hover:brightness-105 active:scale-[0.99] transition-all"
               >
-                <Receipt size={15} />
-                Pay invoice
-                <ExternalLink size={13} />
-              </a>
+                {payLoading ? <Loader2 size={15} className="animate-spin" /> : <CreditCard size={15} />}
+                {payLoading ? 'Redirecting…' : 'Pay now'}
+                {!payLoading && <ExternalLink size={13} />}
+              </button>
             )}
-            {client.stripe_customer_id && !client.pending_checkout_url && (
+            {isActive && client.stripe_customer_id && (
               <button
                 onClick={openBillingPortal}
                 disabled={loading}
@@ -126,14 +143,6 @@ export default function BillingPage() {
                 {loading ? 'Opening…' : 'Manage billing'}
                 {!loading && <ExternalLink size={13} />}
               </button>
-            )}
-            {!client.stripe_customer_id && !client.pending_checkout_url && (
-              <div className="rounded-xl bg-surface border border-border px-5 py-4">
-                <p className="text-[13px] text-muted-foreground">
-                  Your invoice will appear here once Delko sends it.
-                  Questions? <a href="mailto:keveend10@gmail.com" className="text-accent hover:underline">Email us →</a>
-                </p>
-              </div>
             )}
           </div>
         </Panel>
