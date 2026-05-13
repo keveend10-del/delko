@@ -90,7 +90,7 @@ export const PACKAGES: Record<Package, PackageConfig> = {
   },
   dominate: {
     name: 'Dominate',
-    price: 4000,
+    price: 4500,
     tagline: 'Own your market.',
     features: [
       'Everything in Growth, plus:',

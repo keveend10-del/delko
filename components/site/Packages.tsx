@@ -51,7 +51,7 @@ const packages = [
     key: 'dominate',
     name: 'Dominate',
     tagline: 'Own your market.',
-    price: '4,000',
+    price: '4,500',
     priceSuffix: '/mo',
     cta: 'Start Dominate',
     popular: false,
