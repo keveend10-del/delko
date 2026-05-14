@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { Menu, X } from 'lucide-react'
+import { trackCTAClick } from '@/lib/analytics'
 
 const links = [
   { label: 'Services', href: '#services' },
@@ -59,7 +60,7 @@ export const Navbar = () => {
               <a href="/portal/login">Client Portal</a>
             </Button>
             <Button asChild variant="accent" size="sm">
-              <a href="#audit">Free Audit</a>
+              <a href="#audit" onClick={() => trackCTAClick('get_free_audit', 'navbar')}>Free Audit</a>
             </Button>
           </div>
 

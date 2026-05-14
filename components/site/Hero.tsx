@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { ArrowUpRight, Star, Phone, Check, TrendingUp, MapPin, Search, Navigation } from 'lucide-react'
+import { trackCTAClick } from '@/lib/analytics'
 
 const headlineContainer = {
   hidden: {},
@@ -97,10 +98,10 @@ export const Hero = () => {
             className="mt-10 flex flex-col sm:flex-row gap-3"
           >
             <Button asChild variant="accent" size="xl">
-              <a href="#audit">Get a Free Audit <ArrowUpRight size={16} /></a>
+              <a href="#audit" onClick={() => trackCTAClick('get_free_audit', 'hero')}>Get a Free Audit <ArrowUpRight size={16} /></a>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <a href="#services">See Our Services</a>
+              <a href="#services" onClick={() => trackCTAClick('see_services', 'hero')}>See Our Services</a>
             </Button>
           </motion.div>
 

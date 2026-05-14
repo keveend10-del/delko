@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { ArrowUpRight, CheckCircle2, Globe, Share2, MapPin, Palette, Camera, TrendingUp } from 'lucide-react'
+import { trackAuditSubmission } from '@/lib/analytics'
 
 const businessTypes = [
   'Home services', 'Restaurant / bar', 'Salon / barbershop',
@@ -47,6 +48,7 @@ export const AuditForm = () => {
       })
       if (!res.ok) throw new Error()
       setSubmitted(true)
+      trackAuditSubmission(form.type)
     } catch {
       setError('Something went wrong. Email us directly at hello@berkgrowth.co')
     } finally {

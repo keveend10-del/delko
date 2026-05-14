@@ -1,5 +1,6 @@
 'use client'
 
+import { useScrollDepth } from '@/hooks/useScrollDepth'
 import { Navbar } from './Navbar'
 import { Hero } from './Hero'
 import { SectionDivider } from './Section'
@@ -15,6 +16,7 @@ import { CTASection } from './CTASection'
 import { Footer } from './Footer'
 
 export function LandingPage() {
+  useScrollDepth()
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       <Navbar />

@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { CheckCircle2, CalendarCheck, Heart, Repeat, UserCircle2, Layers, ArrowUpRight } from 'lucide-react'
+import { trackCTAClick } from '@/lib/analytics'
 
 const features = [
   { icon: CheckCircle2, title: 'More phone calls', desc: 'A fast site, a fixed Google profile, and clear calls-to-action mean people actually pick up the phone.' },
@@ -91,7 +92,7 @@ export const Sway = () => {
                 Want to see what we&apos;d do for your business specifically? Send us your name and website. Free audit within a couple days.
               </p>
               <Button asChild variant="accent" size="lg" className="shrink-0">
-                <a href="#audit">Get a Free Audit <ArrowUpRight /></a>
+                <a href="#audit" onClick={() => trackCTAClick('get_free_audit', 'results_section')}>Get a Free Audit <ArrowUpRight /></a>
               </Button>
             </div>
           </div>
