@@ -1,0 +1,130 @@
+{
+  "pageIntent": {
+    "type": "landing",
+    "confidence": 0.45,
+    "path": "/",
+    "title": "Events - Ticket Tree",
+    "description": "",
+    "signals": [
+      {
+        "kind": "url",
+        "type": "landing",
+        "weight": 0.45,
+        "detail": "root-path"
+      }
+    ],
+    "alternates": [],
+    "needsSmart": true
+  },
+  "sectionRoles": {
+    "sections": [
+      {
+        "index": 0,
+        "tag": "nav",
+        "role": "nav",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": null,
+        "bounds": {
+          "x": 0,
+          "y": 56,
+          "w": 63,
+          "h": 679
+        },
+        "buttonCount": 0,
+        "cardCount": 12,
+        "slots": {},
+        "needsSmart": false
+      },
+      {
+        "index": 1,
+        "tag": "main",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "CECC May Madness Texas - Day 2",
+        "bounds": {
+          "x": 64,
+          "y": 0,
+          "w": 1216,
+          "h": 3119
+        },
+        "buttonCount": 37,
+        "cardCount": 130,
+        "slots": {
+          "heading": "CECC May Madness Texas - Day 2",
+          "subheadings": [
+            "CECC May Madness Texas - Day 2",
+            "Cage Titans 76",
+            "CECC May Madness Texas - Day 3",
+            "CECC May Madness Texas - Day 2"
+          ],
+          "ctaCount": 37
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 2,
+        "tag": "main",
+        "role": "pricing-table",
+        "subrole": null,
+        "confidence": 0.9,
+        "heading": "CECC May Madness Texas - Day 2",
+        "bounds": {
+          "x": 64,
+          "y": 64,
+          "w": 1216,
+          "h": 2975
+        },
+        "buttonCount": 37,
+        "cardCount": 130,
+        "slots": {
+          "heading": "CECC May Madness Texas - Day 2",
+          "subheadings": [
+            "CECC May Madness Texas - Day 2",
+            "Cage Titans 76",
+            "CECC May Madness Texas - Day 3",
+            "CECC May Madness Texas - Day 2"
+          ],
+          "ctaCount": 37
+        },
+        "needsSmart": false
+      },
+      {
+        "index": 3,
+        "tag": "footer",
+        "role": "footer",
+        "subrole": null,
+        "confidence": 0.95,
+        "heading": "Ticket Tree",
+        "bounds": {
+          "x": 88,
+          "y": 2841,
+          "w": 1168,
+          "h": 166
+        },
+        "buttonCount": 0,
+        "cardCount": 6,
+        "slots": {
+          "heading": "Ticket Tree",
+          "subheadings": [
+            "TICKET TREE"
+          ],
+          "lede": "TICKET TREE"
+        },
+        "needsSmart": false
+      }
+    ],
+    "counts": {
+      "nav": 1,
+      "pricing-table": 2,
+      "footer": 1
+    },
+    "readingOrder": [
+      "pricing-table",
+      "nav",
+      "pricing-table",
+      "footer"
+    ]
+  }
+}

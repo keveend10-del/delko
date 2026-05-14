@@ -1,0 +1,27 @@
+{
+  "openGraph": {},
+  "twitter": {},
+  "description": null,
+  "canonical": null,
+  "themeColor": "#1a1a1a",
+  "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+  "favicons": [
+    {
+      "rel": "icon",
+      "href": "https://tickettree.us/favicon.ico?favicon.0s08q~0~6ooe2.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "manifest": null,
+  "structuredData": [],
+  "score": {
+    "hasOg": false,
+    "hasTwitter": false,
+    "hasDescription": false,
+    "hasCanonical": false,
+    "hasStructuredData": false,
+    "hasFavicon": true,
+    "hasThemeColor": true
+  }
+}

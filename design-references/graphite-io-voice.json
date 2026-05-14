@@ -1,0 +1,75 @@
+{
+  "tone": "friendly",
+  "pronoun": "we-only",
+  "headingStyle": "Sentence case",
+  "headingLengthClass": "balanced",
+  "ctaVerbs": [
+    {
+      "value": "start",
+      "count": 4
+    },
+    {
+      "value": "let's",
+      "count": 3
+    },
+    {
+      "value": "careers",
+      "count": 1
+    },
+    {
+      "value": "linkedin",
+      "count": 1
+    },
+    {
+      "value": "terms",
+      "count": 1
+    },
+    {
+      "value": "privacy",
+      "count": 1
+    },
+    {
+      "value": "cookie",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "start growing",
+      "count": 4
+    },
+    {
+      "value": "let's chat",
+      "count": 3
+    },
+    {
+      "value": "careers",
+      "count": 1
+    },
+    {
+      "value": "linkedin",
+      "count": 1
+    },
+    {
+      "value": "terms",
+      "count": 1
+    },
+    {
+      "value": "privacy",
+      "count": 1
+    },
+    {
+      "value": "cookie policy",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "Meet Your AI-Powered Growth Team",
+    "We like charts.",
+    "Reproducible results are the best predictor of future success."
+  ],
+  "stats": {
+    "buttons": 12,
+    "headings": 3
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "$metadata": {
+    "generator": "designlang",
+    "version": "7.0.0",
+    "spec": "https://design-tokens.github.io/community-group/format/",
+    "source": "https://graphite.io",
+    "generatedAt": "2026-05-14T13:25:51.028Z"
+  },
+  "primitive": {
+    "color": {
+      "brand": {
+        "primary": {
+          "$value": "#42ca80",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "#0000ee",
+          "$type": "color"
+        }
+      },
+      "neutral": {
+        "n100": {
+          "$value": "#c4bcaa",
+          "$type": "color"
+        },
+        "n200": {
+          "$value": "#fff9eb",
+          "$type": "color"
+        },
+        "n300": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "n400": {
+          "$value": "#161616",
+          "$type": "color"
+        },
+        "n500": {
+          "$value": "#7c776a",
+          "$type": "color"
+        },
+        "n600": {
+          "$value": "#ffffff",
+          "$type": "color"
+        },
+        "n700": {
+          "$value": "#333333",
+          "$type": "color"
+        },
+        "n800": {
+          "$value": "#9b9b9b",
+          "$type": "color"
+        }
+      },
+      "background": {
+        "bg0": {
+          "$value": "#000000",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "text0": {
+          "$value": "#000000",
+          "$type": "color"
+        },
+        "text1": {
+          "$value": "#c4bcaa",
+          "$type": "color"
+        },
+        "text2": {
+          "$value": "#ffffff",
+          "$type": "color"
+        },
+        "text3": {
+          "$value": "#7c776a",
+          "$type": "color"
+        },
+        "text4": {
+          "$value": "#0000ee",
+          "$type": "color"
+        },
+        "text5": {
+          "$value": "#fff9eb",
+          "$type": "color"
+        }
+      }
+    },
+    "spacing": {
+      "s0": {
+        "$value": "8px",
+        "$type": "dimension"
+      },
+      "s1": {
+        "$value": "58px",
+        "$type": "dimension"
+      },
+      "s2": {
+        "$value": "93px",
+        "$type": "dimension"
+      },
+      "s3": {
+        "$value": "115px",
+        "$type": "dimension"
+      },
+      "s4": {
+        "$value": "194px",
+        "$type": "dimension"
+      }
+    },
+    "radius": {
+      "r0": {
+        "$value": "4px",
+        "$type": "dimension"
+      }
+    },
+    "shadow": {
+      "sh0": {
+        "$value": "rgba(0, 0, 0, 0.2) 0px 2px 5px 0px",
+        "$type": "shadow"
+      },
+      "sh1": {
+        "$value": "rgba(0, 0, 0, 0.2) 8px 8px 0px 0px",
+        "$type": "shadow"
+      },
+      "sh2": {
+        "$value": "rgb(124, 119, 106) 15px 15px 0px -7px",
+        "$type": "shadow"
+      }
+    },
+    "fontFamily": {
+      "f0": {
+        "$value": "Gesta",
+        "$type": "fontFamily"
+      },
+      "f1": {
+        "$value": "JetBrains Mono",
+        "$type": "fontFamily"
+      },
+      "f2": {
+        "$value": "Alliance No 2",
+        "$type": "fontFamily"
+      }
+    }
+  },
+  "semantic": {
+    "color": {
+      "action": {
+        "primary": {
+          "$value": "{primitive.color.brand.primary}",
+          "$type": "color"
+        },
+        "secondary": {
+          "$value": "{primitive.color.brand.secondary}",
+          "$type": "color"
+        }
+      },
+      "surface": {
+        "default": {
+          "$value": "{primitive.color.background.bg0}",
+          "$type": "color"
+        }
+      },
+      "text": {
+        "body": {
+          "$value": "{primitive.color.text.text0}",
+          "$type": "color"
+        }
+      }
+    },
+    "typography": {
+      "body": {
+        "$value": {
+          "fontFamily": "Gesta",
+          "fontSize": "132.616px",
+          "fontWeight": "400",
+          "lineHeight": "119.354px"
+        },
+        "$type": "typography"
+      }
+    },
+    "radius": {
+      "control": {
+        "$value": "{primitive.radius.r0}",
+        "$type": "dimension"
+      }
+    },
+    "shadow": {
+      "elevated": {
+        "$value": "{primitive.shadow.sh0}",
+        "$type": "shadow"
+      }
+    }
+  }
+}

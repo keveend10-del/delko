@@ -1,0 +1,50 @@
+{
+  "tone": "friendly",
+  "pronoun": "third-person",
+  "headingStyle": "Title Case",
+  "headingLengthClass": "tight",
+  "ctaVerbs": [
+    {
+      "value": "get",
+      "count": 24
+    },
+    {
+      "value": "sign",
+      "count": 1
+    },
+    {
+      "value": "view",
+      "count": 1
+    }
+  ],
+  "buttonPatterns": [
+    {
+      "value": "get tickets",
+      "count": 24
+    },
+    {
+      "value": "log in / sign up",
+      "count": 1
+    },
+    {
+      "value": "view event\n→",
+      "count": 1
+    }
+  ],
+  "sampleHeadings": [
+    "CECC May Madness Texas - Day 2",
+    "CECC May Madness Texas - Day 2",
+    "Cage Titans 76",
+    "CECC May Madness Texas - Day 3",
+    "CECC May Madness Texas - Day 2",
+    "CECC May Madness Texas - Day 2",
+    "CECC May Madness Texas - Day 2",
+    "Cage Titans 76",
+    "CECC May Madness Texas - Day 3",
+    "CECC May Madness Texas - Day 2"
+  ],
+  "stats": {
+    "buttons": 26,
+    "headings": 12
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "cms": [
+    "webflow"
+  ],
+  "analytics": [
+    "google-analytics",
+    "segment",
+    "hotjar"
+  ],
+  "experimentation": [],
+  "signals": {
+    "scriptCount": 48,
+    "metaCount": 4
+  }
+}

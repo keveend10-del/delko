@@ -1,0 +1,15 @@
+/* shadcn/ui Theme — extracted from https://tickettree.us */
+/* Paste into your globals.css */
+
+@layer base {
+  :root {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 0%;
+    --primary: 161 94% 30%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 15%;
+    --border: 216 12% 84%;
+    --radius: 7px;
+  }
+}

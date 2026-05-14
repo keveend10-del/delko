@@ -1,0 +1,101 @@
+{
+  "library": "phosphor",
+  "confidence": 0.7,
+  "alternates": [
+    {
+      "id": "remix",
+      "score": 0.45
+    }
+  ],
+  "stats": {
+    "count": 12,
+    "strokeOnly": 7,
+    "fillOnly": 0,
+    "mixed": 5,
+    "avgStrokeWidth": 1.5,
+    "gridDistribution": {
+      "24": 7
+    },
+    "roundedCapsFraction": 0.58
+  },
+  "signals": [
+    "strokeDominant",
+    "mixedFillStroke",
+    "roundedCaps",
+    "grid24"
+  ],
+  "icons": [
+    {
+      "class": "text-white/70 mr-2 flex-shrink-0",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "w-3.5 h-3.5",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "w-4 h-4",
+      "grid": 24,
+      "strokeWidth": 1.5,
+      "style": "stroke"
+    },
+    {
+      "class": "text-lg",
+      "grid": null,
+      "strokeWidth": null,
+      "style": "mixed"
+    },
+    {
+      "class": "text-lg",
+      "grid": null,
+      "strokeWidth": null,
+      "style": "mixed"
+    },
+    {
+      "class": "text-lg",
+      "grid": null,
+      "strokeWidth": null,
+      "style": "mixed"
+    },
+    {
+      "class": "text-lg",
+      "grid": null,
+      "strokeWidth": null,
+      "style": "mixed"
+    },
+    {
+      "class": "text-lg",
+      "grid": null,
+      "strokeWidth": null,
+      "style": "mixed"
+    }
+  ]
+}

@@ -6,7 +6,8 @@ import { useAdminAuth } from '@/contexts/AdminAuth'
 import { PageHeader, Panel, StatusBadge, EmptyState, inputCls, selectCls, textareaCls } from '@/components/admin/ui'
 import { Sheet } from '@/components/admin/Sheet'
 import { Dialog } from '@/components/admin/Dialog'
-import { CLIENT_STATUSES, PAYMENT_STATUSES, PROJECT_STATUSES, PACKAGES, BUSINESS_TYPES, NORTH_SHORE_TOWNS } from '@/lib/admin-constants'
+import { CLIENT_STATUSES, PAYMENT_STATUSES, PROJECT_STATUSES, PACKAGE_OPTIONS, BUSINESS_TYPES, NORTH_SHORE_TOWNS } from '@/lib/admin-constants'
+import { PACKAGES as PKG_CONFIGS, type Package } from '@/lib/types'
 import { Search, Plus, Send } from 'lucide-react'
 import { toast } from 'sonner'
 import { format, parseISO } from 'date-fns'
@@ -63,7 +64,7 @@ export default function Clients() {
                   <tr key={r.id} onClick={() => setOpen(r)} className="hover:bg-surface-elevated/40 cursor-pointer transition-colors">
                     <Td className="font-medium">{r.business_name}</Td>
                     <Td>{r.contact_name ?? '—'}</Td>
-                    <Td className="text-muted-foreground">{r.package_purchased ?? '—'}</Td>
+                    <Td className="text-muted-foreground">{PKG_CONFIGS[r.package as Package]?.name ?? r.package_purchased ?? '—'}</Td>
                     <Td>{r.project_value ? `$${Number(r.project_value).toLocaleString()}` : '—'}</Td>
                     <Td>{r.monthly_retainer_value ? `$${Number(r.monthly_retainer_value).toLocaleString()}/mo` : '—'}</Td>
                     <Td><StatusBadge value={r.client_status} /></Td>
@@ -102,7 +103,13 @@ export default function Clients() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               <EF label="Start date" value={open.start_date ?? ''} type="date" onSave={v => update(open.id, { start_date: v || null })} onChange={v => setOpen((p: any) => ({ ...p, start_date: v }))} />
-              <SF label="Package" value={open.package_purchased} options={PACKAGES} onChange={v => update(open.id, { package_purchased: v })} />
+              <div className="space-y-1.5">
+                <label className="text-xs text-muted-foreground">Package</label>
+                <select value={open.package ?? ''} onChange={e => { const k = e.target.value; setOpen((p: any) => ({ ...p, package: k })); update(open.id, { package: k || null }) }} className={selectCls + ' h-9'}>
+                  <option value="">—</option>
+                  {PACKAGE_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
+                </select>
+              </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <SF label="Client status" value={open.client_status} options={CLIENT_STATUSES} onChange={v => update(open.id, { client_status: v })} />
@@ -131,7 +138,7 @@ export default function Clients() {
 function ClientCreate({ supabase, open, onClose, onSaved }: any) {
   const [form, setForm] = useState<any>({
     business_name: '', contact_name: '', email: '', phone: '', town: '', business_type: '',
-    website: '', instagram: '', package_purchased: '', project_value: '', monthly_retainer_value: '',
+    website: '', instagram: '', package: '', project_value: '', monthly_retainer_value: '',
     start_date: new Date().toISOString().slice(0, 10), client_status: 'Active', payment_status: 'Not invoiced',
   })
   const upd = (k: string, v: any) => setForm((f: any) => ({ ...f, [k]: v }))
@@ -158,7 +165,7 @@ function ClientCreate({ supabase, open, onClose, onSaved }: any) {
         <FF label="Phone"><input value={form.phone} onChange={e => upd('phone', e.target.value)} className={inputCls} /></FF>
         <FF label="Town"><select value={form.town} onChange={e => upd('town', e.target.value)} className={selectCls}><option value="">—</option>{NORTH_SHORE_TOWNS.map(o => <option key={o} value={o}>{o}</option>)}</select></FF>
         <FF label="Type"><select value={form.business_type} onChange={e => upd('business_type', e.target.value)} className={selectCls}><option value="">—</option>{BUSINESS_TYPES.map(o => <option key={o} value={o}>{o}</option>)}</select></FF>
-        <FF label="Package"><select value={form.package_purchased} onChange={e => upd('package_purchased', e.target.value)} className={selectCls}><option value="">—</option>{PACKAGES.map(o => <option key={o} value={o}>{o}</option>)}</select></FF>
+        <FF label="Package"><select value={form.package} onChange={e => upd('package', e.target.value)} className={selectCls}><option value="">—</option>{PACKAGE_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}</select></FF>
         <FF label="Start date"><input type="date" value={form.start_date} onChange={e => upd('start_date', e.target.value)} className={inputCls} /></FF>
         <FF label="Project value ($)"><input type="number" value={form.project_value} onChange={e => upd('project_value', e.target.value)} className={inputCls} /></FF>
         <FF label="Monthly retainer ($)"><input type="number" value={form.monthly_retainer_value} onChange={e => upd('monthly_retainer_value', e.target.value)} className={inputCls} /></FF>
@@ -173,7 +180,8 @@ function ClientCreate({ supabase, open, onClose, onSaved }: any) {
 
 function InvoiceModal({ client, onClose, onSent }: { client: any | null; onClose: () => void; onSent: () => void }) {
   const { session } = useAdminAuth()
-  const defaultDesc = client ? `${client.business_name} — ${client.package_purchased || 'Monthly Retainer'}` : ''
+  const pkgName = (c: any) => PKG_CONFIGS[c?.package as Package]?.name ?? c?.package_purchased ?? 'Monthly Retainer'
+  const defaultDesc = client ? `${client.business_name} — ${pkgName(client)}` : ''
   const [form, setForm] = useState({ amount: '', description: defaultDesc, mode: 'subscription' })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -182,7 +190,7 @@ function InvoiceModal({ client, onClose, onSent }: { client: any | null; onClose
     if (client) {
       setForm({
         amount: client.monthly_retainer_value ? String(client.monthly_retainer_value) : '',
-        description: `${client.business_name} — ${client.package_purchased || 'Monthly Retainer'}`,
+        description: `${client.business_name} — ${pkgName(client)}`,
         mode: 'subscription',
       })
       setError('')

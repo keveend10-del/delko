@@ -1,0 +1,677 @@
+{
+  "colors": {
+    "all": [
+      {
+        "hex": "#c4bcaa",
+        "rgb": {
+          "r": 196,
+          "g": 188,
+          "b": 170,
+          "a": 1
+        },
+        "hsl": {
+          "h": 42,
+          "s": 18,
+          "l": 72
+        },
+        "count": 506,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#fff9eb",
+        "rgb": {
+          "r": 255,
+          "g": 249,
+          "b": 235,
+          "a": 1
+        },
+        "hsl": {
+          "h": 42,
+          "s": 100,
+          "l": 96
+        },
+        "count": 172,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#000000",
+        "rgb": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 0
+        },
+        "count": 140,
+        "contexts": [
+          "text",
+          "border",
+          "background"
+        ]
+      },
+      {
+        "hex": "#161616",
+        "rgb": {
+          "r": 22,
+          "g": 22,
+          "b": 22,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 9
+        },
+        "count": 27,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#7c776a",
+        "rgb": {
+          "r": 124,
+          "g": 119,
+          "b": 106,
+          "a": 1
+        },
+        "hsl": {
+          "h": 43,
+          "s": 8,
+          "l": 45
+        },
+        "count": 20,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#ffffff",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 100
+        },
+        "count": 10,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#0000ee",
+        "rgb": {
+          "r": 0,
+          "g": 0,
+          "b": 238,
+          "a": 1
+        },
+        "hsl": {
+          "h": 240,
+          "s": 100,
+          "l": 47
+        },
+        "count": 8,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#42ca80",
+        "rgb": {
+          "r": 66,
+          "g": 202,
+          "b": 128,
+          "a": 1
+        },
+        "hsl": {
+          "h": 147,
+          "s": 56,
+          "l": 53
+        },
+        "count": 5,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#333333",
+        "rgb": {
+          "r": 51,
+          "g": 51,
+          "b": 51,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 20
+        },
+        "count": 5,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#9b9b9b",
+        "rgb": {
+          "r": 155,
+          "g": 155,
+          "b": 155,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 61
+        },
+        "count": 2,
+        "contexts": [
+          "border"
+        ]
+      }
+    ]
+  },
+  "regions": [
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 63.9375
+      },
+      "heading": null,
+      "buttonCount": 3,
+      "cardCount": 0,
+      "className": "section_menu"
+    },
+    {
+      "role": "hero",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 63.9375,
+        "w": 1280,
+        "h": 648.25
+      },
+      "heading": "Meet Your AI-Powered Growth Team",
+      "buttonCount": 1,
+      "cardCount": 0,
+      "className": "section-single w-variant-7534082d-977d-50d6-395b-9c82320c35f0"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 712.1875,
+        "w": 1280,
+        "h": 760.609375
+      },
+      "heading": null,
+      "buttonCount": 1,
+      "cardCount": 0,
+      "className": "section-single"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 1472.796875,
+        "w": 1280,
+        "h": 932.21875
+      },
+      "heading": "We like charts.",
+      "buttonCount": 6,
+      "cardCount": 5,
+      "className": "section-single"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 2405.015625,
+        "w": 1280,
+        "h": 536.796875
+      },
+      "heading": null,
+      "buttonCount": 1,
+      "cardCount": 0,
+      "className": "section-single"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 2941.8125,
+        "w": 1280,
+        "h": 739.109375
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 0,
+      "className": "section-single"
+    },
+    {
+      "role": "content",
+      "tag": "section",
+      "bounds": {
+        "x": 0,
+        "y": 5052.796875,
+        "w": 1280,
+        "h": 224.75
+      },
+      "heading": null,
+      "buttonCount": 5,
+      "cardCount": 0,
+      "className": "section_footer"
+    }
+  ],
+  "componentClusters": [
+    {
+      "kind": "button",
+      "structuralHash": "div>div",
+      "instanceCount": 3,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(196, 188, 170)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(196, 188, 170)",
+            "fontSize": "15.5005px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 3
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "a>div",
+      "instanceCount": 3,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(66, 202, 128)",
+            "color": "rgb(0, 0, 0)",
+            "padding": "11.6254px 11.6254px 11.6254px 11.6254px",
+            "borderRadius": "3.87513px",
+            "border": "0px none rgb(0, 0, 0)",
+            "fontSize": "13.9505px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 3
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "div>img",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(66, 202, 128)",
+            "color": "rgb(0, 0, 238)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(0, 0, 238)",
+            "fontSize": "15.5005px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "div>div>div>div>div>div",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(196, 188, 170)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(196, 188, 170)",
+            "fontSize": "15.5005px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "div>div>div",
+      "instanceCount": 5,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(255, 249, 235)",
+            "padding": "0px 23.2508px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(255, 249, 235)",
+            "fontSize": "15.5005px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 5
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "a>img",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(66, 202, 128)",
+            "color": "rgb(0, 0, 0)",
+            "padding": "11.6254px 11.6254px 11.6254px 11.6254px",
+            "borderRadius": "4px",
+            "border": "0px none rgb(0, 0, 0)",
+            "fontSize": "13.9505px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "card",
+      "structuralHash": "div>div",
+      "instanceCount": 32,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(196, 188, 170)",
+            "padding": "15.5005px 0px 15.5005px 0px",
+            "borderRadius": "0px",
+            "border": "6px 0px 0px solid none none rgb(124, 119, 106) rgb(196, 188, 170) rgb(51, 51, 51)",
+            "fontSize": "22.1313px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 5
+        },
+        {
+          "css": {
+            "background": "rgb(22, 22, 22)",
+            "color": "rgb(196, 188, 170)",
+            "padding": "15.5005px 15.5005px 15.5005px 15.5005px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(196, 188, 170)",
+            "fontSize": "9.30031px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 27
+        }
+      ]
+    },
+    {
+      "kind": "card",
+      "structuralHash": "div",
+      "instanceCount": 32,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(196, 188, 170)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(196, 188, 170)",
+            "fontSize": "22.1313px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 32
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "div>a",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(196, 188, 170)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(196, 188, 170)",
+            "fontSize": "15.5005px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "a",
+      "instanceCount": 5,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(196, 188, 170)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(196, 188, 170)",
+            "fontSize": "15.5005px",
+            "fontWeight": "500"
+          },
+          "instanceCount": 5
+        }
+      ]
+    }
+  ],
+  "accessibility": {
+    "remediation": []
+  },
+  "cssHealth": {
+    "sheets": [
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 121,
+        "usedBytes": 116,
+        "unusedBytes": 5,
+        "unusedPercent": 4
+      },
+      {
+        "url": "https://cdn.prod.website-files.com/68af37230c574f0949b72566/css/marketing-new-design.webflow.shared.1fde94eb7.css",
+        "totalBytes": 112650,
+        "usedBytes": 19554,
+        "unusedBytes": 93096,
+        "unusedPercent": 83
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 113,
+        "usedBytes": 0,
+        "unusedBytes": 113,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css",
+        "totalBytes": 18454,
+        "usedBytes": 71,
+        "unusedBytes": 18383,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 1821,
+        "usedBytes": 1022,
+        "unusedBytes": 799,
+        "unusedPercent": 44
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 79,
+        "usedBytes": 0,
+        "unusedBytes": 79,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 131,
+        "usedBytes": 0,
+        "unusedBytes": 131,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 131,
+        "usedBytes": 0,
+        "unusedBytes": 131,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 131,
+        "usedBytes": 123,
+        "unusedBytes": 8,
+        "unusedPercent": 6
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 1005,
+        "usedBytes": 527,
+        "unusedBytes": 478,
+        "unusedPercent": 48
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 362,
+        "usedBytes": 215,
+        "unusedBytes": 147,
+        "unusedPercent": 41
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 330,
+        "usedBytes": 328,
+        "unusedBytes": 2,
+        "unusedPercent": 1
+      },
+      {
+        "url": "https://graphite.io/",
+        "totalBytes": 131,
+        "usedBytes": 0,
+        "unusedBytes": 131,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FVPR47yQ28nc%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DVPR47yQ28nc&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FVPR47yQ28nc%2Fhqdefault.jpg&type=text%2Fhtml&schema=youtube",
+        "totalBytes": 51308,
+        "usedBytes": 1484,
+        "unusedBytes": 49824,
+        "unusedPercent": 97
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=JetBrains+Mono:300,400,500,600,700",
+        "totalBytes": 10895,
+        "usedBytes": 0,
+        "unusedBytes": 10895,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://www.youtube.com/embed/VPR47yQ28nc?wmode=opaque&widget_referrer=https%3A%2F%2Fgraphite.io%2F&enablejsapi=1&origin=https%3A%2F%2Fcdn.embedly.com&widgetid=1&forigin=https%3A%2F%2Fcdn.embedly.com%2Fwidgets%2Fmedia.html%3Fsrc%3Dhttps%253A%252F%252Fwww.youtube.com%252Fembed%252FVPR47yQ28nc%253Ffeature%253Doembed%26display_name%3DYouTube%26url%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DVPR47yQ28nc%26image%3Dhttps%253A%252F%252Fi.ytimg.com%252Fvi%252FVPR47yQ28nc%252Fhqdefault.jpg%26type%3Dtext%252Fhtml%26schema%3Dyoutube&aoriginsup=1&aorigins=https%3A%2F%2Fgraphite.io&gporigin=https%3A%2F%2Fgraphite.io%2F&vf=6",
+        "totalBytes": 9474,
+        "usedBytes": 0,
+        "unusedBytes": 9474,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://www.youtube.com/embed/VPR47yQ28nc?wmode=opaque&widget_referrer=https%3A%2F%2Fgraphite.io%2F&enablejsapi=1&origin=https%3A%2F%2Fcdn.embedly.com&widgetid=1&forigin=https%3A%2F%2Fcdn.embedly.com%2Fwidgets%2Fmedia.html%3Fsrc%3Dhttps%253A%252F%252Fwww.youtube.com%252Fembed%252FVPR47yQ28nc%253Ffeature%253Doembed%26display_name%3DYouTube%26url%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DVPR47yQ28nc%26image%3Dhttps%253A%252F%252Fi.ytimg.com%252Fvi%252FVPR47yQ28nc%252Fhqdefault.jpg%26type%3Dtext%252Fhtml%26schema%3Dyoutube&aoriginsup=1&aorigins=https%3A%2F%2Fgraphite.io&gporigin=https%3A%2F%2Fgraphite.io%2F&vf=6",
+        "totalBytes": 689,
+        "usedBytes": 229,
+        "unusedBytes": 460,
+        "unusedPercent": 67
+      },
+      {
+        "url": "https://www.youtube.com/s/player/25f11721/www-player.css",
+        "totalBytes": 518378,
+        "usedBytes": 2459,
+        "unusedBytes": 515919,
+        "unusedPercent": 100
+      },
+      {
+        "url": "https://www.youtube.com/s/_/ytembeds/_/ss/k=ytembeds.base.YZTMk9ORcVI.L.W.O/am=AAAAIA/d=0/br=1/rs=AGKMywFl6GlfxpEATpSGk3Laq26-NLkVtg",
+        "totalBytes": 441167,
+        "usedBytes": 15845,
+        "unusedBytes": 425322,
+        "unusedPercent": 96
+      }
+    ],
+    "totalBytes": 1167370,
+    "usedBytes": 41973,
+    "unusedBytes": 1125397,
+    "unusedPercent": 96,
+    "importantCount": 80,
+    "duplicates": 22558,
+    "vendorPrefixes": {
+      "webkit": 5341,
+      "moz": 154,
+      "ms": 191,
+      "o": 19
+    },
+    "keyframes": [
+      {
+        "name": "spin",
+        "steps": 2
+      },
+      {
+        "name": "tab-fade-in",
+        "steps": 2
+      }
+    ],
+    "specificity": {
+      "max": [
+        2,
+        10,
+        24
+      ],
+      "average": [
+        0,
+        1.84,
+        0.16
+      ],
+      "count": 9460
+    },
+    "issues": [
+      "80 !important rules",
+      "22558 duplicate declarations",
+      "96% unused CSS"
+    ]
+  }
+}

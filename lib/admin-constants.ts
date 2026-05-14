@@ -11,6 +11,11 @@ export const SWAY_STATUSES = ['Possible fit','Mention later','Interested','Demo 
 export const SWAY_USE_CASES = ['Check-ins','Event tracking','Loyalty','Repeat visits','Customer insights','Student traffic','Gym crowd tracking','Mug club / membership','VIP recognition']
 export const CONTACT_METHODS = ['Email','Instagram DM','LinkedIn','Phone','In person','Website contact form']
 export const RESPONSE_STATUSES = ['No response','Replied','Interested','Not interested','Follow up later','Booked call']
-export const PACKAGES = ['Digital Cleanup','Website + Social Rebuild','Monthly Growth Support']
+export const PACKAGES = ['Foundation','Growth','Dominate']
+export const PACKAGE_OPTIONS = [
+  { key: 'starter', label: 'Foundation' },
+  { key: 'growth', label: 'Growth' },
+  { key: 'dominate', label: 'Dominate' },
+]
 export const NORTH_SHORE_TOWNS = ['Pittsfield','Lenox','Stockbridge','Great Barrington','Lee','Williamstown','North Adams','Adams','Dalton','Sheffield','Egremont','West Stockbridge','Becket','Hinsdale','Cheshire','Richmond','Tyringham','Otis','Monterey']
 export const BUSINESS_TYPES = ['Painting','Contractor','Landscaping','Cleaning','Barbershop','Salon','Gym','Café','Restaurant','Bar','Real estate','Boutique / retail','Wellness / spa','Auto','Other']

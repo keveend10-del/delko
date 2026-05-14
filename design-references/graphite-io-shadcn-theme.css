@@ -1,0 +1,17 @@
+/* shadcn/ui Theme — extracted from https://graphite.io */
+/* Paste into your globals.css */
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 0%;
+    --primary: 147 56% 53%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 240 100% 47%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 61%;
+    --muted-foreground: 42 18% 72%;
+    --border: 43 8% 45%;
+    --radius: 4px;
+  }
+}

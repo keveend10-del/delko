@@ -1,0 +1,384 @@
+{
+  "colors": {
+    "all": [
+      {
+        "hex": "#262626",
+        "rgb": {
+          "r": 38,
+          "g": 38,
+          "b": 38,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 15
+        },
+        "count": 888,
+        "contexts": [
+          "border",
+          "background"
+        ]
+      },
+      {
+        "hex": "#f2f2f2",
+        "rgb": {
+          "r": 242,
+          "g": 242,
+          "b": 242,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 95
+        },
+        "count": 430,
+        "contexts": [
+          "text",
+          "border"
+        ]
+      },
+      {
+        "hex": "#ffffff",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "a": 0.1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 100
+        },
+        "count": 351,
+        "contexts": [
+          "border",
+          "text",
+          "background"
+        ]
+      },
+      {
+        "hex": "#000000",
+        "rgb": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 0
+        },
+        "count": 185,
+        "contexts": [
+          "text",
+          "background"
+        ]
+      },
+      {
+        "hex": "#d1d5db",
+        "rgb": {
+          "r": 209,
+          "g": 213,
+          "b": 219,
+          "a": 1
+        },
+        "hsl": {
+          "h": 216,
+          "s": 12,
+          "l": 84
+        },
+        "count": 24,
+        "contexts": [
+          "text"
+        ]
+      },
+      {
+        "hex": "#059669",
+        "rgb": {
+          "r": 5,
+          "g": 150,
+          "b": 105,
+          "a": 0.9
+        },
+        "hsl": {
+          "h": 161,
+          "s": 94,
+          "l": 30
+        },
+        "count": 7,
+        "contexts": [
+          "background"
+        ]
+      },
+      {
+        "hex": "#1a1a1a",
+        "rgb": {
+          "r": 26,
+          "g": 26,
+          "b": 26,
+          "a": 1
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 10
+        },
+        "count": 3,
+        "contexts": [
+          "background"
+        ]
+      }
+    ]
+  },
+  "regions": [
+    {
+      "role": "nav",
+      "tag": "nav",
+      "bounds": {
+        "x": 0,
+        "y": 56,
+        "w": 63,
+        "h": 679
+      },
+      "heading": null,
+      "buttonCount": 0,
+      "cardCount": 12,
+      "className": "flex-1 p-4"
+    },
+    {
+      "role": "content",
+      "tag": "main",
+      "bounds": {
+        "x": 64,
+        "y": 0,
+        "w": 1216,
+        "h": 3119
+      },
+      "heading": "CECC May Madness Texas - Day 2",
+      "buttonCount": 37,
+      "cardCount": 130,
+      "className": "\n        relative flex flex-col\n        transition-all duration-300 ease-in-out\n        min-h-screen\n        w-full\n        md:ml-16 md:w-[calc(100%-4rem)]\n        pt-0 md:pt-16\n      "
+    },
+    {
+      "role": "content",
+      "tag": "main",
+      "bounds": {
+        "x": 64,
+        "y": 64,
+        "w": 1216,
+        "h": 2975
+      },
+      "heading": "CECC May Madness Texas - Day 2",
+      "buttonCount": 37,
+      "cardCount": 130,
+      "className": "relative z-10 w-full min-h-screen flex flex-col overflow-x-hidden"
+    },
+    {
+      "role": "footer",
+      "tag": "footer",
+      "bounds": {
+        "x": 88,
+        "y": 2841,
+        "w": 1168,
+        "h": 166
+      },
+      "heading": "Ticket Tree",
+      "buttonCount": 0,
+      "cardCount": 6,
+      "className": "py-6 font-light text-white"
+    }
+  ],
+  "componentClusters": [
+    {
+      "kind": "input",
+      "structuralHash": "input",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(255, 255, 255)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "0px",
+            "border": "0px none rgb(38, 38, 38)",
+            "fontSize": "14px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button>svg>span",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(255, 255, 255, 0.1)",
+            "color": "rgb(255, 255, 255)",
+            "padding": "10px 24px 10px 24px",
+            "borderRadius": "8px",
+            "border": "1px solid rgba(255, 255, 255, 0.2)",
+            "fontSize": "12px",
+            "fontWeight": "300"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button>svg",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgba(255, 255, 255, 0.7)",
+            "padding": "8px 8px 8px 8px",
+            "borderRadius": "8px",
+            "border": "0px solid rgb(38, 38, 38)",
+            "fontSize": "16px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button>span>span",
+      "instanceCount": 1,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(0, 0, 0)",
+            "padding": "12px 24px 12px 24px",
+            "borderRadius": "12px",
+            "border": "1px solid rgba(255, 255, 255, 0.2)",
+            "fontSize": "12px",
+            "fontWeight": "300"
+          },
+          "instanceCount": 1
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button",
+      "instanceCount": 11,
+      "variants": [
+        {
+          "css": {
+            "background": "rgba(255, 255, 255, 0.4)",
+            "color": "rgb(242, 242, 242)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "9999px",
+            "border": "0px solid rgb(38, 38, 38)",
+            "fontSize": "16px",
+            "fontWeight": "400"
+          },
+          "instanceCount": 11
+        }
+      ]
+    },
+    {
+      "kind": "button",
+      "structuralHash": "button>div>span",
+      "instanceCount": 24,
+      "variants": [
+        {
+          "css": {
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(0, 0, 0)",
+            "padding": "0px 0px 0px 0px",
+            "borderRadius": "12px",
+            "border": "0px solid rgb(38, 38, 38)",
+            "fontSize": "16px",
+            "fontWeight": "600"
+          },
+          "instanceCount": 24
+        }
+      ]
+    }
+  ],
+  "accessibility": {
+    "remediation": []
+  },
+  "cssHealth": {
+    "sheets": [
+      {
+        "url": "https://tickettree.us/_next/static/chunks/0l8r8l~6e8suh.css",
+        "totalBytes": 12361,
+        "usedBytes": 331,
+        "unusedBytes": 12030,
+        "unusedPercent": 97
+      },
+      {
+        "url": "https://tickettree.us/_next/static/chunks/0zt1xsc7qj.mw.css",
+        "totalBytes": 13826,
+        "usedBytes": 1753,
+        "unusedBytes": 12073,
+        "unusedPercent": 87
+      },
+      {
+        "url": "https://tickettree.us/",
+        "totalBytes": 0,
+        "usedBytes": 0,
+        "unusedBytes": 0,
+        "unusedPercent": 0
+      },
+      {
+        "url": "https://tickettree.us/_next/static/chunks/0vvdrk9efzzjs.css",
+        "totalBytes": 234945,
+        "usedBytes": 16083,
+        "unusedBytes": 218862,
+        "unusedPercent": 93
+      },
+      {
+        "url": "https://auth.privy.io/_next/static/css/a4f54a613ef5a812.css?dpl=dpl_HbqZSrvSu4Qtc4txi2eD8cRFGEhD",
+        "totalBytes": 116329,
+        "usedBytes": 5444,
+        "unusedBytes": 110885,
+        "unusedPercent": 95
+      }
+    ],
+    "totalBytes": 377461,
+    "usedBytes": 23611,
+    "unusedBytes": 353850,
+    "unusedPercent": 94,
+    "importantCount": 150,
+    "duplicates": 3796,
+    "vendorPrefixes": {
+      "webkit": 145,
+      "moz": 52,
+      "ms": 2,
+      "o": 7
+    },
+    "keyframes": [],
+    "specificity": {
+      "max": [
+        2,
+        8,
+        5
+      ],
+      "average": [
+        0.04,
+        1.6,
+        0.07
+      ],
+      "count": 5281
+    },
+    "issues": [
+      "150 !important rules",
+      "3796 duplicate declarations",
+      "94% unused CSS"
+    ]
+  }
+}
