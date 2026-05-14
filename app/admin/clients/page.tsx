@@ -80,23 +80,39 @@ export default function Clients() {
       <Sheet open={!!open} onClose={() => setOpen(null)} title={open?.business_name}>
         {open && (
           <div className="mt-6 space-y-4">
-            <Detail label="Contact">{open.contact_name ?? '—'} · {open.email ?? '—'}{open.phone && ` · ${open.phone}`}</Detail>
-            <Detail label="Town / type">{open.town ?? '—'} · {open.business_type ?? '—'}</Detail>
-            <Detail label="Website">{open.website ?? '—'}</Detail>
-            <Detail label="Instagram">{open.instagram ?? '—'}</Detail>
-
-            <SF label="Package" value={open.package_purchased} options={PACKAGES} onChange={v => update(open.id, { package_purchased: v })} />
+            <div className="grid grid-cols-2 gap-3">
+              <EF label="Business name" value={open.business_name} onSave={v => update(open.id, { business_name: v })} onChange={v => setOpen((p: any) => ({ ...p, business_name: v }))} />
+              <EF label="Contact name" value={open.contact_name ?? ''} onSave={v => update(open.id, { contact_name: v })} onChange={v => setOpen((p: any) => ({ ...p, contact_name: v }))} />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <EF label="Email" value={open.email ?? ''} type="email" onSave={v => update(open.id, { email: v })} onChange={v => setOpen((p: any) => ({ ...p, email: v }))} />
+              <EF label="Phone" value={open.phone ?? ''} onSave={v => update(open.id, { phone: v })} onChange={v => setOpen((p: any) => ({ ...p, phone: v }))} />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <SF label="Town" value={open.town} options={NORTH_SHORE_TOWNS} onChange={v => update(open.id, { town: v })} />
+              <SF label="Business type" value={open.business_type} options={BUSINESS_TYPES} onChange={v => update(open.id, { business_type: v })} />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <EF label="Website" value={open.website ?? ''} onSave={v => update(open.id, { website: v })} onChange={v => setOpen((p: any) => ({ ...p, website: v }))} />
+              <EF label="Instagram" value={open.instagram ?? ''} onSave={v => update(open.id, { instagram: v })} onChange={v => setOpen((p: any) => ({ ...p, instagram: v }))} />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <EF label="Project value ($)" value={open.project_value ?? ''} type="number" onSave={v => update(open.id, { project_value: v ? Number(v) : null })} onChange={v => setOpen((p: any) => ({ ...p, project_value: v }))} />
+              <EF label="Monthly retainer ($)" value={open.monthly_retainer_value ?? ''} type="number" onSave={v => update(open.id, { monthly_retainer_value: v ? Number(v) : null })} onChange={v => setOpen((p: any) => ({ ...p, monthly_retainer_value: v }))} />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <EF label="Start date" value={open.start_date ?? ''} type="date" onSave={v => update(open.id, { start_date: v || null })} onChange={v => setOpen((p: any) => ({ ...p, start_date: v }))} />
+              <SF label="Package" value={open.package_purchased} options={PACKAGES} onChange={v => update(open.id, { package_purchased: v })} />
+            </div>
             <div className="grid grid-cols-2 gap-3">
               <SF label="Client status" value={open.client_status} options={CLIENT_STATUSES} onChange={v => update(open.id, { client_status: v })} />
               <SF label="Payment status" value={open.payment_status} options={PAYMENT_STATUSES} onChange={v => update(open.id, { payment_status: v })} />
             </div>
             <SF label="Project status" value={open.project_status} options={PROJECT_STATUSES} onChange={v => update(open.id, { project_status: v })} />
-
             <div className="space-y-1.5">
               <label className="text-xs text-muted-foreground">Notes</label>
               <textarea value={open.notes ?? ''} onChange={e => setOpen((p: any) => ({ ...p, notes: e.target.value }))} onBlur={() => update(open.id, { notes: open.notes })} rows={4} className={textareaCls} />
             </div>
-
             <div className="pt-2 border-t border-border">
               <Btn accent onClick={() => setInvoiceOpen(open)}>
                 <Send size={13} /> Send invoice
@@ -234,8 +250,17 @@ function InvoiceModal({ client, onClose, onSent }: { client: any | null; onClose
 
 const Th = ({ children }: { children: React.ReactNode }) => <th className="px-4 py-3 text-left font-medium">{children}</th>
 const Td = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => <td className={`px-4 py-3 ${className}`}>{children}</td>
-const Detail = ({ label, children }: { label: string; children: React.ReactNode }) => (
-  <div><div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mb-1">{label}</div><div className="text-sm">{children}</div></div>
+const EF = ({ label, value, type = 'text', onSave, onChange }: { label: string; value: any; type?: string; onSave: (v: string) => void; onChange: (v: string) => void }) => (
+  <div className="space-y-1.5">
+    <label className="text-xs text-muted-foreground">{label}</label>
+    <input
+      type={type}
+      value={value ?? ''}
+      onChange={e => onChange(e.target.value)}
+      onBlur={e => onSave(e.target.value)}
+      className={inputCls}
+    />
+  </div>
 )
 const SF = ({ label, value, options, onChange }: { label: string; value?: string; options: string[]; onChange: (v: string) => void }) => (
   <div className="space-y-1.5">
