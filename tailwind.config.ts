@@ -75,9 +75,10 @@ const config: Config = {
         card: '12px',
       },
       fontFamily: {
-        sans: ['var(--font-outfit)', 'Outfit', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['var(--font-playfair)', 'Playfair Display', 'Georgia', 'serif'],
-        serif: ['var(--font-playfair)', 'Playfair Display', 'Georgia', 'serif'],
+        sans: ['var(--font-space-grotesk)', 'Space Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['var(--font-instrument-serif)', 'Instrument Serif', 'Georgia', 'serif'],
+        serif: ['var(--font-instrument-serif)', 'Instrument Serif', 'Georgia', 'serif'],
+        mono: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'Menlo', 'monospace'],
       },
       boxShadow: {
         card: 'var(--shadow-card)',

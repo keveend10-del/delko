@@ -87,7 +87,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: var(--font-outfit, 'Outfit'), system-ui, -apple-system, sans-serif;
+    font-family: var(--font-space-grotesk, 'Space Grotesk'), system-ui, -apple-system, sans-serif;
     background-image: var(--gradient-radial);
     background-attachment: fixed;
   }
@@ -123,15 +123,15 @@
 @layer utilities {
   /* ─── Fonts ────────────────────────────────────── */
   .font-display {
-    font-family: var(--font-playfair, 'Playfair Display'), Georgia, serif;
-    letter-spacing: -0.025em;
-    font-weight: 800;
+    font-family: var(--font-instrument-serif, 'Instrument Serif'), Georgia, serif;
+    letter-spacing: -0.02em;
+    font-weight: 400;
   }
   .font-display-italic {
-    font-family: var(--font-playfair, 'Playfair Display'), Georgia, serif;
+    font-family: var(--font-instrument-serif, 'Instrument Serif'), Georgia, serif;
     font-style: italic;
-    font-weight: 700;
-    letter-spacing: -0.015em;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 
   /* ─── Text gradients ───────────────────────────── */
@@ -228,10 +228,11 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 11px;
-    font-weight: 600;
+    font-family: var(--font-jetbrains-mono, 'JetBrains Mono'), monospace;
+    font-size: 10px;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     color: hsl(var(--muted-foreground));
   }
   .eyebrow::before {
