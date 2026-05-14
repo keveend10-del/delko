@@ -190,6 +190,10 @@ function InvoiceModal({ client, onClose, onSent }: { client: any | null; onClose
       const data = await res.json()
       if (!res.ok) throw new Error(data.error ?? 'Failed to send invoice')
       toast.success(`Invoice sent to ${client.email}`)
+      if (data.url) {
+        await navigator.clipboard.writeText(data.url).catch(() => {})
+        toast.info('Payment link copied to clipboard — share manually if email fails')
+      }
       onSent()
       onClose()
     } catch (err) {

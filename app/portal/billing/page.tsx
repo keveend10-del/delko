@@ -122,7 +122,17 @@ export default function BillingPage() {
           )}
 
           <div className="flex flex-wrap gap-3">
-            {!isActive && (
+            {/* Pending invoice takes priority — always show if URL exists */}
+            {client.pending_checkout_url ? (
+              <a
+                href={client.pending_checkout_url}
+                className="inline-flex items-center gap-2.5 h-11 px-5 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] hover:brightness-105 active:scale-[0.99] transition-all"
+              >
+                <CreditCard size={15} />
+                Pay invoice
+                <ExternalLink size={13} />
+              </a>
+            ) : !isActive ? (
               <button
                 onClick={startCheckout}
                 disabled={payLoading}
@@ -132,8 +142,7 @@ export default function BillingPage() {
                 {payLoading ? 'Redirecting…' : 'Pay now'}
                 {!payLoading && <ExternalLink size={13} />}
               </button>
-            )}
-            {isActive && client.stripe_customer_id && (
+            ) : client.stripe_customer_id ? (
               <button
                 onClick={openBillingPortal}
                 disabled={loading}
@@ -143,7 +152,7 @@ export default function BillingPage() {
                 {loading ? 'Opening…' : 'Manage billing'}
                 {!loading && <ExternalLink size={13} />}
               </button>
-            )}
+            ) : null}
           </div>
         </Panel>
 
