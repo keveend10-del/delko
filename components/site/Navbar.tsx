@@ -27,7 +27,7 @@ export const Navbar = () => {
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'pt-3 pb-0' : 'pt-0'}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
-          className={`flex items-center justify-between h-16 px-5 rounded-2xl transition-all duration-500 ${scrolled ? 'glass' : 'bg-transparent'}`}
+          className={`flex items-center justify-between h-16 px-5 rounded-xl transition-all duration-500 ${scrolled ? 'bg-[#050505] border border-white/[0.07]' : 'bg-transparent'}`}
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
@@ -80,7 +80,7 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="md:hidden mx-4 mt-2 glass rounded-2xl shadow-elevated overflow-hidden"
+            className="md:hidden mx-4 mt-2 rounded-xl border border-white/[0.07] bg-[#050505] shadow-elevated overflow-hidden"
           >
             <div className="p-5 flex flex-col gap-1">
               {links.map((l) => (

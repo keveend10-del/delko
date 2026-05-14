@@ -17,7 +17,7 @@ export const CTASection = () => (
           className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start"
         >
           <div className="eyebrow mb-7">Free audit · No commitment</div>
-          <h2 className="text-[34px] sm:text-[48px] lg:text-[54px] font-bold leading-[1.03] tracking-[-0.03em]">
+          <h2 className="text-[36px] sm:text-[52px] lg:text-[60px] font-bold leading-[1.0] tracking-[-0.04em]">
             Want to know why the phone{' '}
             <span className="font-display-italic text-muted-foreground">isn&apos;t ringing</span>{' '}
             like it should?

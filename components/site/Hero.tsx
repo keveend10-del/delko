@@ -35,7 +35,7 @@ export const Hero = () => {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
   return (
-  <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 overflow-hidden">
+  <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 overflow-hidden">
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <motion.div style={{ y: blob1Y, width: 700, height: 700, top: '5%', left: '38%', background: 'hsl(var(--accent) / 0.11)', filter: 'blur(130px)' }} className="absolute rounded-full animate-glow" />
       <motion.div style={{ y: blob2Y, width: 450, height: 450, bottom: '10%', right: '5%', background: 'hsl(260 60% 60% / 0.09)', filter: 'blur(100px)' }} className="absolute rounded-full animate-glow" />
@@ -71,13 +71,13 @@ export const Hero = () => {
 
           <motion.div variants={headlineContainer} initial="hidden" animate="show">
             <motion.div variants={headlineLine}>
-              <h1 className="text-[60px] sm:text-[76px] lg:text-[88px] font-bold leading-[0.95] tracking-[-0.04em]">More calls.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">More calls.</h1>
             </motion.div>
             <motion.div variants={headlineLine}>
-              <h1 className="text-[60px] sm:text-[76px] lg:text-[88px] font-display-italic leading-[0.95] text-muted-foreground">More jobs.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-display-italic leading-[0.93] text-muted-foreground">More jobs.</h1>
             </motion.div>
             <motion.div variants={headlineLine}>
-              <h1 className="text-[60px] sm:text-[76px] lg:text-[88px] font-bold leading-[0.95] tracking-[-0.04em]">More revenue.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">More revenue.</h1>
             </motion.div>
           </motion.div>
 
@@ -147,7 +147,7 @@ export const Hero = () => {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12">
           {stats.map(({ value, label }) => (
             <div key={label}>
-              <div className="text-[38px] sm:text-[44px] font-bold tracking-[-0.04em] text-gradient-green">{value}</div>
+              <div className="text-[44px] sm:text-[52px] font-bold tracking-[-0.05em] text-gradient-green">{value}</div>
               <div className="mt-1 text-[13px] text-muted-foreground font-medium">{label}</div>
             </div>
           ))}
@@ -163,7 +163,7 @@ const HeroVisual = () => (
     <div className="absolute inset-0 animate-glow" style={{ background: 'radial-gradient(ellipse at 55% 40%, hsl(var(--accent) / 0.1), transparent 70%)' }} />
 
     {/* Google Local Pack mockup */}
-    <div className="absolute top-0 right-0 left-4 glass rounded-2xl overflow-hidden shadow-elevated">
+    <div className="absolute top-0 right-0 left-4 rounded-xl overflow-hidden shadow-elevated bg-[#070707] border border-white/[0.08]">
       {/* Chrome bar */}
       <div className="flex items-center gap-3 px-4 py-3 border-b border-white/[0.06] bg-white/[0.02]">
         <div className="flex gap-1.5 shrink-0">
@@ -260,7 +260,7 @@ const HeroVisual = () => (
     </div>
 
     {/* Floating chips */}
-    <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="absolute -left-8 top-[44%] glass rounded-2xl px-3.5 py-2.5 flex items-center gap-3 shadow-elevated">
+    <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="absolute -left-8 top-[44%] rounded-xl px-3.5 py-2.5 flex items-center gap-3 shadow-offset bg-[#070707] border border-white/[0.08]">
       <div className="h-8 w-8 rounded-xl bg-accent/15 flex items-center justify-center shrink-0">
         <Star size={14} className="text-accent fill-accent" />
       </div>
@@ -270,7 +270,7 @@ const HeroVisual = () => (
       </div>
     </motion.div>
 
-    <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="absolute -right-6 bottom-20 glass rounded-2xl px-3.5 py-2.5 flex items-center gap-2.5 shadow-elevated">
+    <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="absolute -right-6 bottom-20 rounded-xl px-3.5 py-2.5 flex items-center gap-2.5 shadow-offset bg-[#070707] border border-white/[0.08]">
       <div className="h-8 w-8 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
         <TrendingUp size={14} className="text-accent" />
       </div>
@@ -280,12 +280,12 @@ const HeroVisual = () => (
       </div>
     </motion.div>
 
-    <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }} className="absolute left-6 bottom-4 glass rounded-full px-3.5 py-1.5 flex items-center gap-1.5">
+    <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }} className="absolute left-6 bottom-4 rounded-full px-3.5 py-1.5 flex items-center gap-1.5 bg-[#070707] border border-white/[0.08]">
       <Check size={11} className="text-accent" />
       <span className="text-[10px] font-semibold">#1 in local results</span>
     </motion.div>
 
-    <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }} className="absolute right-4 top-[11%] glass rounded-full px-3.5 py-1.5 flex items-center gap-1.5">
+    <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }} className="absolute right-4 top-[11%] rounded-full px-3.5 py-1.5 flex items-center gap-1.5 bg-[#070707] border border-white/[0.08]">
       <MapPin size={10} className="text-accent" />
       <span className="text-[10px] font-semibold">Verified local</span>
     </motion.div>

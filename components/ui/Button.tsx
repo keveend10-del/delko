@@ -12,18 +12,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantCls = (variant: ButtonProps['variant'], size: ButtonProps['size']) =>
   cn(
-    'inline-flex items-center justify-center gap-2 font-semibold rounded-[12px] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40',
+    'inline-flex items-center justify-center gap-2 font-semibold rounded-[10px] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40',
     {
-      'bg-accent text-[#0A0A0A] hover:brightness-105 active:scale-[0.98] shadow-glow-sm': variant === 'accent',
-      'relative bg-gradient-to-b from-white/[0.08] to-white/[0.03] backdrop-blur-[28px] border border-white/10 text-white/90 hover:border-white/20 hover:bg-white/10': variant === 'glass',
-      'bg-transparent text-white/60 hover:text-white hover:bg-white/[0.06] border border-white/[0.08]': variant === 'ghost',
-      'bg-transparent border border-white/[0.12] text-white hover:border-white/[0.24] hover:bg-white/[0.04]': variant === 'outline',
+      'bg-accent text-[#050505] hover:brightness-110 active:scale-[0.97] shadow-[0_0_0_1px_hsl(152_80%_38%/0.5),0_4px_20px_hsl(152_80%_38%/0.3)]': variant === 'accent',
+      'bg-transparent backdrop-blur-[16px] border border-white/[0.09] text-white/80 hover:border-white/[0.16] hover:text-white hover:bg-white/[0.05]': variant === 'glass',
+      'bg-transparent text-white/55 hover:text-white hover:bg-white/[0.05] border border-white/[0.07]': variant === 'ghost',
+      'bg-transparent border border-white/[0.10] text-white hover:border-white/[0.20] hover:bg-white/[0.03]': variant === 'outline',
       'bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/20': variant === 'destructive',
       'h-8 px-3 text-[12px]': size === 'sm',
       'h-10 px-4 text-[13px]': size === 'default',
       'h-10 px-5 text-[14px]': size === 'md',
       'h-11 px-6 text-[14px]': size === 'lg',
-      'h-12 px-7 text-[15px] rounded-[14px]': size === 'xl',
+      'h-12 px-7 text-[15px] rounded-[12px]': size === 'xl',
     }
   )
 

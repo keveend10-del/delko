@@ -33,7 +33,7 @@ export const Problem = () => (
           key={n}
           variants={cardVariants}
           whileHover={{ y: -6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
-          className="group glass-card rounded-2xl p-8 sm:p-10 hover:border-border-strong hover:shadow-[0_24px_64px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-default overflow-hidden relative"
+          className="group glass-card rounded-xl p-8 sm:p-10 hover:border-border-strong hover:shadow-[6px_6px_0px_rgba(0,0,0,0.45),0_24px_64px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-default overflow-hidden relative"
         >
           <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 50% at 80% 0%, hsl(var(--accent)/0.05), transparent 70%)' }} />
           <div className="flex items-start justify-between gap-6 relative">
@@ -47,7 +47,7 @@ export const Problem = () => (
             </div>
             <motion.div
               whileHover={{ rotate: -8, scale: 1.1, transition: { duration: 0.25 } }}
-              className="h-12 w-12 rounded-2xl glass flex items-center justify-center text-muted-foreground group-hover:text-accent group-hover:border-accent/20 transition-all duration-300 shrink-0"
+              className="h-12 w-12 rounded-xl border border-white/[0.07] bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent group-hover:border-accent/20 transition-all duration-300 shrink-0"
             >
               <Icon size={20} />
             </motion.div>

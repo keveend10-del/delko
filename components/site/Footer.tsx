@@ -1,5 +1,5 @@
 export const Footer = () => (
-  <footer className="relative border-t border-border">
+  <footer className="relative border-t border-white/[0.07]">
     <div className="container mx-auto px-5 sm:px-8 py-16 sm:py-20">
       <div className="grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5">

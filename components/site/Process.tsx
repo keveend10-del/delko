@@ -50,12 +50,12 @@ export const Process = () => {
               key={n}
               variants={{ hidden: { opacity: 0, x: -20 }, show: { opacity: 1, x: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } }}
               whileHover={{ x: 4, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } }}
-              className="group relative sm:pl-20 py-7 sm:py-8 px-7 sm:px-0 glass-card rounded-2xl sm:bg-transparent sm:border-transparent sm:shadow-none hover:glass-card sm:hover:bg-surface sm:hover:border-border transition-all duration-300 sm:rounded-2xl cursor-default"
+              className="group relative sm:pl-20 py-7 sm:py-8 px-7 sm:px-0 glass-card rounded-xl sm:bg-transparent sm:border-transparent sm:shadow-none hover:glass-card sm:hover:bg-surface sm:hover:border-border sm:hover:shadow-[6px_6px_0px_rgba(0,0,0,0.35)] transition-all duration-300 sm:rounded-xl cursor-default"
             >
               <div className="hidden sm:flex absolute left-0 top-7 items-center justify-center">
                 <motion.div
                   whileHover={{ scale: 1.15, rotate: -5, transition: { duration: 0.2 } }}
-                  className="relative z-10 h-14 w-14 rounded-full bg-surface border border-border-strong flex items-center justify-center group-hover:border-accent/40 group-hover:bg-surface-elevated transition-all duration-300"
+                  className="relative z-10 h-14 w-14 rounded-full bg-[#070707] border border-white/[0.09] flex items-center justify-center group-hover:border-accent/40 group-hover:bg-surface-elevated transition-all duration-300"
                 >
                   <Icon size={18} className="text-muted-foreground group-hover:text-accent transition-colors duration-300" />
                 </motion.div>

@@ -35,7 +35,7 @@ export const Services = () => (
           key={n}
           variants={card}
           whileHover={{ y: -6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
-          className="group glass-card rounded-2xl p-7 sm:p-9 hover:border-border-strong hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative cursor-default"
+          className="group glass-card rounded-xl p-7 sm:p-9 hover:border-border-strong hover:shadow-[6px_6px_0px_rgba(0,0,0,0.45),0_20px_60px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative cursor-default"
         >
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 40% at 30% 0%, hsl(var(--accent)/0.06), transparent 70%)' }} />
@@ -43,7 +43,7 @@ export const Services = () => (
             <motion.div
               whileHover={{ rotate: -5, scale: 1.1 }}
               transition={{ duration: 0.25 }}
-              className="h-12 w-12 rounded-2xl glass flex items-center justify-center text-muted-foreground group-hover:text-accent group-hover:border-accent/30 transition-all duration-300"
+              className="h-12 w-12 rounded-xl border border-white/[0.07] bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent group-hover:border-accent/30 transition-all duration-300"
             >
               <Icon size={20} />
             </motion.div>

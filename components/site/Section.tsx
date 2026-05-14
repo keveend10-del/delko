@@ -42,7 +42,7 @@ export const Section = ({
           {title && (
             <motion.h2
               variants={fadeUp}
-              className="text-[36px] sm:text-[52px] lg:text-[64px] font-bold leading-[1.02] tracking-[-0.03em]"
+              className="text-[40px] sm:text-[58px] lg:text-[74px] font-bold leading-[1.0] tracking-[-0.04em]"
             >
               {title}
             </motion.h2>

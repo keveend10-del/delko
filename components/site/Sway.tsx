@@ -29,7 +29,7 @@ export const Sway = () => {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           className="relative max-w-7xl mx-auto rounded-3xl overflow-hidden"
-          style={{ background: 'linear-gradient(160deg, hsl(0 0% 10%), hsl(0 0% 6%))', border: '1px solid hsl(0 0% 16%)', boxShadow: '0 32px 80px rgba(0,0,0,0.7)' }}
+          style={{ background: 'hsl(0 0% 4%)', border: '1px solid hsl(0 0% 12%)', boxShadow: '6px 6px 0px rgba(0,0,0,0.5), 0 32px 80px rgba(0,0,0,0.75)' }}
         >
           {/* Parallax background glows */}
           <motion.div style={{ y: glow1Y }} className="absolute inset-0 pointer-events-none">
@@ -45,7 +45,7 @@ export const Sway = () => {
             <div className="grid lg:grid-cols-12 gap-10 mb-14">
               <div className="lg:col-span-7">
                 <div className="eyebrow mb-6">What you actually get</div>
-                <h2 className="text-[36px] sm:text-[52px] font-bold leading-[1.02] tracking-[-0.03em]">
+                <h2 className="text-[40px] sm:text-[56px] font-bold leading-[1.0] tracking-[-0.04em]">
                   Real <span className="font-display-italic text-muted-foreground">results</span> for real local businesses.
                 </h2>
                 <p className="mt-6 text-[17px] text-muted-foreground leading-relaxed max-w-lg">
@@ -76,7 +76,7 @@ export const Sway = () => {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 20%, hsl(var(--accent)/0.07), transparent 70%)' }} />
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: -5, transition: { duration: 0.2 } }}
-                    className="h-11 w-11 rounded-xl glass flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors duration-300 mb-5 relative"
+                    className="h-11 w-11 rounded-xl border border-white/[0.07] bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors duration-300 mb-5 relative"
                   >
                     <Icon size={18} />
                   </motion.div>

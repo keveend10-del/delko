@@ -9,7 +9,7 @@ export function Card({ className, variant = 'default', ...props }: CardProps) {
   return (
     <div
       className={cn(
-        'rounded-[12px] transition-all',
+        'rounded-[10px] transition-all',
         {
           'bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.08)]':
             variant === 'default',

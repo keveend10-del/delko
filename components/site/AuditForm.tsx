@@ -20,7 +20,7 @@ const helpOptions = [
   { id: 'Monthly support', label: 'Monthly support', icon: TrendingUp, desc: 'Ongoing retainer' },
 ]
 
-const inputCls = 'h-11 w-full rounded-xl bg-surface border border-border px-4 text-[14px] text-foreground outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground'
+const inputCls = 'h-11 w-full rounded-lg bg-[hsl(0_0%_5%)] border border-white/[0.08] px-4 text-[14px] text-foreground outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground'
 
 export const AuditForm = () => {
   const [submitted, setSubmitted] = useState(false)
@@ -60,7 +60,7 @@ export const AuditForm = () => {
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="glass-card rounded-2xl p-12 sm:p-16 text-center"
+        className="rounded-xl bg-[hsl(0_0%_4%)] border border-white/[0.07] p-12 sm:p-16 text-center"
       >
         <motion.div
           initial={{ scale: 0, rotate: -15 }}
@@ -77,7 +77,7 @@ export const AuditForm = () => {
   }
 
   return (
-    <form onSubmit={onSubmit} className="glass-card rounded-2xl p-6 sm:p-10" noValidate>
+    <form onSubmit={onSubmit} className="rounded-xl bg-[hsl(0_0%_4%)] border border-white/[0.07] p-6 sm:p-10" noValidate>
       <div className="grid sm:grid-cols-2 gap-5">
 
         {/* Basic fields */}
@@ -112,10 +112,10 @@ export const AuditForm = () => {
                   onClick={() => update('type', selected ? '' : t)}
                   whileHover={{ y: -1 }}
                   whileTap={{ scale: 0.97 }}
-                  className={`h-10 rounded-xl border px-3 text-[13px] font-medium transition-all text-left truncate ${
+                  className={`h-10 rounded-lg border px-3 text-[13px] font-medium transition-all text-left truncate ${
                     selected
-                      ? 'border-accent/50 bg-accent/10 text-foreground shadow-[0_0_16px_hsl(var(--accent)/0.1)]'
-                      : 'border-border bg-surface/60 text-muted-foreground hover:border-white/20 hover:text-foreground'
+                      ? 'border-accent/50 bg-accent/10 text-foreground shadow-[0_0_16px_hsl(var(--accent)/0.12)]'
+                      : 'border-white/[0.07] bg-[hsl(0_0%_5%)] text-muted-foreground hover:border-white/[0.14] hover:text-foreground'
                   }`}
                 >
                   {t}
@@ -141,10 +141,10 @@ export const AuditForm = () => {
                   onClick={() => toggleHelp(id)}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.97 }}
-                  className={`relative flex items-center gap-3 rounded-xl border px-4 py-3.5 text-left transition-all duration-200 ${
+                  className={`relative flex items-center gap-3 rounded-lg border px-4 py-3.5 text-left transition-all duration-200 ${
                     checked
-                      ? 'border-accent/40 bg-accent/[0.07] shadow-[0_0_24px_hsl(var(--accent)/0.1)]'
-                      : 'border-border bg-surface/50 hover:border-white/20'
+                      ? 'border-accent/40 bg-accent/[0.06] shadow-[0_0_24px_hsl(var(--accent)/0.08)]'
+                      : 'border-white/[0.07] bg-[hsl(0_0%_5%)] hover:border-white/[0.14]'
                   }`}
                 >
                   {/* Green circle indicator */}

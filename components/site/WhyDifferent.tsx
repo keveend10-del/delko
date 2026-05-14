@@ -34,7 +34,7 @@ export const WhyDifferent = () => {
             className="max-w-4xl mb-20"
           >
             <div className="eyebrow mb-6">The new Google</div>
-            <h2 className="text-[38px] sm:text-[56px] lg:text-[68px] font-bold leading-[1.0] tracking-[-0.035em]">
+            <h2 className="text-[40px] sm:text-[58px] lg:text-[72px] font-bold leading-[1.0] tracking-[-0.04em]">
               Same search.{' '}
               <span className="font-display-italic text-muted-foreground">Different results.</span>{' '}
               Every time.
@@ -56,7 +56,7 @@ export const WhyDifferent = () => {
                 key={n}
                 variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } }}
                 whileHover={{ y: -6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
-                className="group glass-card rounded-2xl p-8 flex flex-col gap-5 hover:border-border-strong hover:shadow-[0_24px_64px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-default overflow-hidden relative"
+                className="group glass-card rounded-xl p-8 flex flex-col gap-5 hover:border-border-strong hover:shadow-[6px_6px_0px_rgba(0,0,0,0.45),0_24px_64px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-default overflow-hidden relative"
               >
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, hsl(var(--accent)/0.06), transparent 70%)' }} />
                 <span className="text-[10px] font-bold font-mono tracking-[0.22em] text-muted-foreground relative">{n}</span>

@@ -84,6 +84,8 @@ const config: Config = {
         elevated: 'var(--shadow-elevated)',
         glow: 'var(--shadow-glow)',
         'glow-lg': 'var(--shadow-glow-lg)',
+        offset: 'var(--shadow-offset)',
+        'offset-green': 'var(--shadow-offset-green)',
       },
       keyframes: {
         'accordion-down': {
