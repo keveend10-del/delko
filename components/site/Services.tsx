@@ -12,52 +12,53 @@ const services = [
 ]
 
 const card = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 }
 
-export const Services = () => (
+export const Services = ({ compact = false }: { compact?: boolean }) => (
   <Section
     id="services"
     eyebrow="Services / 06"
     title={<>Built for <span className="font-display-italic text-muted-foreground">how Google works now.</span></>}
-    subtitle="Every service we offer is designed to build the context signals Google uses to route customers. Not keyword lists. Not rankings dashboards. Actual visibility."
+    subtitle={compact ? undefined : 'Every service we offer is designed to build the context signals Google uses to route customers. Not keyword lists. Not rankings dashboards. Actual visibility.'}
   >
     <motion.div
-      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } } }}
+      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } } }}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-60px' }}
-      className="grid md:grid-cols-2 gap-4 sm:gap-5"
+      className={`grid gap-4 sm:gap-5 ${compact ? 'sm:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'}`}
     >
       {services.map(({ icon: Icon, n, title, desc, tags }) => (
         <motion.article
           key={n}
           variants={card}
-          whileHover={{ y: -6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
-          className="group glass-card rounded-xl p-7 sm:p-9 hover:border-border-strong hover:shadow-[6px_6px_0px_rgba(0,0,0,0.45),0_20px_60px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative cursor-default"
+          whileHover={{ y: -4, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } }}
+          className="group glass-card rounded-xl hover:border-border-strong hover:shadow-[4px_4px_0px_rgba(0,0,0,0.45),0_16px_48px_rgba(0,0,0,0.5)] transition-all duration-300 overflow-hidden relative cursor-default"
+          style={{ padding: compact ? '1.5rem' : '1.75rem 2.25rem' }}
         >
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 40% at 30% 0%, hsl(var(--accent)/0.06), transparent 70%)' }} />
-          <div className="flex items-start justify-between mb-7 relative">
+          <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 40% at 30% 0%, hsl(var(--accent)/0.06), transparent 70%)' }} />
+          <div className="flex items-start justify-between mb-5 relative">
             <motion.div
               whileHover={{ rotate: -5, scale: 1.1 }}
-              transition={{ duration: 0.25 }}
-              className="h-12 w-12 rounded-xl border border-white/[0.07] bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent group-hover:border-accent/30 transition-all duration-300"
+              transition={{ duration: 0.2 }}
+              className="h-10 w-10 rounded-xl border border-white/[0.07] bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent group-hover:border-accent/30 transition-all duration-300"
             >
-              <Icon size={20} />
+              <Icon size={18} />
             </motion.div>
             <span className="text-[10px] font-bold font-mono tracking-[0.18em] text-muted-foreground/60">{n}</span>
           </div>
-          <h3 className="text-[20px] sm:text-[22px] font-bold tracking-[-0.025em] leading-tight relative">{title}</h3>
-          <p className="mt-3.5 text-[15px] text-muted-foreground leading-relaxed relative">{desc}</p>
-          <div className="mt-7 flex items-center justify-between relative">
+          <h3 className="text-[17px] sm:text-[19px] font-bold tracking-[-0.025em] leading-tight relative">{title}</h3>
+          {!compact && <p className="mt-3 text-[14px] text-muted-foreground leading-relaxed relative">{desc}</p>}
+          <div className={`flex items-center justify-between relative ${compact ? 'mt-4' : 'mt-6'}`}>
             <div className="flex flex-wrap gap-1.5">
               {tags.map((t) => (
                 <span key={t} className="text-[11px] font-medium px-2.5 py-1 rounded-full border border-border text-muted-foreground group-hover:border-accent/30 group-hover:text-foreground/70 transition-colors">{t}</span>
               ))}
             </div>
-            <ArrowUpRight size={16} className="text-muted-foreground/40 group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />
+            {!compact && <ArrowUpRight size={15} className="text-muted-foreground/40 group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />}
           </div>
         </motion.article>
       ))}

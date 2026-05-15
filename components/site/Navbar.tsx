@@ -7,10 +7,9 @@ import { Menu, X } from 'lucide-react'
 import { trackCTAClick } from '@/lib/analytics'
 
 const links = [
-  { label: 'Services', href: '#services' },
-  { label: 'Packages', href: '#packages' },
-  { label: 'Process', href: '#process' },
-  { label: 'Results', href: '#sway' },
+  { label: 'Services', href: '/services' },
+  { label: 'About', href: '/about' },
+  { label: 'Packages', href: '/#packages' },
 ]
 
 export const Navbar = () => {
@@ -33,7 +32,7 @@ export const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
         >
-          <a href="#top" className="flex items-center gap-2.5">
+          <a href="/" className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inset-0 rounded-full bg-accent animate-dot" />
               <span className="relative h-2.5 w-2.5 rounded-full bg-accent" />
@@ -60,7 +59,7 @@ export const Navbar = () => {
               <a href="/portal/login">Client Portal</a>
             </Button>
             <Button asChild variant="accent" size="sm">
-              <a href="#audit" onClick={() => trackCTAClick('get_free_audit', 'navbar')}>Free Audit</a>
+              <a href="/#audit" onClick={() => trackCTAClick('get_free_audit', 'navbar')}>Free Audit</a>
             </Button>
           </div>
 
@@ -98,7 +97,7 @@ export const Navbar = () => {
                 <a href="/portal/login" onClick={() => setOpen(false)}>Client Portal</a>
               </Button>
               <Button asChild variant="accent" className="mt-2 w-full">
-                <a href="#audit" onClick={() => setOpen(false)}>Free Audit</a>
+                <a href="/#audit" onClick={() => setOpen(false)}>Free Audit</a>
               </Button>
             </div>
           </motion.div>

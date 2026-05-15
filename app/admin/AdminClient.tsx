@@ -170,7 +170,7 @@ export function AdminClient({ initiallyAuthed }: { initiallyAuthed: boolean }) {
           <div>
             <div className="flex items-center gap-2.5 mb-8">
               <span className="w-2 h-2 rounded-full bg-accent" />
-              <span className="text-[14px] font-semibold tracking-tight">Berk Growth Co.</span>
+              <span className="text-[14px] font-semibold tracking-tight">Delko</span>
             </div>
             <h1 className="text-[28px] font-bold tracking-tight mb-1">Admin</h1>
             <p className="text-[14px] text-white/40">Internal use only.</p>
@@ -208,7 +208,7 @@ export function AdminClient({ initiallyAuthed }: { initiallyAuthed: boolean }) {
         <div className="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-accent" />
-            <span className="text-[14px] font-semibold tracking-tight">Berk Growth Co.</span>
+            <span className="text-[14px] font-semibold tracking-tight">Delko</span>
             <span className="text-[12px] text-white/30 ml-1">/ Admin</span>
           </div>
           <button

@@ -92,7 +92,7 @@ export const Sway = () => {
                 Want to see what we&apos;d do for your business specifically? Send us your name and website. Free audit within a couple days.
               </p>
               <Button asChild variant="accent" size="lg" className="shrink-0">
-                <a href="#audit" onClick={() => trackCTAClick('get_free_audit', 'results_section')}>Get a Free Audit <ArrowUpRight /></a>
+                <a href="/#audit" onClick={() => trackCTAClick('get_free_audit', 'results_section')}>Get a Free Audit <ArrowUpRight /></a>
               </Button>
             </div>
           </div>

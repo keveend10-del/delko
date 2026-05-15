@@ -17,7 +17,13 @@ export const Footer = () => (
         <div className="lg:col-span-3">
           <div className="text-[10px] font-bold font-mono uppercase tracking-[0.22em] text-muted-foreground mb-5">Explore</div>
           <ul className="space-y-3 text-[14px]">
-            {[{ label: 'Services', href: '#services' }, { label: 'Packages', href: '#packages' }, { label: 'Process', href: '#process' }, { label: 'Contact', href: '#audit' }, { label: 'Client Portal', href: '/portal/login' }].map(({ label, href }) => (
+            {[
+              { label: 'Services', href: '/services' },
+              { label: 'About', href: '/about' },
+              { label: 'Packages', href: '/#packages' },
+              { label: 'Get a Free Audit', href: '/#audit' },
+              { label: 'Client Portal', href: '/portal/login' },
+            ].map(({ label, href }) => (
               <li key={href}>
                 <a href={href} className="text-muted-foreground hover:text-accent transition-colors duration-200">{label}</a>
               </li>

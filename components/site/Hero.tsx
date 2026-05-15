@@ -88,7 +88,7 @@ export const Hero = () => {
             transition={{ delay: 0.55, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="mt-9 text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-[500px]"
           >
-            We don&apos;t optimize for keywords. We build the signals that make Google route the right customers directly to you — because context-aware search has changed everything.
+            We build the signals Google uses to route real customers to your business. Not keywords — context.
           </motion.p>
 
           <motion.div
@@ -101,7 +101,7 @@ export const Hero = () => {
               <a href="#audit" onClick={() => trackCTAClick('get_free_audit', 'hero')}>Get a Free Audit <ArrowUpRight size={16} /></a>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <a href="#services" onClick={() => trackCTAClick('see_services', 'hero')}>See Our Services</a>
+              <a href="/services" onClick={() => trackCTAClick('see_services', 'hero')}>See Our Services</a>
             </Button>
           </motion.div>
 

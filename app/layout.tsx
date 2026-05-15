@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Berk Growth Co. | More Calls. More Jobs.',
+  title: 'Delko | More Calls. More Jobs.',
   description: 'Websites, ads, and Google profiles that bring more calls to local businesses across Berkshire County and the North Shore of Massachusetts.',
 }
 

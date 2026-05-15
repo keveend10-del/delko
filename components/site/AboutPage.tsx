@@ -2,27 +2,27 @@
 
 import { useScrollDepth } from '@/hooks/useScrollDepth'
 import { Navbar } from './Navbar'
-import { Hero } from './Hero'
 import { SectionDivider } from './Section'
-import { Problem } from './Problem'
-import { Services } from './Services'
-import { Packages } from './Packages'
+import { WhyDifferent } from './WhyDifferent'
+import { Sway } from './Sway'
+import { BeforeAfter } from './BeforeAfter'
+import { LocalFocus } from './LocalFocus'
 import { CTASection } from './CTASection'
 import { Footer } from './Footer'
 
-export function LandingPage() {
+export function AboutPage() {
   useScrollDepth()
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       <Navbar />
       <main>
-        <Hero />
+        <WhyDifferent />
         <SectionDivider />
-        <Problem />
+        <Sway />
         <SectionDivider />
-        <Services compact />
+        <BeforeAfter />
         <SectionDivider />
-        <Packages />
+        <LocalFocus />
         <CTASection />
       </main>
       <Footer />

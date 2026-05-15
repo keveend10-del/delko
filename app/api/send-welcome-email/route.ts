@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: process.env.RESEND_FROM ?? 'Delko <onboarding@resend.dev>',
       to: client.email,
-      subject: `You're in — welcome to Berk Growth Co., ${client.name}.`,
+      subject: `You're in — welcome to Delko, ${client.name}.`,
       html: welcomeEmailHtml(client.name, client.business_name, dashboardUrl),
     })
 

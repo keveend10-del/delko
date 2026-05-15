@@ -2,27 +2,21 @@
 
 import { useScrollDepth } from '@/hooks/useScrollDepth'
 import { Navbar } from './Navbar'
-import { Hero } from './Hero'
 import { SectionDivider } from './Section'
-import { Problem } from './Problem'
 import { Services } from './Services'
-import { Packages } from './Packages'
+import { Process } from './Process'
 import { CTASection } from './CTASection'
 import { Footer } from './Footer'
 
-export function LandingPage() {
+export function ServicesPage() {
   useScrollDepth()
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       <Navbar />
       <main>
-        <Hero />
+        <Services />
         <SectionDivider />
-        <Problem />
-        <SectionDivider />
-        <Services compact />
-        <SectionDivider />
-        <Packages />
+        <Process />
         <CTASection />
       </main>
       <Footer />

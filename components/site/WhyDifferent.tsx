@@ -82,7 +82,7 @@ export const WhyDifferent = () => {
                 We build context signals — not keyword lists. Your presence across Google&apos;s entire ecosystem, engineered to match how your customers actually search.
               </p>
             </div>
-            <a href="#services" className="relative inline-flex items-center gap-2 text-[14px] font-bold text-accent whitespace-nowrap hover:gap-3 transition-all duration-200">
+            <a href="/services" className="relative inline-flex items-center gap-2 text-[14px] font-bold text-accent whitespace-nowrap hover:gap-3 transition-all duration-200">
               See how we do it <ArrowUpRight size={15} />
             </a>
           </motion.div>

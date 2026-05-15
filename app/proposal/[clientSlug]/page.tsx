@@ -34,7 +34,7 @@ export default async function ProposalPage({
         <div className="max-w-4xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-accent" />
-            <span className="text-[14px] font-semibold tracking-tight">Berk Growth Co.</span>
+            <span className="text-[14px] font-semibold tracking-tight">Delko</span>
           </div>
           <span className="text-[12px] text-white/30 font-medium">Confidential Proposal</span>
         </div>
@@ -173,7 +173,7 @@ function TermsSection() {
       <h2 className="text-[22px] font-bold tracking-tight mb-6">Terms of Service</h2>
       <div className="glass-card p-6 sm:p-8 space-y-5 text-[14px] text-white/55 leading-relaxed">
         {[
-          ['1. Services', 'Berk Growth Co. ("Agency") agrees to provide the digital marketing services described in the selected package. Specific deliverables and timelines will be outlined in a kickoff document delivered within 7 business days of payment.'],
+          ['1. Services', 'Delko ("Agency") agrees to provide the digital marketing services described in the selected package. Specific deliverables and timelines will be outlined in a kickoff document delivered within 7 business days of payment.'],
           ['2. Payment', 'Client agrees to pay the monthly retainer fee on a recurring basis. All payments are processed via Stripe. The first charge occurs upon subscription activation. Subsequent charges occur on the same day each month.'],
           ['3. Ad Spend', 'Ad spend for Google Ads, Google Local Services Ads, and Meta Ads is paid directly by the client to the respective platforms. Agency fees do not include ad spend. Agency will request budget authorization before launching any paid campaigns.'],
           ['4. Term & Cancellation', 'This agreement is month-to-month with no long-term commitment. Either party may cancel with 30 days written notice. Cancellation takes effect at the end of the current billing period. Partial months are non-refundable.'],

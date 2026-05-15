@@ -23,28 +23,50 @@ const nav = [
 
 function PortalLogin() {
   const supabase = createClient()
+  const [tab, setTab] = useState<'login' | 'signup'>('login')
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [busy, setBusy] = useState(false)
-  const [sent, setSent] = useState(false)
   const [msg, setMsg] = useState('')
+  const [successMsg, setSuccessMsg] = useState('')
+  const [forgotMode, setForgotMode] = useState(false)
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? (typeof window !== 'undefined' ? window.location.origin : '')
+  const appUrl = typeof window !== 'undefined' ? window.location.origin : (process.env.NEXT_PUBLIC_APP_URL ?? '')
+  const reset = () => { setMsg(''); setSuccessMsg('') }
 
-  const onSubmit = async (e: React.FormEvent) => {
+  const onLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    setBusy(true)
-    setMsg('')
-    const { error } = await supabase.auth.signInWithOtp({
+    setBusy(true); reset()
+    const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password })
+    setBusy(false)
+    if (error) setMsg(error.message)
+  }
+
+  const onSignUp = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setBusy(true); reset()
+    const { error } = await supabase.auth.signUp({
       email: email.trim(),
-      options: {
-        shouldCreateUser: false,
-        emailRedirectTo: `${appUrl}/auth/callback?next=/portal/dashboard`,
-      },
+      password,
+      options: { emailRedirectTo: `${appUrl}/auth/callback?next=/portal/dashboard` },
     })
     setBusy(false)
     if (error) return setMsg(error.message)
-    setSent(true)
+    setSuccessMsg('Check your email to confirm your account, then come back to sign in.')
   }
+
+  const onForgot = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setBusy(true); reset()
+    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: `${appUrl}/reset-password`,
+    })
+    setBusy(false)
+    if (error) return setMsg(error.message)
+    setSuccessMsg('Password reset link sent — check your email.')
+  }
+
+  const inputCls = 'h-11 w-full rounded-xl bg-surface border border-border px-4 text-[14px] outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground'
 
   return (
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-5 py-10 relative overflow-hidden">
@@ -58,41 +80,84 @@ function PortalLogin() {
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Client access
           </div>
-          <h1 className="text-3xl tracking-tight font-bold">
+          <h1 className="text-3xl tracking-tight font-bold mb-6">
             Client <span className="font-serif italic font-normal text-muted-foreground">portal</span>
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground">Enter your email and we&apos;ll send a sign-in link — no password needed.</p>
 
-          {sent ? (
-            <div className="mt-7 rounded-2xl border border-accent/20 bg-accent/5 px-5 py-6 text-center">
-              <div className="text-2xl mb-2">📬</div>
-              <p className="text-[14px] font-medium">Check your email</p>
-              <p className="mt-1 text-[13px] text-muted-foreground">We sent a sign-in link to <span className="text-foreground">{email}</span>. Click it to access your portal.</p>
-              <button onClick={() => { setSent(false); setEmail('') }} className="mt-4 text-[12px] text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2">
-                Use a different email
+          {!forgotMode && !successMsg && (
+            <div className="flex gap-1 p-1 rounded-xl bg-surface border border-border mb-6">
+              {(['login', 'signup'] as const).map(t => (
+                <button
+                  key={t}
+                  onClick={() => { setTab(t); reset() }}
+                  className={`flex-1 h-8 rounded-lg text-[13px] font-medium transition-all ${tab === t ? 'bg-accent text-[#0A0A0A]' : 'text-muted-foreground hover:text-foreground'}`}
+                >
+                  {t === 'login' ? 'Sign in' : 'Sign up'}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {successMsg ? (
+            <div className="rounded-2xl border border-accent/20 bg-accent/5 px-5 py-6 text-center">
+              <p className="text-[14px] text-foreground">{successMsg}</p>
+              <button
+                onClick={() => { setSuccessMsg(''); setForgotMode(false); setTab('login') }}
+                className="mt-4 text-[12px] text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
+              >
+                Back to sign in
               </button>
             </div>
-          ) : (
-            <form onSubmit={onSubmit} className="mt-7 space-y-4">
+          ) : forgotMode ? (
+            <>
+              <h2 className="text-lg font-semibold mb-1">Reset password</h2>
+              <p className="text-[13px] text-muted-foreground mb-5">Enter your email and we&apos;ll send a reset link.</p>
+              <form onSubmit={onForgot} className="space-y-4">
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="you@yourbusiness.com" className={inputCls} />
+                {msg && <p className="text-[13px] text-red-400">{msg}</p>}
+                <button type="submit" disabled={busy} className="w-full h-11 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] disabled:opacity-50 hover:brightness-105 transition-all">
+                  {busy ? 'Sending…' : 'Send reset link'}
+                </button>
+                <button type="button" onClick={() => { setForgotMode(false); reset() }} className="w-full text-[13px] text-muted-foreground hover:text-foreground transition-colors">
+                  ← Back to sign in
+                </button>
+              </form>
+            </>
+          ) : tab === 'login' ? (
+            <form onSubmit={onLogin} className="space-y-4">
               <div className="space-y-1.5">
                 <label className="text-[12px] font-medium text-muted-foreground">Email</label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  required
-                  placeholder="you@yourbusiness.com"
-                  className="h-11 w-full rounded-xl bg-surface border border-border px-4 text-[14px] outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground"
-                />
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="you@yourbusiness.com" className={inputCls} />
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-[12px] font-medium text-muted-foreground">Password</label>
+                  <button type="button" onClick={() => { setForgotMode(true); reset() }} className="text-[12px] text-accent hover:underline">
+                    Forgot password?
+                  </button>
+                </div>
+                <input type="password" value={password} onChange={e => setPassword(e.target.value)} required placeholder="••••••••" className={inputCls} />
               </div>
               {msg && <p className="text-[13px] text-red-400">{msg}</p>}
-              <button
-                type="submit"
-                disabled={busy}
-                className="w-full h-11 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] disabled:opacity-50 hover:brightness-105 transition-all"
-              >
-                {busy ? 'Sending…' : 'Send sign-in link'}
+              <button type="submit" disabled={busy} className="w-full h-11 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] disabled:opacity-50 hover:brightness-105 transition-all">
+                {busy ? 'Signing in…' : 'Sign in'}
               </button>
+            </form>
+          ) : (
+            <form onSubmit={onSignUp} className="space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-medium text-muted-foreground">Email</label>
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="you@yourbusiness.com" className={inputCls} />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-medium text-muted-foreground">Password</label>
+                <input type="password" value={password} onChange={e => setPassword(e.target.value)} required minLength={8} placeholder="Min. 8 characters" className={inputCls} />
+              </div>
+              {msg && <p className="text-[13px] text-red-400">{msg}</p>}
+              <button type="submit" disabled={busy} className="w-full h-11 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] disabled:opacity-50 hover:brightness-105 transition-all">
+                {busy ? 'Creating account…' : 'Create account'}
+              </button>
+              <p className="text-[12px] text-center text-muted-foreground">A confirmation email will be sent to verify your address.</p>
             </form>
           )}
 

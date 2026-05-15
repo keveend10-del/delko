@@ -1,4 +1,4 @@
--- Berk Growth Co. — Client Portal Schema
+-- Delko — Client Portal Schema
 -- Run this in the Supabase SQL Editor
 
 CREATE TABLE IF NOT EXISTS clients (
@@ -47,8 +47,16 @@ ALTER TABLE clients ENABLE ROW LEVEL SECURITY;
 ALTER TABLE monthly_metrics ENABLE ROW LEVEL SECURITY;
 
 -- No anon policies — service role bypasses RLS automatically.
--- Add client-facing policies here when Supabase Auth is wired up:
---
--- Example (read own data by auth.uid):
--- CREATE POLICY "clients_own_read" ON clients
---   FOR SELECT USING (auth.uid()::text = id::text);
+-- Authenticated clients can only read their own data.
+
+CREATE POLICY "clients_self_read" ON clients
+  FOR SELECT
+  TO authenticated
+  USING (email = auth.email());
+
+CREATE POLICY "metrics_self_read" ON monthly_metrics
+  FOR SELECT
+  TO authenticated
+  USING (
+    client_id IN (SELECT id FROM clients WHERE email = auth.email())
+  );

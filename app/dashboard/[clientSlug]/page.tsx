@@ -62,7 +62,7 @@ export default async function DashboardPage({
         <div className="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-accent" />
-            <span className="text-[14px] font-semibold tracking-tight">Berk Growth Co.</span>
+            <span className="text-[14px] font-semibold tracking-tight">Delko</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">

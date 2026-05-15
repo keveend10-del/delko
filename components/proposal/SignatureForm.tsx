@@ -59,7 +59,7 @@ export function SignatureForm({ clientSlug, onSigned }: SignatureFormProps) {
           {agreed ? <CheckSquare size={20} /> : <Square size={20} className="text-white/30" />}
         </div>
         <span className="text-[14px] text-white/70 leading-relaxed group-hover:text-white/90 transition-colors">
-          I have read and agree to the terms of service above. I authorize Berk Growth Co. to begin work under the selected package and understand that payment will be charged monthly.
+          I have read and agree to the terms of service above. I authorize Delko to begin work under the selected package and understand that payment will be charged monthly.
         </span>
       </button>
 
