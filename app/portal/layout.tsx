@@ -23,7 +23,6 @@ const nav = [
 
 function PortalLogin() {
   const supabase = createClient()
-  const [tab, setTab] = useState<'login' | 'signup'>('login')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [busy, setBusy] = useState(false)
@@ -40,19 +39,6 @@ function PortalLogin() {
     const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password })
     setBusy(false)
     if (error) setMsg(error.message)
-  }
-
-  const onSignUp = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setBusy(true); reset()
-    const { error } = await supabase.auth.signUp({
-      email: email.trim(),
-      password,
-      options: { emailRedirectTo: `${appUrl}/auth/callback?next=/portal/dashboard` },
-    })
-    setBusy(false)
-    if (error) return setMsg(error.message)
-    setSuccessMsg('Check your email to confirm your account, then come back to sign in.')
   }
 
   const onForgot = async (e: React.FormEvent) => {
@@ -84,25 +70,12 @@ function PortalLogin() {
             Client <span className="font-serif italic font-normal text-muted-foreground">portal</span>
           </h1>
 
-          {!forgotMode && !successMsg && (
-            <div className="flex gap-1 p-1 rounded-xl bg-surface border border-border mb-6">
-              {(['login', 'signup'] as const).map(t => (
-                <button
-                  key={t}
-                  onClick={() => { setTab(t); reset() }}
-                  className={`flex-1 h-8 rounded-lg text-[13px] font-medium transition-all ${tab === t ? 'bg-accent text-[#0A0A0A]' : 'text-muted-foreground hover:text-foreground'}`}
-                >
-                  {t === 'login' ? 'Sign in' : 'Sign up'}
-                </button>
-              ))}
-            </div>
-          )}
 
           {successMsg ? (
             <div className="rounded-2xl border border-accent/20 bg-accent/5 px-5 py-6 text-center">
               <p className="text-[14px] text-foreground">{successMsg}</p>
               <button
-                onClick={() => { setSuccessMsg(''); setForgotMode(false); setTab('login') }}
+                onClick={() => { setSuccessMsg(''); setForgotMode(false) }}
                 className="mt-4 text-[12px] text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
               >
                 Back to sign in
@@ -123,7 +96,7 @@ function PortalLogin() {
                 </button>
               </form>
             </>
-          ) : tab === 'login' ? (
+          ) : (
             <form onSubmit={onLogin} className="space-y-4">
               <div className="space-y-1.5">
                 <label className="text-[12px] font-medium text-muted-foreground">Email</label>
@@ -142,22 +115,6 @@ function PortalLogin() {
               <button type="submit" disabled={busy} className="w-full h-11 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] disabled:opacity-50 hover:brightness-105 transition-all">
                 {busy ? 'Signing in…' : 'Sign in'}
               </button>
-            </form>
-          ) : (
-            <form onSubmit={onSignUp} className="space-y-4">
-              <div className="space-y-1.5">
-                <label className="text-[12px] font-medium text-muted-foreground">Email</label>
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="you@yourbusiness.com" className={inputCls} />
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-[12px] font-medium text-muted-foreground">Password</label>
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} required minLength={8} placeholder="Min. 8 characters" className={inputCls} />
-              </div>
-              {msg && <p className="text-[13px] text-red-400">{msg}</p>}
-              <button type="submit" disabled={busy} className="w-full h-11 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[14px] disabled:opacity-50 hover:brightness-105 transition-all">
-                {busy ? 'Creating account…' : 'Create account'}
-              </button>
-              <p className="text-[12px] text-center text-muted-foreground">A confirmation email will be sent to verify your address.</p>
             </form>
           )}
 

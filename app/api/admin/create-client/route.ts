@@ -16,6 +16,7 @@ export async function POST(req: NextRequest) {
     }
 
     const slug = generateSlug(businessName)
+    const normalizedEmail = email.trim().toLowerCase()
     const supabase = createAdminClient()
 
     const { data, error } = await supabase
@@ -24,7 +25,7 @@ export async function POST(req: NextRequest) {
         slug,
         name,
         business_name: businessName,
-        email,
+        email: normalizedEmail,
         package: pkg,
         custom_scope: customScope || null,
         subscription_status: 'pending',
@@ -33,6 +34,15 @@ export async function POST(req: NextRequest) {
       .single()
 
     if (error) throw error
+
+    // Invite client to create their portal account (non-fatal if it fails)
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? ''
+    await supabase.auth.admin.inviteUserByEmail(normalizedEmail, {
+      redirectTo: `${appUrl}/auth/callback?next=/portal/dashboard`,
+    }).catch((inviteErr: unknown) => {
+      console.warn('invite email failed (non-fatal):', inviteErr)
+    })
+
     return NextResponse.json({ slug, client: data })
   } catch (err) {
     console.error('create-client error:', err)

@@ -32,7 +32,7 @@ export function PortalAuthProvider({ children }: { children: ReactNode }) {
     const { data } = await supabase
       .from('clients')
       .select('*')
-      .eq('email', email)
+      .eq('email', email.toLowerCase())
       .maybeSingle()
     setClient(data ?? null)
     setLoading(false)
