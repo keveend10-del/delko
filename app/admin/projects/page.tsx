@@ -100,18 +100,26 @@ export default function Projects() {
   )
 }
 
+const EMPTY_FORM = { project_name: '', client_id: '', package_type: '', start_date: '', due_date: '', status: 'Not started', progress: 0, project_value: '', notes: '' }
+
 function ProjectCreate({ supabase, open, onClose, clients, onSaved }: any) {
-  const [form, setForm] = useState<any>({ project_name: '', client_id: '', package_type: '', start_date: '', due_date: '', status: 'Not started', progress: 0, project_value: '', notes: '' })
+  const [form, setForm] = useState<any>(EMPTY_FORM)
   const upd = (k: string, v: any) => setForm((f: any) => ({ ...f, [k]: v }))
+
+  useEffect(() => { if (open) setForm(EMPTY_FORM) }, [open])
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     const { error } = await supabase.from('projects').insert({
-      ...form,
+      project_name: form.project_name,
       client_id: form.client_id || null,
+      package_type: form.package_type || null,
       start_date: form.start_date || null,
       due_date: form.due_date || null,
+      status: form.status,
+      progress: Number(form.progress) || 0,
       project_value: form.project_value ? Number(form.project_value) : null,
+      notes: form.notes || null,
     })
     if (error) { console.error('Project create error:', error); return toast.error('Project could not be saved. Please check the setup or try again.') }
     toast.success('Project created')

@@ -11,10 +11,8 @@ interface Project {
   id: string
   project_name: string
   status: string
-  progress: number
-  current_phase?: string
-  notes?: string
-  timeline?: string
+  progress: number | null
+  notes: string | null
 }
 
 export default function ProjectPage() {
@@ -74,9 +72,6 @@ export default function ProjectPage() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-1">{pkg.name} Plan</p>
                   <h2 className="text-lg font-bold tracking-tight">{project.project_name}</h2>
-                  {project.current_phase && (
-                    <p className="text-[13px] text-muted-foreground mt-1">Phase: {project.current_phase}</p>
-                  )}
                 </div>
                 <StatusBadge value={project.status} />
               </div>
@@ -122,13 +117,6 @@ export default function ProjectPage() {
                   )
                 })}
               </div>
-
-              {project.timeline && (
-                <div className="rounded-xl bg-surface border border-border px-4 py-3 mb-4">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1">Timeline</p>
-                  <p className="text-[13px] text-foreground/80">{project.timeline}</p>
-                </div>
-              )}
 
               {project.notes && (
                 <div className="rounded-xl bg-surface border border-border px-4 py-3">
