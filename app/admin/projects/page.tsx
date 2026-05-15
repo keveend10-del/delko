@@ -28,14 +28,14 @@ export default function Projects() {
 
   const update = async (id: string, patch: any) => {
     const { error } = await supabase.from('projects').update(patch).eq('id', id)
-    if (error) toast.error(error.message)
+    if (error) { console.error('Project update error:', error); toast.error('Could not update project. Please try again.') }
     else load()
   }
 
   const remove = async (id: string) => {
     if (!confirm('Delete this project?')) return
     const { error } = await supabase.from('projects').delete().eq('id', id)
-    if (error) toast.error(error.message)
+    if (error) { console.error('Project delete error:', error); toast.error('Could not delete project. Please try again.') }
     else { toast.success('Project deleted'); load() }
   }
 
@@ -113,7 +113,7 @@ function ProjectCreate({ supabase, open, onClose, clients, onSaved }: any) {
       due_date: form.due_date || null,
       project_value: form.project_value ? Number(form.project_value) : null,
     })
-    if (error) return toast.error(error.message)
+    if (error) { console.error('Project create error:', error); return toast.error('Project could not be saved. Please check the setup or try again.') }
     toast.success('Project created')
     onClose()
     onSaved()
@@ -171,7 +171,7 @@ function ProjectEdit({ supabase, project, onClose, clients, onSaved }: any) {
       project_value: form.project_value === '' || form.project_value === null ? null : Number(form.project_value),
       notes: form.notes || null,
     }).eq('id', project.id)
-    if (error) return toast.error(error.message)
+    if (error) { console.error('Project update error:', error); return toast.error('Project could not be saved. Please check the setup or try again.') }
     toast.success('Project updated')
     onClose()
     onSaved()
