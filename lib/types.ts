@@ -4,6 +4,7 @@ export type SubscriptionStatus = 'pending' | 'active' | 'past_due' | 'canceled'
 export interface Client {
   id: string
   slug: string
+  customer_user_id: string | null
   name: string | null
   business_name: string
   email: string

@@ -1,3 +1,5 @@
+import { CookieSettingsLink } from './CookieSettingsLink'
+
 export const Footer = () => (
   <footer className="relative border-t border-white/[0.07]">
     <div className="container mx-auto px-5 sm:px-8 py-16 sm:py-20">
@@ -42,7 +44,10 @@ export const Footer = () => (
       <div className="hairline mt-14 mb-6" />
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-muted-foreground">
         <div>© {new Date().getFullYear()} Delko. All rights reserved.</div>
-        <div className="font-mono tracking-wider">42.5584° N — 70.8800° W</div>
+        <div className="flex items-center gap-5">
+          <CookieSettingsLink />
+          <span className="font-mono tracking-wider">42.5584° N — 70.8800° W</span>
+        </div>
       </div>
     </div>
   </footer>

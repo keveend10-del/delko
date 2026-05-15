@@ -61,7 +61,7 @@ function PortalLogin() {
         <Link href="/" className="block text-center text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6 hover:text-foreground transition-colors">
           ← Back to site
         </Link>
-        <div className="rounded-3xl border border-border bg-[hsl(0_0%_7%)] shadow-[0_24px_80px_rgba(0,0,0,0.8)] p-8 sm:p-10">
+        <div className="rounded-3xl border border-border bg-surface shadow-[0_24px_80px_rgba(0,0,0,0.8)] p-8 sm:p-10">
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-3">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Client access
@@ -128,30 +128,57 @@ function PortalLogin() {
   )
 }
 
-function NoClientFound() {
+function SyncError({ message }: { message: string }) {
+  const { reloadClient, signOut } = usePortalAuth()
+  const [retrying, setRetrying] = useState(false)
+
+  const handleRetry = async () => {
+    setRetrying(true)
+    await reloadClient()
+    setRetrying(false)
+  }
+
   return (
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-5">
       <div className="max-w-md text-center">
         <div className="h-14 w-14 rounded-2xl bg-surface-elevated border border-border flex items-center justify-center mx-auto mb-5">
           <FolderKanban size={22} className="text-muted-foreground" />
         </div>
-        <h2 className="text-xl font-semibold mb-2">No account found</h2>
+        <h2 className="text-xl font-semibold mb-2">Setting up your account</h2>
         <p className="text-sm text-muted-foreground mb-6">
-          Your email isn&apos;t linked to an active Delko client account yet. If you&apos;ve signed up, we&apos;ll have your portal ready within 24 hours.
+          We couldn&apos;t load your client profile right now. This sometimes happens on first login — try again, or contact us if it persists.
         </p>
-        <a
-          href="mailto:keveend10@gmail.com"
-          className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[13px] hover:brightness-105 transition-all"
-        >
-          Contact Delko
-        </a>
+        {message && (
+          <p className="text-xs text-red-400 mb-4 font-mono">{message}</p>
+        )}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <button
+            onClick={handleRetry}
+            disabled={retrying}
+            className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[13px] hover:brightness-105 transition-all disabled:opacity-50"
+          >
+            {retrying ? 'Retrying…' : 'Try again'}
+          </button>
+          <a
+            href="mailto:keveend10@gmail.com"
+            className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-xl border border-border text-[13px] hover:bg-surface-elevated transition-all"
+          >
+            Contact Delko
+          </a>
+          <button
+            onClick={signOut}
+            className="text-[13px] text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Sign out
+          </button>
+        </div>
       </div>
     </div>
   )
 }
 
 function PortalShell({ children }: { children: ReactNode }) {
-  const { user, client, loading, signOut } = usePortalAuth()
+  const { user, client, loading, syncError, signOut } = usePortalAuth()
   const pathname = usePathname()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
@@ -164,7 +191,7 @@ function PortalShell({ children }: { children: ReactNode }) {
   }
 
   if (!user) return <PortalLogin />
-  if (!client) return <NoClientFound />
+  if (syncError || !client) return <SyncError message={syncError ?? 'Client data unavailable.'} />
 
   const currentLabel = nav.find(n => pathname.startsWith(n.href))?.label ?? 'Portal'
   const displayName = client.name || client.contact_name || client.business_name || '?'
@@ -173,7 +200,7 @@ function PortalShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-background text-foreground flex">
       {/* Sidebar */}
-      <aside className={`fixed lg:sticky top-0 left-0 z-40 h-screen w-64 shrink-0 border-r border-border bg-[hsl(0_0%_6%)] backdrop-blur-xl transition-transform duration-300 flex flex-col ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+      <aside className={`fixed lg:sticky top-0 left-0 z-40 h-screen w-64 shrink-0 border-r border-border bg-surface backdrop-blur-xl transition-transform duration-300 flex flex-col ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div className="px-5 pt-6 pb-4 border-b border-border/60">
           <Link href="/portal/dashboard" onClick={() => setSidebarOpen(false)}>
             <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Client · Portal</div>
