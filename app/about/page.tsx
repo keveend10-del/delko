@@ -14,6 +14,23 @@ export const metadata: Metadata = {
   },
 }
 
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Delko',
+  url: 'https://delkoagency.com',
+  description: 'Local marketing agency built for Berkshire County and North Shore MA businesses.',
+  areaServed: ['Berkshire County, MA', 'North Shore, MA'],
+}
+
 export default function About() {
-  return <AboutPage />
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+      <AboutPage />
+    </>
+  )
 }

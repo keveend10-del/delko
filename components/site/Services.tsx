@@ -20,8 +20,11 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
   <Section
     id="services"
     eyebrow="Services / 06"
-    title={<>Built for <span className="font-display-italic text-muted-foreground">how Google works now.</span></>}
-    subtitle={compact ? undefined : 'Every service we offer is designed to build the context signals Google uses to route customers. Not keyword lists. Not rankings dashboards. Actual visibility.'}
+    title={compact
+      ? <>Built for <span className="font-display-italic text-muted-foreground">how Google works now.</span></>
+      : <>Digital marketing services for <span className="font-display-italic text-muted-foreground">local businesses</span> in Berkshire County &amp; North Shore MA</>
+    }
+    subtitle={compact ? undefined : 'Built for how Google works now — every service creates the context signals Google uses to route real customers to your business. Not keyword lists. Actual visibility.'}
   >
     <motion.div
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } } }}
