@@ -8,7 +8,7 @@ import { Sheet } from '@/components/admin/Sheet'
 import { Dialog } from '@/components/admin/Dialog'
 import { CLIENT_STATUSES, PAYMENT_STATUSES, PROJECT_STATUSES, PACKAGE_OPTIONS, BUSINESS_TYPES, NORTH_SHORE_TOWNS } from '@/lib/admin-constants'
 import { PACKAGES as PKG_CONFIGS, type Package } from '@/lib/types'
-import { Search, Plus, Send } from 'lucide-react'
+import { Search, Plus, Send, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { format, parseISO } from 'date-fns'
 
@@ -25,6 +25,12 @@ export default function Clients() {
     setRows(data ?? [])
   }
   useEffect(() => { load() }, [])
+
+  const remove = async (id: string) => {
+    const { error } = await supabase.from('clients').delete().eq('id', id)
+    if (error) toast.error(error.message)
+    else { toast.success('Client deleted'); setOpen(null); load() }
+  }
 
   const update = async (id: string, patch: any) => {
     const { error } = await supabase.from('clients').update(patch).eq('id', id)
@@ -120,7 +126,10 @@ export default function Clients() {
               <label className="text-xs text-muted-foreground">Notes</label>
               <textarea value={open.notes ?? ''} onChange={e => setOpen((p: any) => ({ ...p, notes: e.target.value }))} onBlur={() => update(open.id, { notes: open.notes })} rows={4} className={textareaCls} />
             </div>
-            <div className="pt-2 border-t border-border">
+            <div className="pt-2 border-t border-border flex items-center justify-between gap-2">
+              <Btn danger onClick={() => remove(open.id)}>
+                <Trash2 size={13} /> Delete client
+              </Btn>
               <Btn accent onClick={() => setInvoiceOpen(open)}>
                 <Send size={13} /> Send invoice
               </Btn>
@@ -285,9 +294,13 @@ const FF = ({ label, req, children }: { label: string; req?: boolean; children: 
     {children}
   </div>
 )
-const Btn = ({ children, onClick, accent, type = 'button', disabled }: any) => (
+const Btn = ({ children, onClick, accent, danger, type = 'button', disabled }: any) => (
   <button type={type} onClick={onClick} disabled={disabled}
-    className={`flex items-center gap-1.5 h-9 px-4 rounded-xl text-xs font-medium transition-colors disabled:opacity-50 ${accent ? 'bg-accent text-[#0A0A0A] hover:brightness-105' : 'border border-border bg-surface hover:bg-surface-elevated text-foreground'}`}>
+    className={`flex items-center gap-1.5 h-9 px-4 rounded-xl text-xs font-medium transition-colors disabled:opacity-50 ${
+      accent ? 'bg-accent text-[#0A0A0A] hover:brightness-105' :
+      danger ? 'border border-rose-500/25 bg-rose-500/[0.06] text-rose-400 hover:bg-rose-500/15' :
+      'border border-border bg-surface hover:bg-surface-elevated text-foreground'
+    }`}>
     {children}
   </button>
 )

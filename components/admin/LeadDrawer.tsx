@@ -8,7 +8,7 @@ import { LeadFormModal } from '@/components/admin/LeadFormModal'
 import { CONTACT_METHODS, RESPONSE_STATUSES, PIPELINE_STAGES, PRIORITIES } from '@/lib/admin-constants'
 import { toast } from 'sonner'
 import { format, parseISO } from 'date-fns'
-import { Globe, Instagram, MapPin, ExternalLink, Edit2, UserCheck } from 'lucide-react'
+import { Globe, Instagram, MapPin, ExternalLink, Edit2, UserCheck, Trash2 } from 'lucide-react'
 
 export function LeadDrawer({ lead, onClose, onChange }: { lead: any | null; onClose: () => void; onChange: () => void }) {
   const supabase = createClient()
@@ -51,6 +51,12 @@ export function LeadDrawer({ lead, onClose, onChange }: { lead: any | null; onCl
     const { data } = await supabase.from('outreach_logs').select('*').eq('lead_id', lead.id).order('date_sent', { ascending: false })
     setLogs(data ?? [])
     onChange()
+  }
+
+  const deleteLead = async () => {
+    const { error } = await supabase.from('leads').delete().eq('id', lead.id)
+    if (error) toast.error(error.message)
+    else { toast.success('Lead deleted'); onClose(); onChange() }
   }
 
   const convertToClient = async () => {
@@ -165,8 +171,11 @@ export function LeadDrawer({ lead, onClose, onChange }: { lead: any | null; onCl
             </Section>
           )}
 
-          <div className="pt-2 border-t border-border">
-            <Btn accent onClick={convertToClient} className="w-full justify-center">
+          <div className="pt-2 border-t border-border flex items-center justify-between gap-2">
+            <Btn onClick={deleteLead} className="border-rose-500/25 bg-rose-500/[0.06] text-rose-400 hover:bg-rose-500/15">
+              <Trash2 size={12} /> Delete
+            </Btn>
+            <Btn accent onClick={convertToClient}>
               <UserCheck size={14} /> Convert to client
             </Btn>
           </div>

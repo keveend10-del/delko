@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { PageHeader, Panel, StatusBadge, EmptyState, inputCls, selectCls, textareaCls } from '@/components/admin/ui'
 import { CONTACT_METHODS, RESPONSE_STATUSES } from '@/lib/admin-constants'
-import { Copy } from 'lucide-react'
+import { Copy, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { format, parseISO } from 'date-fns'
 
@@ -24,6 +24,12 @@ export default function Outreach() {
     setTemplates(t.data ?? [])
   }
   useEffect(() => { load() }, [])
+
+  const removeLog = async (id: string) => {
+    const { error } = await supabase.from('outreach_logs').delete().eq('id', id)
+    if (error) toast.error(error.message)
+    else { toast.success('Deleted'); load() }
+  }
 
   const addLog = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -78,7 +84,7 @@ export default function Outreach() {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead className="text-[10px] uppercase tracking-wider text-muted-foreground border-b border-border">
-                    <tr><Th>Business</Th><Th>Method</Th><Th>Type</Th><Th>Response</Th><Th>Sent</Th><Th>Follow-up</Th></tr>
+                    <tr><Th>Business</Th><Th>Method</Th><Th>Type</Th><Th>Response</Th><Th>Sent</Th><Th>Follow-up</Th><Th></Th></tr>
                   </thead>
                   <tbody className="divide-y divide-border">
                     {logs.map(l => (
@@ -89,6 +95,7 @@ export default function Outreach() {
                         <Td><StatusBadge value={l.response_status} /></Td>
                         <Td className="text-xs text-muted-foreground">{format(parseISO(l.date_sent), 'MMM d')}</Td>
                         <Td className="text-xs text-muted-foreground">{l.follow_up_date ? format(parseISO(l.follow_up_date), 'MMM d') : '—'}</Td>
+                        <Td><button onClick={() => removeLog(l.id)} className="p-1.5 text-muted-foreground hover:text-rose-400 transition-colors"><Trash2 size={13} /></button></Td>
                       </tr>
                     ))}
                   </tbody>

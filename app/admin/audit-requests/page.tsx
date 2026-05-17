@@ -5,7 +5,7 @@ import { createClient } from '@/lib/supabase/client'
 import { PageHeader, Panel, StatusBadge, EmptyState, inputCls, selectCls, textareaCls } from '@/components/admin/ui'
 import { Sheet } from '@/components/admin/Sheet'
 import { AUDIT_STATUSES, PRIORITIES } from '@/lib/admin-constants'
-import { Search, UserPlus, Archive, Send } from 'lucide-react'
+import { Search, UserPlus, Archive, Send, Trash2 } from 'lucide-react'
 import { format, parseISO } from 'date-fns'
 import { toast } from 'sonner'
 
@@ -26,6 +26,12 @@ export default function AuditRequests() {
     const { error } = await supabase.from('audit_requests').update(patch).eq('id', id)
     if (error) toast.error(error.message)
     else { toast.success('Updated'); load(); if (open?.id === id) setOpen((p: any) => ({ ...p, ...patch })) }
+  }
+
+  const remove = async (id: string) => {
+    const { error } = await supabase.from('audit_requests').delete().eq('id', id)
+    if (error) toast.error(error.message)
+    else { toast.success('Deleted'); setOpen(null); load() }
   }
 
   const convert = async (req: any) => {
@@ -143,8 +149,11 @@ export default function AuditRequests() {
               <button onClick={() => update(open.id, { status: 'Audit sent' })} className="flex items-center gap-2 h-9 px-4 rounded-xl border border-border bg-surface hover:bg-surface-elevated text-foreground text-xs font-medium transition-colors">
                 <Send size={13} /> Mark audit sent
               </button>
-              <button onClick={() => update(open.id, { status: 'Archived' })} className="flex items-center gap-2 h-9 px-4 rounded-xl text-rose-400 hover:bg-rose-500/10 border border-transparent hover:border-rose-500/20 text-xs font-medium transition-colors ml-auto">
+              <button onClick={() => update(open.id, { status: 'Archived' })} className="flex items-center gap-2 h-9 px-4 rounded-xl border border-border bg-surface hover:bg-surface-elevated text-foreground text-xs font-medium transition-colors ml-auto">
                 <Archive size={13} /> Archive
+              </button>
+              <button onClick={() => remove(open.id)} className="flex items-center gap-2 h-9 px-4 rounded-xl text-rose-400 hover:bg-rose-500/10 border border-rose-500/25 text-xs font-medium transition-colors">
+                <Trash2 size={13} /> Delete
               </button>
             </div>
           </div>
