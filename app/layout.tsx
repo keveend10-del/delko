@@ -28,8 +28,40 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Delko | More Calls. More Jobs.',
+  metadataBase: new URL('https://delkoagency.com'),
+  title: {
+    default: 'Delko | More Calls. More Jobs.',
+    template: '%s | Delko',
+  },
   description: 'Websites, ads, and Google profiles that bring more calls to local businesses across Berkshire County and the North Shore of Massachusetts.',
+  openGraph: {
+    type: 'website',
+    siteName: 'Delko',
+    title: 'Delko | More Calls. More Jobs.',
+    description: 'Websites, ads, and Google profiles that bring more calls to local businesses across Berkshire County and the North Shore of Massachusetts.',
+    url: 'https://delkoagency.com',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Delko Agency' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Delko | More Calls. More Jobs.',
+    description: 'Websites, ads, and Google profiles that bring more calls to local businesses across Berkshire County and the North Shore of Massachusetts.',
+    images: ['/og.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
