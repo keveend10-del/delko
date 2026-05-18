@@ -64,22 +64,22 @@ export default function Tasks() {
         ) : (
           <ul className="divide-y divide-border">
             {activeList.map(t => (
-              <li key={t.id} className="px-5 py-3 flex items-center gap-3 hover:bg-surface-elevated/30 transition-colors">
+              <li key={t.id} className="px-5 py-3 flex items-start gap-3 hover:bg-surface-elevated/30 transition-colors">
                 <button
                   onClick={() => update(t.id, { status: t.status === 'Done' ? 'To do' : 'Done' })}
-                  className={`h-5 w-5 rounded border flex items-center justify-center transition-colors shrink-0 ${t.status === 'Done' ? 'bg-accent border-accent' : 'border-border hover:border-accent'}`}
+                  className={`h-5 w-5 rounded border flex items-center justify-center transition-colors shrink-0 mt-0.5 ${t.status === 'Done' ? 'bg-accent border-accent' : 'border-border hover:border-accent'}`}
                 >
                   {t.status === 'Done' && <Check size={12} className="text-[#0A0A0A]" />}
                 </button>
-                <button className="flex-1 min-w-0 text-left" onClick={() => setSelected(t)}>
-                  <div className={`text-sm font-medium truncate ${t.status === 'Done' ? 'line-through text-muted-foreground' : ''}`}>{t.title}</div>
-                  {t.notes && <div className="text-xs text-muted-foreground truncate">{t.notes}</div>}
+                <button className="flex-1 min-w-0 text-left group" onClick={() => setSelected(t)}>
+                  <div className={`text-sm font-medium truncate group-hover:text-accent transition-colors ${t.status === 'Done' ? 'line-through text-muted-foreground' : ''}`}>{t.title}</div>
+                  {t.notes && <div className="text-xs text-muted-foreground line-clamp-2 mt-0.5 whitespace-pre-wrap">{t.notes}</div>}
                 </button>
-                <span className="shrink-0"><StatusBadge value={t.priority} /></span>
-                <select value={t.status} onChange={e => update(t.id, { status: e.target.value })} className={selectCls + ' h-8 w-auto text-xs shrink-0'}>
+                <span className="shrink-0 mt-0.5"><StatusBadge value={t.priority} /></span>
+                <select value={t.status} onChange={e => update(t.id, { status: e.target.value })} className={selectCls + ' h-8 w-auto text-xs shrink-0 mt-0.5'}>
                   {TASK_STATUSES.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
-                <span className="text-xs text-muted-foreground w-16 text-right shrink-0">{t.due_date ? format(parseISO(t.due_date), 'MMM d') : '—'}</span>
+                <span className="text-xs text-muted-foreground w-16 text-right shrink-0 mt-1">{t.due_date ? format(parseISO(t.due_date), 'MMM d') : '—'}</span>
               </li>
             ))}
           </ul>
