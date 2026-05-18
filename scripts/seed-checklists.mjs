@@ -1,7 +1,13 @@
-import { createClient } from '../node_modules/@supabase/supabase-js/dist/index.mjs'
+import { createClient } from '@supabase/supabase-js'
 
-const SUPABASE_URL = 'https://kyrfhwyrehmbcqnywgsf.supabase.co'
-const SERVICE_ROLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5cmZod3lyZWhtYmNxbnl3Z3NmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3ODI3NjM2NywiZXhwIjoyMDkzODUyMzY3fQ.rW0dQR0OrQ9Ys6HA__ZdyEhkXpFaYuByZv7SZUP4ZXY'
+const SUPABASE_URL =
+  process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL
+
+const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
+  throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY')
+}
 
 const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
   auth: { autoRefreshToken: false, persistSession: false }
