@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who We Are — Delko</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-hover: #161616;
+      --border: #1e1e1e;
+      --border-mid: #2a2a2a;
+      --text: #f0ece4;
+      --text-muted: #7a7a7a;
+      --text-dim: #4a4a4a;
+      --green: #4ade80;
+      --green-dim: #22c55e;
+      --green-soft: rgba(74, 222, 128, 0.08);
+      --green-glow: rgba(74, 222, 128, 0.18);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --max-w: 1100px;
+      --section-gap: 120px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: var(--section-gap) 0; }
+
+    /* ── Typography ── */
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    /* ── Divider ── */
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Button ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #040a06;
+    }
+
+    .btn-primary:hover {
+      background: #6ee79a;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--green-glow);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-arrow::after {
+      content: '→';
+      font-size: 1rem;
+    }
+
+    /* ── ───────────────────────────────────── ── */
+    /* ── SECTION 1: HERO ── */
+    /* ── ───────────────────────────────────── ── */
+
+    .hero {
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(74, 222, 128, 0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    .hero-eyebrow span {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .hero h1 {
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    /* ── ───────────────────────────────────── ── */
+    /* ── SECTION 2: FOUNDERS ── */
+    /* ── ───────────────────────────────────── ── */
+
+    .founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .founder-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .founder-card:hover {
+      border-color: var(--border-mid);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .founder-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #161616;
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founder-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(74, 222, 128, 0.04) 0%, transparent 60%);
+    }
+
+    .founder-photo-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .founder-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .founder-role {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--green);
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .founder-bio {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    /* ── ───────────────────────────────────── ── */
+    /* ── SECTION 3: WHY WE STARTED ── */
+    /* ── ───────────────────────────────────── ── */
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .why-left h2 {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    }
+
+    .why-text p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+    }
+
+    .why-text p + p { margin-top: 20px; }
+
+    .why-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── ───────────────────────────────────── ── */
+    /* ── SECTION 4: WHAT YOU GET ── */
+    /* ── ───────────────────────────────────── ── */
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 28px 32px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      transition: background 0.2s ease;
+    }
+
+    .benefit-item:hover { background: var(--bg-card-hover); }
+
+    /* Remove right border from right-column items */
+    .benefit-item:nth-child(even) { border-right: none; }
+
+    /* Remove bottom border from last two items */
+    .benefit-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .benefit-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--green-soft);
+      border: 1px solid rgba(74, 222, 128, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .benefit-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .benefit-text strong {
+      display: block;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .benefit-text span {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Standout last benefit */
+    .benefit-standout {
+      background: var(--green-soft) !important;
+      border-color: rgba(74, 222, 128, 0.15) !important;
+    }
+
+    .benefit-standout strong { color: var(--green) !important; }
+
+    /* ── ───────────────────────────────────── ── */
+    /* ── SECTION 5: CAPACITY ── */
+    /* ── ───────────────────────────────────── ── */
+
+    .capacity {
+      padding: 64px 0;
+    }
+
+    .capacity-inner {
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      background: var(--bg-card);
+    }
+
+    .capacity-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      box-shadow: 0 0 12px var(--green-glow);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 8px var(--green-glow); opacity: 1; }
+      50% { box-shadow: 0 0 20px rgba(74, 222, 128, 0.35); opacity: 0.75; }
+    }
+
+    .capacity-text {
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .capacity-text strong { color: var(--text); font-weight: 500; }
+
+    /* ── ───────────────────────────────────── ── */
+    /* ── SECTION 6: TESTIMONIALS ── */
+    /* ── ───────────────────────────────────── ── */
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: var(--border-mid);
+      transform: translateY(-2px);
+    }
+
+    .testimonial-quote {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .testimonial-quote::before {
+      content: '"';
+      display: block;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--green);
+      opacity: 0.4;
+      margin-bottom: 8px;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .testimonial-photo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      border: 1px solid var(--border-mid);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonial-photo-initials {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+
+    .testimonial-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .testimonial-meta {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* ── ───────────────────────────────────── ── */
+    /* ── SECTION 7: FINAL CTA ── */
+    /* ── ───────────────────────────────────── ── */
+
+    .cta-section {
+      padding: 100px 0;
+    }
+
+    .cta-inner {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .cta-inner h2 {
+      margin-bottom: 20px;
+    }
+
+    .cta-inner p {
+      margin-bottom: 36px;
+      font-size: 1.0625rem;
+    }
+
+    /* ── ───────────────────────────────────── ── */
+    /* ── SCROLL ANIMATIONS ── */
+    /* ── ───────────────────────────────────── ── */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── ───────────────────────────────────── ── */
+    /* ── RESPONSIVE ── */
+    /* ── ───────────────────────────────────── ── */
+
+    @media (max-width: 900px) {
+      :root { --section-gap: 80px; }
+
+      .why-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-item {
+        border-right: none !important;
+      }
+
+      .benefit-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border) !important; }
+      .benefit-item:last-child { border-bottom: none !important; }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root { --section-gap: 64px; }
+
+      .container { padding: 0 20px; }
+
+      .hero { padding: 72px 0 56px; }
+
+      .founders-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .capacity-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 28px 24px;
+      }
+
+      .benefit-item { padding: 22px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ────────────────────────────────────────────
+       SECTION 1: HERO
+  ──────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span>Berkshires &amp; North Shore, MA</span>
+      </div>
+      <div class="hero-inner">
+        <h1>Built by locals who got tired of seeing <em>good businesses</em> get overlooked.</h1>
+        <p class="hero-sub">We help local businesses look sharper online, show up where customers are searching, and turn more of that attention into real calls, bookings, and quote requests.</p>
+        <a href="/#audit" class="btn btn-primary btn-arrow">Get a Free Audit</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ────────────────────────────────────────────
+       SECTION 2: FOUNDERS
+  ──────────────────────────────────────────── -->
+  <section id="founders">
+    <div class="container">
+      <div class="reveal">
+        <span class="label">The Team</span>
+        <h2>Two people. Real names. You know who's doing the work.</h2>
+      </div>
+
+      <div class="founders-grid">
+
+        <!-- KEVEEN -->
+        <div class="founder-card reveal reveal-delay-1">
+          <!-- Replace with real photo -->
+          <div class="founder-photo">
+            <span class="founder-photo-label">Keveen Delgado</span>
+          </div>
+          <div class="founder-name">Keveen Delgado</div>
+          <div class="founder-role">Co-Founder — Systems &amp; Delivery</div>
+          <p class="founder-bio">I'm Keveen. I'm connected to both the Berkshires and the North Shore, and I've spent the last few years building websites, startup systems, and AI workflows. I started Delko because I kept seeing good local businesses lose work to competitors who simply looked better online. My job is to make sure the website, Google presence, follow-up, and reporting actually work — not just look nice.</p>
+        </div>
+
+        <!-- JACK -->
+        <div class="founder-card reveal reveal-delay-2">
+          <!-- Replace with real photo -->
+          <div class="founder-photo">
+            <span class="founder-photo-label">Jack Koutrobis</span>
+          </div>
+          <div class="founder-name">Jack Koutrobis</div>
+          <div class="founder-role">Co-Founder — Sales &amp; Relationships</div>
+          <p class="founder-bio">I'm Jack. I'm from the area, and I know how much local business still runs on trust, reputation, and word of mouth. I started Delko because too many good businesses are relying only on referrals while competitors pass them online. My role is simple: start real conversations, understand what owners need, and make sure clients always know who they're working with.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ────────────────────────────────────────────
+       SECTION 3: WHY WE STARTED DELKO
+  ──────────────────────────────────────────── -->
+  <section id="why">
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-left reveal">
+          <span class="label">Our Story</span>
+          <h2>Why we started Delko</h2>
+        </div>
+        <div class="why-text reveal reveal-delay-1">
+          <p>We kept seeing the same thing: <strong>good local businesses doing better work than their competitors but still losing attention online.</strong> Not because they were worse. Because their website looked outdated, their Google profile was weak, their reviews were not being used, or their follow-up system was basically just memory and missed texts.</p>
+          <p>Good people. Real businesses. Solid work. But when someone searched online, a worse competitor showed up first and looked sharper.</p>
+          <p>That did not sit right with us. <strong>Delko exists to fix that</strong> — without making marketing feel confusing, overpriced, or fake.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ────────────────────────────────────────────
+       SECTION 4: WHAT YOU GET
+  ──────────────────────────────────────────── -->
+  <section id="what-you-get">
+    <div class="container">
+      <div class="reveal">
+        <span class="label">What We Do</span>
+        <h2>What you actually get working with us</h2>
+      </div>
+
+      <div class="benefits-grid reveal reveal-delay-1">
+
+        <!-- 1 -->
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="benefit-text">
+            <strong>A cleaner first impression</strong>
+            <span>When someone looks you up, they see something that reflects how good your work actually is.</span>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div class="benefit-text">
+            <strong>Stronger Google presence</strong>
+            <span>More local customers find you when they're actually looking for what you do.</span>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="benefit-text">
+            <strong>A website built to convert</strong>
+            <span>Built to get calls, forms, bookings, and quote requests — not just look pretty.</span>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="benefit-text">
+            <strong>A review system that works</strong>
+            <span>Turns your happy customers into public proof so future customers trust you before they even call.</span>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="benefit-text">
+            <strong>Simple follow-up systems</strong>
+            <span>Fewer leads slip through the cracks. The right messages go out at the right time, automatically.</span>
+          </div>
+        </div>
+
+        <!-- 6 — STANDOUT -->
+        <div class="benefit-item benefit-standout">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="benefit-text">
+            <strong>You text us. We text back.</strong>
+            <span>Direct communication. No account managers, no ticketing system, no waiting.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ────────────────────────────────────────────
+       SECTION 5: CAPACITY
+  ──────────────────────────────────────────── -->
+  <section class="capacity">
+    <div class="container">
+      <div class="capacity-inner reveal">
+        <div class="capacity-dot"></div>
+        <p class="capacity-text"><strong>We only take on a limited number of new clients each month</strong> because we are the ones doing the work. That keeps quality high, communication fast, and results easier to track.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ────────────────────────────────────────────
+       SECTION 6: TESTIMONIALS
+  ──────────────────────────────────────────── -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="reveal">
+        <span class="label">What Clients Say</span>
+        <h2>Real feedback from local business owners</h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <!-- Replace with real testimonial -->
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-quote">
+            Delko helped us understand what was actually holding back our online presence. The audit alone made things clearer than any marketing conversation I'd had before.
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-photo">
+              <span class="testimonial-photo-initials">MR</span>
+            </div>
+            <div>
+              <div class="testimonial-name">Mike R.</div>
+              <div class="testimonial-meta">Home Services Owner · Pittsfield, MA</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Replace with real testimonial -->
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-quote">
+            We finally had someone explain Google, reviews, and our website in a way that actually made sense. No fluff, no upsell. Just honest feedback and a clear plan.
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-photo">
+              <span class="testimonial-photo-initials">AM</span>
+            </div>
+            <div>
+              <div class="testimonial-name">Alyssa M.</div>
+              <div class="testimonial-meta">Salon Owner · Beverly, MA</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Replace with real testimonial -->
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-quote">
+            The biggest difference was communication. They were easy to reach and actually followed through. That's rare in this industry.
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-photo">
+              <span class="testimonial-photo-initials">CD</span>
+            </div>
+            <div>
+              <div class="testimonial-name">Chris D.</div>
+              <div class="testimonial-meta">General Contractor · Salem, MA</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ────────────────────────────────────────────
+       SECTION 7: FINAL CTA
+  ──────────────────────────────────────────── -->
+  <section class="cta-section" id="audit">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <span class="label">Free Audit</span>
+        <h2>Want to see what we'd fix first?</h2>
+        <p>We'll look at your website, Google presence, reviews, and follow-up process. Then we'll send you a simple breakdown of what's helping, what's hurting, and what we'd improve first.</p>
+        <a href="/#audit" class="btn btn-primary btn-arrow">Get a Free Audit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────
+       SCROLL REVEAL JS
+  ──────────────────────────────────────────── -->
+  <script>
+    (function () {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+
+</body>
+</html>
