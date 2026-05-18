@@ -41,6 +41,20 @@ export default function MessagesPage() {
   }, [client?.id])
 
   useEffect(() => {
+    if (!client) return
+    const ch = supabase
+      .channel(`portal-msgs-${client.id}`)
+      .on('postgres_changes', {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'client_messages',
+        filter: `client_id=eq.${client.id}`,
+      }, () => { load() })
+      .subscribe()
+    return () => { supabase.removeChannel(ch) }
+  }, [client?.id])
+
+  useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
@@ -96,7 +110,7 @@ export default function MessagesPage() {
             messages.map(msg => {
               const isClient = msg.sender_role === 'client'
               return (
-                <div key={msg.id} className={`flex ${isClient ? 'justify-end' : 'justify-start'}`}>
+                <div key={msg.id} className={`flex w-full ${isClient ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[78%] rounded-2xl px-4 py-3 ${
                     isClient
                       ? 'bg-accent text-[#0A0A0A] rounded-tr-sm'

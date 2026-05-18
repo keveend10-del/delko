@@ -121,7 +121,10 @@ export default function Clients() {
               <SF label="Client status" value={open.client_status} options={CLIENT_STATUSES} onChange={v => update(open.id, { client_status: v })} />
               <SF label="Payment status" value={open.payment_status} options={PAYMENT_STATUSES} onChange={v => update(open.id, { payment_status: v })} />
             </div>
-            <SF label="Project status" value={open.project_status} options={PROJECT_STATUSES} onChange={v => update(open.id, { project_status: v })} />
+            <div className="grid grid-cols-2 gap-3">
+              <SF label="Project status" value={open.project_status} options={PROJECT_STATUSES} onChange={v => update(open.id, { project_status: v })} />
+              <SF label="Subscription status" value={open.subscription_status} options={['pending', 'active', 'past_due', 'canceled']} onChange={v => update(open.id, { subscription_status: v })} />
+            </div>
             <div className="space-y-1.5">
               <label className="text-xs text-muted-foreground">Notes</label>
               <textarea value={open.notes ?? ''} onChange={e => setOpen((p: any) => ({ ...p, notes: e.target.value }))} onBlur={() => update(open.id, { notes: open.notes })} rows={4} className={textareaCls} />
