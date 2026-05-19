@@ -52,7 +52,7 @@ export const WhoWeAre = () => (
           </div>
           <div>
             <div className="text-[19px] font-bold tracking-[-0.02em] mb-1">{f.name}</div>
-            <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-accent mb-4">{f.role}</div>
+            <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-accent-glow mb-4">{f.role}</div>
             <p className="text-[15px] text-muted-foreground leading-[1.75]">{f.bio}</p>
           </div>
         </motion.div>

@@ -77,7 +77,7 @@ export const WhyDifferent = () => {
           >
             <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, hsl(var(--accent) / 0.05) 0%, transparent 60%)' }} />
             <div className="relative">
-              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent mb-2">Our approach</div>
+              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-glow mb-2">Our approach</div>
               <p className="text-[18px] sm:text-[20px] font-bold tracking-[-0.025em] max-w-xl">
                 We build context signals — not keyword lists. Your presence across Google&apos;s entire ecosystem, engineered to match how your customers actually search.
               </p>

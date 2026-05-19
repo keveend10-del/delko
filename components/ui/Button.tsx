@@ -14,7 +14,7 @@ const variantCls = (variant: ButtonProps['variant'], size: ButtonProps['size']) 
   cn(
     'inline-flex items-center justify-center gap-2 font-semibold rounded-[10px] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40',
     {
-      'bg-accent text-[#050505] hover:brightness-110 active:scale-[0.97] shadow-[0_0_0_1px_hsl(152_80%_38%/0.5),0_4px_20px_hsl(152_80%_38%/0.3)]': variant === 'accent',
+      'bg-accent text-white hover:brightness-110 active:scale-[0.97] shadow-[0_0_0_1px_hsl(152_80%_38%/0.5),0_4px_20px_hsl(152_80%_38%/0.3)]': variant === 'accent',
       'bg-transparent backdrop-blur-[16px] border border-white/[0.09] text-white/80 hover:border-white/[0.16] hover:text-white hover:bg-white/[0.05]': variant === 'glass',
       'bg-transparent text-white/55 hover:text-white hover:bg-white/[0.05] border border-white/[0.07]': variant === 'ghost',
       'bg-transparent border border-white/[0.10] text-white hover:border-white/[0.20] hover:bg-white/[0.03]': variant === 'outline',
