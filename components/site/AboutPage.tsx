@@ -4,6 +4,7 @@ import { useScrollDepth } from '@/hooks/useScrollDepth'
 import { Navbar } from './Navbar'
 import { SectionDivider } from './Section'
 import { WhyDifferent } from './WhyDifferent'
+import { WhoWeAre } from './WhoWeAre'
 import { Sway } from './Sway'
 import { BeforeAfter } from './BeforeAfter'
 import { LocalFocus } from './LocalFocus'
@@ -17,6 +18,8 @@ export function AboutPage() {
       <Navbar />
       <main>
         <WhyDifferent />
+        <SectionDivider />
+        <WhoWeAre />
         <SectionDivider />
         <Sway />
         <SectionDivider />
