@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
+import { Plus_Jakarta_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from 'next/script'
 import { CookieConsent } from '@/components/site/CookieConsent'
 import './globals.css'
 
-const spaceGrotesk = Space_Grotesk({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
+  variable: '--font-plus-jakarta-sans',
   display: 'swap',
 })
 
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${plusJakartaSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
       <head>
         {/* Google Consent Mode v2 — defaults must be set before GA4 loads */}
         <Script id="consent-mode-defaults" strategy="beforeInteractive">

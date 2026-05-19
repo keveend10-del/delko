@@ -75,7 +75,7 @@ const config: Config = {
         card: '12px',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', 'Space Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['var(--font-plus-jakarta-sans)', 'Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
         display: ['var(--font-instrument-serif)', 'Instrument Serif', 'Georgia', 'serif'],
         serif: ['var(--font-instrument-serif)', 'Instrument Serif', 'Georgia', 'serif'],
         mono: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'Menlo', 'monospace'],
