@@ -21,6 +21,7 @@ export const Footer = () => (
           <ul className="space-y-3 text-[14px]">
             {[
               { label: 'Services', href: '/services' },
+              { label: 'Projects', href: '/projects' },
               { label: 'About', href: '/about' },
               { label: 'Packages', href: '/#packages' },
               { label: 'Get a Free Audit', href: '/#audit' },

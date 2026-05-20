@@ -44,7 +44,7 @@ export const Testimonials = () => (
     id="testimonials"
     eyebrow="Client Results"
     title={<>Real businesses. <span className="font-display-italic text-muted-foreground">Real results.</span></>}
-    subtitle="From Berkshire County to the North Shore — businesses that stopped losing jobs to whoever showed up above them."
+    subtitle="Berkshire County and North Shore businesses that stopped losing jobs to whoever showed up first."
     align="center"
   >
     <motion.div
