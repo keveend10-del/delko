@@ -39,35 +39,33 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
+      name: "I've tried Facebook ads before and they didn't work.",
+      acceptedAnswer: { '@type': 'Answer', text: "Facebook finds people who might be interested. We find people already searching for your service right now in Pittsfield, Salem, or wherever you work. Different intent, completely different result." },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long until I start seeing results?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Google profile fixes show movement in 4–8 weeks. Paid ads can ring your phone in week one. At 30 days we send you an honest update on exactly what is moving.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I actually need a new website?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Not always. We audit what you have first. If it is fast, mobile-friendly, and people can call you in two taps, we work with it. If it is costing you jobs, we show you exactly why.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Am I locked into a contract?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Month-to-month only. No 12-month lock-ins, no cancellation fees. We stay because the work actually works.' },
+    },
+    {
+      '@type': 'Question',
       name: 'What areas does Delko serve?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Delko serves local businesses across Berkshire County MA (Pittsfield, Lenox, Stockbridge, Great Barrington, Williamstown) and the North Shore of Massachusetts (Salem, Marblehead, Gloucester, Beverly, Newburyport).',
-      },
+      acceptedAnswer: { '@type': 'Answer', text: 'Delko serves local businesses in Berkshire County MA (Pittsfield, Lenox, Stockbridge, Great Barrington, Lee, Williamstown, Adams, Dalton) and the North Shore of Massachusetts (Salem, Beverly, Marblehead, Gloucester, Newburyport, Ipswich, Rockport).' },
     },
     {
       '@type': 'Question',
-      name: 'How much does local marketing cost?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Delko offers three plans starting at $1,500/mo (Foundation), $2,500/mo (Growth), and $4,500/mo (Dominate). No setup fees, no long-term contracts.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is included in local SEO?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Local SEO at Delko includes Google Business Profile optimization, context-first on-page SEO, schema markup, citation building, and monthly signal maintenance.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you require long-term contracts?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. All Delko plans are month-to-month with no setup fees and no long-term contracts.',
-      },
+      name: "What's the difference between your three packages?",
+      acceptedAnswer: { '@type': 'Answer', text: 'Foundation gets your Google profile and website working together to bring in calls at $1,500/mo. Growth adds a review system, email follow-up, and local SEO pages at $2,500/mo. Dominate adds paid ads, CRM automation, and conversion tracking at $4,500/mo.' },
     },
   ],
 }

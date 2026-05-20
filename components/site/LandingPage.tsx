@@ -5,7 +5,10 @@ import { Navbar } from './Navbar'
 import { Hero } from './Hero'
 import { SectionDivider } from './Section'
 import { Problem } from './Problem'
+import { Process } from './Process'
 import { Services } from './Services'
+import { Testimonials } from './Testimonials'
+import { FAQ } from './FAQ'
 import { Packages } from './Packages'
 import { CTASection } from './CTASection'
 import { Footer } from './Footer'
@@ -25,7 +28,13 @@ export function LandingPage() {
         <SectionDivider />
         <Problem />
         <SectionDivider />
+        <Process />
+        <SectionDivider />
         <Services compact />
+        <SectionDivider />
+        <Testimonials />
+        <SectionDivider />
+        <FAQ />
         <SectionDivider />
         <Packages />
         <CTASection />
