@@ -45,6 +45,7 @@ export const Testimonials = () => (
     eyebrow="Client Results"
     title={<>Real businesses. <span className="font-display-italic text-muted-foreground">Real results.</span></>}
     subtitle="From Berkshire County to the North Shore — businesses that stopped losing jobs to whoever showed up above them."
+    align="center"
   >
     <motion.div
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } } }}

@@ -7,8 +7,8 @@ import { Plus } from 'lucide-react'
 
 const faqs = [
   {
-    q: "I've tried Facebook ads before and they didn't work.",
-    a: "Facebook finds people who might be interested. We find people who are already searching for your service right now — in Pittsfield, Salem, or wherever you work. Different intent, completely different result. We put you in front of buyers at the exact moment they're looking.",
+    q: "How is this different from other agencies I've tried?",
+    a: "Most agencies sell you a package and disappear into a dashboard. We're two people working exclusively in Berkshire County and North Shore — we know your competitors by name, we answer our phones, and we work your account personally. If it's not working, you'll hear from us before the next invoice, not after.",
   },
   {
     q: "How long until I start seeing results?",
@@ -111,8 +111,9 @@ export const FAQ = () => {
       eyebrow="FAQ"
       title={<>Questions we get <span className="font-display-italic text-muted-foreground">all the time.</span></>}
       subtitle="Straight answers. No agency-speak."
+      align="center"
     >
-      <div className="space-y-3 max-w-3xl">
+      <div className="space-y-3 max-w-3xl mx-auto">
         {faqs.map((item, i) => (
           <FAQItem
             key={i}

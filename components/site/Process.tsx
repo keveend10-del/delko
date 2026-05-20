@@ -23,6 +23,7 @@ export const Process = () => {
       eyebrow="Process / 04"
       title={<>How it <span className="font-display-italic text-muted-foreground">works.</span></>}
       subtitle="Four steps. No surprises. No long meetings."
+      align="center"
     >
       <div className="relative">
         {/* Static track */}

@@ -3,12 +3,12 @@ import { Section } from './Section'
 import { Monitor, Share2, MapPin, Search, Camera, TrendingUp, ArrowUpRight } from 'lucide-react'
 
 const services = [
-  { icon: Monitor, n: 'S01', title: 'A site that builds trust signals', desc: 'Fast, mobile-first, clearly written — so when Google evaluates your business for a searcher\'s profile, it sees a real, credible operation. And when the person lands, they call.', tags: ['Design', 'Build', 'Copy'] },
-  { icon: Share2, n: 'S02', title: 'Social presence that feeds the algorithm', desc: "Active social pages aren't just for followers — they're behavioral signals Google reads to establish you as a legitimate local business. We keep them alive and consistent.", tags: ['Bios', 'Templates', 'Voice'] },
-  { icon: MapPin, n: 'S03', title: 'Google Business Profile', desc: "Your GBP is the single richest context signal you can send Google. Real photos, accurate service areas, weekly posts, and a review system — all telling Google exactly who you serve.", tags: ['GBP', 'Reviews', 'Posts'] },
-  { icon: Search, n: 'S04', title: 'Context-first local SEO', desc: "We don't chase keyword positions. We build the architecture that tells Google you're the right contextual match — so you show up when the person searching is actually your customer.", tags: ['Context', 'Local', 'Schema'] },
-  { icon: Camera, n: 'S05', title: 'Content from your real jobs', desc: 'Before/after photos, short videos, simple captions from real work — they strengthen the behavioral signals Google uses to decide who\'s relevant, and they build trust with the humans too.', tags: ['Photo', 'Video', 'Calendar'] },
-  { icon: TrendingUp, n: 'S06', title: 'Monthly signal maintenance', desc: "Context signals decay if you stop feeding them. We keep everything active — posts, ads, reviews, site updates — and send you a plain-English report on what's working.", tags: ['Retainer', 'Reporting', 'Edits'] },
+  { icon: Monitor, n: 'S01', title: 'A site that builds trust signals', short: 'Fast, clear, and built to make people call.', desc: 'Fast, mobile-first, clearly written — so when Google evaluates your business for a searcher\'s profile, it sees a real, credible operation. And when the person lands, they call.', tags: ['Design', 'Build', 'Copy'] },
+  { icon: Share2, n: 'S02', title: 'Social presence that feeds the algorithm', short: 'Active profiles signal legitimacy to Google.', desc: "Active social pages aren't just for followers — they're behavioral signals Google reads to establish you as a legitimate local business. We keep them alive and consistent.", tags: ['Bios', 'Templates', 'Voice'] },
+  { icon: MapPin, n: 'S03', title: 'Google Business Profile', short: 'The richest context signal you can control.', desc: "Your GBP is the single richest context signal you can send Google. Real photos, accurate service areas, weekly posts, and a review system — all telling Google exactly who you serve.", tags: ['GBP', 'Reviews', 'Posts'] },
+  { icon: Search, n: 'S04', title: 'Context-first local SEO', short: 'Built to match how your customers actually search.', desc: "We don't chase keyword positions. We build the architecture that tells Google you're the right contextual match — so you show up when the person searching is actually your customer.", tags: ['Context', 'Local', 'Schema'] },
+  { icon: Camera, n: 'S05', title: 'Content from your real jobs', short: 'Real photos and videos that build buyer trust.', desc: 'Before/after photos, short videos, simple captions from real work — they strengthen the behavioral signals Google uses to decide who\'s relevant, and they build trust with the humans too.', tags: ['Photo', 'Video', 'Calendar'] },
+  { icon: TrendingUp, n: 'S06', title: 'Monthly signal maintenance', short: 'Everything stays active — posts, reviews, reporting.', desc: "Context signals decay if you stop feeding them. We keep everything active — posts, ads, reviews, site updates — and send you a plain-English report on what's working.", tags: ['Retainer', 'Reporting', 'Edits'] },
 ]
 
 const card = {
@@ -25,6 +25,7 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
       : <>Digital marketing services for <span className="font-display-italic text-muted-foreground">local businesses</span> in Berkshire County &amp; North Shore MA</>
     }
     subtitle={compact ? undefined : 'Built for how Google works now — every service creates the context signals Google uses to route real customers to your business. Not keyword lists. Actual visibility.'}
+    align="center"
   >
     <motion.div
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } } }}
@@ -33,7 +34,7 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
       viewport={{ once: true, margin: '-60px' }}
       className={`grid gap-4 sm:gap-5 ${compact ? 'sm:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2'}`}
     >
-      {services.map(({ icon: Icon, n, title, desc, tags }) => (
+      {services.map(({ icon: Icon, n, title, short, desc, tags }) => (
         <motion.article
           key={n}
           variants={card}
@@ -54,7 +55,10 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
             <span className="text-[10px] font-bold font-mono tracking-[0.18em] text-muted-foreground/60">{n}</span>
           </div>
           <h3 className="text-[17px] sm:text-[19px] font-bold tracking-[-0.025em] leading-tight relative">{title}</h3>
-          {!compact && <p className="mt-3 text-[14px] text-muted-foreground leading-relaxed relative">{desc}</p>}
+          {compact
+            ? <p className="mt-2 text-[13px] text-muted-foreground leading-snug relative">{short}</p>
+            : <p className="mt-3 text-[14px] text-muted-foreground leading-relaxed relative">{desc}</p>
+          }
           <div className={`flex items-center justify-between relative ${compact ? 'mt-4' : 'mt-6'}`}>
             <div className="flex flex-wrap gap-1.5">
               {tags.map((t) => (
