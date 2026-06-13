@@ -10,6 +10,7 @@ interface SectionProps {
   className?: string
   align?: 'left' | 'center'
   bare?: boolean
+  surface?: boolean
 }
 
 const fadeUp = {
@@ -24,9 +25,9 @@ const stagger = {
 
 export const Section = ({
   id, eyebrow, title, subtitle, children,
-  className = '', align = 'left', bare = false,
+  className = '', align = 'left', bare = false, surface = false,
 }: SectionProps) => (
-  <section id={id} className={`relative py-28 sm:py-36 ${className}`}>
+  <section id={id} className={`relative py-28 sm:py-36 ${surface ? 'bg-surface/50' : ''} ${className}`}>
     <div className="container mx-auto px-5 sm:px-8">
       {!bare && (eyebrow || title || subtitle) && (
         <motion.div

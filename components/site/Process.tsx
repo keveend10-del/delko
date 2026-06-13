@@ -21,7 +21,7 @@ export const Process = () => {
     <Section
       id="process"
       eyebrow="Process / 04"
-      title={<>How it <span className="font-display-italic text-muted-foreground">works.</span></>}
+      title={<><span className="text-gradient-section">How it</span> <span className="font-display-italic text-muted-foreground/70">works.</span></>}
       subtitle="Four steps. No surprises. No long meetings."
       align="center"
     >

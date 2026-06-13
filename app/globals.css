@@ -147,6 +147,18 @@
     background-clip: text;
     color: transparent;
   }
+  .text-gradient-headline {
+    background: linear-gradient(135deg, hsl(var(--accent-glow)) 0%, hsl(var(--foreground)) 55%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-section {
+    background: linear-gradient(135deg, hsl(var(--accent-glow)) 0%, hsl(var(--foreground) / 0.85) 65%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 
   /* ─── Surface backgrounds ──────────────────────── */
   .bg-surface { background-color: hsl(var(--surface)); }

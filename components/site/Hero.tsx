@@ -29,53 +29,61 @@ const stats = [
 export const Hero = () => {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const blob1Y = useTransform(scrollYProgress, [0, 1], [0, -140])
-  const blob2Y = useTransform(scrollYProgress, [0, 1], [0, -80])
-  const blob3Y = useTransform(scrollYProgress, [0, 1], [0, -60])
+  const glowY = useTransform(scrollYProgress, [0, 1], [0, -180])
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 70])
   const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
   return (
   <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 overflow-hidden">
+    {/* Single dramatic centered glow */}
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      <motion.div style={{ y: blob1Y, width: 700, height: 700, top: '5%', left: '38%', background: 'hsl(var(--accent) / 0.11)', filter: 'blur(130px)' }} className="absolute rounded-full animate-glow" />
-      <motion.div style={{ y: blob2Y, width: 450, height: 450, bottom: '10%', right: '5%', background: 'hsl(260 60% 60% / 0.09)', filter: 'blur(100px)' }} className="absolute rounded-full animate-glow" />
-      <motion.div style={{ y: blob3Y, width: 300, height: 300, top: '55%', left: '8%', background: 'hsl(var(--accent) / 0.05)', filter: 'blur(80px)' }} className="absolute rounded-full" />
+      <motion.div
+        style={{ y: glowY, width: '100%', height: '700px', top: '-180px', left: '0', background: 'radial-gradient(ellipse at 55% 50%, hsl(var(--accent) / 0.22) 0%, hsl(260 60% 55% / 0.08) 45%, transparent 70%)', filter: 'blur(40px)' }}
+        className="absolute rounded-full animate-glow"
+      />
+      <motion.div
+        style={{ y: glowY, width: '600px', height: '600px', top: '-80px', left: '50%', transform: 'translateX(-50%)', background: 'hsl(var(--accent) / 0.12)', filter: 'blur(100px)' }}
+        className="absolute rounded-full"
+      />
     </div>
 
+    {/* Dot grid — slightly more visible */}
     <div
-      className="absolute inset-0 pointer-events-none opacity-[0.025]"
+      className="absolute inset-0 pointer-events-none opacity-[0.04]"
       style={{
         backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
-        maskImage: 'radial-gradient(ellipse 80% 70% at 50% 0%, black, transparent 80%)',
+        backgroundSize: '36px 36px',
+        maskImage: 'radial-gradient(ellipse 90% 80% at 50% 0%, black, transparent 75%)',
       }}
     />
 
     <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container mx-auto px-5 sm:px-8 relative z-10">
       <div className="grid lg:grid-cols-[1fr_1fr] gap-16 xl:gap-24 items-center max-w-7xl mx-auto">
         <div>
+          {/* Glass pill badge — micro1 style */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2.5 mb-10"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inset-0 rounded-full bg-accent animate-dot" />
-              <span className="h-2 w-2 rounded-full bg-accent" />
-            </span>
-            <span className="text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground">
-              North Shore, MA
-            </span>
+            <div className="glass rounded-full px-4 py-1.5 flex items-center gap-2.5">
+              <span className="relative flex h-1.5 w-1.5 shrink-0">
+                <span className="absolute inset-0 rounded-full bg-accent animate-dot" />
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              </span>
+              <span className="text-[11px] font-medium tracking-[0.14em] text-muted-foreground">
+                Local Growth · North Shore &amp; Berkshire County
+              </span>
+            </div>
           </motion.div>
 
           <motion.div variants={headlineContainer} initial="hidden" animate="show">
             <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">Get found.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em] text-gradient-headline">Get found.</h1>
             </motion.div>
             <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-display-italic leading-[0.93] text-muted-foreground">Trusted.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-display-italic leading-[0.93] text-muted-foreground/70">Trusted.</h1>
             </motion.div>
             <motion.div variants={headlineLine}>
               <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">Chosen.</h1>
@@ -88,7 +96,7 @@ export const Hero = () => {
             transition={{ delay: 0.55, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="mt-9 text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-[500px]"
           >
-            Delko helps North Shore businesses improve their Google presence, website, reviews, lead capture, and AI-powered follow-up — so more customers find you, trust you, contact you, and come back.
+            Delko helps North Shore businesses improve their Google presence, website, reviews, lead capture, and AI-powered follow-up — so more customers find you, trust you, and choose you.
           </motion.p>
 
           <motion.div
@@ -115,7 +123,7 @@ export const Hero = () => {
               {[
                 { initials: 'MR', cls: 'bg-accent/20 text-accent' },
                 { initials: 'JT', cls: 'bg-white/10 text-white/55' },
-                { initials: 'KD', cls: 'bg-accent/12 text-accent/70' },
+                { initials: 'KD', cls: 'bg-accent/[0.12] text-accent/70' },
               ].map(({ initials, cls }) => (
                 <div key={initials} className={`h-8 w-8 rounded-full border-2 border-background flex items-center justify-center text-[10px] font-bold ${cls}`}>
                   {initials}
@@ -181,13 +189,10 @@ const HeroVisual = () => (
       <div className="p-4 space-y-3">
         {/* Map strip */}
         <div className="rounded-xl overflow-hidden relative h-[88px]" style={{ background: 'linear-gradient(135deg, hsl(150 15% 10%), hsl(155 12% 8%))' }}>
-          {/* Grid roads */}
           <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '22px 22px' }} />
-          {/* Road highlights */}
           <div className="absolute top-[42%] left-0 right-0 h-[2px] bg-white/[0.07]" />
           <div className="absolute top-0 bottom-0 left-[35%] w-[2px] bg-white/[0.07]" />
           <div className="absolute top-0 bottom-0 left-[68%] w-[2px] bg-white/[0.04]" />
-          {/* Map pins */}
           <div className="absolute top-2.5 left-[30%]">
             <div className="h-6 w-6 rounded-full bg-accent border-2 border-background flex items-center justify-center text-[9px] font-bold text-[#0A0A0A] shadow-[0_0_12px_hsl(var(--accent)/0.7)]">1</div>
             <div className="w-1 h-1 rounded-full bg-accent mx-auto" />
@@ -198,7 +203,6 @@ const HeroVisual = () => (
           <div className="absolute top-3 left-[74%]">
             <div className="h-5 w-5 rounded-full bg-white/15 border border-white/15 flex items-center justify-center text-[8px] font-bold text-white/40">3</div>
           </div>
-          {/* Location label */}
           <div className="absolute bottom-2 right-3 flex items-center gap-1">
             <Navigation size={8} className="text-white/30" />
             <span className="text-[8px] text-white/25 font-mono">North Shore, MA</span>
@@ -232,7 +236,7 @@ const HeroVisual = () => (
         {/* Result #2 */}
         <div className="rounded-xl border border-border bg-white/[0.02] p-3 opacity-55">
           <div className="flex items-start gap-2.5">
-            <div className="h-7 w-7 rounded-lg bg-white/8 border border-white/10 flex items-center justify-center text-[10px] font-medium text-white/40 shrink-0">2</div>
+            <div className="h-7 w-7 rounded-lg bg-white/[0.08] border border-white/10 flex items-center justify-center text-[10px] font-medium text-white/40 shrink-0">2</div>
             <div className="flex-1 min-w-0">
               <div className="text-[12px] font-medium text-foreground/65 leading-tight">Salem Pro Services</div>
               <div className="flex items-center gap-1.5 mt-0.5">
@@ -247,11 +251,11 @@ const HeroVisual = () => (
         {/* Result #3 */}
         <div className="rounded-xl border border-border/50 bg-white/[0.01] p-3 opacity-30">
           <div className="flex items-start gap-2.5">
-            <div className="h-7 w-7 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-[10px] font-medium text-white/30 shrink-0">3</div>
+            <div className="h-7 w-7 rounded-lg bg-white/5 border border-white/[0.08] flex items-center justify-center text-[10px] font-medium text-white/30 shrink-0">3</div>
             <div className="flex-1 min-w-0">
               <div className="text-[12px] font-medium text-foreground/40 leading-tight">Coastal Contractors LLC</div>
               <div className="flex items-center gap-1.5 mt-0.5">
-                <div className="flex gap-px">{[0,1,2,3].map(i => <Star key={i} size={9} className="text-amber-400/25 fill-amber-400/25" />)}<Star size={9} className="text-white/8 fill-white/8" /></div>
+                <div className="flex gap-px">{[0,1,2,3].map(i => <Star key={i} size={9} className="text-amber-400/25 fill-amber-400/25" />)}<Star size={9} className="text-white/[0.08] fill-white/[0.08]" /></div>
                 <span className="text-[9px] text-muted-foreground/30">3.8 · 12 reviews</span>
               </div>
             </div>

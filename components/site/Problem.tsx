@@ -18,7 +18,7 @@ export const Problem = () => (
   <Section
     id="problem"
     eyebrow="The gap"
-    title={<>Your business is <span className="font-display-italic text-muted-foreground">better</span> than what people find online.</>}
+    title={<><span className="text-gradient-section">Your business is</span> <span className="font-display-italic text-muted-foreground/70">better</span> than what people find online.</>}
     subtitle="These are the four reasons good businesses with great work still lose customers to competitors who show up better online."
     align="center"
   >
