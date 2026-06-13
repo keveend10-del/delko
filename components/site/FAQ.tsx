@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "How long until I start seeing results?",
-    a: "Google profile fixes show movement in 4–8 weeks. Paid ads can ring your phone in week one. At the 30-day mark we send you an honest update — not a vague 'it takes time.' You'll know exactly what's moving and what we're working on next.",
+    a: "Google profile fixes show movement in 4–8 weeks. Website and review improvements compound from there. At the 30-day mark we send you an honest update — not a vague 'it takes time.' You'll know exactly what's moving and what we're working on next.",
   },
   {
     q: "Do I actually need a new website?",
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "What kinds of businesses do you work with?",
-    a: "Home services, contractors, med spas, restaurants, gyms, dental offices, salons, law firms — anyone in Berkshire County or the North Shore whose phone should be ringing more than it is. If your customers search locally before they choose, we can help.",
+    a: "Mainly home service businesses — pressure washing, painting, HVAC, plumbing, roofing, electricians, landscaping, remodeling, flooring, and cleaners. We also work with med spas, salons, gyms, law firms, and other local service businesses across Berkshire County and the North Shore. If your customers search locally before they choose, we can help.",
   },
   {
     q: "What does a 'Free Local Visibility Audit' actually mean?",
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "What's the real difference between your three packages?",
-    a: "Starter Presence gets your Google profile and website fixed so customers can find and contact you. Local Growth System adds a review system, lead capture forms, email/SMS follow-up, and local SEO pages to build consistent leads. Growth Partner adds AI-powered workflows, CRM management, customer reactivation, and paid ads for businesses ready to build a full acquisition system.",
+    a: "Starter Presence fixes the basics — Google profile, website, review system, lead capture, and monthly reporting so customers can find and contact you. Local Growth System adds a website refresh, local SEO service pages, review generation, follow-up automation, and AI search readiness to build consistent leads month over month. Growth Partner adds paid ads, CRM setup, advanced automations, reputation management, and detailed reporting for businesses ready to own their market.",
   },
   {
     q: "Do you only work in Berkshire County and North Shore?",

@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { LandingPage } from '@/components/site/LandingPage'
 
 export const metadata: Metadata = {
-  title: 'Delko | Get Found, Trusted, and Chosen by Local Customers',
-  description: 'Delko helps North Shore businesses improve their Google presence, website, reviews, lead capture, and AI-powered follow-up — so more customers find you, trust you, contact you, and come back.',
+  title: 'Delko | Local Marketing Systems for North Shore & Berkshire County MA',
+  description: 'Delko helps local businesses get found online, look more trustworthy, and follow up with leads faster — so more searches turn into real customers. Serving North Shore and Berkshire County MA.',
   openGraph: {
-    title: 'Delko | Get Found, Trusted, and Chosen by Local Customers',
-    description: 'Delko helps North Shore businesses improve their Google presence, website, reviews, lead capture, and AI-powered follow-up — so more customers find you, trust you, contact you, and come back.',
+    title: 'Delko | Local Marketing Systems for North Shore & Berkshire County MA',
+    description: 'Delko helps local businesses get found online, look more trustworthy, and follow up with leads faster — so more searches turn into real customers. Serving North Shore and Berkshire County MA.',
     url: 'https://delkoagency.com',
   },
   alternates: {
@@ -45,7 +45,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'How long until I start seeing results?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Google profile fixes show movement in 4–8 weeks. Paid ads can ring your phone in week one. At 30 days we send you an honest update on exactly what is moving.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Google profile fixes show movement in 4–8 weeks. Website and review improvements compound from there. At 30 days we send you an honest update on exactly what is moving.' },
     },
     {
       '@type': 'Question',
@@ -65,7 +65,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: "What's the difference between your three packages?",
-      acceptedAnswer: { '@type': 'Answer', text: 'Starter Presence gets your Google profile and website fixed so customers can find and contact you at $1,500/mo. Local Growth System adds a review system, lead capture forms, email/SMS follow-up, and local SEO pages at $2,500/mo. Growth Partner adds AI-powered workflows, CRM management, customer reactivation, and paid ads at $4,500/mo.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Starter Presence fixes the basics — Google profile, website, reviews, and lead capture at $1,500/mo. Local Growth System adds a website refresh, local SEO service pages, review generation, follow-up automation, and AI search readiness at $2,500/mo. Growth Partner adds paid ads, CRM setup, advanced automations, and reputation management at $4,500/mo.' },
     },
   ],
 }

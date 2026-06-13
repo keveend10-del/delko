@@ -3,10 +3,10 @@ import { PricingPage } from '@/components/site/PricingPage'
 
 export const metadata: Metadata = {
   title: 'Pricing',
-  description: 'Three local marketing plans starting at $1,500/mo. No setup fees, no long-term contracts. Foundation, Growth, and Dominate plans for Berkshire County and North Shore MA businesses.',
+  description: 'Three local marketing plans starting at $1,500/mo. No setup fees, month-to-month. Starter Presence, Local Growth System, and Growth Partner plans for North Shore and Berkshire County MA businesses.',
   openGraph: {
     title: 'Pricing | Delko',
-    description: 'Three local marketing plans starting at $1,500/mo. No setup fees, no long-term contracts. Foundation, Growth, and Dominate plans for Berkshire County and North Shore MA businesses.',
+    description: 'Three local marketing plans starting at $1,500/mo. No setup fees, month-to-month. Starter Presence, Local Growth System, and Growth Partner plans for North Shore and Berkshire County MA businesses.',
     url: 'https://delkoagency.com/pricing',
   },
   alternates: {
@@ -24,8 +24,8 @@ const pricingSchema = {
       position: 1,
       item: {
         '@type': 'Product',
-        name: 'Foundation Plan',
-        description: 'Get found and get calls. Google Business Profile optimization, website audit, review system, lead capture, and monthly reporting.',
+        name: 'Starter Presence',
+        description: 'Fix the basics and start getting found. Google Business Profile cleanup, website audit and basic fixes, review request system, lead capture form, and monthly report.',
         offers: {
           '@type': 'Offer',
           price: '1500',
@@ -44,8 +44,8 @@ const pricingSchema = {
       position: 2,
       item: {
         '@type': 'Product',
-        name: 'Growth Plan',
-        description: 'Generate consistent leads. Everything in Foundation plus local SEO service pages, CRM setup, review generation, email/SMS follow-up, and content planning.',
+        name: 'Local Growth System',
+        description: 'More calls, better visibility. Everything in Starter Presence plus landing page or website refresh, local SEO service pages, review generation system, lead capture forms, email and SMS follow-up, monthly strategy call, and AI search readiness.',
         offers: {
           '@type': 'Offer',
           price: '2500',
@@ -64,8 +64,8 @@ const pricingSchema = {
       position: 3,
       item: {
         '@type': 'Product',
-        name: 'Dominate Plan',
-        description: 'Own your market. Everything in Growth plus paid ad setup and management, advanced CRM/automation, reputation management, offer testing, and conversion tracking.',
+        name: 'Growth Partner',
+        description: 'Full customer acquisition system. Everything in Local Growth System plus paid ads, CRM setup, advanced automations, campaign landing pages, reputation management, offer testing, and detailed reporting.',
         offers: {
           '@type': 'Offer',
           price: '4500',

@@ -5,9 +5,9 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 
 const pillars = [
-  { n: '01', title: "Google knows who's searching", body: "Google builds a behavioral profile on every user — their Gmail, Calendar, Maps history, Chrome behavior, and purchase patterns. Every search adds a flag. Those flags shape every future result. Two people searching the exact same thing get different answers." },
-  { n: '02', title: 'Keywords are a vanity metric', body: "A business can rank #1 for a keyword and still lose the job because the searcher's profile doesn't match. Or rank nowhere and still get the call, because Google decided you're the right contextual fit. Rankings tell you where you land on an average — not whether your customer actually saw you." },
-  { n: '03', title: "Most agencies are selling you the old model", body: "Keyword rankings. Monthly reports with positions. Technical SEO checklists. All of it optimized for a version of Google that no longer exists for most searches. We build for how Google actually works now." },
+  { n: '01', title: "People are asking AI who to call", body: "ChatGPT, Perplexity, Google AI Overviews, and Gemini now answer questions about who to hire directly. Your customers ask these tools for recommendations before they ever click a website. If your business information, reviews, and local presence are weak — you may not come up at all." },
+  { n: '02', title: "Weak info = skipped, not ranked lower", body: "AI tools decide whether to recommend a business based on what they can verify: your website, Google profile, reviews, and how consistently your information appears across the web. Incomplete or inconsistent info doesn't just hurt rankings — it gets you left out of the answer entirely." },
+  { n: '03', title: "The fix is the same foundation that gets you calls today", body: "Strong Google profile, clear website, solid reviews, consistent local info. That foundation is what gets you found on Google Maps, ranked in search, and recommended by AI tools. You don't need a separate strategy — you need the basics done right." },
 ]
 
 export const WhyDifferent = () => {
@@ -33,14 +33,13 @@ export const WhyDifferent = () => {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="max-w-4xl mb-20"
           >
-            <div className="eyebrow mb-6">The new Google</div>
+            <div className="eyebrow mb-6">How search has changed</div>
             <h2 className="text-[40px] sm:text-[58px] lg:text-[72px] font-bold leading-[1.0] tracking-[-0.04em]">
-              Same search.{' '}
-              <span className="font-display-italic text-muted-foreground">Different results.</span>{' '}
-              Every time.
+              People are asking AI{' '}
+              <span className="font-display-italic text-muted-foreground">who to hire.</span>
             </h2>
             <p className="mt-7 text-[18px] text-muted-foreground leading-relaxed max-w-2xl">
-              Google doesn&apos;t return the same ranked page for everyone anymore. It personalizes every answer based on who the person is — and most agencies haven&apos;t caught up.
+              Search isn&apos;t just Google anymore. Customers are asking ChatGPT, Perplexity, and Google AI who they should trust. If your business isn&apos;t set up to show up in those answers, you&apos;re invisible to a growing slice of buyers — even if you rank fine on regular search.
             </p>
           </motion.div>
 
@@ -79,7 +78,7 @@ export const WhyDifferent = () => {
             <div className="relative">
               <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-glow mb-2">Our approach</div>
               <p className="text-[18px] sm:text-[20px] font-bold tracking-[-0.025em] max-w-xl">
-                We build context signals — not keyword lists. Your presence across Google&apos;s entire ecosystem, engineered to match how your customers actually search.
+                We fix the foundation — Google profile, website, reviews, and local info — so your business gets found, looks trustworthy, and gets recommended whether someone searches on Google or asks an AI tool.
               </p>
             </div>
             <a href="/services" className="relative inline-flex items-center gap-2 text-[14px] font-bold text-accent whitespace-nowrap hover:gap-3 transition-all duration-200">

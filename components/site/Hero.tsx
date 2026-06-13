@@ -96,7 +96,7 @@ export const Hero = () => {
             transition={{ delay: 0.55, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="mt-9 text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-[500px]"
           >
-            Delko helps North Shore businesses improve their Google presence, website, reviews, lead capture, and AI-powered follow-up — so more customers find you, trust you, and choose you.
+            Delko helps local businesses across the North Shore and Berkshire County get found online, look more trustworthy, and follow up with leads faster — so more searches turn into real customers.
           </motion.p>
 
           <motion.div

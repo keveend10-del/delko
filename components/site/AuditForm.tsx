@@ -7,9 +7,10 @@ import { ArrowUpRight, CheckCircle2, Globe, MapPin, Star, Search, TrendingUp, Me
 import { trackAuditSubmission } from '@/lib/analytics'
 
 const businessTypes = [
-  'Home services', 'Contractor', 'Med spa / wellness',
-  'Restaurant / bar', 'Gym / fitness', 'Dental office',
-  'Salon / barbershop', 'Law firm', 'Other',
+  'Pressure washing', 'Painting', 'HVAC / plumbing',
+  'Roofing', 'Electrician', 'Landscaping',
+  'Remodeling / flooring', 'Cleaning services', 'Med spa / wellness',
+  'Salon / gym', 'Law firm', 'Other',
 ]
 
 const helpOptions = [
@@ -50,7 +51,7 @@ export const AuditForm = () => {
       setSubmitted(true)
       trackAuditSubmission(form.type)
     } catch {
-      setError('Something went wrong. Email us directly at hello@berkgrowth.co')
+      setError('Something went wrong. Email us directly at hello@delkoagency.com')
     } finally {
       setSubmitting(false)
     }
