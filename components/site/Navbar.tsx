@@ -1,17 +1,86 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, MapPin, Phone, TrendingUp, ChevronDown } from 'lucide-react'
 import { trackCTAClick } from '@/lib/analytics'
 
-const links = [
-  { label: 'Services', href: '/services' },
+const serviceItems = [
+  { icon: MapPin, label: 'Local Visibility', desc: 'Google, Maps, local SEO & AI search', href: '/services#local-visibility' },
+  { icon: Phone, label: 'Lead Capture', desc: 'Forms, booking links & call tracking', href: '/services#lead-capture' },
+  { icon: TrendingUp, label: 'AI-Powered Follow-Up', desc: 'Missed calls, reviews & automation', href: '/services#follow-up' },
+]
+
+const navLinks = [
   { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'Packages', href: '/#packages' },
 ]
+
+const ServicesDropdown = () => {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-1 px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-white/5 transition-all duration-200"
+      >
+        Services
+        <ChevronDown size={13} className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -6, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -6, scale: 0.97 }}
+            transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute top-full left-0 mt-2 w-64 rounded-xl border border-white/[0.08] bg-[#070707] shadow-elevated overflow-hidden"
+          >
+            <div className="p-1.5">
+              {serviceItems.map(({ icon: Icon, label, desc, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className="group flex items-start gap-3 px-3 py-3 rounded-lg hover:bg-white/[0.04] transition-colors"
+                >
+                  <div className="h-8 w-8 rounded-lg border border-white/[0.07] bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent group-hover:border-accent/25 transition-all duration-200 shrink-0 mt-0.5">
+                    <Icon size={14} />
+                  </div>
+                  <div>
+                    <div className="text-[13px] font-medium text-foreground/80 group-hover:text-foreground transition-colors">{label}</div>
+                    <div className="text-[11px] text-muted-foreground/60 mt-0.5 leading-snug">{desc}</div>
+                  </div>
+                </a>
+              ))}
+              <div className="h-px mx-2 my-1.5" style={{ background: 'linear-gradient(90deg, transparent, hsl(var(--border-strong)), transparent)' }} />
+              <a
+                href="/services"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-[12px] font-medium text-muted-foreground hover:text-accent hover:bg-white/[0.03] transition-colors"
+              >
+                View all services →
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -38,13 +107,12 @@ export const Navbar = () => {
               <span className="absolute inset-0 rounded-full bg-accent animate-dot" />
               <span className="relative h-2.5 w-2.5 rounded-full bg-accent" />
             </span>
-            <span className="text-[14px] font-semibold tracking-tight">
-              Delko
-            </span>
+            <span className="text-[14px] font-semibold tracking-tight">Delko</span>
           </a>
 
           <nav className="hidden md:flex items-center">
-            {links.map((l) => (
+            <ServicesDropdown />
+            {navLinks.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
@@ -84,7 +152,20 @@ export const Navbar = () => {
             className="md:hidden mx-4 mt-2 rounded-xl border border-white/[0.07] bg-[#050505] shadow-elevated overflow-hidden"
           >
             <div className="p-5 flex flex-col gap-1">
-              {links.map((l) => (
+              <div className="text-[10px] font-bold font-mono uppercase tracking-[0.2em] text-muted-foreground/40 px-3 pb-1 pt-0.5">Services</div>
+              {serviceItems.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-2.5 text-[14px] font-medium text-muted-foreground hover:text-foreground py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors"
+                >
+                  <Icon size={14} className="text-accent/60 shrink-0" />
+                  {label}
+                </a>
+              ))}
+              <div className="h-px my-2" style={{ background: 'linear-gradient(90deg, transparent, hsl(var(--border-strong)), transparent)' }} />
+              {navLinks.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}

@@ -1,8 +1,10 @@
 import { CookieSettingsLink } from './CookieSettingsLink'
 
 export const Footer = () => (
-  <footer className="relative border-t border-white/[0.07]">
-    <div className="container mx-auto px-5 sm:px-8 py-16 sm:py-20">
+  <footer className="relative">
+    <div className="h-px" style={{ background: 'linear-gradient(90deg, transparent, hsl(var(--accent)/0.4) 35%, hsl(var(--accent)/0.2) 65%, transparent)' }} />
+    <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 45% at 50% 0%, hsl(var(--accent)/0.07), transparent 65%)' }} />
+    <div className="container mx-auto px-5 sm:px-8 py-16 sm:py-20 relative">
       <div className="grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-5">
           <div className="flex items-center gap-2.5 mb-5">
@@ -12,7 +14,7 @@ export const Footer = () => (
             </span>
           </div>
           <p className="text-[15px] text-muted-foreground max-w-sm leading-relaxed">
-            Websites, ads, and Google profiles that bring more calls to local businesses across Berkshire County and the North Shore of Massachusetts.
+            Google visibility, websites, reviews, lead capture, and AI-powered follow-up for local businesses across the North Shore and Berkshire County, MA.
           </p>
         </div>
 
@@ -24,7 +26,7 @@ export const Footer = () => (
               { label: 'Projects', href: '/projects' },
               { label: 'About', href: '/about' },
               { label: 'Packages', href: '/#packages' },
-              { label: 'Get a Free Audit', href: '/#audit' },
+              { label: 'Free Visibility Audit', href: '/#audit' },
               { label: 'Client Portal', href: '/portal/login' },
             ].map(({ label, href }) => (
               <li key={href}>

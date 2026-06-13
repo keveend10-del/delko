@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { AuditForm } from './AuditForm'
 
-const bullets = ['Reviewed by a real person. Not a bot.', 'Back to you in 1–2 business days.', 'No pressure, no pitch, no commitment.']
+const bullets = ['Reviewed by a real person. Not a bot.', 'Back to you in 1–2 business days.', 'No pressure. No confusing report. No commitment.']
 
 export const CTASection = () => (
   <section id="audit" className="relative py-28 sm:py-36 overflow-hidden">
@@ -16,14 +16,13 @@ export const CTASection = () => (
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start"
         >
-          <div className="eyebrow mb-7">Free audit · No commitment</div>
+          <div className="eyebrow mb-7">Free Local Visibility Audit · No commitment</div>
           <h2 className="text-[36px] sm:text-[52px] lg:text-[60px] font-bold leading-[1.0] tracking-[-0.04em]">
-            Want to know why the phone{' '}
-            <span className="font-display-italic text-muted-foreground">isn&apos;t ringing</span>{' '}
-            like it should?
+            See exactly where your business stands —{' '}
+            <span className="font-display-italic text-muted-foreground">and what to fix first.</span>
           </h2>
           <p className="mt-7 text-[17px] text-muted-foreground leading-relaxed">
-            Send us your business name and website. We&apos;ll send back a short, plain-English audit with the biggest things we&apos;d fix first.
+            We&apos;ll review your website, Google profile, reviews, AI search visibility, lead capture, and follow-up process. Then we&apos;ll show you what&apos;s working, what&apos;s costing you customers, and what to fix first.
           </p>
           <ul className="mt-8 space-y-3.5">
             {bullets.map((b) => (

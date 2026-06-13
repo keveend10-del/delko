@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 import { Section } from './Section'
-import { Globe, Instagram, MapPin, MessageSquare } from 'lucide-react'
+import { Globe, Search, Star, MessageSquare } from 'lucide-react'
 
 const problems = [
-  { n: '01', icon: Globe, title: 'A website nobody calls from', sub: 'Customers judge you in 3 seconds and leave.' },
-  { n: '02', icon: Instagram, title: 'Social pages collecting dust', sub: 'Google reads inactivity as irrelevance.' },
-  { n: '03', icon: MapPin, title: "Google profile that's hurting you", sub: 'Wrong hours. Missing photos. No reviews.' },
-  { n: '04', icon: MessageSquare, title: 'No easy way to book a job', sub: 'Friction kills the call before it starts.' },
+  { n: '01', icon: Search, title: 'Customers search differently now', sub: 'Google, Maps, and AI tools answer questions directly. If you\'re not set up there, ready buyers can\'t find you.' },
+  { n: '02', icon: Star, title: 'Weak reviews and trust signals', sub: 'Thin reviews or unanswered feedback sends customers to your competitors before you even know they looked.' },
+  { n: '03', icon: Globe, title: 'Website loses leads, not wins them', sub: 'No clear call button. No booking link. Slow on mobile. Visitors leave without ever contacting you.' },
+  { n: '04', icon: MessageSquare, title: 'Leads fall through the cracks', sub: 'No follow-up system means missed calls become lost jobs. Most businesses lose customers they never knew they had.' },
 ]
 
 const cardVariants = {
@@ -19,7 +19,7 @@ export const Problem = () => (
     id="problem"
     eyebrow="The gap"
     title={<>Your business is <span className="font-display-italic text-muted-foreground">better</span> than what people find online.</>}
-    subtitle="These four problems are why good businesses lose jobs to competitors who aren't actually better — just better at sending the right signals."
+    subtitle="These are the four reasons good businesses with great work still lose customers to competitors who show up better online."
     align="center"
   >
     <motion.div

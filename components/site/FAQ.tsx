@@ -8,7 +8,7 @@ import { Plus } from 'lucide-react'
 const faqs = [
   {
     q: "How is this different from other agencies I've tried?",
-    a: "Most agencies sell you a package and disappear into a dashboard. We're two people working exclusively in Berkshire County and North Shore — we know your competitors by name, we answer our phones, and we work your account personally. If it's not working, you'll hear from us before the next invoice, not after.",
+    a: "Most agencies sell you a package and disappear into a dashboard. We're two people focused exclusively on Berkshire County and the North Shore. We don't run cookie-cutter campaigns — we focus on three things that actually move the needle: local visibility, lead capture, and follow-up systems. We know your competitors by name, we answer our phones, and we work your account personally. If it's not working, you'll hear from us before the next invoice.",
   },
   {
     q: "How long until I start seeing results?",
@@ -20,15 +20,15 @@ const faqs = [
   },
   {
     q: "What kinds of businesses do you work with?",
-    a: "Home services, med spas, law firms, hospitality — painters, HVAC, landscapers, electricians, plumbers. Anyone in Berkshire County or the North Shore whose phone should be ringing more than it is. If your customers search locally before they buy, we can help.",
+    a: "Home services, contractors, med spas, restaurants, gyms, dental offices, salons, law firms — anyone in Berkshire County or the North Shore whose phone should be ringing more than it is. If your customers search locally before they choose, we can help.",
   },
   {
-    q: "What does a 'free digital audit' actually mean?",
-    a: "We pull up your Google profile, your website, and your top competitors — then show you exactly what a real customer sees when they search for your service. Takes us about 30 minutes. There's no pitch at the end. Just a plain list of what's costing you jobs and what to fix first.",
+    q: "What does a 'Free Local Visibility Audit' actually mean?",
+    a: "We review your website, Google Business Profile, reviews, competitors, AI search visibility, and follow-up process. Then we show you what's working, what's costing you customers, where competitors are ahead, and what to fix first. No confusing report. No pitch. Just a clear picture of where you stand — in plain English.",
   },
   {
-    q: "I'm already showing up on Google. Why would I need this?",
-    a: "Showing up on a keyword list and showing up for your actual customer are different things now. Google personalizes results based on who's searching. We check whether the buyer in your service area — the one ready to spend this week — is actually finding you. That's a very different question than a rank report.",
+    q: "What is local AI visibility and why does it matter?",
+    a: "Search is changing fast. People aren't just clicking through 10 blue links anymore — they're asking Google AI, ChatGPT, and Gemini who they should trust. These tools pull from your website, reviews, Google profile, and local data to decide if your business is worth recommending. If that information is incomplete, inconsistent, or thin, you get skipped — even if you rank on the regular results page. Local AI visibility means making your business easy for these tools to understand and recommend.",
   },
   {
     q: "Am I locked into a contract?",
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "What's the real difference between your three packages?",
-    a: "Foundation gets your Google profile and website working together to bring in calls. Growth adds a review system, email follow-up, and local SEO pages to turn those calls into consistent leads. Dominate adds paid ads, CRM automation, and conversion tracking for businesses ready to own their market.",
+    a: "Starter Presence gets your Google profile and website fixed so customers can find and contact you. Local Growth System adds a review system, lead capture forms, email/SMS follow-up, and local SEO pages to build consistent leads. Growth Partner adds AI-powered workflows, CRM management, customer reactivation, and paid ads for businesses ready to build a full acquisition system.",
   },
   {
     q: "Do you only work in Berkshire County and North Shore?",

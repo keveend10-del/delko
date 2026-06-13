@@ -6,7 +6,7 @@ import { Section } from './Section'
 import { Search, ListChecks, Hammer, TrendingUp } from 'lucide-react'
 
 const steps = [
-  { n: '01', icon: Search, title: 'Free Digital Audit', desc: "We pull up your site, your Google profile, your socials, and tell you exactly where you're losing jobs. No charge, no pitch." },
+  { n: '01', icon: Search, title: 'Free Local Visibility Audit', desc: "We review your Google profile, website, reviews, competitors, and AI search visibility — then show you exactly where you stand and what to fix first. No charge, no pitch." },
   { n: '02', icon: ListChecks, title: 'A plain-English plan', desc: "You get a short list of fixes in order of what'll bring you the most calls. No 40-page report nobody reads." },
   { n: '03', icon: Hammer, title: 'We do the work', desc: "We rebuild the site, fix the Google profile, get the ads running. Usually two to four weeks. You stay focused on jobs." },
   { n: '04', icon: TrendingUp, title: 'We keep it running', desc: "Posts, ad tweaks, review follow-ups, monthly reports. You always know what's working and what we're trying next." },

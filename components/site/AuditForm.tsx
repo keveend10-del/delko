@@ -3,22 +3,22 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { ArrowUpRight, CheckCircle2, Globe, Share2, MapPin, Palette, Camera, TrendingUp } from 'lucide-react'
+import { ArrowUpRight, CheckCircle2, Globe, MapPin, Star, Search, TrendingUp, MessageSquare } from 'lucide-react'
 import { trackAuditSubmission } from '@/lib/analytics'
 
 const businessTypes = [
-  'Home services', 'Restaurant / bar', 'Salon / barbershop',
-  'Gym / fitness', 'Real estate', 'Med spa / wellness',
-  'Law firm', 'Retail / boutique', 'Other',
+  'Home services', 'Contractor', 'Med spa / wellness',
+  'Restaurant / bar', 'Gym / fitness', 'Dental office',
+  'Salon / barbershop', 'Law firm', 'Other',
 ]
 
 const helpOptions = [
-  { id: 'Website', label: 'Website', icon: Globe, desc: 'Design & build' },
-  { id: 'Social media', label: 'Social media', icon: Share2, desc: 'Content & presence' },
+  { id: 'Website & mobile experience', label: 'Website', icon: Globe, desc: 'Speed, mobile, design' },
   { id: 'Google Business Profile', label: 'Google Profile', icon: MapPin, desc: 'GBP optimization' },
-  { id: 'Branding', label: 'Branding', icon: Palette, desc: 'Identity & voice' },
-  { id: 'Content', label: 'Content', icon: Camera, desc: 'Photos & video' },
-  { id: 'Monthly support', label: 'Monthly support', icon: TrendingUp, desc: 'Ongoing retainer' },
+  { id: 'Reviews & trust signals', label: 'Reviews', icon: Star, desc: 'Build trust online' },
+  { id: 'Local SEO', label: 'Local SEO', icon: Search, desc: 'Service pages, rankings' },
+  { id: 'AI search visibility', label: 'AI Visibility', icon: TrendingUp, desc: 'ChatGPT, Gemini, AI' },
+  { id: 'Lead capture & follow-up', label: 'Leads & Follow-Up', icon: MessageSquare, desc: 'Forms, automation' },
 ]
 
 const inputCls = 'h-11 w-full rounded-lg bg-[hsl(0_0%_5%)] border border-white/[0.08] px-4 text-[14px] text-foreground outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground'
@@ -130,8 +130,8 @@ export const AuditForm = () => {
         {/* Help options — green glowing circles */}
         <div className="sm:col-span-2 space-y-3">
           <div>
-            <label className="text-[13px] font-semibold text-foreground/90 block">What do you need help with?</label>
-            <p className="text-[11px] text-muted-foreground mt-0.5 tracking-wide">Select everything that applies</p>
+            <label className="text-[13px] font-semibold text-foreground/90 block">What should we look at?</label>
+            <p className="text-[11px] text-muted-foreground mt-0.5 tracking-wide">Select everything that applies — we'll cover it in your audit</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
             {helpOptions.map(({ id, label, icon: Icon, desc }) => {
@@ -203,7 +203,7 @@ export const AuditForm = () => {
       <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <p className="text-[12px] text-muted-foreground">We respond within 1–2 business days. No spam, no sales pressure.</p>
         <Button type="submit" variant="accent" size="xl" className="w-full sm:w-auto" loading={submitting}>
-          Send My Free Audit Request <ArrowUpRight size={16} />
+          Request My Free Visibility Audit <ArrowUpRight size={16} />
         </Button>
       </div>
     </form>

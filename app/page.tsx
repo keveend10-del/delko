@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { LandingPage } from '@/components/site/LandingPage'
 
 export const metadata: Metadata = {
-  title: 'Delko | More Calls. More Jobs.',
-  description: 'Websites, ads, and Google profiles that bring more calls to local businesses across Berkshire County and the North Shore of Massachusetts.',
+  title: 'Delko | Get Found, Trusted, and Chosen by Local Customers',
+  description: 'Delko helps North Shore businesses improve their Google presence, website, reviews, lead capture, and AI-powered follow-up — so more customers find you, trust you, contact you, and come back.',
   openGraph: {
-    title: 'Delko | More Calls. More Jobs.',
-    description: 'Websites, ads, and Google profiles that bring more calls to local businesses across Berkshire County and the North Shore of Massachusetts.',
+    title: 'Delko | Get Found, Trusted, and Chosen by Local Customers',
+    description: 'Delko helps North Shore businesses improve their Google presence, website, reviews, lead capture, and AI-powered follow-up — so more customers find you, trust you, contact you, and come back.',
     url: 'https://delkoagency.com',
   },
   alternates: {
@@ -19,9 +19,9 @@ const localBusinessSchema = {
   '@type': 'LocalBusiness',
   name: 'Delko',
   url: 'https://delkoagency.com',
-  description: 'Local marketing agency serving Berkshire County and North Shore MA. Websites, Google Business Profile optimization, local SEO, and paid ads.',
-  areaServed: ['Berkshire County, MA', 'North Shore, MA'],
-  serviceType: ['Local SEO', 'Google Business Profile Optimization', 'Paid Advertising', 'Website Design'],
+  description: 'Local growth agency serving North Shore and Berkshire County, MA. Google Business Profile optimization, local SEO, website design, lead capture, AI search visibility, and automated follow-up systems.',
+  areaServed: ['North Shore, MA', 'Berkshire County, MA'],
+  serviceType: ['Local SEO', 'Google Business Profile Optimization', 'Website Design', 'Lead Generation', 'AI Search Visibility', 'Customer Follow-Up Automation'],
   priceRange: '$1,500–$4,500/mo',
   sameAs: [],
 }
@@ -39,8 +39,8 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: "I've tried Facebook ads before and they didn't work.",
-      acceptedAnswer: { '@type': 'Answer', text: "Facebook finds people who might be interested. We find people already searching for your service right now in Pittsfield, Salem, or wherever you work. Different intent, completely different result." },
+      name: 'What is local AI visibility and why does it matter?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Search is changing fast. People are asking Google AI, ChatGPT, and Gemini who they should trust. These tools pull from your website, reviews, Google profile, and local data. If that information is incomplete or thin, you get skipped — even if you rank on the regular results page.' },
     },
     {
       '@type': 'Question',
@@ -60,12 +60,12 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'What areas does Delko serve?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Delko serves local businesses in Berkshire County MA (Pittsfield, Lenox, Stockbridge, Great Barrington, Lee, Williamstown, Adams, Dalton) and the North Shore of Massachusetts (Salem, Beverly, Marblehead, Gloucester, Newburyport, Ipswich, Rockport).' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Delko serves local businesses across the North Shore of Massachusetts (Salem, Beverly, Marblehead, Gloucester, Newburyport, Ipswich, Rockport) and Berkshire County MA (Pittsfield, Lenox, Stockbridge, Great Barrington, Lee, Williamstown, Adams, Dalton).' },
     },
     {
       '@type': 'Question',
       name: "What's the difference between your three packages?",
-      acceptedAnswer: { '@type': 'Answer', text: 'Foundation gets your Google profile and website working together to bring in calls at $1,500/mo. Growth adds a review system, email follow-up, and local SEO pages at $2,500/mo. Dominate adds paid ads, CRM automation, and conversion tracking at $4,500/mo.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Starter Presence gets your Google profile and website fixed so customers can find and contact you at $1,500/mo. Local Growth System adds a review system, lead capture forms, email/SMS follow-up, and local SEO pages at $2,500/mo. Growth Partner adds AI-powered workflows, CRM management, customer reactivation, and paid ads at $4,500/mo.' },
     },
   ],
 }

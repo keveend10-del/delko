@@ -22,7 +22,7 @@ export function LandingPage() {
         <Hero />
         <div className="container mx-auto px-5 sm:px-8 py-4">
           <h2 className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] uppercase text-muted-foreground/50">
-            Local marketing agency serving Berkshire County &amp; North Shore MA
+            Local growth agency for North Shore &amp; Berkshire County, MA
           </h2>
         </div>
         <SectionDivider />

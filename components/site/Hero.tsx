@@ -20,7 +20,7 @@ const headlineLine = {
 }
 
 const stats = [
-  { value: '06', label: 'Core Services' },
+  { value: '3', label: 'Core Pillars' },
   { value: '2', label: 'Markets' },
   { value: '$0', label: 'Setup Fees' },
   { value: 'M–M', label: 'Contracts' },
@@ -66,19 +66,19 @@ export const Hero = () => {
               <span className="h-2 w-2 rounded-full bg-accent" />
             </span>
             <span className="text-[11px] font-semibold tracking-[0.22em] uppercase text-muted-foreground">
-              Berkshires & North Shore, MA
+              North Shore, MA
             </span>
           </motion.div>
 
           <motion.div variants={headlineContainer} initial="hidden" animate="show">
             <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">More calls.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">Get found.</h1>
             </motion.div>
             <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-display-italic leading-[0.93] text-muted-foreground">More jobs.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-display-italic leading-[0.93] text-muted-foreground">Trusted.</h1>
             </motion.div>
             <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">More revenue.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">Chosen.</h1>
             </motion.div>
           </motion.div>
 
@@ -88,7 +88,7 @@ export const Hero = () => {
             transition={{ delay: 0.55, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="mt-9 text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-[500px]"
           >
-            We build the signals Google uses to route real customers to your business. Not keywords — context.
+            Delko helps North Shore businesses improve their Google presence, website, reviews, lead capture, and AI-powered follow-up — so more customers find you, trust you, contact you, and come back.
           </motion.p>
 
           <motion.div
@@ -98,10 +98,10 @@ export const Hero = () => {
             className="mt-10 flex flex-col sm:flex-row gap-3"
           >
             <Button asChild variant="accent" size="xl">
-              <a href="#audit" onClick={() => trackCTAClick('get_free_audit', 'hero')}>Get a Free Audit <ArrowUpRight size={16} /></a>
+              <a href="#audit" onClick={() => trackCTAClick('get_free_audit', 'hero')}>Get a Free Visibility Audit <ArrowUpRight size={16} /></a>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <a href="/services" onClick={() => trackCTAClick('see_services', 'hero')}>See Our Services</a>
+              <a href="/services" onClick={() => trackCTAClick('see_services', 'hero')}>See What We Fix</a>
             </Button>
           </motion.div>
 
@@ -123,7 +123,7 @@ export const Hero = () => {
               ))}
             </div>
             <span className="text-[13px] text-muted-foreground">
-              Serving <span className="text-foreground font-medium">Pittsfield, Lenox, Salem</span> and beyond
+              Serving <span className="text-foreground font-medium">Salem, Beverly, Gloucester</span> and beyond
             </span>
           </motion.div>
         </div>
@@ -174,7 +174,7 @@ const HeroVisual = () => (
         </div>
         <div className="flex-1 bg-white/[0.06] rounded-full px-3 py-1.5 flex items-center gap-2">
           <Search size={9} className="text-muted-foreground shrink-0" />
-          <span className="text-[10px] text-foreground/70 font-medium">painters near me berkshires ma</span>
+          <span className="text-[10px] text-foreground/70 font-medium">best contractor north shore ma</span>
         </div>
       </div>
 
@@ -201,7 +201,7 @@ const HeroVisual = () => (
           {/* Location label */}
           <div className="absolute bottom-2 right-3 flex items-center gap-1">
             <Navigation size={8} className="text-white/30" />
-            <span className="text-[8px] text-white/25 font-mono">Berkshire County, MA</span>
+            <span className="text-[8px] text-white/25 font-mono">North Shore, MA</span>
           </div>
         </div>
 
@@ -210,13 +210,13 @@ const HeroVisual = () => (
           <div className="flex items-start gap-2.5">
             <div className="h-7 w-7 rounded-lg bg-accent flex items-center justify-center text-[10px] font-bold text-[#0A0A0A] shrink-0 shadow-[0_0_10px_hsl(var(--accent)/0.4)]">1</div>
             <div className="flex-1 min-w-0">
-              <div className="text-[12px] font-bold text-accent leading-tight">Harbor Painting Co.</div>
+              <div className="text-[12px] font-bold text-accent leading-tight">North Shore Home Pros</div>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <div className="flex gap-px">{[0,1,2,3,4].map(i => <Star key={i} size={9} className="text-amber-400 fill-amber-400" />)}</div>
                 <span className="text-[9px] text-foreground/60 font-medium">4.9 · 127 reviews</span>
               </div>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-[9px] text-muted-foreground">Painters · Lenox, MA</span>
+                <span className="text-[9px] text-muted-foreground">Contractors · Salem, MA</span>
                 <span className="text-[9px] text-emerald-400 font-medium">Open · Closes 6 PM</span>
               </div>
             </div>
@@ -234,12 +234,12 @@ const HeroVisual = () => (
           <div className="flex items-start gap-2.5">
             <div className="h-7 w-7 rounded-lg bg-white/8 border border-white/10 flex items-center justify-center text-[10px] font-medium text-white/40 shrink-0">2</div>
             <div className="flex-1 min-w-0">
-              <div className="text-[12px] font-medium text-foreground/65 leading-tight">Berkshire Pro Painters</div>
+              <div className="text-[12px] font-medium text-foreground/65 leading-tight">Salem Pro Services</div>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <div className="flex gap-px">{[0,1,2,3].map(i => <Star key={i} size={9} className="text-amber-400/50 fill-amber-400/50" />)}<Star size={9} className="text-white/10 fill-white/10" /></div>
                 <span className="text-[9px] text-muted-foreground/50">4.1 · 43 reviews</span>
               </div>
-              <div className="text-[9px] text-muted-foreground/40 mt-0.5">Painters · Pittsfield, MA</div>
+              <div className="text-[9px] text-muted-foreground/40 mt-0.5">Contractors · Beverly, MA</div>
             </div>
           </div>
         </div>
@@ -249,7 +249,7 @@ const HeroVisual = () => (
           <div className="flex items-start gap-2.5">
             <div className="h-7 w-7 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-[10px] font-medium text-white/30 shrink-0">3</div>
             <div className="flex-1 min-w-0">
-              <div className="text-[12px] font-medium text-foreground/40 leading-tight">Valley Painting LLC</div>
+              <div className="text-[12px] font-medium text-foreground/40 leading-tight">Coastal Contractors LLC</div>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <div className="flex gap-px">{[0,1,2,3].map(i => <Star key={i} size={9} className="text-amber-400/25 fill-amber-400/25" />)}<Star size={9} className="text-white/8 fill-white/8" /></div>
                 <span className="text-[9px] text-muted-foreground/30">3.8 · 12 reviews</span>
