@@ -1,4 +1,4 @@
-export type Package = 'starter' | 'growth' | 'dominate'
+export type Package = 'digital cleanup' | 'website + social rebuild' | 'monthly growth support' | 'foundation' | 'growth' | 'dominate'
 export type SubscriptionStatus = 'pending' | 'active' | 'past_due' | 'canceled'
 
 export interface Client {
@@ -58,7 +58,25 @@ export interface PackageConfig {
 }
 
 export const PACKAGES: Record<Package, PackageConfig> = {
-  starter: {
+  'digital cleanup': {
+    name: 'Digital Cleanup',
+    price: 0,
+    tagline: '',
+    features: [],
+  },
+  'website + social rebuild': {
+    name: 'Website + Social Rebuild',
+    price: 0,
+    tagline: '',
+    features: [],
+  },
+  'monthly growth support': {
+    name: 'Monthly Growth Support',
+    price: 0,
+    tagline: '',
+    features: [],
+  },
+  foundation: {
     name: 'Foundation',
     price: 1500,
     tagline: 'Get found and get calls.',

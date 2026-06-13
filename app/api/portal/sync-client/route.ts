@@ -56,7 +56,7 @@ export async function POST() {
         business_name: emailPrefix,
         email,
         customer_user_id: uid,
-        package: 'starter',
+        package: null,
         subscription_status: 'pending',
         client_status: 'Active',
         payment_status: 'Not invoiced',

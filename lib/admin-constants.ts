@@ -13,7 +13,7 @@ export const CONTACT_METHODS = ['Email','Instagram DM','LinkedIn','Phone','In pe
 export const RESPONSE_STATUSES = ['No response','Replied','Interested','Not interested','Follow up later','Booked call']
 export const PACKAGES = ['Foundation','Growth','Dominate']
 export const PACKAGE_OPTIONS = [
-  { key: 'starter', label: 'Foundation' },
+  { key: 'foundation', label: 'Foundation' },
   { key: 'growth', label: 'Growth' },
   { key: 'dominate', label: 'Dominate' },
 ]

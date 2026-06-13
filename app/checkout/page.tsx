@@ -3,12 +3,12 @@
 import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { PACKAGES } from '@/lib/types'
+import { PACKAGES, type Package } from '@/lib/types'
 import { formatCurrency } from '@/lib/utils'
 import { ArrowLeft, Check, Loader2 } from 'lucide-react'
 
-const PLAN_KEY_MAP: Record<string, 'starter' | 'growth' | 'dominate'> = {
-  foundation: 'starter',
+const PLAN_KEY_MAP: Record<string, Package> = {
+  foundation: 'foundation',
   growth: 'growth',
   dominate: 'dominate',
 }
