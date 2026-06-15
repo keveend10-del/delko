@@ -61,7 +61,7 @@ function PortalLogin() {
         <Link href="/" className="block text-center text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6 hover:text-foreground transition-colors">
           ← Back to site
         </Link>
-        <div className="rounded-3xl border border-border bg-surface shadow-[0_24px_80px_rgba(0,0,0,0.8)] p-8 sm:p-10">
+        <div className="rounded-3xl border border-border bg-surface shadow-[0_4px_24px_rgba(0,0,0,0.08)] dark:shadow-[0_24px_80px_rgba(0,0,0,0.8)] p-8 sm:p-10">
           <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-3">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Client access
@@ -276,7 +276,7 @@ function PortalShell({ children }: { children: ReactNode }) {
 export default function PortalLayout({ children }: { children: ReactNode }) {
   return (
     <PortalAuthProvider>
-      <Toaster theme="dark" position="bottom-right" />
+      <Toaster position="bottom-right" />
       <PortalShell>{children}</PortalShell>
     </PortalAuthProvider>
   )

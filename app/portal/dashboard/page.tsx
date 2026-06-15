@@ -10,7 +10,7 @@ import { Panel, PageHeader, KpiCard } from '@/components/admin/ui'
 import { Users, Star, DollarSign, Target, ArrowRight, CheckCircle, Circle, ChevronRight } from 'lucide-react'
 
 const STATUS_COLORS: Record<string, { dot: string; text: string; label: string }> = {
-  pending: { dot: 'bg-yellow-400', text: 'text-yellow-300', label: 'Pending setup' },
+  pending: { dot: 'bg-yellow-400', text: 'text-yellow-600 dark:text-yellow-300', label: 'Pending setup' },
   active: { dot: 'bg-accent', text: 'text-accent', label: 'Active' },
   past_due: { dot: 'bg-red-400', text: 'text-red-400', label: 'Payment past due' },
   canceled: { dot: 'bg-zinc-500', text: 'text-zinc-400', label: 'Canceled' },

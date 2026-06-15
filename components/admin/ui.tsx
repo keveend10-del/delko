@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
 export const Panel = ({ children, className }: { children: ReactNode; className?: string }) => (
-  <div className={cn('rounded-2xl border border-border bg-[hsl(0_0%_7%)] shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_12px_40px_rgba(0,0,0,0.7)]', className)}>
+  <div className={cn('rounded-2xl border border-border bg-surface shadow-sm dark:shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_12px_40px_rgba(0,0,0,0.7)]', className)}>
     {children}
   </div>
 )
@@ -25,32 +25,32 @@ export const PageHeader = ({ eyebrow, title, description, actions }: { eyebrow?:
 )
 
 const statusColors: Record<string, string> = {
-  'New Lead': 'bg-slate-500/15 text-slate-200 border-slate-500/30',
-  Researched: 'bg-cyan-500/15 text-cyan-200 border-cyan-500/30',
-  Contacted: 'bg-blue-500/15 text-blue-200 border-blue-500/30',
-  Interested: 'bg-violet-500/15 text-violet-200 border-violet-500/30',
-  'Audit Sent': 'bg-indigo-500/15 text-indigo-200 border-indigo-500/30',
-  'Call Booked': 'bg-fuchsia-500/15 text-fuchsia-200 border-fuchsia-500/30',
-  'Proposal Sent': 'bg-amber-500/15 text-amber-200 border-amber-500/30',
-  Won: 'bg-emerald-500/15 text-emerald-200 border-emerald-500/30',
-  Lost: 'bg-rose-500/15 text-rose-200 border-rose-500/30',
-  Nurture: 'bg-zinc-500/15 text-zinc-300 border-zinc-500/30',
-  Low: 'bg-zinc-500/15 text-zinc-300 border-zinc-500/30',
-  Medium: 'bg-blue-500/15 text-blue-200 border-blue-500/30',
-  High: 'bg-amber-500/15 text-amber-200 border-amber-500/30',
-  Hot: 'bg-rose-500/15 text-rose-200 border-rose-500/30',
-  Urgent: 'bg-rose-500/20 text-rose-200 border-rose-500/40',
+  'New Lead': 'bg-slate-500/15 text-slate-600 dark:text-slate-200 border-slate-500/30',
+  Researched: 'bg-cyan-500/15 text-cyan-700 dark:text-cyan-200 border-cyan-500/30',
+  Contacted: 'bg-blue-500/15 text-blue-700 dark:text-blue-200 border-blue-500/30',
+  Interested: 'bg-violet-500/15 text-violet-700 dark:text-violet-200 border-violet-500/30',
+  'Audit Sent': 'bg-indigo-500/15 text-indigo-700 dark:text-indigo-200 border-indigo-500/30',
+  'Call Booked': 'bg-fuchsia-500/15 text-fuchsia-700 dark:text-fuchsia-200 border-fuchsia-500/30',
+  'Proposal Sent': 'bg-amber-500/15 text-amber-700 dark:text-amber-200 border-amber-500/30',
+  Won: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-200 border-emerald-500/30',
+  Lost: 'bg-rose-500/15 text-rose-700 dark:text-rose-200 border-rose-500/30',
+  Nurture: 'bg-zinc-500/15 text-zinc-600 dark:text-zinc-300 border-zinc-500/30',
+  Low: 'bg-zinc-500/15 text-zinc-600 dark:text-zinc-300 border-zinc-500/30',
+  Medium: 'bg-blue-500/15 text-blue-700 dark:text-blue-200 border-blue-500/30',
+  High: 'bg-amber-500/15 text-amber-700 dark:text-amber-200 border-amber-500/30',
+  Hot: 'bg-rose-500/15 text-rose-700 dark:text-rose-200 border-rose-500/30',
+  Urgent: 'bg-rose-500/20 text-rose-700 dark:text-rose-200 border-rose-500/40',
   New: 'bg-accent/15 text-accent border-accent/30',
-  Reviewed: 'bg-cyan-500/15 text-cyan-200 border-cyan-500/30',
-  Archived: 'bg-zinc-500/15 text-zinc-300 border-zinc-500/30',
-  Active: 'bg-emerald-500/15 text-emerald-200 border-emerald-500/30',
-  Paused: 'bg-amber-500/15 text-amber-200 border-amber-500/30',
-  Completed: 'bg-emerald-500/15 text-emerald-200 border-emerald-500/30',
-  Done: 'bg-emerald-500/15 text-emerald-200 border-emerald-500/30',
-  'To do': 'bg-slate-500/15 text-slate-200 border-slate-500/30',
-  'In progress': 'bg-blue-500/15 text-blue-200 border-blue-500/30',
-  Waiting: 'bg-amber-500/15 text-amber-200 border-amber-500/30',
-  'Not started': 'bg-zinc-500/15 text-zinc-300 border-zinc-500/30',
+  Reviewed: 'bg-cyan-500/15 text-cyan-700 dark:text-cyan-200 border-cyan-500/30',
+  Archived: 'bg-zinc-500/15 text-zinc-600 dark:text-zinc-300 border-zinc-500/30',
+  Active: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-200 border-emerald-500/30',
+  Paused: 'bg-amber-500/15 text-amber-700 dark:text-amber-200 border-amber-500/30',
+  Completed: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-200 border-emerald-500/30',
+  Done: 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-200 border-emerald-500/30',
+  'To do': 'bg-slate-500/15 text-slate-600 dark:text-slate-200 border-slate-500/30',
+  'In progress': 'bg-blue-500/15 text-blue-700 dark:text-blue-200 border-blue-500/30',
+  Waiting: 'bg-amber-500/15 text-amber-700 dark:text-amber-200 border-amber-500/30',
+  'Not started': 'bg-zinc-500/15 text-zinc-600 dark:text-zinc-300 border-zinc-500/30',
 }
 
 export const StatusBadge = ({ value }: { value?: string | null }) => {
@@ -66,11 +66,11 @@ export const StatusBadge = ({ value }: { value?: string | null }) => {
 export const KpiCard = ({ label, value, hint, icon: Icon, urgent }: { label: string; value: string | number; hint?: string; icon?: any; urgent?: boolean }) => {
   const alarmed = urgent && Number(value) > 0
   return (
-    <Panel className={cn('p-5 hover:border-white/[0.12] transition-colors', alarmed && 'border-rose-500/30 bg-rose-500/[0.025]')}>
+    <Panel className={cn('p-5 hover:border-border-strong transition-colors', alarmed && 'border-rose-500/30 bg-rose-500/[0.025]')}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground leading-none">{label}</div>
-          <div className={cn('mt-2 text-3xl sm:text-4xl font-bold tracking-tight tabular-nums', alarmed ? 'text-rose-300' : 'text-foreground')}>{value}</div>
+          <div className={cn('mt-2 text-3xl sm:text-4xl font-bold tracking-tight tabular-nums', alarmed ? 'text-rose-600 dark:text-rose-300' : 'text-foreground')}>{value}</div>
           {hint && <div className="mt-1 text-xs text-muted-foreground">{hint}</div>}
         </div>
         {Icon && (

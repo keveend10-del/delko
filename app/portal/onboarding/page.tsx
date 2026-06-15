@@ -69,7 +69,7 @@ export default function OnboardingPage() {
           return (
             <Panel
               key={task.key}
-              className={`p-0 transition-colors hover:border-white/[0.12] ${done ? 'opacity-70' : ''}`}
+              className={`p-0 transition-colors hover:border-border-strong ${done ? 'opacity-70' : ''}`}
             >
               <button
                 className="w-full text-left p-5 cursor-pointer"

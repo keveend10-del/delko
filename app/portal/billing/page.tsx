@@ -8,7 +8,7 @@ import { Panel, PageHeader } from '@/components/admin/ui'
 import { CreditCard, CheckCircle, ExternalLink, Loader2, AlertCircle, Clock } from 'lucide-react'
 
 const STATUS_MAP = {
-  pending: { label: 'Pending setup', icon: Clock, color: 'text-yellow-300', bg: 'bg-yellow-400/10 border-yellow-400/20' },
+  pending: { label: 'Pending setup', icon: Clock, color: 'text-yellow-600 dark:text-yellow-300', bg: 'bg-yellow-400/10 border-yellow-400/20' },
   active: { label: 'Active', icon: CheckCircle, color: 'text-accent', bg: 'bg-accent/10 border-accent/20' },
   past_due: { label: 'Payment past due', icon: AlertCircle, color: 'text-red-400', bg: 'bg-red-500/10 border-red-500/20' },
   canceled: { label: 'Canceled', icon: AlertCircle, color: 'text-zinc-400', bg: 'bg-zinc-500/10 border-zinc-500/20' },
@@ -74,7 +74,7 @@ export default function BillingPage() {
                 <p className="text-[12px] text-red-400/70 mt-0.5">Update your payment method to restore access.</p>
               )}
               {client.subscription_status === 'pending' && (
-                <p className="text-[12px] text-yellow-300/70 mt-0.5">Your subscription is being set up. This usually takes a few minutes.</p>
+                <p className="text-[12px] text-yellow-600/70 dark:text-yellow-300/70 mt-0.5">Your subscription is being set up. This usually takes a few minutes.</p>
               )}
             </div>
           </div>
