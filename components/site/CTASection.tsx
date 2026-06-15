@@ -4,7 +4,7 @@ import { AuditForm } from './AuditForm'
 const bullets = ['Reviewed by a real person. Not a bot.', 'Back to you in 1–2 business days.', 'No pressure. No confusing report. No commitment.']
 
 export const CTASection = () => (
-  <section id="audit" className="relative py-28 sm:py-36 overflow-hidden">
+  <section id="audit" className="relative pt-12 pb-28 sm:pt-16 sm:pb-36 overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 50% at 30% 50%, hsl(var(--accent) / 0.08), transparent 65%)' }} />
 
     <div className="container mx-auto px-5 sm:px-8 relative">

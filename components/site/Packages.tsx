@@ -128,6 +128,7 @@ export const Packages = () => {
       eyebrow="Packages / 03"
       title={<>Pick the plan that <span className="font-display-italic text-muted-foreground">fits your business.</span></>}
       subtitle="Three plans, no long contracts, no setup fees. Cancel month-to-month if it isn't working — but it will."
+      className="!pb-12 sm:!pb-16"
     >
       {/* Mobile: snap carousel */}
       <div className="lg:hidden">
