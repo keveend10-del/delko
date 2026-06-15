@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { Section } from './Section'
 import { Button } from '@/components/ui/Button'
 import { Check, ArrowUpRight } from 'lucide-react'
+import { ArcLight } from './ArcLight'
 
 const packages = [
   {
@@ -77,6 +78,7 @@ const PackageCard = ({ p, index }: { p: typeof packages[0]; index: number }) => 
       whileHover={{ y: p.popular ? 0 : -6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
       className={`relative rounded-xl p-8 flex flex-col transition-all duration-300 ${p.popular ? 'bg-foreground text-background lg:-translate-y-5 shadow-elevated' : 'glass-card hover:border-border-strong hover:shadow-[6px_6px_0px_rgba(0,0,0,0.45),0_20px_60px_rgba(0,0,0,0.4)]'}`}
     >
+      <ArcLight radius={12} duration={12} delay={index * 1.5} />
       {p.popular && (
         <div className="absolute -top-3.5 left-7 inline-flex items-center gap-1.5 bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full shadow-[0_0_0_1px_hsl(152_80%_38%/0.6),0_4px_24px_hsl(152_80%_38%/0.35)]">
           <span className="h-1.5 w-1.5 rounded-full bg-accent-foreground" />
