@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Section } from './Section'
 import { MapPin, Phone, TrendingUp, ArrowUpRight } from 'lucide-react'
+import { ArcLight } from './ArcLight'
 
 const services = [
   {
@@ -42,7 +43,7 @@ const card = {
   show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 }
 
-const ServiceCard = ({ s, compact }: { s: typeof services[0]; compact: boolean }) => {
+const ServiceCard = ({ s, compact, index }: { s: typeof services[0]; compact: boolean; index: number }) => {
   const { icon: Icon, n, title, short, desc, tags, featured, span } = s
   const isWide = featured && !compact
   const isFullWidth = span === 'lg:col-span-3' && !compact
@@ -65,6 +66,7 @@ const ServiceCard = ({ s, compact }: { s: typeof services[0]; compact: boolean }
       )}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse 55% 40% at 30% 0%, hsl(var(--accent)/0.06), transparent 70%)' }} />
+      <ArcLight radius={12} duration={12} delay={index * 1.4} />
 
       {isFullWidth ? (
         // Full-width card: horizontal split layout
@@ -159,8 +161,8 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
       viewport={{ once: true, margin: '-60px' }}
       className={`grid gap-4 sm:gap-5 ${compact ? 'sm:grid-cols-2 lg:grid-cols-3' : 'lg:grid-cols-3'}`}
     >
-      {services.map((s) => (
-        <ServiceCard key={s.n} s={s} compact={compact} />
+      {services.map((s, i) => (
+        <ServiceCard key={s.n} s={s} compact={compact} index={i} />
       ))}
     </motion.div>
 

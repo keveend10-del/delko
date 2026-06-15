@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { CheckCircle2, CalendarCheck, Heart, Repeat, UserCircle2, Layers, ArrowUpRight } from 'lucide-react'
 import { trackCTAClick } from '@/lib/analytics'
+import { ArcLight } from './ArcLight'
 
 const features = [
   { icon: CheckCircle2, title: 'More phone calls', desc: 'A fast site, a fixed Google profile, and clear calls-to-action mean people actually pick up the phone.' },
@@ -24,23 +25,7 @@ export const Sway = () => {
   return (
     <section ref={ref} id="sway" className="py-28 sm:py-36">
       <div className="container mx-auto px-5 sm:px-8">
-        {/* Wrapper so the outer arc lives OUTSIDE overflow:hidden */}
         <div className="relative max-w-7xl mx-auto">
-
-          {/* Outer card arc — same padding-wrapper trick at card scale */}
-          <motion.div
-            className="absolute -inset-[2px] rounded-[26px] pointer-events-none z-20"
-            style={{
-              padding: '2px',
-              background: 'conic-gradient(from 0turn, transparent 42%, hsl(var(--accent)/0.35) 70%, hsl(var(--accent)/0.8) 78%, hsl(var(--accent)/0.35) 86%, transparent 100%)',
-              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-              WebkitMaskComposite: 'xor',
-              mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-              maskComposite: 'exclude',
-            }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-          />
 
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -98,26 +83,7 @@ export const Sway = () => {
                   className="group relative bg-surface hover:bg-surface-elevated p-7 transition-all duration-300 cursor-default overflow-hidden"
                 >
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 20%, hsl(var(--accent)/0.07), transparent 70%)' }} />
-
-                  {/* Arc light travelling around the card border */}
-                  <div
-                    className="pointer-events-none absolute"
-                    style={{
-                      width: 80,
-                      height: 3,
-                      background: 'linear-gradient(90deg, transparent, hsl(var(--accent) / 0.7), hsl(var(--accent)), white, hsl(var(--accent)), hsl(var(--accent) / 0.7), transparent)',
-                      borderRadius: 9999,
-                      filter: 'blur(2px)',
-                      offsetPath: 'inset(0px)',
-                      offsetDistance: '0%',
-                      animationName: 'arc-orbit',
-                      animationDuration: `${3.5 + i * 0.45}s`,
-                      animationTimingFunction: 'linear',
-                      animationIterationCount: 'infinite',
-                      animationDelay: `${i * 0.7}s`,
-                      zIndex: 20,
-                    } as React.CSSProperties}
-                  />
+                  <ArcLight radius={0} duration={12} delay={i * 1.2} />
 
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: -5, transition: { duration: 0.2 } }}

@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
+import { ArcLight } from './ArcLight'
 
 const pillars = [
   { n: '01', title: "People are asking AI who to call", body: "ChatGPT, Perplexity, Google AI Overviews, and Gemini now answer questions about who to hire directly. Your customers ask these tools for recommendations before they ever click a website. If your business information, reviews, and local presence are weak — you may not come up at all." },
@@ -50,7 +51,7 @@ export const WhyDifferent = () => {
             viewport={{ once: true, margin: '-60px' }}
             className="grid lg:grid-cols-3 gap-5 mb-16"
           >
-            {pillars.map(({ n, title, body }) => (
+            {pillars.map(({ n, title, body }, i) => (
               <motion.div
                 key={n}
                 variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } }}
@@ -58,6 +59,7 @@ export const WhyDifferent = () => {
                 className="group glass-card rounded-xl p-8 flex flex-col gap-5 hover:border-border-strong hover:shadow-[6px_6px_0px_rgba(0,0,0,0.45),0_24px_64px_rgba(0,0,0,0.5)] transition-all duration-300 cursor-default overflow-hidden relative"
               >
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, hsl(var(--accent)/0.06), transparent 70%)' }} />
+                <ArcLight radius={12} duration={12} delay={i * 1.3} />
                 <span className="text-[10px] font-bold font-mono tracking-[0.22em] text-muted-foreground relative">{n}</span>
                 <h3 className="text-[19px] font-bold tracking-[-0.025em] leading-tight relative">{title}</h3>
                 <p className="text-[14px] text-muted-foreground leading-relaxed flex-1 relative">{body}</p>
