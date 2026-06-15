@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { CheckCircle2, CalendarCheck, Heart, Repeat, UserCircle2, Layers, ArrowUpRight } from 'lucide-react'
@@ -99,27 +99,32 @@ export const Sway = () => {
                 >
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 20%, hsl(var(--accent)/0.07), transparent 70%)' }} />
 
-                  {/*
-                    Arc reactor icon — padding wrapper technique (no mask needed):
-                    outer div has p-[2px] gap, absolute conic fills full 44×44,
-                    inner icon div covers center with solid bg → conic shows only in the 2px ring
-                  */}
-                  <div className="relative mb-5 rounded-xl" style={{ width: 44, height: 44, padding: '2px' }}>
-                    <motion.div
-                      className="absolute inset-0 rounded-xl"
-                      style={{
-                        background: `conic-gradient(from 0turn, transparent 52%, hsl(var(--accent)/0.6) 72%, hsl(var(--accent)) 80%, hsl(var(--accent)/0.6) 88%, transparent 100%)`,
-                      }}
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 3 + i * 0.4, repeat: Infinity, ease: 'linear', delay: i * 0.6 }}
-                    />
-                    <motion.div
-                      whileHover={{ scale: 1.05, rotate: -5, transition: { duration: 0.2 } }}
-                      className="relative h-full w-full rounded-[9px] bg-surface group-hover:bg-surface-elevated dark:bg-[hsl(0_0%_7%)] flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors duration-300"
-                    >
-                      <Icon size={18} />
-                    </motion.div>
-                  </div>
+                  {/* Arc light travelling around the card border */}
+                  <div
+                    className="pointer-events-none absolute"
+                    style={{
+                      width: 80,
+                      height: 3,
+                      background: 'linear-gradient(90deg, transparent, hsl(var(--accent) / 0.7), hsl(var(--accent)), white, hsl(var(--accent)), hsl(var(--accent) / 0.7), transparent)',
+                      borderRadius: 9999,
+                      filter: 'blur(2px)',
+                      offsetPath: 'inset(0px)',
+                      offsetDistance: '0%',
+                      animationName: 'arc-orbit',
+                      animationDuration: `${3.5 + i * 0.45}s`,
+                      animationTimingFunction: 'linear',
+                      animationIterationCount: 'infinite',
+                      animationDelay: `${i * 0.7}s`,
+                      zIndex: 20,
+                    } as React.CSSProperties}
+                  />
+
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: -5, transition: { duration: 0.2 } }}
+                    className="h-11 w-11 rounded-xl border border-border bg-surface dark:border-white/[0.07] dark:bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors duration-300 mb-5 relative"
+                  >
+                    <Icon size={18} />
+                  </motion.div>
 
                   <h3 className="text-[15px] font-bold tracking-[-0.02em] relative">{title}</h3>
                   <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed relative">{desc}</p>
