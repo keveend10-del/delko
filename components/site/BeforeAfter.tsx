@@ -88,8 +88,8 @@ export const BeforeAfter = () => (
       <motion.div
         variants={{ hidden: { opacity: 0, x: 24 }, show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } }}
         whileHover={{ y: -6, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
-        className="group relative rounded-2xl p-7 sm:p-9 overflow-hidden transition-all duration-300 cursor-default hover:shadow-[0_24px_80px_rgba(0,0,0,0.6)]"
-        style={{ background: 'linear-gradient(160deg, hsl(0 0% 11%), hsl(0 0% 7%))', border: '1px solid hsl(0 0% 20%)', boxShadow: 'var(--shadow-elevated)' }}
+        className="group relative rounded-2xl p-7 sm:p-9 overflow-hidden transition-all duration-300 cursor-default bg-card border border-border hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:bg-[linear-gradient(160deg,_hsl(0_0%_11%),_hsl(0_0%_7%))] dark:border-[hsl(0_0%_20%)] dark:hover:shadow-[0_24px_80px_rgba(0,0,0,0.6)]"
+        style={{ boxShadow: 'var(--shadow-elevated)' }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 80% 0%, hsl(var(--accent) / 0.1), transparent 60%)' }} />
         <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'radial-gradient(ellipse at 80% 0%, hsl(var(--accent) / 0.18), transparent 60%)' }} />

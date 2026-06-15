@@ -29,8 +29,7 @@ export const Sway = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-          className="relative max-w-7xl mx-auto rounded-3xl overflow-hidden"
-          style={{ background: 'hsl(0 0% 4%)', border: '1px solid hsl(0 0% 12%)', boxShadow: '6px 6px 0px rgba(0,0,0,0.5), 0 32px 80px rgba(0,0,0,0.75)' }}
+          className="relative max-w-7xl mx-auto rounded-3xl overflow-hidden bg-card border border-border shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:bg-[hsl(0_0%_4%)] dark:border-[hsl(0_0%_12%)] dark:shadow-[6px_6px_0px_rgba(0,0,0,0.5),_0_32px_80px_rgba(0,0,0,0.75)]"
         >
           {/* Parallax background glows */}
           <motion.div style={{ y: glow1Y }} className="absolute inset-0 pointer-events-none">
@@ -77,7 +76,7 @@ export const Sway = () => {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 20%, hsl(var(--accent)/0.07), transparent 70%)' }} />
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: -5, transition: { duration: 0.2 } }}
-                    className="h-11 w-11 rounded-xl border border-white/[0.07] bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors duration-300 mb-5 relative"
+                    className="h-11 w-11 rounded-xl border border-border bg-surface dark:border-white/[0.07] dark:bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors duration-300 mb-5 relative"
                   >
                     <Icon size={18} />
                   </motion.div>
