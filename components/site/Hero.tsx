@@ -265,18 +265,18 @@ const HeroVisual = () => (
     </div>
 
     {/* Floating chips */}
-    <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="absolute -left-8 top-[44%] rounded-xl px-3.5 py-2.5 flex items-center gap-3 shadow-offset bg-[#070707] border border-white/[0.08]">
+    <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="absolute -left-8 top-[44%] rounded-xl px-3.5 py-2.5 flex items-center gap-3 shadow-card bg-popover border border-border">
       <div className="h-8 w-8 rounded-xl bg-accent/15 flex items-center justify-center shrink-0">
         <Star size={14} className="text-accent fill-accent" />
       </div>
       <div>
-        <div className="text-[12px] font-bold">4.9 Google</div>
+        <div className="text-[12px] font-bold text-foreground">4.9 Google</div>
         <div className="text-[10px] text-muted-foreground">+27 new reviews</div>
       </div>
     </motion.div>
 
-    <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="absolute -right-6 bottom-20 rounded-xl px-3.5 py-2.5 flex items-center gap-2.5 shadow-offset bg-[#070707] border border-white/[0.08]">
-      <div className="h-8 w-8 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
+    <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="absolute -right-6 bottom-20 rounded-xl px-3.5 py-2.5 flex items-center gap-2.5 shadow-card bg-popover border border-border">
+      <div className="h-8 w-8 rounded-xl bg-foreground/[0.06] flex items-center justify-center shrink-0">
         <TrendingUp size={14} className="text-accent" />
       </div>
       <div>
@@ -285,14 +285,14 @@ const HeroVisual = () => (
       </div>
     </motion.div>
 
-    <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }} className="absolute left-6 bottom-4 rounded-full px-3.5 py-1.5 flex items-center gap-1.5 bg-[#070707] border border-white/[0.08]">
+    <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }} className="absolute left-6 bottom-4 rounded-full px-3.5 py-1.5 flex items-center gap-1.5 bg-popover border border-border shadow-card">
       <Check size={11} className="text-accent" />
-      <span className="text-[10px] font-semibold">#1 in local results</span>
+      <span className="text-[10px] font-semibold text-foreground">#1 in local results</span>
     </motion.div>
 
-    <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }} className="absolute right-4 top-[11%] rounded-full px-3.5 py-1.5 flex items-center gap-1.5 bg-[#070707] border border-white/[0.08]">
+    <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }} className="absolute right-4 top-[11%] rounded-full px-3.5 py-1.5 flex items-center gap-1.5 bg-popover border border-border shadow-card">
       <MapPin size={10} className="text-accent" />
-      <span className="text-[10px] font-semibold">Verified local</span>
+      <span className="text-[10px] font-semibold text-foreground">Verified local</span>
     </motion.div>
   </div>
 )

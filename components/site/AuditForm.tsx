@@ -9,9 +9,9 @@ import { BERKSHIRE_TOWNS, NORTH_SHORE_TOWNS } from '@/lib/admin-constants'
 
 const businessTypes = [
   'Pressure washing', 'Painting', 'HVAC / plumbing',
-  'Roofing', 'Electrician', 'Landscaping',
+  'Roofing / contracting', 'Electrician', 'Landscaping',
   'Remodeling / flooring', 'Cleaning services', 'Med spa / wellness',
-  'Salon / gym', 'Law firm', 'Other',
+  'Restaurant / hospitality', 'Law firm', 'Other',
 ]
 
 const helpOptions = [

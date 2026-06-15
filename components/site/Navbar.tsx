@@ -128,7 +128,7 @@ export const Navbar = () => {
           className={`flex items-center justify-between h-16 px-5 rounded-xl transition-all duration-500 ${
             scrolled
               ? 'bg-background border border-border shadow-[0_2px_16px_rgba(0,0,0,0.06)] dark:shadow-elevated'
-              : 'bg-transparent'
+              : 'bg-background/60 backdrop-blur-md border border-border/40'
           }`}
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
