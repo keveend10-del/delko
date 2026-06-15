@@ -172,7 +172,7 @@ const HeroVisual = () => (
     <div className="absolute inset-0 animate-glow" style={{ background: 'radial-gradient(ellipse at 55% 40%, hsl(var(--accent) / 0.1), transparent 70%)' }} />
 
     {/* Google Local Pack mockup */}
-    <div className="absolute top-0 right-0 left-4 rounded-xl overflow-hidden shadow-elevated bg-[#070707] border border-white/[0.08]">
+    <div className="dark absolute top-0 right-0 left-4 rounded-xl overflow-hidden shadow-elevated bg-[#070707] border border-white/[0.08]">
       {/* Chrome bar */}
       <div className="flex items-center gap-3 px-4 py-3 border-b border-white/[0.06] bg-white/[0.02]">
         <div className="flex gap-1.5 shrink-0">
