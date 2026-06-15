@@ -66,8 +66,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
       <head>
+        {/* Theme detection — runs before paint to avoid flash */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var p=window.location.pathname;if(p.startsWith('/admin')){document.documentElement.classList.add('dark');}else{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark');}}catch(e){}})();` }} />
         {/* Google Consent Mode v2 — defaults must be set before GA4 loads */}
         <Script id="consent-mode-defaults" strategy="beforeInteractive">
           {`

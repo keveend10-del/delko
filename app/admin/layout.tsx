@@ -218,9 +218,11 @@ function AdminShell({ children }: { children: ReactNode }) {
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
-    <AdminAuthProvider>
-      <Toaster theme="dark" position="bottom-right" />
-      <AdminShell>{children}</AdminShell>
-    </AdminAuthProvider>
+    <div className="dark">
+      <AdminAuthProvider>
+        <Toaster theme="dark" position="bottom-right" />
+        <AdminShell>{children}</AdminShell>
+      </AdminAuthProvider>
+    </div>
   )
 }

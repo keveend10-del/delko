@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { ArrowUpRight, CheckCircle2, Globe, MapPin, Star, Search, TrendingUp, MessageSquare } from 'lucide-react'
 import { trackAuditSubmission } from '@/lib/analytics'
+import { BERKSHIRE_TOWNS, NORTH_SHORE_TOWNS } from '@/lib/admin-constants'
 
 const businessTypes = [
   'Pressure washing', 'Painting', 'HVAC / plumbing',
@@ -22,14 +23,15 @@ const helpOptions = [
   { id: 'Lead capture & follow-up', label: 'Leads & Follow-Up', icon: MessageSquare, desc: 'Forms, automation' },
 ]
 
-const inputCls = 'h-11 w-full rounded-lg bg-[hsl(0_0%_5%)] border border-white/[0.08] px-4 text-[14px] text-foreground outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground'
+const inputCls = 'h-11 w-full rounded-lg bg-surface border border px-4 text-[14px] text-foreground outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground'
+const selectCls = `${inputCls} cursor-pointer`
 
 export const AuditForm = () => {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [form, setForm] = useState({
-    name: '', business: '', email: '', phone: '', link: '', type: '', help: [] as string[], message: '',
+    name: '', business: '', email: '', phone: '', link: '', town: '', type: '', help: [] as string[], message: '',
   })
 
   const update = (k: keyof typeof form, v: string) => setForm((f) => ({ ...f, [k]: v }))
@@ -63,7 +65,7 @@ export const AuditForm = () => {
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="rounded-xl bg-[hsl(0_0%_4%)] border border-white/[0.07] p-12 sm:p-16 text-center"
+        className="rounded-xl bg-card border border p-12 sm:p-16 text-center shadow-card"
       >
         <motion.div
           initial={{ scale: 0, rotate: -15 }}
@@ -80,7 +82,7 @@ export const AuditForm = () => {
   }
 
   return (
-    <form onSubmit={onSubmit} className="rounded-xl bg-[hsl(0_0%_4%)] border border-white/[0.07] p-6 sm:p-10" noValidate>
+    <form onSubmit={onSubmit} className="rounded-xl bg-card border border p-6 sm:p-10 shadow-card" noValidate>
       <div className="grid sm:grid-cols-2 gap-5">
 
         {/* Basic fields */}
@@ -96,13 +98,22 @@ export const AuditForm = () => {
         <Field label="Phone" optional>
           <input value={form.phone} onChange={(e) => update('phone', e.target.value)} placeholder="(978) 555-0123" className={inputCls} />
         </Field>
-        <div className="sm:col-span-2">
-          <Field label="Website or social link" optional>
-            <input value={form.link} onChange={(e) => update('link', e.target.value)} placeholder="https:// or @instagram" className={inputCls} />
-          </Field>
-        </div>
+        <Field label="Town / area" optional>
+          <select value={form.town} onChange={(e) => update('town', e.target.value)} className={selectCls}>
+            <option value="">Where is your business?</option>
+            <optgroup label="North Shore">
+              {NORTH_SHORE_TOWNS.map(t => <option key={t} value={t}>{t}</option>)}
+            </optgroup>
+            <optgroup label="Berkshire County">
+              {BERKSHIRE_TOWNS.map(t => <option key={t} value={t}>{t}</option>)}
+            </optgroup>
+          </select>
+        </Field>
+        <Field label="Website or social link" optional>
+          <input value={form.link} onChange={(e) => update('link', e.target.value)} placeholder="https:// or @instagram" className={inputCls} />
+        </Field>
 
-        {/* Business type — button grid, no native select */}
+        {/* Business type — button grid */}
         <div className="sm:col-span-2 space-y-3">
           <label className="text-[13px] font-semibold text-foreground/90 block">Type of business</label>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -118,7 +129,7 @@ export const AuditForm = () => {
                   className={`h-10 rounded-lg border px-3 text-[13px] font-medium transition-all text-left truncate ${
                     selected
                       ? 'border-accent/50 bg-accent/10 text-foreground shadow-[0_0_16px_hsl(var(--accent)/0.12)]'
-                      : 'border-white/[0.07] bg-[hsl(0_0%_5%)] text-muted-foreground hover:border-white/[0.14] hover:text-foreground'
+                      : 'border bg-surface text-muted-foreground hover:border-border-strong hover:text-foreground'
                   }`}
                 >
                   {t}
@@ -128,7 +139,7 @@ export const AuditForm = () => {
           </div>
         </div>
 
-        {/* Help options — green glowing circles */}
+        {/* Help options */}
         <div className="sm:col-span-2 space-y-3">
           <div>
             <label className="text-[13px] font-semibold text-foreground/90 block">What should we look at?</label>
@@ -147,14 +158,14 @@ export const AuditForm = () => {
                   className={`relative flex items-center gap-3 rounded-lg border px-4 py-3.5 text-left transition-all duration-200 ${
                     checked
                       ? 'border-accent/40 bg-accent/[0.06] shadow-[0_0_24px_hsl(var(--accent)/0.08)]'
-                      : 'border-white/[0.07] bg-[hsl(0_0%_5%)] hover:border-white/[0.14]'
+                      : 'border bg-surface hover:border-border-strong'
                   }`}
                 >
-                  {/* Green circle indicator */}
+                  {/* Radio indicator */}
                   <div className={`relative h-5 w-5 rounded-full border-2 shrink-0 flex items-center justify-center transition-all duration-200 ${
                     checked
                       ? 'border-accent bg-accent shadow-[0_0_10px_hsl(var(--accent)/0.6)]'
-                      : 'border-white/25 bg-transparent'
+                      : 'border-muted-foreground/30 bg-transparent'
                   }`}>
                     <AnimatePresence>
                       {checked && (
@@ -163,7 +174,7 @@ export const AuditForm = () => {
                           animate={{ scale: 1 }}
                           exit={{ scale: 0 }}
                           transition={{ duration: 0.15, type: 'spring', stiffness: 400 }}
-                          className="h-2 w-2 rounded-full bg-[#0A0A0A]"
+                          className="h-2 w-2 rounded-full bg-background"
                         />
                       )}
                     </AnimatePresence>
@@ -199,7 +210,7 @@ export const AuditForm = () => {
         </div>
       </div>
 
-      {error && <p className="mt-4 text-[13px] text-red-400">{error}</p>}
+      {error && <p className="mt-4 text-[13px] text-red-500">{error}</p>}
 
       <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <p className="text-[12px] text-muted-foreground">We respond within 1–2 business days. No spam, no sales pressure.</p>

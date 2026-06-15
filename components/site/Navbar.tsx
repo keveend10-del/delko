@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { Menu, X, MapPin, Phone, TrendingUp, ChevronDown } from 'lucide-react'
+import { Menu, X, MapPin, Phone, TrendingUp, ChevronDown, Sun, Moon } from 'lucide-react'
 import { trackCTAClick } from '@/lib/analytics'
 
 const serviceItems = [
@@ -17,6 +17,34 @@ const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Packages', href: '/#packages' },
 ]
+
+function ThemeToggle() {
+  const [dark, setDark] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    const isDark = document.documentElement.classList.contains('dark')
+    setDark(isDark)
+  }, [])
+
+  const toggle = () => {
+    const next = !dark
+    setDark(next)
+    localStorage.setItem('theme', next ? 'dark' : 'light')
+    document.documentElement.classList.toggle('dark', next)
+  }
+
+  return (
+    <button
+      onClick={mounted ? toggle : undefined}
+      className="h-9 w-9 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-foreground/[0.06] transition-all"
+      aria-label="Toggle theme"
+    >
+      {mounted && (dark ? <Sun size={15} /> : <Moon size={15} />)}
+    </button>
+  )
+}
 
 const ServicesDropdown = () => {
   const [open, setOpen] = useState(false)
@@ -34,7 +62,7 @@ const ServicesDropdown = () => {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1 px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-white/5 transition-all duration-200"
+        className="flex items-center gap-1 px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-foreground/[0.05] transition-all duration-200"
       >
         Services
         <ChevronDown size={13} className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
@@ -47,7 +75,7 @@ const ServicesDropdown = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.97 }}
             transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute top-full left-0 mt-2 w-64 rounded-xl border border-white/[0.08] bg-[#070707] shadow-elevated overflow-hidden"
+            className="absolute top-full left-0 mt-2 w-64 rounded-xl border border-border bg-popover shadow-elevated overflow-hidden"
           >
             <div className="p-1.5">
               {serviceItems.map(({ icon: Icon, label, desc, href }) => (
@@ -55,9 +83,9 @@ const ServicesDropdown = () => {
                   key={href}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="group flex items-start gap-3 px-3 py-3 rounded-lg hover:bg-white/[0.04] transition-colors"
+                  className="group flex items-start gap-3 px-3 py-3 rounded-lg hover:bg-foreground/[0.04] transition-colors"
                 >
-                  <div className="h-8 w-8 rounded-lg border border-white/[0.07] bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent group-hover:border-accent/25 transition-all duration-200 shrink-0 mt-0.5">
+                  <div className="h-8 w-8 rounded-lg border border-border bg-foreground/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent group-hover:border-accent/25 transition-all duration-200 shrink-0 mt-0.5">
                     <Icon size={14} />
                   </div>
                   <div>
@@ -70,7 +98,7 @@ const ServicesDropdown = () => {
               <a
                 href="/services"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-[12px] font-medium text-muted-foreground hover:text-accent hover:bg-white/[0.03] transition-colors"
+                className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-[12px] font-medium text-muted-foreground hover:text-accent hover:bg-foreground/[0.03] transition-colors"
               >
                 View all services →
               </a>
@@ -97,7 +125,11 @@ export const Navbar = () => {
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'pt-3 pb-0' : 'pt-0'}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
-          className={`flex items-center justify-between h-16 px-5 rounded-xl transition-all duration-500 ${scrolled ? 'bg-[#050505] border border-white/[0.07]' : 'bg-transparent'}`}
+          className={`flex items-center justify-between h-16 px-5 rounded-xl transition-all duration-500 ${
+            scrolled
+              ? 'bg-background border border-border shadow-[0_2px_16px_rgba(0,0,0,0.06)] dark:shadow-elevated'
+              : 'bg-transparent'
+          }`}
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
@@ -116,14 +148,15 @@ export const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
-                className="px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-white/5 transition-all duration-200"
+                className="px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-foreground/[0.05] transition-all duration-200"
               >
                 {l.label}
               </a>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-1">
+            <ThemeToggle />
             <Button asChild variant="ghost" size="sm">
               <a href="/portal/login">Client Portal</a>
             </Button>
@@ -149,7 +182,7 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="md:hidden mx-4 mt-2 rounded-xl border border-white/[0.07] bg-[#050505] shadow-elevated overflow-hidden"
+            className="md:hidden mx-4 mt-2 rounded-xl border border-border bg-background shadow-elevated overflow-hidden"
           >
             <div className="p-5 flex flex-col gap-1">
               <div className="text-[10px] font-bold font-mono uppercase tracking-[0.2em] text-muted-foreground/40 px-3 pb-1 pt-0.5">Services</div>
@@ -158,7 +191,7 @@ export const Navbar = () => {
                   key={href}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2.5 text-[14px] font-medium text-muted-foreground hover:text-foreground py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors"
+                  className="flex items-center gap-2.5 text-[14px] font-medium text-muted-foreground hover:text-foreground py-2.5 px-3 rounded-xl hover:bg-foreground/[0.05] transition-colors"
                 >
                   <Icon size={14} className="text-accent/60 shrink-0" />
                   {label}
@@ -170,12 +203,16 @@ export const Navbar = () => {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-[15px] font-medium text-muted-foreground hover:text-foreground py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors"
+                  className="text-[15px] font-medium text-muted-foreground hover:text-foreground py-2.5 px-3 rounded-xl hover:bg-foreground/[0.05] transition-colors"
                 >
                   {l.label}
                 </a>
               ))}
-              <Button asChild variant="ghost" className="mt-2 w-full">
+              <div className="flex items-center gap-2 mt-2 px-3">
+                <ThemeToggle />
+                <span className="text-[12px] text-muted-foreground">Toggle theme</span>
+              </div>
+              <Button asChild variant="ghost" className="mt-1 w-full">
                 <a href="/portal/login" onClick={() => setOpen(false)}>Client Portal</a>
               </Button>
               <Button asChild variant="accent" className="mt-2 w-full">

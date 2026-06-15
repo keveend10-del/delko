@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Dialog } from '@/components/admin/Dialog'
 import { inputCls, selectCls, textareaCls } from '@/components/admin/ui'
-import { PIPELINE_STAGES, PRIORITIES, LEAD_SOURCES, BUSINESS_TYPES, NORTH_SHORE_TOWNS, PACKAGES } from '@/lib/admin-constants'
+import { PIPELINE_STAGES, PRIORITIES, LEAD_SOURCES, BUSINESS_TYPES, BERKSHIRE_TOWNS, NORTH_SHORE_TOWNS, PACKAGES } from '@/lib/admin-constants'
 import { toast } from 'sonner'
 
 export function LeadFormModal({ open, onOpenChange, onSaved, initial }: {
@@ -55,7 +55,17 @@ export function LeadFormModal({ open, onOpenChange, onSaved, initial }: {
         <F label="Contact name"><input value={form.contact_name ?? ''} onChange={e => upd('contact_name', e.target.value)} maxLength={120} className={inputCls} /></F>
         <F label="Email"><input type="email" value={form.email ?? ''} onChange={e => upd('email', e.target.value)} maxLength={200} className={inputCls} /></F>
         <F label="Phone"><input value={form.phone ?? ''} onChange={e => upd('phone', e.target.value)} maxLength={40} className={inputCls} /></F>
-        <F label="Town"><Sel value={form.town} onChange={v => upd('town', v)} options={NORTH_SHORE_TOWNS} /></F>
+        <F label="Town">
+          <select value={form.town || ''} onChange={e => upd('town', e.target.value)} className={selectCls}>
+            <option value="">Select</option>
+            <optgroup label="North Shore">
+              {NORTH_SHORE_TOWNS.map(t => <option key={t} value={t}>{t}</option>)}
+            </optgroup>
+            <optgroup label="Berkshire County">
+              {BERKSHIRE_TOWNS.map(t => <option key={t} value={t}>{t}</option>)}
+            </optgroup>
+          </select>
+        </F>
         <F label="Business type"><Sel value={form.business_type} onChange={v => upd('business_type', v)} options={BUSINESS_TYPES} /></F>
         <F label="Website"><input value={form.website ?? ''} onChange={e => upd('website', e.target.value)} maxLength={300} className={inputCls} /></F>
         <F label="Instagram"><input value={form.instagram ?? ''} onChange={e => upd('instagram', e.target.value)} maxLength={200} className={inputCls} /></F>

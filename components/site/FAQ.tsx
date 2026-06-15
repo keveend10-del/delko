@@ -113,7 +113,7 @@ export const FAQ = () => {
       subtitle="Straight answers. No agency-speak."
       align="center"
     >
-      <div className="space-y-3 max-w-3xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-3 max-w-6xl mx-auto items-start">
         {faqs.map((item, i) => (
           <FAQItem
             key={i}

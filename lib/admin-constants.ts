@@ -17,5 +17,7 @@ export const PACKAGE_OPTIONS = [
   { key: 'growth', label: 'Growth' },
   { key: 'dominate', label: 'Dominate' },
 ]
-export const NORTH_SHORE_TOWNS = ['Pittsfield','Lenox','Stockbridge','Great Barrington','Lee','Williamstown','North Adams','Adams','Dalton','Sheffield','Egremont','West Stockbridge','Becket','Hinsdale','Cheshire','Richmond','Tyringham','Otis','Monterey']
+export const BERKSHIRE_TOWNS = ['Adams','Becket','Cheshire','Dalton','Egremont','Great Barrington','Hinsdale','Lee','Lenox','Monterey','North Adams','Otis','Pittsfield','Richmond','Sheffield','Stockbridge','Tyringham','West Stockbridge','Williamstown']
+export const NORTH_SHORE_TOWNS = ['Beverly','Danvers','Essex','Gloucester','Hamilton','Ipswich','Lynn','Manchester-by-the-Sea','Marblehead','Nahant','Newburyport','Peabody','Rockport','Salem','Swampscott','Topsfield','Wenham']
+export const ALL_SERVICE_TOWNS = [...BERKSHIRE_TOWNS.sort(), ...NORTH_SHORE_TOWNS.sort()]
 export const BUSINESS_TYPES = ['Painting','Contractor','Landscaping','Cleaning','Barbershop','Salon','Gym','Café','Restaurant','Bar','Real estate','Boutique / retail','Wellness / spa','Auto','Other']
