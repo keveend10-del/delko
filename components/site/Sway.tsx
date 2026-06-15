@@ -46,6 +46,11 @@ export const Sway = () => {
             transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
           />
 
+          {/* Delko D-mark watermark — brand stamp at low opacity */}
+          <div className="absolute bottom-0 right-0 pointer-events-none select-none overflow-hidden" style={{ width: 320, height: 320, opacity: 0.028 }}>
+            <img src="/favicon.svg" alt="" className="w-full h-full object-contain translate-x-16 translate-y-16" />
+          </div>
+
           {/* Parallax background glows */}
           <motion.div style={{ y: glow1Y }} className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 50% at 90% -5%, hsl(var(--accent) / 0.14), transparent 60%)' }} />

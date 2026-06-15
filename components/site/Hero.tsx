@@ -38,7 +38,7 @@ export const Hero = () => {
     {/* Single dramatic centered glow */}
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <motion.div
-        style={{ y: glowY, width: '100%', height: '700px', top: '-180px', left: '0', background: 'radial-gradient(ellipse at 55% 50%, hsl(var(--accent) / 0.22) 0%, hsl(260 60% 55% / 0.08) 45%, transparent 70%)', filter: 'blur(40px)' }}
+        style={{ y: glowY, width: '100%', height: '700px', top: '-180px', left: '0', background: 'radial-gradient(ellipse at 55% 50%, hsl(var(--accent) / 0.22) 0%, hsl(217 91% 60% / 0.08) 45%, transparent 70%)', filter: 'blur(40px)' }}
         className="absolute rounded-full animate-glow"
       />
       <motion.div
