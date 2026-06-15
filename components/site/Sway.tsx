@@ -31,6 +31,21 @@ export const Sway = () => {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           className="relative max-w-7xl mx-auto rounded-3xl overflow-hidden bg-card border border-border shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:bg-[hsl(0_0%_4%)] dark:border-[hsl(0_0%_12%)] dark:shadow-[6px_6px_0px_rgba(0,0,0,0.5),_0_32px_80px_rgba(0,0,0,0.75)]"
         >
+          {/* Outer card revolving arc light — inset:0 so overflow:hidden doesn't clip */}
+          <motion.div
+            className="absolute inset-0 rounded-[inherit] pointer-events-none z-10"
+            style={{
+              padding: '1.5px',
+              background: 'conic-gradient(from 0turn, transparent 40%, hsl(var(--accent) / 0.45) 72%, hsl(var(--accent) / 0.85) 80%, hsl(var(--accent) / 0.45) 87%, transparent 100%)',
+              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+              WebkitMaskComposite: 'xor',
+              mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+              maskComposite: 'exclude',
+            }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+          />
+
           {/* Parallax background glows */}
           <motion.div style={{ y: glow1Y }} className="absolute inset-0 pointer-events-none">
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 50% at 90% -5%, hsl(var(--accent) / 0.14), transparent 60%)' }} />
@@ -66,7 +81,7 @@ export const Sway = () => {
               viewport={{ once: true, margin: '-60px' }}
               className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border"
             >
-              {features.map(({ icon: Icon, title, desc }) => (
+              {features.map(({ icon: Icon, title, desc }, i) => (
                 <motion.div
                   key={title}
                   variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } }}
@@ -74,12 +89,46 @@ export const Sway = () => {
                   className="group relative bg-surface hover:bg-surface-elevated p-7 transition-all duration-300 cursor-default overflow-hidden"
                 >
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 20%, hsl(var(--accent)/0.07), transparent 70%)' }} />
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: -5, transition: { duration: 0.2 } }}
-                    className="h-11 w-11 rounded-xl border border-border bg-surface dark:border-white/[0.07] dark:bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors duration-300 mb-5 relative"
-                  >
-                    <Icon size={18} />
-                  </motion.div>
+
+                  {/* Icon with revolving arc light */}
+                  <div className="h-11 w-11 mb-5 relative">
+                    {/* Arc orbit ring */}
+                    <motion.div
+                      className="absolute pointer-events-none z-10"
+                      style={{
+                        inset: -1,
+                        borderRadius: '0.75rem',
+                        padding: 1,
+                        background: 'conic-gradient(from 0turn, transparent 50%, hsl(var(--accent) / 0.55) 76%, hsl(var(--accent)) 83%, hsl(var(--accent) / 0.55) 89%, transparent 100%)',
+                        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                        WebkitMaskComposite: 'xor',
+                        mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                        maskComposite: 'exclude',
+                      }}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 3 + i * 0.35, repeat: Infinity, ease: 'linear', delay: i * 0.6 }}
+                    />
+                    {/* Bloom: blurred glow that bleeds out from the arc hot spot */}
+                    <motion.div
+                      className="absolute pointer-events-none"
+                      style={{
+                        inset: -4,
+                        borderRadius: '1rem',
+                        background: 'conic-gradient(from 0turn, transparent 60%, hsl(var(--accent) / 0.25) 80%, hsl(var(--accent) / 0.4) 84%, hsl(var(--accent) / 0.25) 88%, transparent 100%)',
+                        filter: 'blur(5px)',
+                        opacity: 0.8,
+                      }}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 3 + i * 0.35, repeat: Infinity, ease: 'linear', delay: i * 0.6 }}
+                    />
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: -5, transition: { duration: 0.2 } }}
+                      className="h-full w-full rounded-xl border border-border bg-surface dark:border-white/[0.07] dark:bg-white/[0.03] flex items-center justify-center text-muted-foreground group-hover:text-accent transition-colors duration-300 relative"
+                    >
+                      <Icon size={18} />
+                    </motion.div>
+                  </div>
+
                   <h3 className="text-[15px] font-bold tracking-[-0.02em] relative">{title}</h3>
                   <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed relative">{desc}</p>
                 </motion.div>
