@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Section } from './Section'
 
@@ -9,12 +10,14 @@ const founders = [
     role: 'Co-Founder — Systems & Delivery',
     bio: "I'm Keveen. I'm connected to both the Berkshires and the North Shore, and I've spent the last few years building websites, startup systems, and AI workflows. I started Delko because I kept seeing good local businesses lose work to competitors who simply looked better online. My job is to make sure the website, Google presence, follow-up, and reporting actually work — not just look nice.",
     initials: 'KD',
+    photo: '/keveen.jpg',
   },
   {
     name: 'Jack Koutrobis',
     role: 'Co-Founder — Sales & Relationships',
     bio: "I'm Jack. I'm from the area, and I know how much local business still runs on trust, reputation, and word of mouth. I started Delko because too many good businesses are relying only on referrals while competitors pass them online. My role is simple: start real conversations, understand what owners need, and make sure clients always know who they're working with.",
     initials: 'JK',
+    photo: null,
   },
 ]
 
@@ -47,8 +50,20 @@ export const WhoWeAre = () => (
           className="glass-card rounded-xl p-8 flex flex-col gap-6 hover:border-border-strong hover:shadow-[6px_6px_0px_rgba(0,0,0,0.45),0_24px_64px_rgba(0,0,0,0.5)] transition-all duration-300"
         >
           <div className="w-full aspect-square rounded-lg bg-card border border-border flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, hsl(var(--accent)/0.04) 0%, transparent 60%)' }} />
-            <span className="text-[13px] font-medium tracking-[0.04em] text-muted-foreground/40 z-10">{f.name}</span>
+            {f.photo ? (
+              <Image
+                src={f.photo}
+                alt={f.name}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            ) : (
+              <>
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, hsl(var(--accent)/0.04) 0%, transparent 60%)' }} />
+                <span className="text-[13px] font-medium tracking-[0.04em] text-muted-foreground/40 z-10">{f.name}</span>
+              </>
+            )}
           </div>
           <div>
             <div className="text-[19px] font-bold tracking-[-0.02em] mb-1">{f.name}</div>

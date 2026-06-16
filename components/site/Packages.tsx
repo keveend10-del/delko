@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Section } from './Section'
 import { Button } from '@/components/ui/Button'
-import { Check, ArrowUpRight } from 'lucide-react'
+import { Check, ArrowUpRight, Minus } from 'lucide-react'
 import { ArcLight } from './ArcLight'
 
 const packages = [
@@ -119,6 +119,140 @@ const PackageCard = ({ p, index }: { p: typeof packages[0]; index: number }) => 
   )
 }
 
+type FeatureRow = { label: string; starter: boolean; growth: boolean; partner: boolean }
+type FeatureGroup = { group: string; rows: FeatureRow[] }
+
+const featureGroups: FeatureGroup[] = [
+  {
+    group: 'Core Setup',
+    rows: [
+      { label: 'Google Business Profile cleanup', starter: true, growth: true, partner: true },
+      { label: 'Website audit & basic fixes', starter: true, growth: true, partner: true },
+      { label: 'Lead capture form', starter: true, growth: true, partner: true },
+      { label: 'Review request system', starter: true, growth: true, partner: true },
+      { label: 'Simple lead tracking', starter: true, growth: true, partner: true },
+      { label: 'Monthly report', starter: true, growth: true, partner: true },
+    ],
+  },
+  {
+    group: 'Growth & Visibility',
+    rows: [
+      { label: 'Landing page or website refresh', starter: false, growth: true, partner: true },
+      { label: 'Local SEO service pages', starter: false, growth: true, partner: true },
+      { label: 'Review generation system', starter: false, growth: true, partner: true },
+      { label: 'Email & SMS follow-up', starter: false, growth: true, partner: true },
+      { label: 'Monthly strategy call', starter: false, growth: true, partner: true },
+      { label: 'AI search readiness', starter: false, growth: true, partner: true },
+    ],
+  },
+  {
+    group: 'Full Acquisition System',
+    rows: [
+      { label: 'Paid ads setup & management', starter: false, growth: false, partner: true },
+      { label: 'CRM setup & management', starter: false, growth: false, partner: true },
+      { label: 'Advanced automations', starter: false, growth: false, partner: true },
+      { label: 'Customer reactivation campaigns', starter: false, growth: false, partner: true },
+      { label: 'Reputation management', starter: false, growth: false, partner: true },
+      { label: 'Offer testing', starter: false, growth: false, partner: true },
+      { label: 'Reporting dashboard', starter: false, growth: false, partner: true },
+      { label: 'Biweekly strategy calls', starter: false, growth: false, partner: true },
+    ],
+  },
+]
+
+const Cell = ({ included, isPopular }: { included: boolean; isPopular?: boolean }) => (
+  <td className="text-center py-3.5 px-4">
+    {included ? (
+      <Check size={16} className={`mx-auto ${isPopular ? 'text-accent' : 'text-accent'}`} />
+    ) : (
+      <Minus size={14} className="mx-auto text-muted-foreground/30" />
+    )}
+  </td>
+)
+
+const ComparisonTable = () => {
+  const router = useRouter()
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+      className="mt-16 w-full overflow-x-auto rounded-xl border border-border"
+    >
+      <table className="w-full min-w-[620px] text-sm border-collapse">
+        <thead>
+          <tr className="border-b border-border">
+            <th className="text-left py-5 px-6 text-[12px] font-semibold text-muted-foreground uppercase tracking-[0.12em] w-[40%]">
+              All features
+            </th>
+            {[
+              { name: 'Starter Presence', price: '$2,000/mo', key: 'foundation', popular: false },
+              { name: 'Local Growth', price: '$2,500/mo', key: 'growth', popular: true },
+              { name: 'Growth Partner', price: '$4,500/mo', key: 'dominate', popular: false },
+            ].map((col) => (
+              <th
+                key={col.key}
+                className={`text-center py-5 px-4 w-[20%] ${col.popular ? 'bg-accent/[0.06]' : ''}`}
+              >
+                <div className={`text-[11px] font-bold uppercase tracking-[0.14em] ${col.popular ? 'text-accent' : 'text-foreground/60'}`}>
+                  {col.name}
+                </div>
+                <div className={`text-[13px] font-semibold mt-1 ${col.popular ? 'text-foreground' : 'text-muted-foreground'}`}>
+                  {col.price}
+                </div>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {featureGroups.map((group) => (
+            <React.Fragment key={group.group}>
+              <tr className="border-b border-border/50 bg-white/[0.015]">
+                <td colSpan={4} className="py-2.5 px-6 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground/50">
+                  {group.group}
+                </td>
+              </tr>
+              {group.rows.map((row, ri) => (
+                <tr
+                  key={row.label}
+                  className={`border-b border-border/40 transition-colors hover:bg-white/[0.025] ${ri === group.rows.length - 1 ? 'border-b-0' : ''}`}
+                >
+                  <td className="py-3.5 px-6 text-[13px] text-foreground/75">{row.label}</td>
+                  <Cell included={row.starter} />
+                  <Cell included={row.growth} isPopular />
+                  <Cell included={row.partner} />
+                </tr>
+              ))}
+            </React.Fragment>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr className="border-t border-border bg-white/[0.02]">
+            <td className="py-5 px-6" />
+            {[
+              { key: 'foundation', label: 'Get Started', popular: false },
+              { key: 'growth', label: 'Build Your System', popular: true },
+              { key: 'dominate', label: 'Become a Partner', popular: false },
+            ].map((col) => (
+              <td key={col.key} className={`text-center py-5 px-4 ${col.popular ? 'bg-accent/[0.06]' : ''}`}>
+                <Button
+                  variant={col.popular ? 'accent' : 'outline'}
+                  size="sm"
+                  className="w-full"
+                  onClick={() => router.push(`/checkout?plan=${col.key}`)}
+                >
+                  {col.label}
+                </Button>
+              </td>
+            ))}
+          </tr>
+        </tfoot>
+      </table>
+    </motion.div>
+  )
+}
+
 export const Packages = () => {
   const [activeIndex, setActiveIndex] = useState(1)
 
@@ -156,6 +290,8 @@ export const Packages = () => {
           <PackageCard key={p.name} p={p} index={i} />
         ))}
       </div>
+
+      <ComparisonTable />
 
       <motion.p
         initial={{ opacity: 0 }}
