@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { LandingPage } from '@/components/site/LandingPage'
 
 export const metadata: Metadata = {
-  title: 'Delko | Local Marketing Systems for North Shore & Berkshire County MA',
-  description: 'Delko helps local businesses get found online, look more trustworthy, and follow up with leads faster — so more searches turn into real customers. Serving North Shore and Berkshire County MA.',
+  title: 'Delko | North Shore\'s Full-Service Digital Agency',
+  description: 'Brand, web, social, and AI search visibility for North Shore businesses — under one roof, with two founders who actually know your town. Starting at $2,000/mo.',
   openGraph: {
-    title: 'Delko | Local Marketing Systems for North Shore & Berkshire County MA',
-    description: 'Delko helps local businesses get found online, look more trustworthy, and follow up with leads faster — so more searches turn into real customers. Serving North Shore and Berkshire County MA.',
+    title: 'Delko | North Shore\'s Full-Service Digital Agency',
+    description: 'Brand, web, social, and AI search visibility for North Shore businesses — under one roof, with two founders who actually know your town. Starting at $2,000/mo.',
     url: 'https://delkoagency.com',
   },
   alternates: {
@@ -19,10 +19,10 @@ const localBusinessSchema = {
   '@type': 'LocalBusiness',
   name: 'Delko',
   url: 'https://delkoagency.com',
-  description: 'Local growth agency serving North Shore and Berkshire County, MA. Google Business Profile optimization, local SEO, website design, lead capture, AI search visibility, and automated follow-up systems.',
+  description: 'Full-service digital agency serving North Shore and Berkshire County, MA. Brand identity, web design, social media management, paid ads, local SEO, and AI search visibility — under one roof.',
   areaServed: ['North Shore, MA', 'Berkshire County, MA'],
-  serviceType: ['Local SEO', 'Google Business Profile Optimization', 'Website Design', 'Lead Generation', 'AI Search Visibility', 'Customer Follow-Up Automation'],
-  priceRange: '$1,500–$4,500/mo',
+  serviceType: ['Brand Identity', 'Web Design', 'Web Development', 'Social Media Management', 'Content Strategy', 'Paid Advertising', 'Local SEO', 'AI Search Visibility'],
+  priceRange: '$2,000–$4,500/mo',
   sameAs: [],
 }
 
@@ -65,7 +65,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: "What's the difference between your three packages?",
-      acceptedAnswer: { '@type': 'Answer', text: 'Starter Presence fixes the basics — Google profile, website, reviews, and lead capture at $1,500/mo. Local Growth System adds a website refresh, local SEO service pages, review generation, follow-up automation, and AI search readiness at $2,500/mo. Growth Partner adds paid ads, CRM setup, advanced automations, and reputation management at $4,500/mo.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Starter Presence builds the foundation — brand, website, Google profile, reviews, and lead capture at $2,000/mo. Local Growth System adds local SEO service pages, review generation, follow-up automation, and AI search readiness at $2,500/mo. Growth Partner adds paid ads, CRM setup, advanced automations, and reputation management at $4,500/mo.' },
     },
   ],
 }

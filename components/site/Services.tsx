@@ -2,37 +2,37 @@
 
 import { motion } from 'framer-motion'
 import { Section } from './Section'
-import { MapPin, Phone, TrendingUp, ArrowUpRight } from 'lucide-react'
+import { Layers, LayoutGrid, TrendingUp, ArrowUpRight } from 'lucide-react'
 import { ArcLight } from './ArcLight'
 
 const services = [
   {
-    icon: MapPin,
+    icon: Layers,
     n: 'S01',
-    title: 'Local Visibility',
-    short: 'Google, Maps, reviews, local SEO, and AI search.',
-    desc: 'We improve your Google Business Profile, website, local SEO service pages, and how your business appears to AI tools like ChatGPT and Google AI. Clear, consistent, and trusted — wherever customers are searching.',
-    tags: ['Google Profile', 'Local SEO', 'AI Visibility'],
+    title: 'Brand & Web',
+    short: 'Logo, identity, web design, and development.',
+    desc: 'We build the foundation your business stands on — logo, brand identity, web design, and development. A clear brand and a fast, professional website that works on every device and sends people straight to you.',
+    tags: ['Brand Identity', 'Web Design', 'Development'],
     featured: true,
     span: 'lg:col-span-2',
   },
   {
-    icon: Phone,
+    icon: LayoutGrid,
     n: 'S02',
-    title: 'Lead Capture',
-    short: 'Forms, call buttons, booking links, and tracking.',
-    desc: "A customer who found you but couldn't figure out how to reach you is a lead lost. We set up clear call buttons, contact forms, booking links, and conversion tracking so every visitor has a fast path to contacting you.",
-    tags: ['Forms', 'Booking', 'Tracking'],
+    title: 'Content & Social',
+    short: 'Creative direction, social media, and content calendars.',
+    desc: "Consistent presence across the platforms your customers actually use. We handle creative direction, social media management, content calendars, and photography/video direction — so your brand shows up and sounds like you.",
+    tags: ['Social Media', 'Content', 'Creative'],
     featured: false,
     span: 'lg:col-span-1',
   },
   {
     icon: TrendingUp,
     n: 'S03',
-    title: 'AI-Powered Follow-Up',
-    short: 'Missed calls, reviews, reactivation, and reporting.',
-    desc: "Most local businesses lose leads because nobody followed up. We set up automatic missed call text-back, review request sequences, customer reactivation, and email/SMS follow-up — plus a simple monthly report so you know what's happening.",
-    tags: ['Follow-Up', 'Reviews', 'Automation'],
+    title: 'Growth & Visibility',
+    short: 'Paid ads, SEO, AI search optimization, and email.',
+    desc: "Paid ads on Meta and Google, local SEO, AI search optimization (ChatGPT, Perplexity, Google AI), and email — everything that turns your brand into a customer acquisition engine. AI search visibility is included, not an add-on.",
+    tags: ['Paid Ads', 'SEO', 'AI Visibility', 'Email'],
     featured: true,
     span: 'lg:col-span-3',
   },
@@ -150,8 +150,8 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
   <Section
     id="services"
     eyebrow="What We Do / 03"
-    title={<>Three pillars. <span className="font-display-italic text-muted-foreground">One goal.</span></>}
-    subtitle={compact ? undefined : 'Get found by customers searching in your area. Capture every lead. Follow up automatically. Nothing more, nothing less.'}
+    title={<>Three pillars. <span className="font-display-italic text-muted-foreground">One roof.</span></>}
+    subtitle={compact ? undefined : 'Brand, web, social, and growth — under one roof, with two people who actually know your market.'}
     align="center"
   >
     <motion.div

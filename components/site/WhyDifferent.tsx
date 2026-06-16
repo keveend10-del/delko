@@ -6,9 +6,9 @@ import { ArrowUpRight } from 'lucide-react'
 import { ArcLight } from './ArcLight'
 
 const pillars = [
-  { n: '01', title: "People are asking AI who to call", body: "ChatGPT, Perplexity, Google AI Overviews, and Gemini now answer questions about who to hire directly. Your customers ask these tools for recommendations before they ever click a website. If your business information, reviews, and local presence are weak — you may not come up at all." },
-  { n: '02', title: "Weak info = skipped, not ranked lower", body: "AI tools decide whether to recommend a business based on what they can verify: your website, Google profile, reviews, and how consistently your information appears across the web. Incomplete or inconsistent info doesn't just hurt rankings — it gets you left out of the answer entirely." },
-  { n: '03', title: "The fix is the same foundation that gets you calls today", body: "Strong Google profile, clear website, solid reviews, consistent local info. That foundation is what gets you found on Google Maps, ranked in search, and recommended by AI tools. You don't need a separate strategy — you need the basics done right." },
+  { n: '01', title: "Direct founders, not account managers", body: "You talk to us — not someone reading notes about you. Keveen and Jack are on every account personally. No handoffs, no layers, no client success manager. The people who built your strategy are the people doing the work." },
+  { n: '02', title: "We know your market", body: "We know the difference between a Newburyport tourist and a Gloucester local. Between a leaf-peeper weekend and a year-round North Shore customer. Strategy built for your actual market — not a generic playbook from an agency three states away." },
+  { n: '03', title: "Everything under one roof", body: "Brand, web, social, paid ads, SEO, AI search visibility. One team, one invoice, complete picture. No juggling vendors who don't talk to each other or blaming the 'other agency' when results are flat." },
 ]
 
 export const WhyDifferent = () => {
@@ -34,13 +34,13 @@ export const WhyDifferent = () => {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="max-w-4xl mb-20"
           >
-            <div className="eyebrow mb-6">How search has changed</div>
+            <div className="eyebrow mb-6">Why Delko</div>
             <h2 className="text-[40px] sm:text-[58px] lg:text-[72px] font-bold leading-[1.0] tracking-[-0.04em]">
-              People are asking AI{' '}
-              <span className="font-display-italic text-muted-foreground">who to hire.</span>
+              Big agencies don&apos;t know{' '}
+              <span className="font-display-italic text-muted-foreground">your market.</span>
             </h2>
             <p className="mt-7 text-[18px] text-muted-foreground leading-relaxed max-w-2xl">
-              Search isn&apos;t just Google anymore. Customers are asking ChatGPT, Perplexity, and Google AI who they should trust. If your business isn&apos;t set up to show up in those answers, you&apos;re invisible to a growing slice of buyers — even if you rank fine on regular search.
+              Delko is two founders, both North Shore — no account managers, no handoffs, no guessing. Just work that fits your market, your customers, and your goals.
             </p>
           </motion.div>
 
@@ -78,13 +78,13 @@ export const WhyDifferent = () => {
           >
             <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, hsl(var(--accent) / 0.05) 0%, transparent 60%)' }} />
             <div className="relative">
-              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-glow mb-2">Our approach</div>
+              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-glow mb-2">Intentionally small</div>
               <p className="text-[18px] sm:text-[20px] font-bold tracking-[-0.025em] max-w-xl">
-                We fix the foundation — Google profile, website, reviews, and local info — so your business gets found, looks trustworthy, and gets recommended whether someone searches on Google or asks an AI tool.
+                We serve two markets — North Shore and the Berkshires — and we plan to keep it that way. Staying tight means we actually know your competitive landscape. That&apos;s the work.
               </p>
             </div>
-            <a href="/services" className="relative inline-flex items-center gap-2 text-[14px] font-bold text-accent whitespace-nowrap hover:gap-3 transition-all duration-200">
-              See how we do it <ArrowUpRight size={15} />
+            <a href="/about" className="relative inline-flex items-center gap-2 text-[14px] font-bold text-accent whitespace-nowrap hover:gap-3 transition-all duration-200">
+              Meet the founders <ArrowUpRight size={15} />
             </a>
           </motion.div>
         </div>

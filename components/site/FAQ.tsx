@@ -8,7 +8,7 @@ import { Plus } from 'lucide-react'
 const faqs = [
   {
     q: "How is this different from other agencies I've tried?",
-    a: "Most agencies sell you a package and disappear into a dashboard. We're two people focused exclusively on Berkshire County and the North Shore. We don't run cookie-cutter campaigns — we focus on three things that actually move the needle: local visibility, lead capture, and follow-up systems. We know your competitors by name, we answer our phones, and we work your account personally. If it's not working, you'll hear from us before the next invoice.",
+    a: "Most agencies hand you off to an account manager who read a one-page brief about you. Delko is two founders — Keveen and Jack — and we're on every account personally. No handoffs, no layers. We're also a full-service shop: brand, web, social, paid ads, SEO, and AI search visibility under one roof. You get one team with a complete picture of your business, not four vendors who don't talk to each other.",
   },
   {
     q: "How long until I start seeing results?",
@@ -23,8 +23,8 @@ const faqs = [
     a: "Mainly home service businesses — pressure washing, painting, HVAC, plumbing, roofing, electricians, landscaping, remodeling, flooring, and cleaners. We also work with med spas, salons, gyms, law firms, and other local service businesses across Berkshire County and the North Shore. If your customers search locally before they choose, we can help.",
   },
   {
-    q: "What does a 'Free Local Visibility Audit' actually mean?",
-    a: "We review your website, Google Business Profile, reviews, competitors, AI search visibility, and follow-up process. Then we show you what's working, what's costing you customers, where competitors are ahead, and what to fix first. No confusing report. No pitch. Just a clear picture of where you stand — in plain English.",
+    q: "What happens on the free strategy call?",
+    a: "It's a 30-minute conversation — no pitch deck, no jargon. We'll ask about your business, your goals, what's not working, and what you've tried. By the end you'll have a clear sense of what the problem actually is and whether we're the right fit to fix it. No obligation either way.",
   },
   {
     q: "What is local AI visibility and why does it matter?",
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "What's the real difference between your three packages?",
-    a: "Starter Presence fixes the basics — Google profile, website, review system, lead capture, and monthly reporting so customers can find and contact you. Local Growth System adds a website refresh, local SEO service pages, review generation, follow-up automation, and AI search readiness to build consistent leads month over month. Growth Partner adds paid ads, CRM setup, advanced automations, reputation management, and detailed reporting for businesses ready to own their market.",
+    a: "Starter Presence builds the foundation — brand, website, Google profile, review system, and lead capture at $2,000/mo. Local Growth System adds local SEO service pages, review generation, follow-up automation, and AI search readiness to build consistent leads month over month at $2,500/mo. Growth Partner adds paid ads, CRM setup, advanced automations, and reputation management for businesses ready to own their market at $4,500/mo.",
   },
   {
     q: "Do you only work in Berkshire County and North Shore?",

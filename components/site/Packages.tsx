@@ -13,7 +13,7 @@ const packages = [
     key: 'foundation',
     name: 'Starter Presence',
     tagline: 'Fix the basics. Start getting found.',
-    price: '1,500',
+    price: '2,000',
     priceSuffix: '/mo',
     cta: 'Get Started',
     popular: false,

@@ -73,7 +73,7 @@ export const Hero = () => {
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               </span>
               <span className="text-[11px] font-medium tracking-[0.14em] text-muted-foreground">
-                Local Growth · North Shore &amp; Berkshire County
+                Full-Service Digital Agency · North Shore MA
               </span>
             </div>
           </motion.div>
@@ -96,7 +96,7 @@ export const Hero = () => {
             transition={{ delay: 0.55, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="mt-9 text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-[500px]"
           >
-            Delko helps local businesses across the North Shore and Berkshire County get found online, look more trustworthy, and follow up with leads faster — so more searches turn into real customers.
+            We build brands, run campaigns, and make sure your business gets found — on Google, social, and the AI tools your customers are already using. Two founders. Both North Shore. No account managers, no handoffs.
           </motion.p>
 
           <motion.div
@@ -106,10 +106,10 @@ export const Hero = () => {
             className="mt-10 flex flex-col sm:flex-row gap-3"
           >
             <Button asChild variant="accent" size="xl">
-              <a href="#audit" onClick={() => trackCTAClick('get_free_audit', 'hero')}>Get a Free Visibility Audit <ArrowUpRight size={16} /></a>
+              <a href="#audit" onClick={() => trackCTAClick('schedule_strategy_call', 'hero')}>Schedule a Free Strategy Call <ArrowUpRight size={16} /></a>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <a href="/services" onClick={() => trackCTAClick('see_services', 'hero')}>See What We Fix</a>
+              <a href="/services" onClick={() => trackCTAClick('see_services', 'hero')}>See Our Services</a>
             </Button>
           </motion.div>
 
