@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, KanbanSquare, ClipboardList, Users, Briefcase,
   Send, FolderKanban, CheckSquare, Sparkles, Settings, LogOut,
-  Menu, X, MessageSquare, ListChecks,
+  Menu, X, MessageSquare, ListChecks, Brain,
 } from 'lucide-react'
 import { AdminAuthProvider, useAdminAuth } from '@/contexts/AdminAuth'
 import { createClient } from '@/lib/supabase/client'
@@ -24,6 +24,7 @@ const nav = [
   { href: '/admin/checklists', label: 'Checklists', icon: ListChecks },
   { href: '/admin/tasks', label: 'Tasks', icon: CheckSquare },
   { href: '/admin/sway-opportunities', label: 'Sway Opportunities', icon: Sparkles },
+  { href: '/admin/ai-visibility', label: 'AI Visibility', icon: Brain },
   { href: '/admin/settings', label: 'Settings', icon: Settings },
 ]
 
