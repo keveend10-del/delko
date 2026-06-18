@@ -12,7 +12,7 @@ const headlineContainer = {
 }
 
 const headlineLine = {
-  hidden: { opacity: 0, y: 52, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 40, filter: 'blur(6px)' },
   show: {
     opacity: 1, y: 0, filter: 'blur(0px)',
     transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
@@ -26,7 +26,6 @@ const pillars = [
     title: 'Brand & Web',
     desc: 'Logo, identity, and a site that converts.',
     color: 'hsl(217 91% 60%)',
-    delay: 0,
   },
   {
     icon: LayoutGrid,
@@ -34,7 +33,6 @@ const pillars = [
     title: 'Content & Social',
     desc: 'Consistent presence on the platforms that matter.',
     color: 'hsl(260 80% 65%)',
-    delay: 0.08,
   },
   {
     icon: TrendingUp,
@@ -42,7 +40,6 @@ const pillars = [
     title: 'Google + AI Visibility',
     desc: 'Local SEO, GBP, paid ads, and AI search.',
     color: 'hsl(145 60% 50%)',
-    delay: 0.16,
   },
   {
     icon: Bot,
@@ -50,15 +47,19 @@ const pillars = [
     title: 'AI Workflows',
     desc: 'Automated follow-up, reviews, and reporting.',
     color: 'hsl(35 90% 58%)',
-    delay: 0.24,
   },
 ]
 
-const floatVariants = [
-  { y: [0, -10, 0], duration: 5.2 },
-  { y: [0, 8, 0], duration: 6.1 },
-  { y: [0, -7, 0], duration: 4.8 },
-  { y: [0, 9, 0], duration: 5.7 },
+// Each star: top%, left%, duration(s), delay(s), angle(deg), peak opacity
+const stars = [
+  { top: '-2%',  left: '8%',  dur: 6.2, delay: 0,     angle: 16, peak: 0.14 },
+  { top: '12%',  left: '0%',  dur: 8.1, delay: -3.5,  angle: 20, peak: 0.10 },
+  { top: '-5%',  left: '28%', dur: 5.4, delay: -7,    angle: 14, peak: 0.18 },
+  { top: '22%',  left: '5%',  dur: 7.3, delay: -1.8,  angle: 22, peak: 0.08 },
+  { top: '-3%',  left: '52%', dur: 9.0, delay: -5,    angle: 12, peak: 0.12 },
+  { top: '5%',   left: '38%', dur: 6.8, delay: -10,   angle: 18, peak: 0.16 },
+  { top: '30%',  left: '15%', dur: 5.9, delay: -2,    angle: 24, peak: 0.07 },
+  { top: '-1%',  left: '70%', dur: 7.6, delay: -8,    angle: 15, peak: 0.10 },
 ]
 
 export const Hero = () => {
@@ -69,9 +70,10 @@ export const Hero = () => {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0])
 
   return (
-    <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 overflow-hidden">
-      {/* Background glow */}
+    <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center pt-28 pb-20">
+      {/* Background layer — overflow-hidden scoped here so headline isn't clipped */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Radial glow */}
         <motion.div
           className="absolute rounded-full animate-glow"
           style={{
@@ -84,17 +86,62 @@ export const Hero = () => {
             filter: 'blur(60px)',
           }}
         />
-      </div>
 
-      {/* Dot grid */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.035]"
-        style={{
-          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-          backgroundSize: '36px 36px',
-          maskImage: 'radial-gradient(ellipse 80% 70% at 50% 10%, black, transparent 80%)',
-        }}
-      />
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+            backgroundSize: '36px 36px',
+            maskImage: 'radial-gradient(ellipse 80% 70% at 50% 10%, black, transparent 80%)',
+          }}
+        />
+
+        {/* Shooting stars */}
+        {stars.map((s, i) => (
+          <div
+            key={i}
+            className="absolute"
+            style={{
+              top: s.top,
+              left: s.left,
+              animationName: 'shoot-star',
+              animationDuration: `${s.dur}s`,
+              animationDelay: `${s.delay}s`,
+              animationTimingFunction: 'linear',
+              animationIterationCount: 'infinite',
+              animationFillMode: 'both',
+              '--star-angle': `${s.angle}deg`,
+              '--star-peak': s.peak,
+            } as React.CSSProperties}
+          >
+            {/* Trail */}
+            <div
+              style={{
+                width: '140px',
+                height: '1px',
+                background: 'linear-gradient(to right, transparent 0%, hsl(var(--accent) / 0.15) 30%, hsl(var(--accent) / 0.6) 72%, white 100%)',
+                borderRadius: '9999px',
+                filter: 'blur(0.8px)',
+              }}
+            />
+            {/* Head dot */}
+            <div
+              style={{
+                position: 'absolute',
+                right: '-2px',
+                top: '-2px',
+                width: '4px',
+                height: '4px',
+                borderRadius: '50%',
+                background: 'white',
+                boxShadow: '0 0 6px 2px hsl(var(--accent) / 0.7), 0 0 12px 4px hsl(var(--accent) / 0.3)',
+                filter: 'blur(0.3px)',
+              }}
+            />
+          </div>
+        ))}
+      </div>
 
       <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container mx-auto px-5 sm:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
@@ -117,17 +164,22 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Headline */}
-          <motion.div variants={headlineContainer} initial="hidden" animate="show" className="mb-8">
+          {/* Headline — overflow-visible so blur animation isn't clipped */}
+          <motion.div
+            variants={headlineContainer}
+            initial="hidden"
+            animate="show"
+            className="mb-8 overflow-visible"
+          >
             <motion.h1
               variants={headlineLine}
-              className="text-[72px] sm:text-[100px] lg:text-[128px] font-bold leading-[0.9] tracking-[-0.055em] text-gradient-headline"
+              className="text-[72px] sm:text-[100px] lg:text-[128px] font-bold leading-[0.9] tracking-[-0.055em] text-gradient-headline overflow-visible"
             >
               Grow your
             </motion.h1>
             <motion.h1
               variants={headlineLine}
-              className="text-[72px] sm:text-[100px] lg:text-[128px] font-display-italic leading-[0.9] text-muted-foreground/60"
+              className="text-[72px] sm:text-[100px] lg:text-[128px] font-display-italic leading-[0.9] text-muted-foreground/60 overflow-visible"
             >
               local business.
             </motion.h1>
@@ -160,7 +212,7 @@ export const Hero = () => {
             </Button>
           </motion.div>
 
-          {/* Four Pillar Visual */}
+          {/* Four Pillars */}
           <FourPillars />
         </div>
       </motion.div>
@@ -175,12 +227,10 @@ const FourPillars = () => (
     transition={{ delay: 0.85, duration: 0.8 }}
     className="relative"
   >
-    {/* Center connector lines (SVG) */}
+    {/* Dashed connector line on desktop */}
     <div className="absolute inset-0 pointer-events-none hidden lg:block">
       <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        {/* Horizontal center line */}
         <line x1="12.5%" y1="50%" x2="87.5%" y2="50%" stroke="hsl(var(--accent) / 0.12)" strokeWidth="1" strokeDasharray="4 6" />
-        {/* Center dot */}
         <circle cx="50%" cy="50%" r="4" fill="hsl(var(--accent) / 0.3)" />
         <circle cx="50%" cy="50%" r="8" fill="none" stroke="hsl(var(--accent) / 0.12)" strokeWidth="1" />
       </svg>
@@ -189,47 +239,36 @@ const FourPillars = () => (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
       {pillars.map((p, i) => {
         const Icon = p.icon
-        const float = floatVariants[i]
         return (
           <motion.div
             key={p.n}
-            initial={{ opacity: 0, y: 32, scale: 0.96 }}
+            initial={{ opacity: 0, y: 28, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
-              delay: 0.9 + p.delay,
-              duration: 0.75,
+              delay: 0.9 + i * 0.08,
+              duration: 0.7,
               ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
             }}
+            className="group relative rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-5 text-left hover:border-accent/30 transition-colors duration-300"
+            style={{ boxShadow: 'var(--shadow-card)' }}
           >
-            <motion.div
-              animate={{ y: float.y }}
-              transition={{ duration: float.duration, repeat: Infinity, ease: 'easeInOut' }}
-              className="group relative rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-5 text-left hover:border-accent/30 transition-colors duration-300"
-              style={{ boxShadow: 'var(--shadow-card)' }}
-            >
-              {/* Hover glow */}
+            {/* Hover glow */}
+            <div
+              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+              style={{ background: `radial-gradient(ellipse at 30% 30%, ${p.color}12, transparent 70%)` }}
+            />
+
+            <div className="relative">
+              <div className="text-[10px] font-mono text-muted-foreground/40 mb-3 tracking-widest">{p.n}</div>
               <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse at 30% 30%, ${p.color}12, transparent 70%)` }}
-              />
-
-              <div className="relative">
-                {/* Number */}
-                <div className="text-[10px] font-mono text-muted-foreground/40 mb-3 tracking-widest">{p.n}</div>
-
-                {/* Icon */}
-                <div
-                  className="h-9 w-9 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: `${p.color}18`, boxShadow: `0 0 0 1px ${p.color}25` }}
-                >
-                  <Icon size={16} style={{ color: p.color }} />
-                </div>
-
-                {/* Text */}
-                <div className="text-[14px] font-bold text-foreground leading-tight mb-1.5">{p.title}</div>
-                <div className="text-[12px] text-muted-foreground leading-snug">{p.desc}</div>
+                className="h-9 w-9 rounded-xl flex items-center justify-center mb-4"
+                style={{ background: `${p.color}18`, boxShadow: `0 0 0 1px ${p.color}25` }}
+              >
+                <Icon size={16} style={{ color: p.color }} />
               </div>
-            </motion.div>
+              <div className="text-[14px] font-bold text-foreground leading-tight mb-1.5">{p.title}</div>
+              <div className="text-[12px] text-muted-foreground leading-snug">{p.desc}</div>
+            </div>
           </motion.div>
         )
       })}

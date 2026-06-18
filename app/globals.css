@@ -409,6 +409,13 @@
     from { transform: translateY(-100%); }
     to { transform: translateY(100vh); }
   }
+
+  @keyframes shoot-star {
+    0%   { transform: rotate(var(--star-angle, 18deg)) translateX(-300px); opacity: 0; }
+    6%   { opacity: var(--star-peak, 0.55); }
+    78%  { opacity: var(--star-peak, 0.55); }
+    100% { transform: rotate(var(--star-angle, 18deg)) translateX(2400px); opacity: 0; }
+  }
 }
 
 /* Print styles */
