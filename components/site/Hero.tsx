@@ -3,7 +3,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { ArrowUpRight, Layers, LayoutGrid, TrendingUp, Bot } from 'lucide-react'
+import { ArrowUpRight, MapPin, Star, Phone, TrendingUp } from 'lucide-react'
 import { trackCTAClick } from '@/lib/analytics'
 
 const headlineContainer = {
@@ -21,31 +21,31 @@ const headlineLine = {
 
 const pillars = [
   {
-    icon: Layers,
+    icon: MapPin,
     n: '01',
-    title: 'Brand & Web',
-    desc: 'Logo, identity, and a site that converts.',
+    title: 'Get Found',
+    desc: 'Google profile, local SEO, citations, AI visibility.',
     color: 'hsl(217 91% 60%)',
   },
   {
-    icon: LayoutGrid,
+    icon: Star,
     n: '02',
-    title: 'Content & Social',
-    desc: 'Consistent presence on the platforms that matter.',
+    title: 'Get Chosen',
+    desc: 'Better website, sharper offer, reviews, trust signals.',
     color: 'hsl(260 80% 65%)',
   },
   {
-    icon: TrendingUp,
+    icon: Phone,
     n: '03',
-    title: 'Google + AI Visibility',
-    desc: 'Local SEO, GBP, paid ads, and AI search.',
+    title: 'Get Called',
+    desc: 'Lead capture, booking CTAs, missed-call text-back.',
     color: 'hsl(145 60% 50%)',
   },
   {
-    icon: Bot,
+    icon: TrendingUp,
     n: '04',
-    title: 'AI Workflows',
-    desc: 'Automated follow-up, reviews, and reporting.',
+    title: 'Stay Ahead',
+    desc: 'Follow-up automations, review requests, monthly reporting.',
     color: 'hsl(35 90% 58%)',
   },
 ]
@@ -187,13 +187,13 @@ export const Hero = () => {
               variants={headlineLine}
               className="text-[72px] sm:text-[100px] lg:text-[128px] font-bold leading-[0.9] tracking-[-0.055em] text-foreground overflow-visible"
             >
-              Grow your
+              Get found first.
             </motion.h1>
             <motion.h1
               variants={headlineLine}
               className="text-[72px] sm:text-[100px] lg:text-[128px] font-display-italic leading-[0.9] text-muted-foreground/60 overflow-visible"
             >
-              local business.
+              Get called more.
             </motion.h1>
           </motion.div>
 
@@ -204,7 +204,7 @@ export const Hero = () => {
             transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="text-[17px] sm:text-[19px] text-muted-foreground leading-relaxed max-w-[560px] mx-auto mb-6"
           >
-            Brand, web, social, and AI visibility — four pillars, one team, no account managers.
+            We rebuild the website, Google profile, reviews, AI visibility, and follow-up systems local businesses need to stop losing jobs to weaker competitors.
           </motion.p>
 
           {/* CTAs */}
@@ -212,17 +212,27 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-10"
+            className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4"
           >
             <Button asChild variant="accent" size="xl">
-              <a href="/audit" onClick={() => trackCTAClick('get_visibility_audit', 'hero')}>
-                Get a Free Visibility Audit <ArrowUpRight size={16} />
+              <a href="/audit" onClick={() => trackCTAClick('get_visibility_scorecard', 'hero')}>
+                Get My Free Visibility Scorecard <ArrowUpRight size={16} />
               </a>
             </Button>
             <Button asChild variant="glass" size="xl">
               <a href="/pricing" onClick={() => trackCTAClick('view_packages', 'hero')}>View Packages</a>
             </Button>
           </motion.div>
+
+          {/* Proof tagline */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="text-[12px] text-muted-foreground/45 tracking-wide mb-10"
+          >
+            Serving North Shore & Berkshire County · No contracts · No account managers
+          </motion.p>
 
           {/* Four Pillars */}
           <FourPillars />

@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { useScrollDepth } from '@/hooks/useScrollDepth'
 import { Navbar } from './Navbar'
 import { Hero } from './Hero'
+import { ProofBar } from './ProofBar'
 import { Services } from './Services'
 
 const Process = dynamic(() => import('./Process').then(m => ({ default: m.Process })))
@@ -19,6 +20,7 @@ export function LandingPage() {
       <Navbar />
       <main>
         <Hero />
+        <ProofBar />
         <div className="bg-surface/50">
           <Services compact />
         </div>
