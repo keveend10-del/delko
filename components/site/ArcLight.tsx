@@ -30,7 +30,7 @@ export const ArcLight = ({ radius = 12, duration = 12, delay = 0 }: ArcLightProp
   return (
     <div
       ref={ref}
-      className="pointer-events-none absolute inset-0 overflow-hidden"
+      className="pointer-events-none absolute inset-0 overflow-hidden isolate"
       aria-hidden="true"
     >
       {/* Trail: right edge anchored to path point, fades left → bright right */}

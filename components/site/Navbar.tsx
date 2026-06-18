@@ -16,7 +16,7 @@ const serviceItems = [
 const navLinks = [
   { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
-  { label: 'Packages', href: '/#packages' },
+  { label: 'Packages', href: '/pricing' },
 ]
 
 function ThemeToggle() {

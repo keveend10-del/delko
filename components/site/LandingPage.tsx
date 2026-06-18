@@ -7,7 +7,6 @@ import { Process } from './Process'
 import { Services } from './Services'
 import { Testimonials } from './Testimonials'
 import { FAQ } from './FAQ'
-import { Packages } from './Packages'
 import { CTASection } from './CTASection'
 import { Footer } from './Footer'
 
@@ -28,7 +27,6 @@ export function LandingPage() {
         <div className="bg-surface/50">
           <FAQ limit={6} />
         </div>
-        <Packages />
         <CTASection />
       </main>
       <Footer />

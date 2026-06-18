@@ -161,7 +161,7 @@ const PackageCard = ({ p, index }: { p: typeof packages[0]; index: number }) => 
     >
       <ArcLight radius={12} duration={12} delay={index * 1.5} />
       {p.popular && (
-        <div className="absolute -top-3.5 left-7 inline-flex items-center gap-1.5 bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full shadow-[0_0_0_1px_hsl(152_80%_38%/0.6),0_4px_24px_hsl(152_80%_38%/0.35)]">
+        <div className="absolute -top-3.5 left-7 z-10 inline-flex items-center gap-1.5 bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full shadow-[0_0_0_1px_hsl(152_80%_38%/0.6),0_4px_24px_hsl(152_80%_38%/0.35)]">
           <span className="h-1.5 w-1.5 rounded-full bg-accent-foreground" />
           Most Popular
         </div>
@@ -355,7 +355,7 @@ export const Packages = () => {
     >
       {/* Mobile: snap carousel */}
       <div className="lg:hidden">
-        <div className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory -mx-5 px-5 [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-4 overflow-x-auto pt-5 pb-6 snap-x snap-mandatory -mx-5 px-5 [&::-webkit-scrollbar]:hidden">
           {packages.map((p, i) => (
             <div
               key={p.name}
