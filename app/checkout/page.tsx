@@ -50,12 +50,12 @@ function CheckoutContent() {
     }
   }
 
-  const inputCls = 'h-11 w-full rounded-xl bg-[hsl(0_0%_10%)] border border-[hsl(0_0%_15%)] px-4 text-[14px] text-foreground outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground'
+  const inputCls = 'h-11 w-full rounded-xl bg-input border border-border px-4 text-[14px] text-foreground outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground'
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       {/* Header */}
-      <div className="border-b border-border bg-[hsl(0_0%_5%)]">
+      <div className="border-b border-border bg-card">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 h-14 flex items-center gap-4">
           <Link href="/#packages" className="flex items-center gap-1.5 text-[12px] text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft size={14} />
@@ -77,7 +77,7 @@ function CheckoutContent() {
             <h1 className="text-2xl font-bold tracking-tight mb-1">{pkg.name} Plan</h1>
             <p className="text-muted-foreground text-[14px] mb-6">{pkg.tagline}</p>
 
-            <div className="rounded-2xl border border-border bg-[hsl(0_0%_7%)] p-5 mb-6">
+            <div className="rounded-2xl border border-border bg-card p-5 mb-6">
               <div className="flex items-baseline gap-1 mb-5 pb-4 border-b border-border">
                 <span className="text-[32px] font-bold tracking-tight text-accent">{formatCurrency(pkg.price)}</span>
                 <span className="text-[13px] text-muted-foreground">/month</span>
@@ -92,7 +92,7 @@ function CheckoutContent() {
               </ul>
             </div>
 
-            <div className="rounded-xl border border-border bg-[hsl(0_0%_6%)] px-4 py-3 space-y-1.5 text-[12px] text-muted-foreground">
+            <div className="rounded-xl border border-border bg-muted px-4 py-3 space-y-1.5 text-[12px] text-muted-foreground">
               <p>· No setup fees. Cancel month-to-month.</p>
               <p>· First charge today. Billed monthly thereafter.</p>
               <p>· Ad spend billed directly to Google / Meta by you.</p>
@@ -101,7 +101,7 @@ function CheckoutContent() {
 
           {/* Right: form */}
           <div className="lg:col-span-3">
-            <div className="rounded-2xl border border-border bg-[hsl(0_0%_7%)] p-7 sm:p-8">
+            <div className="rounded-2xl border border-border bg-card p-7 sm:p-8">
               <div className="mb-7">
                 <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-muted-foreground mb-1">Step 1 of 2</div>
                 <h2 className="text-xl font-bold tracking-tight">Tell us about your business</h2>

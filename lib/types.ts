@@ -93,7 +93,7 @@ export const PACKAGES: Record<Package, PackageConfig> = {
   },
   growth: {
     name: 'Growth',
-    price: 2500,
+    price: 3000,
     tagline: 'Generate consistent leads.',
     features: [
       'Everything in Foundation, plus:',

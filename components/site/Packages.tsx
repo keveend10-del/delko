@@ -32,7 +32,7 @@ const packages = [
     key: 'growth',
     name: 'Local Growth System',
     tagline: 'More calls, AI-ready, consistent growth.',
-    price: '2,500',
+    price: '3,000',
     priceSuffix: '/mo',
     cta: 'Build Your System',
     popular: true,
@@ -71,7 +71,7 @@ const packages = [
 
 const oneTimePackages = [
   {
-    name: 'Website Sprint',
+    name: 'Website Buildout',
     tagline: 'A better online foundation, fast.',
     price: 'from $4,000',
     priceSuffix: 'one-time · no ongoing commitment',
@@ -278,7 +278,7 @@ const ComparisonTable = () => {
             </th>
             {[
               { name: 'Starter Presence', price: '$2,000/mo', key: 'foundation', popular: false },
-              { name: 'Local Growth', price: '$2,500/mo', key: 'growth', popular: true },
+              { name: 'Local Growth', price: '$3,000/mo', key: 'growth', popular: true },
               { name: 'Growth Partner', price: '$4,500/mo', key: 'dominate', popular: false },
             ].map((col) => (
               <th

@@ -58,10 +58,10 @@ const PACKAGE_HINTS = [
   },
   {
     name: 'Local Growth System',
-    price: 2500,
+    price: 3000,
     key: 'growth',
     threshold: 2100,
-    ceiling: 2700,
+    ceiling: 3200,
     extras: 'social content, strategy call, and review generation',
   },
   {
