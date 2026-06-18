@@ -89,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <CookieConsent />
       </body>
-      <GoogleAnalytics gaId="G-5PX67J5CB9" />
+      <GoogleAnalytics gaId="G-99VQR2F6E0" />
     </html>
   )
 }
