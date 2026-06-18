@@ -17,7 +17,7 @@ const variantCls = (variant: ButtonProps['variant'], size: ButtonProps['size']) 
       'bg-accent text-white hover:brightness-110 active:scale-[0.97] shadow-[0_0_0_1px_hsl(var(--accent)/0.4),0_4px_20px_hsl(var(--accent)/0.25)]': variant === 'accent',
       'bg-transparent backdrop-blur-[16px] border border-white/[0.09] text-white/80 hover:border-white/[0.16] hover:text-white hover:bg-white/[0.05]': variant === 'glass',
       'bg-transparent text-foreground/55 hover:text-foreground hover:bg-foreground/[0.06] border border-border': variant === 'ghost',
-      'bg-transparent border border-white/[0.10] text-white hover:border-white/[0.20] hover:bg-white/[0.03]': variant === 'outline',
+      'bg-transparent border border-border text-foreground hover:border-border-strong hover:bg-foreground/[0.04]': variant === 'outline',
       'bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/20': variant === 'destructive',
       'h-8 px-3 text-[12px]': size === 'sm',
       'h-10 px-4 text-[13px]': size === 'default',

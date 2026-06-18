@@ -43,8 +43,40 @@ const faqs = [
     a: "Starter Presence builds the foundation — brand, website, Google profile, review system, and lead capture at $2,000/mo. Local Growth System adds local SEO service pages, review generation, follow-up automation, and AI search readiness to build consistent leads month over month at $2,500/mo. Growth Partner adds paid ads, CRM setup, advanced automations, and reputation management for businesses ready to own their market at $4,500/mo.",
   },
   {
+    q: "Why shouldn't I just use ChatGPT myself?",
+    a: "You can — and you should. But most business owners don't have time to turn AI outputs into a complete marketing system. Delko uses AI to move faster, but every strategy, website, campaign, and piece of content is reviewed by real people before it goes live. The difference isn't just using AI — it's knowing what to ask, what to ignore, what to edit, and how to turn the output into something that actually brings in customers.",
+  },
+  {
+    q: "What is GEO and how does it help my business?",
+    a: "GEO stands for Generative Engine Optimization — it's SEO for AI tools like ChatGPT, Perplexity, and Google AI. When someone types 'best HVAC company near me' into one of these tools, the AI reads your website, reviews, Google profile, and citations to decide who to recommend. GEO means structuring your content so AI tools can understand and recommend your business — not just search engines.",
+  },
+  {
+    q: "How do reviews affect Google and AI visibility?",
+    a: "Reviews are now a two-way signal. Google uses review volume, recency, and response patterns to rank you in local results. AI tools like ChatGPT and Google AI use your reviews as evidence of credibility — a business with 80 detailed, recent five-star reviews is far more likely to be recommended than one with 12 reviews from three years ago. We build a review system that generates steady, real reviews without you having to think about it.",
+  },
+  {
     q: "Do you only work in Berkshire County and North Shore?",
     a: "For now, yes — and that's intentional. Keeping our markets tight means we actually know your local competitive landscape. We know which contractors dominate the Berkshires, who's running ads in Salem, and what your neighbors are charging. You get strategy built for your market, not a generic playbook from an agency three states away.",
+  },
+  {
+    q: "How can my business show up in AI search results?",
+    a: "AI tools like ChatGPT, Gemini, and Google AI pull from your website, Google Business Profile, reviews, and local citations to decide what to recommend. The key is consistent, complete information across all those places — clear service pages, real reviews, accurate business details, and content that answers the questions your customers actually ask. That's exactly what we build.",
+  },
+  {
+    q: "What is AEO?",
+    a: "AEO — Answer Engine Optimization — means structuring your content so AI tools pull your business as the direct answer to a customer's question. When someone asks 'who does the best roofing in Salem, MA?' an AEO-optimized presence gives AI the right signals to recommend you. It's about being the answer, not just a result.",
+  },
+  {
+    q: "Can AI recommend my local business to customers?",
+    a: "Yes — and it's already happening. When someone asks ChatGPT or Google AI for a recommendation, those tools scan your online presence to decide who to suggest. Businesses with clear service pages, strong reviews, complete Google profiles, and consistent local citations get recommended. Thin or inconsistent info means you get skipped.",
+  },
+  {
+    q: "Do you build websites only, or do you manage everything after launch?",
+    a: "Both. If you just need a website, our Website Sprint packages start at $1,500 — you get a professional site, mobile optimization, service pages, and 30 days of support. If you want ongoing help, our monthly plans cover updates, content, SEO, Google visibility, reviews, and follow-up systems. Most clients start with a project and move to a monthly plan once they see results.",
+  },
+  {
+    q: "Can you run seasonal campaigns for my business?",
+    a: "Yes. A lot of local businesses have their best months and their slow months, and a well-timed campaign can change the trajectory of a quarter. We build seasonal campaign packages for summer pushes, holiday offers, slow-season promotions, and event-based marketing — including a landing page, social content, Google Business Profile posts, and offer positioning.",
   },
 ]
 

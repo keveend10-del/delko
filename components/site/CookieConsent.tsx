@@ -23,7 +23,7 @@ function Toggle({ checked, onChange, disabled }: { checked: boolean; onChange: (
       onClick={() => !disabled && onChange(!checked)}
       className={cn(
         'relative inline-flex h-5 w-9 shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40',
-        checked ? 'bg-accent' : 'bg-white/10',
+        checked ? 'bg-accent' : 'bg-foreground/10',
         disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'
       )}
     >
@@ -51,7 +51,7 @@ function CategoryRow({
   always?: boolean
 }) {
   return (
-    <div className="flex items-start justify-between gap-4 py-4 border-b border-white/[0.06] last:border-0">
+    <div className="flex items-start justify-between gap-4 py-4 border-b border-border last:border-0">
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
           <span className="text-[13px] font-semibold text-foreground">{title}</span>
@@ -118,7 +118,7 @@ export function CookieConsent() {
       {showBanner && !showModal && (
         <div className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 pointer-events-none">
           <div
-            className="pointer-events-auto mx-auto max-w-2xl rounded-2xl border border-white/[0.08] bg-[hsl(40_6%_10.4%/0.96)] backdrop-blur-xl shadow-elevated p-5 sm:p-6"
+            className="pointer-events-auto mx-auto max-w-2xl rounded-2xl border border-border bg-card/[0.97] backdrop-blur-xl shadow-elevated p-5 sm:p-6"
             role="dialog"
             aria-label="Cookie consent"
             aria-modal="false"
@@ -136,13 +136,13 @@ export function CookieConsent() {
               </button>
               <button
                 onClick={declineAll}
-                className="h-9 px-4 rounded-[10px] border border-white/[0.10] text-foreground text-[13px] font-semibold transition-all hover:bg-white/[0.04] hover:border-white/[0.18]"
+                className="h-9 px-4 rounded-[10px] border border-border text-foreground text-[13px] font-semibold transition-all hover:bg-foreground/[0.04] hover:border-border-strong"
               >
                 Decline All
               </button>
               <button
                 onClick={() => setShowModal(true)}
-                className="h-9 px-4 rounded-[10px] text-muted-foreground text-[13px] font-semibold transition-all hover:text-foreground hover:bg-white/[0.04]"
+                className="h-9 px-4 rounded-[10px] text-muted-foreground text-[13px] font-semibold transition-all hover:text-foreground hover:bg-foreground/[0.04]"
               >
                 Manage Cookies
               </button>
@@ -166,13 +166,13 @@ export function CookieConsent() {
           />
 
           {/* Modal panel */}
-          <div className="relative w-full max-w-lg rounded-2xl border border-white/[0.08] bg-[hsl(40_6%_10.4%)] shadow-elevated overflow-hidden">
+          <div className="relative w-full max-w-lg rounded-2xl border border-border bg-card shadow-elevated overflow-hidden">
             {/* Header */}
-            <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.06]">
+            <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-border">
               <h2 className="text-[15px] font-semibold">Cookie Preferences</h2>
               <button
                 onClick={() => setShowModal(false)}
-                className="h-7 w-7 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/[0.06] transition-colors text-[18px] leading-none"
+                className="h-7 w-7 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-foreground/[0.06] transition-colors text-[18px] leading-none"
                 aria-label="Close"
               >
                 ×
@@ -209,7 +209,7 @@ export function CookieConsent() {
             </div>
 
             {/* Footer */}
-            <div className="flex flex-wrap gap-2 px-6 py-5 border-t border-white/[0.06]">
+            <div className="flex flex-wrap gap-2 px-6 py-5 border-t border-border">
               <button
                 onClick={saveCurrent}
                 className="h-9 px-4 rounded-[10px] bg-accent text-[#050505] text-[13px] font-semibold transition-all hover:brightness-110 active:scale-[0.97]"
@@ -218,13 +218,13 @@ export function CookieConsent() {
               </button>
               <button
                 onClick={acceptAll}
-                className="h-9 px-4 rounded-[10px] border border-white/[0.10] text-foreground text-[13px] font-semibold transition-all hover:bg-white/[0.04] hover:border-white/[0.18]"
+                className="h-9 px-4 rounded-[10px] border border-border text-foreground text-[13px] font-semibold transition-all hover:bg-foreground/[0.04] hover:border-border-strong"
               >
                 Accept All
               </button>
               <button
                 onClick={declineAll}
-                className="h-9 px-4 rounded-[10px] text-muted-foreground text-[13px] font-semibold transition-all hover:text-foreground hover:bg-white/[0.04]"
+                className="h-9 px-4 rounded-[10px] text-muted-foreground text-[13px] font-semibold transition-all hover:text-foreground hover:bg-foreground/[0.04]"
               >
                 Decline All
               </button>

@@ -3,7 +3,7 @@ import { resend } from '@/lib/resend'
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, business, email, phone, link, town, type, help, message } = await req.json()
+    const { name, business, email, phone, link, gbp, town, type, help, message } = await req.json()
 
     if (!name || !business || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -23,6 +23,7 @@ export async function POST(req: NextRequest) {
             <tr><td style="padding: 8px 0; color: #666;">Phone</td><td style="padding: 8px 0;">${phone || '—'}</td></tr>
             <tr><td style="padding: 8px 0; color: #666;">Town / Area</td><td style="padding: 8px 0;">${town || '—'}</td></tr>
             <tr><td style="padding: 8px 0; color: #666;">Website</td><td style="padding: 8px 0;">${link || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #666;">Google Profile</td><td style="padding: 8px 0;">${gbp || '—'}</td></tr>
             <tr><td style="padding: 8px 0; color: #666;">Type</td><td style="padding: 8px 0;">${type}</td></tr>
             <tr><td style="padding: 8px 0; color: #666;">Help with</td><td style="padding: 8px 0;">${Array.isArray(help) ? help.join(', ') : help}</td></tr>
             <tr><td style="padding: 8px 0; color: #666;">Message</td><td style="padding: 8px 0;">${message || '—'}</td></tr>

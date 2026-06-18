@@ -31,7 +31,7 @@ export const AuditForm = () => {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [form, setForm] = useState({
-    name: '', business: '', email: '', phone: '', link: '', town: '', type: '', help: [] as string[], message: '',
+    name: '', business: '', email: '', phone: '', link: '', gbp: '', town: '', type: '', help: [] as string[], message: '',
   })
 
   const update = (k: keyof typeof form, v: string) => setForm((f) => ({ ...f, [k]: v }))
@@ -112,6 +112,11 @@ export const AuditForm = () => {
         <Field label="Website or social link" optional>
           <input value={form.link} onChange={(e) => update('link', e.target.value)} placeholder="https:// or @instagram" className={inputCls} />
         </Field>
+        <div className="sm:col-span-2">
+          <Field label="Google Business Profile link" optional>
+            <input value={form.gbp} onChange={(e) => update('gbp', e.target.value)} placeholder="maps.app.goo.gl/... or search.google.com/local/..." className={inputCls} />
+          </Field>
+        </div>
 
         {/* Business type — button grid */}
         <div className="sm:col-span-2 space-y-3">

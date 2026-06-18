@@ -16,7 +16,7 @@ export const CTASection = () => (
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start"
         >
-          <div className="eyebrow mb-7">Free 30-Min Strategy Call · No pitch deck</div>
+          <div className="eyebrow mb-7">Free AI Visibility Audit · No pitch deck</div>
           <h2 className="text-[36px] sm:text-[52px] lg:text-[60px] font-bold leading-[1.0] tracking-[-0.04em]">
             Let&apos;s talk about{' '}
             <span className="font-display-italic text-muted-foreground">your business.</span>

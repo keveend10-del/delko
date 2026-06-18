@@ -158,7 +158,7 @@ export const Navbar = () => {
               <a href="/portal/login">Client Portal</a>
             </Button>
             <Button asChild variant="accent" size="sm">
-              <a href="/#audit" onClick={() => trackCTAClick('get_free_audit', 'navbar')}>Free Audit</a>
+              <a href="/audit" onClick={() => trackCTAClick('get_free_audit', 'navbar')}>Free Audit</a>
             </Button>
           </div>
 
@@ -213,7 +213,7 @@ export const Navbar = () => {
                 <a href="/portal/login" onClick={() => setOpen(false)}>Client Portal</a>
               </Button>
               <Button asChild variant="accent" className="mt-2 w-full">
-                <a href="/#audit" onClick={() => setOpen(false)}>Free Audit</a>
+                <a href="/audit" onClick={() => setOpen(false)}>Free Audit</a>
               </Button>
             </div>
           </motion.div>

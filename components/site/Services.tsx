@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Section } from './Section'
-import { Layers, LayoutGrid, TrendingUp, ArrowUpRight } from 'lucide-react'
+import { Layers, LayoutGrid, TrendingUp, Bot, ArrowUpRight } from 'lucide-react'
 import { ArcLight } from './ArcLight'
 
 const services = [
@@ -29,12 +29,22 @@ const services = [
   {
     icon: TrendingUp,
     n: 'S03',
-    title: 'Growth & Visibility',
-    short: 'Paid ads, SEO, AI search optimization, and email.',
-    desc: "Paid ads on Meta and Google, local SEO, AI search optimization (ChatGPT, Perplexity, Google AI), and email — everything that gets your phone ringing and keeps your calendar full. AI search visibility is included, not an add-on.",
-    tags: ['Paid Ads', 'SEO', 'AI Visibility', 'Email'],
+    title: 'Google + AI Visibility',
+    short: 'Local SEO, GBP optimization, AI search, and paid ads.',
+    desc: "Paid ads on Meta and Google, local SEO, GBP optimization, review strategy, and AI search visibility (ChatGPT, Perplexity, Google AI) — everything that gets your phone ringing. AI visibility is included, not an add-on.",
+    tags: ['Paid Ads', 'SEO', 'GEO / AEO', 'GBP'],
     featured: true,
-    span: 'lg:col-span-3',
+    span: 'lg:col-span-2',
+  },
+  {
+    icon: Bot,
+    n: 'S04',
+    title: 'AI Workflows',
+    short: 'Automated follow-up, review requests, and content.',
+    desc: "AI-powered systems that handle missed-call text-back, review requests, lead intake, social caption drafts, and monthly reporting — so your team spends less time on manual tasks.",
+    tags: ['Automation', 'Follow-Up', 'AI'],
+    featured: false,
+    span: 'lg:col-span-1',
   },
 ]
 
@@ -149,9 +159,9 @@ const ServiceCard = ({ s, compact, index }: { s: typeof services[0]; compact: bo
 export const Services = ({ compact = false }: { compact?: boolean }) => (
   <Section
     id="services"
-    eyebrow="What We Do / 03"
-    title={<>Three services. <span className="font-display-italic text-muted-foreground">One team.</span></>}
-    subtitle={compact ? undefined : 'Brand, web, social, and growth — handled by two people who actually know your market.'}
+    eyebrow="What We Do"
+    title={<>Four pillars. <span className="font-display-italic text-muted-foreground">One team.</span></>}
+    subtitle={compact ? undefined : 'Website, AI visibility, social, and agentic workflows — handled by two people who actually know your market.'}
     align="center"
   >
     <motion.div
@@ -159,7 +169,7 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-60px' }}
-      className={`grid gap-4 sm:gap-5 ${compact ? 'sm:grid-cols-2 lg:grid-cols-3' : 'lg:grid-cols-3'}`}
+      className={`grid gap-4 sm:gap-5 ${compact ? 'sm:grid-cols-2 lg:grid-cols-2' : 'lg:grid-cols-3'}`}
     >
       {services.map((s, i) => (
         <ServiceCard key={s.n} s={s} compact={compact} index={i} />

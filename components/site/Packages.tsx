@@ -67,6 +67,86 @@ const packages = [
   },
 ]
 
+const oneTimePackages = [
+  {
+    name: 'Website Sprint',
+    tagline: 'A better online foundation, fast.',
+    price: 'from $1,500',
+    priceSuffix: 'one-time · no ongoing commitment',
+    cta: 'Get a Quote',
+    features: [
+      'Website build or refresh',
+      'Mobile optimization',
+      'Contact / quote form',
+      'Service pages',
+      'Basic SEO setup',
+      'FAQ section',
+      'Google Business Profile review',
+      '30 days of support',
+    ],
+    addon: 'Optional: Ongoing management at $250–$500/mo',
+  },
+  {
+    name: 'Seasonal Campaign',
+    tagline: 'A targeted push for summer, fall, holidays, or a slow season.',
+    price: 'from $1,000',
+    priceSuffix: 'one-time · no ongoing commitment',
+    cta: 'Get a Quote',
+    features: [
+      'Campaign strategy',
+      'Landing page',
+      'Social content calendar',
+      'Google Business Profile posts',
+      'Email / SMS copy',
+      'Offer positioning',
+      'AI visibility / FAQ content',
+    ],
+    addon: null,
+  },
+]
+
+const OneTimeCard = ({ p, index }: { p: typeof oneTimePackages[0]; index: number }) => {
+  const router = useRouter()
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.65, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+      whileHover={{ y: -5, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
+      className="glass-card rounded-xl p-8 flex flex-col hover:border-border-strong hover:shadow-[4px_4px_0px_rgba(0,0,0,0.4),0_16px_48px_rgba(0,0,0,0.4)] transition-all duration-300 relative overflow-hidden"
+    >
+      <ArcLight radius={12} duration={12} delay={index * 1.8} />
+      <div className="text-[11px] font-bold font-mono tracking-[0.18em] uppercase text-muted-foreground relative">{p.name}</div>
+      <div className="mt-1.5 text-[14px] font-display-italic text-muted-foreground relative">{p.tagline}</div>
+      <div className="mt-6 relative">
+        <span className="text-[34px] sm:text-[40px] font-bold tracking-[-0.04em] leading-none">{p.price}</span>
+      </div>
+      <div className="text-[11px] mt-1.5 font-medium text-muted-foreground relative">{p.priceSuffix}</div>
+      <div className="my-6 h-px bg-border" />
+      <ul className="space-y-3 flex-1 relative">
+        {p.features.map((f) => (
+          <li key={f} className="flex items-start gap-2.5 text-[13px]">
+            <Check size={14} className="mt-0.5 shrink-0 text-accent" />
+            <span className="text-foreground/75">{f}</span>
+          </li>
+        ))}
+      </ul>
+      {p.addon && (
+        <p className="mt-4 text-[12px] text-muted-foreground/55 leading-relaxed relative italic">{p.addon}</p>
+      )}
+      <Button
+        variant="outline"
+        size="lg"
+        className="mt-7 w-full"
+        onClick={() => router.push('/#audit')}
+      >
+        {p.cta} <ArrowUpRight size={15} />
+      </Button>
+    </motion.div>
+  )
+}
+
 const PackageCard = ({ p, index }: { p: typeof packages[0]; index: number }) => {
   const router = useRouter()
   return (
@@ -292,6 +372,26 @@ export const Packages = () => {
       </div>
 
       <ComparisonTable />
+
+      {/* One-time projects */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="mt-16"
+      >
+        <div className="flex items-center gap-4 mb-8">
+          <div className="flex-1 h-px bg-border" />
+          <div className="text-[10px] font-bold font-mono uppercase tracking-[0.22em] text-muted-foreground/60 px-2 whitespace-nowrap">Or start with a one-time project</div>
+          <div className="flex-1 h-px bg-border" />
+        </div>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {oneTimePackages.map((p, i) => (
+            <OneTimeCard key={p.name} p={p} index={i} />
+          ))}
+        </div>
+      </motion.div>
 
       <motion.p
         initial={{ opacity: 0 }}

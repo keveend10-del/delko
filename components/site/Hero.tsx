@@ -20,7 +20,7 @@ const headlineLine = {
 }
 
 const stats = [
-  { value: '3', label: 'Services' },
+  { value: '4', label: 'Pillars' },
   { value: '2', label: 'Markets' },
   { value: '$0', label: 'Setup Fees' },
   { value: 'M–M', label: 'Contracts' },
@@ -73,20 +73,20 @@ export const Hero = () => {
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               </span>
               <span className="text-[11px] font-medium tracking-[0.14em] text-muted-foreground">
-                Local Marketing Agency · North Shore MA
+                Local Marketing · Berkshire County & North Shore MA
               </span>
             </div>
           </motion.div>
 
           <motion.div variants={headlineContainer} initial="hidden" animate="show">
             <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em] text-gradient-headline">Get found.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em] text-gradient-headline">Local marketing</h1>
             </motion.div>
             <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-display-italic leading-[0.93] text-muted-foreground/70">Trusted.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-display-italic leading-[0.93] text-muted-foreground/70">built for the</h1>
             </motion.div>
             <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">Chosen.</h1>
+              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">AI search era.</h1>
             </motion.div>
           </motion.div>
 
@@ -96,7 +96,7 @@ export const Hero = () => {
             transition={{ delay: 0.55, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="mt-9 text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-[500px]"
           >
-            We build brands, run campaigns, and make sure your business gets found — on Google, social, and the AI tools your customers are already using. Two founders. Both North Shore. No account managers, no handoffs.
+            Delko helps local businesses get found on Google, show up in AI answers, look professional online, and turn more attention into real customers. Two founders. Berkshire County and North Shore. No account managers, no handoffs.
           </motion.p>
 
           <motion.div
@@ -106,10 +106,10 @@ export const Hero = () => {
             className="mt-10 flex flex-col sm:flex-row gap-3"
           >
             <Button asChild variant="accent" size="xl">
-              <a href="#audit" onClick={() => trackCTAClick('schedule_strategy_call', 'hero')}>Schedule a Free Strategy Call <ArrowUpRight size={16} /></a>
+              <a href="#audit" onClick={() => trackCTAClick('get_visibility_audit', 'hero')}>Get a Free Visibility Audit <ArrowUpRight size={16} /></a>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <a href="/services" onClick={() => trackCTAClick('see_services', 'hero')}>See Our Services</a>
+              <a href="/pricing" onClick={() => trackCTAClick('view_packages', 'hero')}>View Packages</a>
             </Button>
           </motion.div>
 

@@ -20,11 +20,11 @@ export function LandingPage() {
       <main>
         <Hero />
         <div className="bg-surface/50">
-          <Problem />
-        </div>
-        <Process />
-        <div className="bg-surface/50">
           <Services compact />
+        </div>
+        <Problem />
+        <div className="bg-surface/50">
+          <Process />
         </div>
         <Testimonials />
         <div className="bg-surface/50">
