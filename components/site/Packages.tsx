@@ -7,6 +7,7 @@ import { Section } from './Section'
 import { Button } from '@/components/ui/Button'
 import { Check, ArrowUpRight, Minus } from 'lucide-react'
 import { ArcLight } from './ArcLight'
+import { PackageBuilder } from './PackageBuilder'
 
 const packages = [
   {
@@ -72,7 +73,7 @@ const oneTimePackages = [
   {
     name: 'Website Sprint',
     tagline: 'A better online foundation, fast.',
-    price: 'from $1,500',
+    price: 'from $4,000',
     priceSuffix: 'one-time · no ongoing commitment',
     cta: 'Get a Quote',
     features: [
@@ -401,6 +402,8 @@ export const Packages = () => {
           ))}
         </div>
       </motion.div>
+
+      <PackageBuilder />
 
       <motion.p
         initial={{ opacity: 0 }}

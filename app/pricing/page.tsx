@@ -3,10 +3,10 @@ import { PricingPage } from '@/components/site/PricingPage'
 
 export const metadata: Metadata = {
   title: 'Pricing',
-  description: 'Three local marketing plans starting at $1,500/mo. No setup fees, month-to-month. Starter Presence, Local Growth System, and Growth Partner plans for North Shore and Berkshire County MA businesses.',
+  description: 'Three local marketing plans starting at $2,000/mo. No setup fees, month-to-month. Starter Presence, Local Growth System, and Growth Partner plans for North Shore and Berkshire County MA businesses. Build your own custom plan starting from individual services.',
   openGraph: {
     title: 'Pricing | Delko',
-    description: 'Three local marketing plans starting at $1,500/mo. No setup fees, month-to-month. Starter Presence, Local Growth System, and Growth Partner plans for North Shore and Berkshire County MA businesses.',
+    description: 'Three local marketing plans starting at $2,000/mo. No setup fees, month-to-month. Starter Presence, Local Growth System, and Growth Partner plans for North Shore and Berkshire County MA businesses.',
     url: 'https://delkoagency.com/pricing',
   },
   alternates: {
