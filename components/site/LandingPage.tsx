@@ -8,7 +8,7 @@ import { ProofBar } from './ProofBar'
 import { Services } from './Services'
 
 const Process = dynamic(() => import('./Process').then(m => ({ default: m.Process })))
-const Testimonials = dynamic(() => import('./Testimonials').then(m => ({ default: m.Testimonials })))
+const CampaignSection = dynamic(() => import('./CampaignSection').then(m => ({ default: m.CampaignSection })))
 const FAQ = dynamic(() => import('./FAQ').then(m => ({ default: m.FAQ })))
 const CTASection = dynamic(() => import('./CTASection').then(m => ({ default: m.CTASection })))
 const Footer = dynamic(() => import('./Footer').then(m => ({ default: m.Footer })))
@@ -27,7 +27,7 @@ export function LandingPage() {
         <div className="bg-surface/50">
           <Process />
         </div>
-        <Testimonials />
+        <CampaignSection />
         <div className="bg-surface/50">
           <FAQ limit={6} />
         </div>

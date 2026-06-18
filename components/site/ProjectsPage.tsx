@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useScrollDepth } from '@/hooks/useScrollDepth'
 import { Navbar } from './Navbar'
 import { Section, SectionDivider } from './Section'
+import { Testimonials } from './Testimonials'
 import { CTASection } from './CTASection'
 import { Footer } from './Footer'
 
@@ -196,6 +197,8 @@ export function ProjectsPage() {
             More case studies coming soon — ask us about your industry.
           </motion.p>
         </Section>
+        <SectionDivider />
+        <Testimonials />
         <SectionDivider />
         <CTASection />
       </main>
