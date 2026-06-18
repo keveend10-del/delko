@@ -27,7 +27,7 @@ export const Section = ({
   id, eyebrow, title, subtitle, children,
   className = '', align = 'left', bare = false, surface = false,
 }: SectionProps) => (
-  <section id={id} className={`relative py-28 sm:py-36 ${surface ? 'bg-surface/50' : ''} ${className}`}>
+  <section id={id} className={`relative py-16 sm:py-24 ${surface ? 'bg-surface/50' : ''} ${className}`}>
     <div className="container mx-auto px-5 sm:px-8">
       {!bare && (eyebrow || title || subtitle) && (
         <motion.div
@@ -35,7 +35,7 @@ export const Section = ({
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-100px' }}
-          className={`max-w-3xl mb-20 ${align === 'center' ? 'mx-auto text-center' : ''}`}
+          className={`max-w-3xl mb-12 ${align === 'center' ? 'mx-auto text-center' : ''}`}
         >
           {eyebrow && (
             <motion.div variants={fadeUp} className="eyebrow mb-6">{eyebrow}</motion.div>

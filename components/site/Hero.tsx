@@ -150,7 +150,7 @@ export const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.05, duration: 0.7 }}
-        className="mt-24 max-w-7xl mx-auto"
+        className="mt-14 max-w-7xl mx-auto"
       >
         <div className="hairline mb-12" />
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12">

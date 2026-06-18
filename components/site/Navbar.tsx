@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { Menu, X, MapPin, Phone, TrendingUp, ChevronDown, Sun, Moon } from 'lucide-react'
+import { Menu, X, Layers, LayoutGrid, TrendingUp, Bot, ChevronDown, Sun, Moon } from 'lucide-react'
 import { trackCTAClick } from '@/lib/analytics'
 
 const serviceItems = [
-  { icon: MapPin, label: 'Local Visibility', desc: 'Google, Maps, local SEO & AI search', href: '/services#local-visibility' },
-  { icon: Phone, label: 'Lead Capture', desc: 'Forms, booking links & call tracking', href: '/services#lead-capture' },
-  { icon: TrendingUp, label: 'AI-Powered Follow-Up', desc: 'Missed calls, reviews & automation', href: '/services#follow-up' },
+  { icon: Layers, label: 'Brand & Web', desc: 'Logo, identity, web design & development', href: '/services#brand-web' },
+  { icon: LayoutGrid, label: 'Content & Social', desc: 'Social media, creative direction & content', href: '/services#content-social' },
+  { icon: TrendingUp, label: 'Google + AI Visibility', desc: 'Local SEO, GBP, paid ads & AI search', href: '/services#google-ai-visibility' },
+  { icon: Bot, label: 'AI Workflows', desc: 'Automated follow-up, reviews & reporting', href: '/services#ai-workflows' },
 ]
 
 const navLinks = [
