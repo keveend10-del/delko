@@ -7,7 +7,7 @@ import { PageHeader, Panel, EmptyState, inputCls, textareaCls } from '@/componen
 import { Dialog } from '@/components/admin/Dialog'
 import { toast } from 'sonner'
 import { format } from 'date-fns'
-import { Send, UserPlus, Search } from 'lucide-react'
+import { Send, UserPlus, Search, Trash2 } from 'lucide-react'
 
 export default function AdminMessages() {
   const supabase = createClient()
@@ -19,6 +19,7 @@ export default function AdminMessages() {
   const [unread, setUnread] = useState<Record<string, number>>({})
   const [q, setQ] = useState('')
   const [inviteOpen, setInviteOpen] = useState(false)
+  const [deleteConfirm, setDeleteConfirm] = useState(false)
   const endRef = useRef<HTMLDivElement>(null)
 
   const loadClients = async () => {
@@ -62,7 +63,21 @@ export default function AdminMessages() {
     loadMsgs(active.id)
   }
 
-  const filtered = clients.filter(c => !q || `${c.business_name} ${c.contact_name ?? ''}`.toLowerCase().includes(q.toLowerCase()))
+  const deleteConversation = async () => {
+    if (!active) return
+    const { error } = await supabase.from('client_messages').delete().eq('client_id', active.id)
+    if (error) return toast.error(error.message)
+    setMsgs([])
+    setDeleteConfirm(false)
+    toast.success('Conversation deleted.')
+    loadUnread()
+  }
+
+  // deduplicate by email so duplicate client rows don't show twice
+  const deduped = clients.filter((c, i, arr) =>
+    c.email ? arr.findIndex(x => x.email === c.email) === i : true
+  )
+  const filtered = deduped.filter(c => !q || `${c.business_name} ${c.contact_name ?? ''}`.toLowerCase().includes(q.toLowerCase()))
 
   return (
     <div>
@@ -109,9 +124,18 @@ export default function AdminMessages() {
             <EmptyState title="Select a conversation" description="Pick a client from the left to start chatting." />
           ) : (
             <>
-              <div className="px-5 py-4 border-b border-border">
-                <div className="text-sm font-semibold">{active.business_name}</div>
-                <div className="text-[11px] text-muted-foreground">{active.email ?? '—'}</div>
+              <div className="px-5 py-4 border-b border-border flex items-center justify-between gap-2">
+                <div>
+                  <div className="text-sm font-semibold">{active.business_name}</div>
+                  <div className="text-[11px] text-muted-foreground">{active.email ?? '—'}</div>
+                </div>
+                <button
+                  onClick={() => setDeleteConfirm(true)}
+                  title="Delete conversation"
+                  className="p-2 rounded-lg text-muted-foreground hover:text-red-400 hover:bg-surface-elevated transition-colors"
+                >
+                  <Trash2 size={14} />
+                </button>
               </div>
               <div className="flex-1 overflow-y-auto p-5 space-y-3">
                 {msgs.length === 0 && <div className="text-sm text-muted-foreground text-center py-10">No messages yet.</div>}
@@ -153,6 +177,21 @@ export default function AdminMessages() {
       </div>
 
       <InviteDialog supabase={supabase} open={inviteOpen} onClose={() => setInviteOpen(false)} clients={clients} onDone={loadClients} />
+
+      <Dialog open={deleteConfirm} onClose={() => setDeleteConfirm(false)} title="Delete conversation">
+        <p className="text-sm text-muted-foreground mt-2">
+          All messages with <strong>{active?.business_name}</strong> will be permanently deleted.
+        </p>
+        <div className="mt-4 flex justify-end gap-2">
+          <Btn onClick={() => setDeleteConfirm(false)}>Cancel</Btn>
+          <button
+            onClick={deleteConversation}
+            className="flex items-center gap-1.5 h-9 px-4 rounded-xl text-xs font-medium bg-red-500 text-white hover:bg-red-600 transition-colors"
+          >
+            Delete
+          </button>
+        </div>
+      </Dialog>
     </div>
   )
 }
