@@ -106,7 +106,7 @@ export const Hero = () => {
             className="mt-10 flex flex-col sm:flex-row gap-3"
           >
             <Button asChild variant="accent" size="xl">
-              <a href="#audit" onClick={() => trackCTAClick('get_visibility_audit', 'hero')}>Get a Free Visibility Audit <ArrowUpRight size={16} /></a>
+              <a href="/audit" onClick={() => trackCTAClick('get_visibility_audit', 'hero')}>Get a Free Visibility Audit <ArrowUpRight size={16} /></a>
             </Button>
             <Button asChild variant="glass" size="xl">
               <a href="/pricing" onClick={() => trackCTAClick('view_packages', 'hero')}>View Packages</a>

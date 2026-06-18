@@ -12,7 +12,7 @@ const packages = [
   {
     key: 'foundation',
     name: 'Starter Presence',
-    tagline: 'Fix the basics. Start getting found.',
+    tagline: 'Fix the foundation. Get found first.',
     price: '2,000',
     priceSuffix: '/mo',
     cta: 'Get Started',
@@ -21,6 +21,7 @@ const packages = [
       'Google Business Profile cleanup',
       'Website audit and basic fixes',
       'Review request system',
+      'Missed-call text-back',
       'Lead capture form',
       'Simple lead tracking',
       'Monthly report',
@@ -29,7 +30,7 @@ const packages = [
   {
     key: 'growth',
     name: 'Local Growth System',
-    tagline: 'More calls, better visibility.',
+    tagline: 'More calls, AI-ready, consistent growth.',
     price: '2,500',
     priceSuffix: '/mo',
     cta: 'Build Your System',
@@ -37,18 +38,18 @@ const packages = [
     features: [
       'Everything in Starter Presence, plus:',
       'Landing page or website refresh',
-      'Local SEO service pages',
+      'Local SEO + GEO/AEO optimization',
       'Review generation system',
-      'Lead capture forms',
+      'AI-drafted social content',
       'Email / SMS follow-up',
       'Monthly strategy call',
-      'AI search readiness',
+      'AI search visibility (ChatGPT, Google AI)',
     ],
   },
   {
     key: 'dominate',
     name: 'Growth Partner',
-    tagline: 'Full customer acquisition system.',
+    tagline: 'Own your market. Full system, fully managed.',
     price: '4,500',
     priceSuffix: '/mo',
     cta: 'Become a Partner',
@@ -57,10 +58,10 @@ const packages = [
       'Everything in Local Growth System, plus:',
       'Paid ads setup and management',
       'CRM setup and management',
-      'Advanced automations',
+      'Full agentic AI workflow suite',
       'Customer reactivation campaigns',
       'Reputation management',
-      'Offer testing',
+      'Seasonal campaign packages',
       'Reporting dashboard',
       'Biweekly strategy calls',
     ],
@@ -139,7 +140,7 @@ const OneTimeCard = ({ p, index }: { p: typeof oneTimePackages[0]; index: number
         variant="outline"
         size="lg"
         className="mt-7 w-full"
-        onClick={() => router.push('/#audit')}
+        onClick={() => router.push('/audit')}
       >
         {p.cta} <ArrowUpRight size={15} />
       </Button>
@@ -215,14 +216,24 @@ const featureGroups: FeatureGroup[] = [
     ],
   },
   {
-    group: 'Growth & Visibility',
+    group: 'Google + AI Search Visibility',
     rows: [
       { label: 'Landing page or website refresh', starter: false, growth: true, partner: true },
-      { label: 'Local SEO service pages', starter: false, growth: true, partner: true },
+      { label: 'Local SEO + GEO/AEO optimization', starter: false, growth: true, partner: true },
       { label: 'Review generation system', starter: false, growth: true, partner: true },
       { label: 'Email & SMS follow-up', starter: false, growth: true, partner: true },
       { label: 'Monthly strategy call', starter: false, growth: true, partner: true },
-      { label: 'AI search readiness', starter: false, growth: true, partner: true },
+      { label: 'AI search visibility (ChatGPT, Google AI)', starter: false, growth: true, partner: true },
+    ],
+  },
+  {
+    group: 'AI Workflows',
+    rows: [
+      { label: 'Missed-call text-back', starter: true, growth: true, partner: true },
+      { label: 'AI-drafted social content', starter: false, growth: true, partner: true },
+      { label: 'Lead intake automation', starter: false, growth: true, partner: true },
+      { label: 'Seasonal campaign generation', starter: false, growth: false, partner: true },
+      { label: 'Full agentic AI workflow suite', starter: false, growth: false, partner: true },
     ],
   },
   {
@@ -230,10 +241,8 @@ const featureGroups: FeatureGroup[] = [
     rows: [
       { label: 'Paid ads setup & management', starter: false, growth: false, partner: true },
       { label: 'CRM setup & management', starter: false, growth: false, partner: true },
-      { label: 'Advanced automations', starter: false, growth: false, partner: true },
       { label: 'Customer reactivation campaigns', starter: false, growth: false, partner: true },
       { label: 'Reputation management', starter: false, growth: false, partner: true },
-      { label: 'Offer testing', starter: false, growth: false, partner: true },
       { label: 'Reporting dashboard', starter: false, growth: false, partner: true },
       { label: 'Biweekly strategy calls', starter: false, growth: false, partner: true },
     ],
@@ -339,9 +348,9 @@ export const Packages = () => {
   return (
     <Section
       id="packages"
-      eyebrow="Packages / 03"
+      eyebrow="Packages"
       title={<>Pick the plan that <span className="font-display-italic text-muted-foreground">fits your business.</span></>}
-      subtitle="Three plans, no long contracts, no setup fees. Cancel month-to-month if it isn't working — but it will."
+      subtitle="Three monthly plans covering all four pillars: website, AI search visibility, social, and agentic workflows. No setup fees, no long contracts."
       className="!pb-12 sm:!pb-16"
     >
       {/* Mobile: snap carousel */}

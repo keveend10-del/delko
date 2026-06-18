@@ -1,12 +1,13 @@
 'use client'
 
 import { useRef } from 'react'
+import React from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Section } from './Section'
 import { Search, ListChecks, Hammer, TrendingUp } from 'lucide-react'
 
 const steps = [
-  { n: '01', icon: Search, title: 'Free Local Visibility Audit', desc: "We review your Google profile, website, reviews, competitors, and AI search visibility — then show you exactly where you stand and what to fix first. No charge, no pitch." },
+  { n: '01', icon: Search, title: 'Free Local Visibility Audit', desc: "We review your Google profile, website, reviews, competitors, and AI search visibility — then show you exactly where you stand and what to fix first. No charge, no pitch.", href: '/audit' },
   { n: '02', icon: ListChecks, title: 'A plain-English plan', desc: "You get a short list of fixes in order of what'll bring you the most calls. No 40-page report nobody reads." },
   { n: '03', icon: Hammer, title: 'We do the work', desc: "We fix the Google profile, refresh the website, set up review systems and lead capture. Usually two to four weeks to get the foundation right. You stay focused on the actual jobs." },
   { n: '04', icon: TrendingUp, title: 'We keep it running', desc: "Posts, ad tweaks, review follow-ups, monthly reports. You always know what's working and what we're trying next." },
@@ -46,7 +47,7 @@ export const Process = () => {
           viewport={{ once: true, margin: '-80px' }}
           className="space-y-3"
         >
-          {steps.map(({ n, icon: Icon, title, desc }) => (
+          {steps.map(({ n, icon: Icon, title, desc, href } : { n: string; icon: React.ElementType; title: string; desc: string; href?: string }) => (
             <motion.li
               key={n}
               variants={{ hidden: { opacity: 0, x: -20 }, show: { opacity: 1, x: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } }}
@@ -67,7 +68,9 @@ export const Process = () => {
                   <span className="text-[11px] font-bold font-mono tracking-[0.18em] text-muted-foreground uppercase">Step {n}</span>
                 </div>
                 <div className="sm:col-span-9">
-                  <h3 className="text-[20px] sm:text-[22px] font-bold tracking-[-0.025em]">{title}</h3>
+                  <h3 className="text-[20px] sm:text-[22px] font-bold tracking-[-0.025em]">
+                    {href ? <a href={href} className="hover:text-accent transition-colors">{title}</a> : title}
+                  </h3>
                   <p className="mt-2.5 text-[15px] text-muted-foreground leading-relaxed max-w-xl">{desc}</p>
                 </div>
               </div>

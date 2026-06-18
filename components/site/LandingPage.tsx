@@ -3,7 +3,6 @@
 import { useScrollDepth } from '@/hooks/useScrollDepth'
 import { Navbar } from './Navbar'
 import { Hero } from './Hero'
-import { Problem } from './Problem'
 import { Process } from './Process'
 import { Services } from './Services'
 import { Testimonials } from './Testimonials'
@@ -22,13 +21,12 @@ export function LandingPage() {
         <div className="bg-surface/50">
           <Services compact />
         </div>
-        <Problem />
         <div className="bg-surface/50">
           <Process />
         </div>
         <Testimonials />
         <div className="bg-surface/50">
-          <FAQ />
+          <FAQ limit={6} />
         </div>
         <Packages />
         <CTASection />

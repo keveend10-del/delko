@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "What's the real difference between your three packages?",
-    a: "Starter Presence builds the foundation — brand, website, Google profile, review system, and lead capture at $2,000/mo. Local Growth System adds local SEO service pages, review generation, follow-up automation, and AI search readiness to build consistent leads month over month at $2,500/mo. Growth Partner adds paid ads, CRM setup, advanced automations, and reputation management for businesses ready to own their market at $4,500/mo.",
+    a: "Starter Presence ($2,000/mo) fixes the foundation — GBP, website, review system, missed-call text-back, and lead capture. Local Growth System ($2,500/mo) adds a website refresh, local SEO, GEO/AEO optimization, AI search visibility, AI-drafted social content, and follow-up automation. Growth Partner ($4,500/mo) adds paid ads, CRM, full agentic AI workflows, seasonal campaigns, reputation management, and a reporting dashboard. All three are month-to-month.",
   },
   {
     q: "Why shouldn't I just use ChatGPT myself?",
@@ -132,8 +132,9 @@ const FAQItem = ({
   </motion.div>
 )
 
-export const FAQ = () => {
+export const FAQ = ({ limit }: { limit?: number } = {}) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const visible = limit ? faqs.slice(0, limit) : faqs
 
   const toggle = (i: number) => setOpenIndex(prev => (prev === i ? null : i))
 
@@ -146,7 +147,7 @@ export const FAQ = () => {
       align="center"
     >
       <div className="grid md:grid-cols-2 gap-3 max-w-6xl mx-auto items-start">
-        {faqs.map((item, i) => (
+        {visible.map((item, i) => (
           <FAQItem
             key={i}
             item={item}
