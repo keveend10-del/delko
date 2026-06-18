@@ -3,64 +3,103 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { ArrowUpRight, Star, Phone, Check, TrendingUp, MapPin, Search, Navigation } from 'lucide-react'
+import { ArrowUpRight, Layers, LayoutGrid, TrendingUp, Bot } from 'lucide-react'
 import { trackCTAClick } from '@/lib/analytics'
 
 const headlineContainer = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.13, delayChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.11, delayChildren: 0.1 } },
 }
 
 const headlineLine = {
-  hidden: { opacity: 0, y: 48, filter: 'blur(6px)' },
+  hidden: { opacity: 0, y: 52, filter: 'blur(8px)' },
   show: {
     opacity: 1, y: 0, filter: 'blur(0px)',
-    transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 }
 
-const stats = [
-  { value: '4', label: 'Pillars' },
-  { value: '2', label: 'Markets' },
-  { value: '$0', label: 'Setup Fees' },
-  { value: 'M–M', label: 'Contracts' },
+const pillars = [
+  {
+    icon: Layers,
+    n: '01',
+    title: 'Brand & Web',
+    desc: 'Logo, identity, and a site that converts.',
+    color: 'hsl(217 91% 60%)',
+    delay: 0,
+  },
+  {
+    icon: LayoutGrid,
+    n: '02',
+    title: 'Content & Social',
+    desc: 'Consistent presence on the platforms that matter.',
+    color: 'hsl(260 80% 65%)',
+    delay: 0.08,
+  },
+  {
+    icon: TrendingUp,
+    n: '03',
+    title: 'Google + AI Visibility',
+    desc: 'Local SEO, GBP, paid ads, and AI search.',
+    color: 'hsl(145 60% 50%)',
+    delay: 0.16,
+  },
+  {
+    icon: Bot,
+    n: '04',
+    title: 'AI Workflows',
+    desc: 'Automated follow-up, reviews, and reporting.',
+    color: 'hsl(35 90% 58%)',
+    delay: 0.24,
+  },
+]
+
+const floatVariants = [
+  { y: [0, -10, 0], duration: 5.2 },
+  { y: [0, 8, 0], duration: 6.1 },
+  { y: [0, -7, 0], duration: 4.8 },
+  { y: [0, 9, 0], duration: 5.7 },
 ]
 
 export const Hero = () => {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const glowY = useTransform(scrollYProgress, [0, 1], [0, -180])
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, 70])
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
+  const glowY = useTransform(scrollYProgress, [0, 1], [0, -160])
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 60])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0])
 
   return (
-  <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 overflow-hidden">
-    {/* Single dramatic centered glow */}
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      <motion.div
-        style={{ y: glowY, width: '100%', height: '700px', top: '-180px', left: '0', background: 'radial-gradient(ellipse at 55% 50%, hsl(var(--accent) / 0.22) 0%, hsl(217 91% 60% / 0.08) 45%, transparent 70%)', filter: 'blur(40px)' }}
-        className="absolute rounded-full animate-glow"
-      />
-      <motion.div
-        style={{ y: glowY, width: '600px', height: '600px', top: '-80px', left: '50%', transform: 'translateX(-50%)', background: 'hsl(var(--accent) / 0.12)', filter: 'blur(100px)' }}
-        className="absolute rounded-full"
-      />
-    </div>
+    <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center pt-28 pb-20 overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          className="absolute rounded-full animate-glow"
+          style={{
+            y: glowY,
+            width: '100%',
+            height: '800px',
+            top: '-200px',
+            left: '0',
+            background: 'radial-gradient(ellipse at 50% 50%, hsl(var(--accent) / 0.18) 0%, hsl(217 91% 60% / 0.06) 50%, transparent 70%)',
+            filter: 'blur(60px)',
+          }}
+        />
+      </div>
 
-    {/* Dot grid — slightly more visible */}
-    <div
-      className="absolute inset-0 pointer-events-none opacity-[0.04]"
-      style={{
-        backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-        backgroundSize: '36px 36px',
-        maskImage: 'radial-gradient(ellipse 90% 80% at 50% 0%, black, transparent 75%)',
-      }}
-    />
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.035]"
+        style={{
+          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+          backgroundSize: '36px 36px',
+          maskImage: 'radial-gradient(ellipse 80% 70% at 50% 10%, black, transparent 80%)',
+        }}
+      />
 
-    <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container mx-auto px-5 sm:px-8 relative z-10">
-      <div className="grid lg:grid-cols-[1fr_1fr] gap-16 xl:gap-24 items-center max-w-7xl mx-auto">
-        <div>
-          {/* Glass pill badge — micro1 style */}
+      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container mx-auto px-5 sm:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto text-center">
+
+          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,227 +111,128 @@ export const Hero = () => {
                 <span className="absolute inset-0 rounded-full bg-accent animate-dot" />
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               </span>
-              <span className="text-[11px] font-medium tracking-[0.14em] text-muted-foreground">
-                Local Marketing · Berkshire County & North Shore MA
+              <span className="text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+                Berkshire County & North Shore MA
               </span>
             </div>
           </motion.div>
 
-          <motion.div variants={headlineContainer} initial="hidden" animate="show">
-            <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em] text-gradient-headline">Local marketing</h1>
-            </motion.div>
-            <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-display-italic leading-[0.93] text-muted-foreground/70">built for the</h1>
-            </motion.div>
-            <motion.div variants={headlineLine}>
-              <h1 className="text-[64px] sm:text-[86px] lg:text-[108px] font-bold leading-[0.93] tracking-[-0.05em]">AI search era.</h1>
-            </motion.div>
+          {/* Headline */}
+          <motion.div variants={headlineContainer} initial="hidden" animate="show" className="mb-8">
+            <motion.h1
+              variants={headlineLine}
+              className="text-[72px] sm:text-[100px] lg:text-[128px] font-bold leading-[0.9] tracking-[-0.055em] text-gradient-headline"
+            >
+              Grow your
+            </motion.h1>
+            <motion.h1
+              variants={headlineLine}
+              className="text-[72px] sm:text-[100px] lg:text-[128px] font-display-italic leading-[0.9] text-muted-foreground/60"
+            >
+              local business.
+            </motion.h1>
           </motion.div>
 
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="mt-9 text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-[500px]"
+            transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            className="text-[17px] sm:text-[19px] text-muted-foreground leading-relaxed max-w-[560px] mx-auto mb-10"
           >
-            Delko helps local businesses get found on Google, show up in AI answers, look professional online, and turn more attention into real customers. Two founders. Berkshire County and North Shore. No account managers, no handoffs.
+            Brand, web, social, and AI visibility — four pillars, one team, no account managers.
           </motion.p>
 
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-10 flex flex-col sm:flex-row gap-3"
+            transition={{ delay: 0.65, duration: 0.6 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center mb-20"
           >
             <Button asChild variant="accent" size="xl">
-              <a href="/audit" onClick={() => trackCTAClick('get_visibility_audit', 'hero')}>Get a Free Visibility Audit <ArrowUpRight size={16} /></a>
+              <a href="/audit" onClick={() => trackCTAClick('get_visibility_audit', 'hero')}>
+                Get a Free Visibility Audit <ArrowUpRight size={16} />
+              </a>
             </Button>
             <Button asChild variant="glass" size="xl">
               <a href="/pricing" onClick={() => trackCTAClick('view_packages', 'hero')}>View Packages</a>
             </Button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-12 flex items-center gap-4"
-          >
-            <div className="flex -space-x-2.5">
-              {[
-                { initials: 'MR', cls: 'bg-accent/20 text-accent' },
-                { initials: 'JT', cls: 'bg-white/10 text-white/55' },
-                { initials: 'KD', cls: 'bg-accent/[0.12] text-accent/70' },
-              ].map(({ initials, cls }) => (
-                <div key={initials} className={`h-8 w-8 rounded-full border-2 border-background flex items-center justify-center text-[10px] font-bold ${cls}`}>
-                  {initials}
-                </div>
-              ))}
-            </div>
-            <span className="text-[13px] text-muted-foreground">
-              Serving <span className="text-foreground font-medium">Salem, Beverly, Gloucester</span> and beyond
-            </span>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.25, duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-          className="relative hidden lg:block"
-        >
-          <HeroVisual />
-        </motion.div>
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.05, duration: 0.7 }}
-        className="mt-14 max-w-7xl mx-auto"
-      >
-        <div className="hairline mb-12" />
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12">
-          {stats.map(({ value, label }) => (
-            <div key={label}>
-              <div className="text-[44px] sm:text-[52px] font-bold tracking-[-0.05em] text-gradient-green">{value}</div>
-              <div className="mt-1 text-[13px] text-muted-foreground font-medium">{label}</div>
-            </div>
-          ))}
+          {/* Four Pillar Visual */}
+          <FourPillars />
         </div>
       </motion.div>
-    </motion.div>
-  </section>
+    </section>
   )
 }
 
-const HeroVisual = () => (
-  <div className="relative h-[600px]">
-    <div className="absolute inset-0 animate-glow" style={{ background: 'radial-gradient(ellipse at 55% 40%, hsl(var(--accent) / 0.1), transparent 70%)' }} />
-
-    {/* Google Local Pack mockup */}
-    <div className="dark absolute top-0 right-0 left-4 rounded-xl overflow-hidden shadow-elevated bg-[#070707] border border-white/[0.08]">
-      {/* Chrome bar */}
-      <div className="flex items-center gap-3 px-4 py-3 border-b border-white/[0.06] bg-white/[0.02]">
-        <div className="flex gap-1.5 shrink-0">
-          <div className="h-2.5 w-2.5 rounded-full bg-red-400/50" />
-          <div className="h-2.5 w-2.5 rounded-full bg-yellow-400/50" />
-          <div className="h-2.5 w-2.5 rounded-full bg-green-400/50" />
-        </div>
-        <div className="flex-1 bg-white/[0.06] rounded-full px-3 py-1.5 flex items-center gap-2">
-          <Search size={9} className="text-muted-foreground shrink-0" />
-          <span className="text-[10px] text-foreground/70 font-medium">best contractor north shore ma</span>
-        </div>
-      </div>
-
-      <div className="p-4 space-y-3">
-        {/* Map strip */}
-        <div className="rounded-xl overflow-hidden relative h-[88px]" style={{ background: 'linear-gradient(135deg, hsl(150 15% 10%), hsl(155 12% 8%))' }}>
-          <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '22px 22px' }} />
-          <div className="absolute top-[42%] left-0 right-0 h-[2px] bg-white/[0.07]" />
-          <div className="absolute top-0 bottom-0 left-[35%] w-[2px] bg-white/[0.07]" />
-          <div className="absolute top-0 bottom-0 left-[68%] w-[2px] bg-white/[0.04]" />
-          <div className="absolute top-2.5 left-[30%]">
-            <div className="h-6 w-6 rounded-full bg-accent border-2 border-background flex items-center justify-center text-[9px] font-bold text-[#0A0A0A] shadow-[0_0_12px_hsl(var(--accent)/0.7)]">1</div>
-            <div className="w-1 h-1 rounded-full bg-accent mx-auto" />
-          </div>
-          <div className="absolute top-6 left-[58%]">
-            <div className="h-5 w-5 rounded-full bg-white/20 border border-white/20 flex items-center justify-center text-[8px] font-bold text-white/50">2</div>
-          </div>
-          <div className="absolute top-3 left-[74%]">
-            <div className="h-5 w-5 rounded-full bg-white/15 border border-white/15 flex items-center justify-center text-[8px] font-bold text-white/40">3</div>
-          </div>
-          <div className="absolute bottom-2 right-3 flex items-center gap-1">
-            <Navigation size={8} className="text-white/30" />
-            <span className="text-[8px] text-white/25 font-mono">North Shore, MA</span>
-          </div>
-        </div>
-
-        {/* Result #1 — client, highlighted */}
-        <div className="rounded-xl border border-accent/35 bg-accent/[0.06] p-3">
-          <div className="flex items-start gap-2.5">
-            <div className="h-7 w-7 rounded-lg bg-accent flex items-center justify-center text-[10px] font-bold text-[#0A0A0A] shrink-0 shadow-[0_0_10px_hsl(var(--accent)/0.4)]">1</div>
-            <div className="flex-1 min-w-0">
-              <div className="text-[12px] font-bold text-accent leading-tight">North Shore Home Pros</div>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                <div className="flex gap-px">{[0,1,2,3,4].map(i => <Star key={i} size={9} className="text-amber-400 fill-amber-400" />)}</div>
-                <span className="text-[9px] text-foreground/60 font-medium">4.9 · 127 reviews</span>
-              </div>
-              <div className="flex items-center gap-2 mt-1">
-                <span className="text-[9px] text-muted-foreground">Contractors · Salem, MA</span>
-                <span className="text-[9px] text-emerald-400 font-medium">Open · Closes 6 PM</span>
-              </div>
-            </div>
-            <div className="flex flex-col items-end gap-1.5 shrink-0">
-              <div className="flex items-center gap-1 bg-accent/15 rounded-full px-2 py-0.5">
-                <Phone size={8} className="text-accent" />
-                <span className="text-[8px] text-accent font-semibold">Call</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Result #2 */}
-        <div className="rounded-xl border border-border bg-white/[0.02] p-3 opacity-55">
-          <div className="flex items-start gap-2.5">
-            <div className="h-7 w-7 rounded-lg bg-white/[0.08] border border-white/10 flex items-center justify-center text-[10px] font-medium text-white/40 shrink-0">2</div>
-            <div className="flex-1 min-w-0">
-              <div className="text-[12px] font-medium text-foreground/65 leading-tight">Salem Pro Services</div>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                <div className="flex gap-px">{[0,1,2,3].map(i => <Star key={i} size={9} className="text-amber-400/50 fill-amber-400/50" />)}<Star size={9} className="text-white/10 fill-white/10" /></div>
-                <span className="text-[9px] text-muted-foreground/50">4.1 · 43 reviews</span>
-              </div>
-              <div className="text-[9px] text-muted-foreground/40 mt-0.5">Contractors · Beverly, MA</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Result #3 */}
-        <div className="rounded-xl border border-border/50 bg-white/[0.01] p-3 opacity-30">
-          <div className="flex items-start gap-2.5">
-            <div className="h-7 w-7 rounded-lg bg-white/5 border border-white/[0.08] flex items-center justify-center text-[10px] font-medium text-white/30 shrink-0">3</div>
-            <div className="flex-1 min-w-0">
-              <div className="text-[12px] font-medium text-foreground/40 leading-tight">Coastal Contractors LLC</div>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                <div className="flex gap-px">{[0,1,2,3].map(i => <Star key={i} size={9} className="text-amber-400/25 fill-amber-400/25" />)}<Star size={9} className="text-white/[0.08] fill-white/[0.08]" /></div>
-                <span className="text-[9px] text-muted-foreground/30">3.8 · 12 reviews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+const FourPillars = () => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.85, duration: 0.8 }}
+    className="relative"
+  >
+    {/* Center connector lines (SVG) */}
+    <div className="absolute inset-0 pointer-events-none hidden lg:block">
+      <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Horizontal center line */}
+        <line x1="12.5%" y1="50%" x2="87.5%" y2="50%" stroke="hsl(var(--accent) / 0.12)" strokeWidth="1" strokeDasharray="4 6" />
+        {/* Center dot */}
+        <circle cx="50%" cy="50%" r="4" fill="hsl(var(--accent) / 0.3)" />
+        <circle cx="50%" cy="50%" r="8" fill="none" stroke="hsl(var(--accent) / 0.12)" strokeWidth="1" />
+      </svg>
     </div>
 
-    {/* Floating chips */}
-    <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }} className="absolute -left-8 top-[44%] rounded-xl px-3.5 py-2.5 flex items-center gap-3 shadow-card bg-popover border border-border">
-      <div className="h-8 w-8 rounded-xl bg-accent/15 flex items-center justify-center shrink-0">
-        <Star size={14} className="text-accent fill-accent" />
-      </div>
-      <div>
-        <div className="text-[12px] font-bold text-foreground">4.9 Google</div>
-        <div className="text-[10px] text-muted-foreground">+27 new reviews</div>
-      </div>
-    </motion.div>
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      {pillars.map((p, i) => {
+        const Icon = p.icon
+        const float = floatVariants[i]
+        return (
+          <motion.div
+            key={p.n}
+            initial={{ opacity: 0, y: 32, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              delay: 0.9 + p.delay,
+              duration: 0.75,
+              ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+            }}
+          >
+            <motion.div
+              animate={{ y: float.y }}
+              transition={{ duration: float.duration, repeat: Infinity, ease: 'easeInOut' }}
+              className="group relative rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-5 text-left hover:border-accent/30 transition-colors duration-300"
+              style={{ boxShadow: 'var(--shadow-card)' }}
+            >
+              {/* Hover glow */}
+              <div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+                style={{ background: `radial-gradient(ellipse at 30% 30%, ${p.color}12, transparent 70%)` }}
+              />
 
-    <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }} className="absolute -right-6 bottom-20 rounded-xl px-3.5 py-2.5 flex items-center gap-2.5 shadow-card bg-popover border border-border">
-      <div className="h-8 w-8 rounded-xl bg-foreground/[0.06] flex items-center justify-center shrink-0">
-        <TrendingUp size={14} className="text-accent" />
-      </div>
-      <div>
-        <div className="text-[12px] font-bold text-accent">+184% reach</div>
-        <div className="text-[10px] text-muted-foreground">After rebuild</div>
-      </div>
-    </motion.div>
+              <div className="relative">
+                {/* Number */}
+                <div className="text-[10px] font-mono text-muted-foreground/40 mb-3 tracking-widest">{p.n}</div>
 
-    <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }} className="absolute left-6 bottom-4 rounded-full px-3.5 py-1.5 flex items-center gap-1.5 bg-popover border border-border shadow-card">
-      <Check size={11} className="text-accent" />
-      <span className="text-[10px] font-semibold text-foreground">#1 in local results</span>
-    </motion.div>
+                {/* Icon */}
+                <div
+                  className="h-9 w-9 rounded-xl flex items-center justify-center mb-4"
+                  style={{ background: `${p.color}18`, boxShadow: `0 0 0 1px ${p.color}25` }}
+                >
+                  <Icon size={16} style={{ color: p.color }} />
+                </div>
 
-    <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }} className="absolute right-4 top-[11%] rounded-full px-3.5 py-1.5 flex items-center gap-1.5 bg-popover border border-border shadow-card">
-      <MapPin size={10} className="text-accent" />
-      <span className="text-[10px] font-semibold text-foreground">Verified local</span>
-    </motion.div>
-  </div>
+                {/* Text */}
+                <div className="text-[14px] font-bold text-foreground leading-tight mb-1.5">{p.title}</div>
+                <div className="text-[12px] text-muted-foreground leading-snug">{p.desc}</div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )
+      })}
+    </div>
+  </motion.div>
 )
