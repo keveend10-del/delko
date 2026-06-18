@@ -6,7 +6,7 @@ import { trackCTAClick } from '@/lib/analytics'
 const bullets = ['You talk to the founders, not a rep.', 'Back to you within 1 business day.', 'No pitch deck. No pressure. No commitment.']
 
 export const CTASection = () => (
-  <section id="cta" className="relative pt-20 pb-32 sm:pt-24 sm:pb-40 overflow-hidden">
+  <section id="cta" className="relative pt-14 pb-20 sm:pt-16 sm:pb-28 overflow-hidden">
     <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 50%, hsl(var(--accent) / 0.07), transparent 65%)' }} />
 
     <div className="container mx-auto px-5 sm:px-8 relative">

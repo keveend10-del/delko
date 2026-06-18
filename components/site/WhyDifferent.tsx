@@ -17,7 +17,7 @@ export const WhyDifferent = () => {
   const bgY = useTransform(scrollYProgress, [0, 1], [-60, 60])
 
   return (
-    <section ref={ref} id="why" className="relative py-28 sm:py-36 overflow-hidden">
+    <section ref={ref} id="why" className="relative py-16 sm:py-24 overflow-hidden">
       <motion.div
         style={{ y: bgY }}
         className="absolute inset-0 pointer-events-none"
@@ -32,7 +32,7 @@ export const WhyDifferent = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="max-w-4xl mb-20"
+            className="max-w-4xl mb-12"
           >
             <div className="eyebrow mb-6">Why Delko</div>
             <h2 className="text-[40px] sm:text-[58px] lg:text-[72px] font-bold leading-[1.0] tracking-[-0.04em]">
@@ -49,7 +49,7 @@ export const WhyDifferent = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-60px' }}
-            className="grid lg:grid-cols-3 gap-5 mb-16"
+            className="grid lg:grid-cols-3 gap-5 mb-10"
           >
             {pillars.map(({ n, title, body }, i) => (
               <motion.div

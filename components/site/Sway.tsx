@@ -23,7 +23,7 @@ export const Sway = () => {
   const glow2Y = useTransform(scrollYProgress, [0, 1], [30, -30])
 
   return (
-    <section ref={ref} id="sway" className="py-28 sm:py-36">
+    <section ref={ref} id="sway" className="py-16 sm:py-24">
       <div className="container mx-auto px-5 sm:px-8">
         <div className="relative max-w-7xl mx-auto">
 
