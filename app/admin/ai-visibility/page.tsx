@@ -39,7 +39,7 @@ export default function AIVisibilityPage() {
   const [location, setLocation] = useState('')
   const [industry, setIndustry] = useState('')
   const [clientId, setClientId] = useState('')
-  const [clients, setClients] = useState<{ id: string; business_name: string }[]>([])
+  const [clients, setClients] = useState<{ id: string; business_name: string; contact_name: string | null; email: string }[]>([])
 
   const [running, setRunning] = useState(false)
   const [liveResult, setLiveResult] = useState<AuditResult | null>(null)
@@ -62,7 +62,7 @@ export default function AIVisibilityPage() {
 
   useEffect(() => {
     loadHistory()
-    supabase.from('clients').select('id, business_name').order('business_name').then(({ data }) => {
+    supabase.from('clients').select('id, business_name, contact_name, email').order('business_name').then(({ data }) => {
       setClients(data ?? [])
     })
   }, [])
@@ -181,9 +181,13 @@ export default function AIVisibilityPage() {
             <label className="text-xs text-muted-foreground">Link to client (optional)</label>
             <select value={clientId} onChange={e => setClientId(e.target.value)} className={selectCls + ' h-10'}>
               <option value="">None</option>
-              {clients.map(c => (
-                <option key={c.id} value={c.id}>{c.business_name}</option>
-              ))}
+              {clients.map(c => {
+                const looksLikeEmail = c.business_name.includes('@') || !c.business_name.includes(' ')
+                const label = looksLikeEmail
+                  ? (c.contact_name ?? c.email ?? c.business_name)
+                  : c.business_name
+                return <option key={c.id} value={c.id}>{label}</option>
+              })}
             </select>
           </div>
 

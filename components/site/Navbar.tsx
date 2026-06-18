@@ -123,10 +123,10 @@ export const Navbar = () => {
   }, [])
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'pt-3 pb-0' : 'pt-0'}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'pt-2 pb-0' : 'pt-0'}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.div
-          className={`flex items-center justify-between h-16 px-5 rounded-xl transition-all duration-500 ${
+          className={`flex items-center justify-between h-12 px-4 rounded-xl transition-all duration-500 ${
             scrolled
               ? 'bg-background border border-border shadow-[0_2px_16px_rgba(0,0,0,0.06)] dark:shadow-elevated'
               : 'bg-background/60 backdrop-blur-md border border-border/40'
@@ -136,8 +136,8 @@ export const Navbar = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
         >
           <a href="/" className="flex items-center gap-2">
-            <img src="/favicon.svg" alt="Delko" className="h-7 w-7" />
-            <span className="text-[14px] font-semibold tracking-tight">Delko</span>
+            <img src="/favicon.svg" alt="Delko" className="h-6 w-6" />
+            <span className="text-[13px] font-semibold tracking-tight">Delko</span>
           </a>
 
           <nav className="hidden md:flex items-center">

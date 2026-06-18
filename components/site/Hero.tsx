@@ -70,7 +70,7 @@ export const Hero = () => {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0])
 
   return (
-    <section ref={ref} id="top" className="relative min-h-screen flex flex-col justify-center pt-28 pb-20">
+    <section ref={ref} id="top" className="relative flex flex-col pt-20 pb-10">
       {/* Background layer — overflow-hidden scoped here so headline isn't clipped */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Radial glow */}
@@ -146,12 +146,24 @@ export const Hero = () => {
       <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container mx-auto px-5 sm:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
 
+          {/* Brand mark */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.05, duration: 0.55 }}
+            className="flex items-center justify-center gap-3 mb-5"
+          >
+            <img src="/favicon.svg" alt="Delko" className="h-12 w-12" />
+            <div className="h-8 w-px bg-border" />
+            <span className="text-[20px] font-bold tracking-[-0.03em] text-foreground/75">Delko</span>
+          </motion.div>
+
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 mb-10"
+            className="inline-flex items-center gap-2.5 mb-6"
           >
             <div className="glass rounded-full px-4 py-1.5 flex items-center gap-2.5">
               <span className="relative flex h-1.5 w-1.5 shrink-0">
@@ -169,11 +181,11 @@ export const Hero = () => {
             variants={headlineContainer}
             initial="hidden"
             animate="show"
-            className="mb-8 overflow-visible"
+            className="mb-5 overflow-visible"
           >
             <motion.h1
               variants={headlineLine}
-              className="text-[72px] sm:text-[100px] lg:text-[128px] font-bold leading-[0.9] tracking-[-0.055em] text-gradient-headline overflow-visible"
+              className="text-[72px] sm:text-[100px] lg:text-[128px] font-bold leading-[0.9] tracking-[-0.055em] text-foreground overflow-visible"
             >
               Grow your
             </motion.h1>
@@ -190,7 +202,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            className="text-[17px] sm:text-[19px] text-muted-foreground leading-relaxed max-w-[560px] mx-auto mb-10"
+            className="text-[17px] sm:text-[19px] text-muted-foreground leading-relaxed max-w-[560px] mx-auto mb-6"
           >
             Brand, web, social, and AI visibility — four pillars, one team, no account managers.
           </motion.p>
@@ -200,7 +212,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center mb-20"
+            className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-10"
           >
             <Button asChild variant="accent" size="xl">
               <a href="/audit" onClick={() => trackCTAClick('get_visibility_audit', 'hero')}>
