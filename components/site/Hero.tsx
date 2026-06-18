@@ -20,7 +20,7 @@ const headlineLine = {
 }
 
 const stats = [
-  { value: '3', label: 'Core Pillars' },
+  { value: '3', label: 'Services' },
   { value: '2', label: 'Markets' },
   { value: '$0', label: 'Setup Fees' },
   { value: 'M–M', label: 'Contracts' },
@@ -73,7 +73,7 @@ export const Hero = () => {
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               </span>
               <span className="text-[11px] font-medium tracking-[0.14em] text-muted-foreground">
-                Full-Service Digital Agency · North Shore MA
+                Local Marketing Agency · North Shore MA
               </span>
             </div>
           </motion.div>

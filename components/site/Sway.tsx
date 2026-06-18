@@ -63,7 +63,7 @@ export const Sway = () => {
               </div>
               <div className="lg:col-span-5 lg:pl-10 lg:border-l lg:border-border">
                 <p className="text-[15px] text-muted-foreground leading-relaxed">
-                  We work the new model — context signals, not keyword rankings. Month-to-month, no contracts. You&apos;ll know within 60 days if the phone is ringing more. If it&apos;s not, we&apos;ll tell you straight up.
+                  Google has changed. People search differently now — and the businesses that show up are the ones Google trusts. We know how that works. Month-to-month, no contracts. You&apos;ll know within 60 days if the phone is ringing more. If it&apos;s not, we&apos;ll tell you straight up.
                 </p>
               </div>
             </div>

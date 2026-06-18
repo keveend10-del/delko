@@ -40,7 +40,7 @@ export const WhyDifferent = () => {
               <span className="font-display-italic text-muted-foreground">your market.</span>
             </h2>
             <p className="mt-7 text-[18px] text-muted-foreground leading-relaxed max-w-2xl">
-              Delko is two founders, both North Shore — no account managers, no handoffs, no guessing. Just work that fits your market, your customers, and your goals.
+              Delko is two founders, both North Shore — no account managers, no handoffs. You talk to us directly, we know your town, and we do the actual work.
             </p>
           </motion.div>
 
@@ -80,7 +80,7 @@ export const WhyDifferent = () => {
             <div className="relative">
               <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-glow mb-2">Intentionally small</div>
               <p className="text-[18px] sm:text-[20px] font-bold tracking-[-0.025em] max-w-xl">
-                We serve two markets — North Shore and the Berkshires — and we plan to keep it that way. Staying tight means we actually know your competitive landscape. That&apos;s the work.
+                We serve two markets — North Shore and the Berkshires — and we plan to keep it that way. Staying small means we actually know who else is showing up in your town. That matters.
               </p>
             </div>
             <a href="/about" className="relative inline-flex items-center gap-2 text-[14px] font-bold text-accent whitespace-nowrap hover:gap-3 transition-all duration-200">

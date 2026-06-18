@@ -31,7 +31,7 @@ const services = [
     n: 'S03',
     title: 'Growth & Visibility',
     short: 'Paid ads, SEO, AI search optimization, and email.',
-    desc: "Paid ads on Meta and Google, local SEO, AI search optimization (ChatGPT, Perplexity, Google AI), and email — everything that turns your brand into a customer acquisition engine. AI search visibility is included, not an add-on.",
+    desc: "Paid ads on Meta and Google, local SEO, AI search optimization (ChatGPT, Perplexity, Google AI), and email — everything that gets your phone ringing and keeps your calendar full. AI search visibility is included, not an add-on.",
     tags: ['Paid Ads', 'SEO', 'AI Visibility', 'Email'],
     featured: true,
     span: 'lg:col-span-3',
@@ -150,8 +150,8 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
   <Section
     id="services"
     eyebrow="What We Do / 03"
-    title={<>Three pillars. <span className="font-display-italic text-muted-foreground">One roof.</span></>}
-    subtitle={compact ? undefined : 'Brand, web, social, and growth — under one roof, with two people who actually know your market.'}
+    title={<>Three services. <span className="font-display-italic text-muted-foreground">One team.</span></>}
+    subtitle={compact ? undefined : 'Brand, web, social, and growth — handled by two people who actually know your market.'}
     align="center"
   >
     <motion.div

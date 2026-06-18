@@ -14,7 +14,7 @@ export const Footer = () => (
             </span>
           </div>
           <p className="text-[15px] text-muted-foreground max-w-sm leading-relaxed">
-            Google visibility, websites, reviews, lead capture, and AI-powered follow-up for local businesses across the North Shore and Berkshire County, MA.
+            Google profiles, websites, reviews, lead capture, and text/email follow-up for local businesses across the North Shore and Berkshire County, MA.
           </p>
         </div>
 
