@@ -86,12 +86,12 @@ const oneTimePackages = [
       'Google Business Profile review',
       '30 days of support',
     ],
-    addon: 'Optional: Ongoing management at $250–$500/mo',
+    addon: 'Optional: Ongoing management from $800/mo',
   },
   {
     name: 'Seasonal Campaign',
     tagline: 'A targeted push for summer, fall, holidays, or a slow season.',
-    price: 'from $1,000',
+    price: 'from $1,500',
     priceSuffix: 'one-time · no ongoing commitment',
     cta: 'Get a Quote',
     features: [
