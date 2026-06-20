@@ -204,7 +204,7 @@ export const Hero = () => {
             transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="text-[17px] sm:text-[19px] text-muted-foreground leading-relaxed max-w-[560px] mx-auto mb-6"
           >
-            We rebuild the website, Google profile, reviews, AI visibility, and follow-up systems local businesses need to stop losing jobs to weaker competitors.
+            We fix the website, Google profile, reviews, and follow-up systems that are costing you calls.
           </motion.p>
 
           {/* CTAs */}

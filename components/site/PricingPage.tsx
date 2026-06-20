@@ -22,7 +22,7 @@ export function PricingPage() {
               </span>
             </h1>
             <p className="mt-6 text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-2xl">
-              Three monthly plans covering all four pillars for Berkshire County and North Shore MA businesses. No setup fees, no long contracts, no handoffs.
+              Three monthly plans for Berkshire County and North Shore MA businesses. No setup fees, no long contracts, no handoffs.
             </p>
           </div>
         </section>

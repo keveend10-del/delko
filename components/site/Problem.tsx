@@ -3,10 +3,10 @@ import { Section } from './Section'
 import { Globe, Search, Star, MessageSquare } from 'lucide-react'
 
 const problems = [
-  { n: '01', icon: Search, title: 'Customers search differently now', sub: 'Google, Maps, and AI tools answer questions directly. If you\'re not set up there, ready buyers can\'t find you.' },
+  { n: '01', icon: Search, title: 'Customers search differently now', sub: 'Customers aren\'t calling blindly anymore. They check Google, Maps, and AI tools before they pick up the phone. If you\'re not set up there, they find someone else.' },
   { n: '02', icon: Star, title: 'Weak reviews and trust signals', sub: 'Thin reviews or unanswered feedback sends customers to your competitors before you even know they looked.' },
   { n: '03', icon: Globe, title: 'Website loses leads, not wins them', sub: 'No clear call button. No booking link. Slow on mobile. Visitors leave without ever contacting you.' },
-  { n: '04', icon: MessageSquare, title: 'Leads fall through the cracks', sub: 'No follow-up system means missed calls become lost jobs. Most businesses lose customers they never knew they had.' },
+  { n: '04', icon: MessageSquare, title: 'Leads fall through the cracks', sub: 'A missed call with no follow-up is a lost job. Most businesses don\'t know how many customers they\'ve already lost.' },
 ]
 
 const cardVariants = {
@@ -19,7 +19,7 @@ export const Problem = () => (
     id="problem"
     eyebrow="The gap"
     title={<><span className="text-gradient-section">Your business is</span> <span className="font-display-italic text-muted-foreground/70">better</span> than what people find online.</>}
-    subtitle="These are the four reasons good businesses with great work still lose customers to competitors who show up better online."
+    subtitle="Four reasons you're losing customers to businesses you're better than."
     align="center"
   >
     <motion.div

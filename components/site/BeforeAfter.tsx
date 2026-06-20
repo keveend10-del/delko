@@ -9,8 +9,8 @@ export const BeforeAfter = () => (
   <Section
     id="before-after"
     eyebrow="Transformation"
-    title={<>Before and after is <span className="font-display-italic text-muted-foreground">the whole point.</span></>}
-    subtitle="Same business. Same reputation. Same crew. Just finally getting the calls you should've been getting all along."
+    title={<>Before and <span className="font-display-italic text-muted-foreground">after.</span></>}
+    subtitle="Same business, same crew. Just showing up where customers are looking."
   >
     <motion.div
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.15 } } }}

@@ -8,11 +8,11 @@ import { trackCTAClick } from '@/lib/analytics'
 import { ArcLight } from './ArcLight'
 
 const features = [
-  { icon: CheckCircle2, title: 'More phone calls', desc: 'A fast site, a fixed Google profile, and clear calls-to-action mean people actually pick up the phone.' },
+  { icon: CheckCircle2, title: 'More phone calls', desc: 'A fast site, a clean Google profile, and a real call button. People actually call.' },
   { icon: CalendarCheck, title: 'Booked-out calendars', desc: 'Local Service Ads and a simple booking flow keep your week full without you chasing leads.' },
   { icon: Heart, title: 'Reviews that bring jobs', desc: "We get your happy customers to leave 5-star reviews, then put them where the next customer can see them." },
   { icon: Repeat, title: 'Repeat customers', desc: "A simple email and text follow-up so the homeowner you painted last spring remembers you next spring." },
-  { icon: UserCircle2, title: 'A real person to call', desc: "You're not customer #4,000 at some agency in another state. You text us, we text back." },
+  { icon: UserCircle2, title: 'A real person to call', desc: "You text us, we text back. You're not account #4,000 at some agency out of state." },
   { icon: Layers, title: 'Works with what you have', desc: "If your invoicing or scheduling already works, we leave it alone. We fix what's broken, not what isn't." },
 ]
 
@@ -55,15 +55,15 @@ export const Sway = () => {
               <div className="lg:col-span-7">
                 <div className="eyebrow mb-6">What you actually get</div>
                 <h2 className="text-[40px] sm:text-[56px] font-bold leading-[1.0] tracking-[-0.04em]">
-                  Real <span className="font-display-italic text-muted-foreground">results</span> for real local businesses.
+                  Two founders. <span className="font-display-italic text-muted-foreground">Your market.</span> Real results.
                 </h2>
                 <p className="mt-6 text-[17px] text-muted-foreground leading-relaxed max-w-lg">
-                  We&apos;re two guys from the area who got tired of watching good local businesses lose work to competitors who aren&apos;t actually better — just better at sending the right signals to Google.
+                  We&apos;re two guys from the area. We got tired of watching good local businesses lose work to competitors with worse crews — just because those competitors showed up first on Google.
                 </p>
               </div>
               <div className="lg:col-span-5 lg:pl-10 lg:border-l lg:border-border">
                 <p className="text-[15px] text-muted-foreground leading-relaxed">
-                  Google has changed. People search differently now — and the businesses that show up are the ones Google trusts. We know how that works. Month-to-month, no contracts. You&apos;ll know within 60 days if the phone is ringing more. If it&apos;s not, we&apos;ll tell you straight up.
+                  Month-to-month, no contracts. You&apos;ll know within 60 days if the phone&apos;s ringing more. If it&apos;s not, we&apos;ll say so.
                 </p>
               </div>
             </div>
@@ -100,7 +100,7 @@ export const Sway = () => {
 
             <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 pt-8 border-t border-border">
               <p className="text-[14px] text-muted-foreground max-w-lg leading-relaxed">
-                Want to see what we&apos;d do for your business specifically? Send us your name and website. Free audit within a couple days.
+                Want to see what we&apos;d do for your business? Send us your name and website. Free audit within a couple days.
               </p>
               <Button asChild variant="accent" size="lg" className="shrink-0">
                 <a href="/#audit" onClick={() => trackCTAClick('get_free_audit', 'results_section')}>Get a Free Audit <ArrowUpRight /></a>

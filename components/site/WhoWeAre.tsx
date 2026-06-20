@@ -15,7 +15,7 @@ const founders = [
   {
     name: 'Jack Koutrobis',
     role: 'Co-Founder — Sales & Relationships',
-    bio: "I'm Jack. I'm from the area, and I know how much local business still runs on trust, reputation, and word of mouth. I started Delko because too many good businesses are relying only on referrals while competitors pass them online. My role is simple: start real conversations, understand what owners need, and make sure clients always know who they're working with.",
+    bio: "I'm Jack. I'm from the area, and I know local business runs on trust and word of mouth. I started Delko because too many good businesses were relying only on referrals while worse competitors passed them online. I handle the conversations, figure out what owners actually need, and make sure you always know who you're working with.",
     initials: 'JK',
     photo: null,
   },
@@ -87,9 +87,9 @@ export const WhoWeAre = () => (
         <h3 className="text-[28px] sm:text-[34px] font-bold tracking-[-0.03em] leading-tight">Why we started Delko</h3>
       </div>
       <div className="space-y-5 text-[16px] sm:text-[17px] text-muted-foreground leading-[1.85]">
-        <p>We kept seeing the same thing: <strong className="text-foreground font-medium">good local businesses doing better work than their competitors but still losing attention online.</strong> Not because they were worse. Because their website looked outdated, their Google profile was weak, their reviews were not being used, or their follow-up system was basically just memory and missed texts.</p>
-        <p>Good people. Real businesses. Solid work. But when someone searched online, a worse competitor showed up first and looked sharper.</p>
-        <p>That did not sit right with us. <strong className="text-foreground font-medium">Delko exists to fix that</strong> — without making marketing feel confusing, overpriced, or fake.</p>
+        <p>We kept seeing good local businesses doing better work — but losing jobs to competitors with newer websites and fuller Google profiles. Reviews weren&apos;t being used. Follow-up was just memory and missed texts.</p>
+        <p>Someone would search, a worse competitor showed up first, and the job went elsewhere.</p>
+        <p>We started Delko to close that gap — website, Google, reviews, follow-up — without making it feel like a whole thing.</p>
       </div>
     </motion.div>
   </Section>

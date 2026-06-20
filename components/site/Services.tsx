@@ -11,7 +11,7 @@ const services = [
     n: 'S01',
     title: 'Brand & Web',
     short: 'Logo, identity, web design, and development.',
-    desc: 'We build the foundation your business stands on — logo, brand identity, web design, and development. A clear brand and a fast, professional website that works on every device and sends people straight to you.',
+    desc: 'Logo, brand, website. Fast on mobile, clear on every device. Customers can call or book in two taps.',
     tags: ['Brand Identity', 'Web Design', 'Development'],
     featured: true,
     span: 'lg:col-span-2',
@@ -21,7 +21,7 @@ const services = [
     n: 'S02',
     title: 'Content & Social',
     short: 'Creative direction, social media, and content calendars.',
-    desc: "Consistent presence across the platforms your customers actually use. We handle creative direction, social media management, content calendars, and photography/video direction — so your brand shows up and sounds like you.",
+    desc: "We manage the social accounts your customers actually check. Content calendar, copy, posting — done. Sounds like you, not a template.",
     tags: ['Social Media', 'Content', 'Creative'],
     featured: false,
     span: 'lg:col-span-1',
@@ -31,7 +31,7 @@ const services = [
     n: 'S03',
     title: 'Google + AI Visibility',
     short: 'Local SEO, GBP optimization, AI search, and paid ads.',
-    desc: "Paid ads on Meta and Google, local SEO, GBP optimization, review strategy, and AI search visibility (ChatGPT, Perplexity, Google AI) — everything that gets your phone ringing. AI visibility is included, not an add-on.",
+    desc: "Paid ads on Google and Meta, local SEO, Google Business Profile cleanup, review strategy, and AI search visibility — ChatGPT, Perplexity, Google AI. That last part's included, not extra.",
     tags: ['Paid Ads', 'SEO', 'GEO / AEO', 'GBP'],
     featured: true,
     span: 'lg:col-span-2',
@@ -41,7 +41,7 @@ const services = [
     n: 'S04',
     title: 'AI Workflows',
     short: 'Automated follow-up, review requests, and content.',
-    desc: "AI-powered systems that handle missed-call text-back, review requests, lead intake, social caption drafts, and monthly reporting — so your team spends less time on manual tasks.",
+    desc: "When someone calls and you miss it, they get a text back in seconds. We set up review requests, lead intake, and monthly reports. You don't have to babysit any of it.",
     tags: ['Automation', 'Follow-Up', 'AI'],
     featured: false,
     span: 'lg:col-span-1',
@@ -160,8 +160,8 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
   <Section
     id="services"
     eyebrow="What We Do"
-    title={<>Four pillars. <span className="font-display-italic text-muted-foreground">One team.</span></>}
-    subtitle={compact ? undefined : 'Website, AI visibility, social, and agentic workflows — handled by two people who actually know your market.'}
+    title={<>Four services. <span className="font-display-italic text-muted-foreground">One team.</span></>}
+    subtitle={compact ? undefined : 'Website, AI search, social, and follow-up — handled by two people who know your market.'}
     align="center"
   >
     <motion.div

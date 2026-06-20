@@ -31,7 +31,7 @@ const packages = [
   {
     key: 'growth',
     name: 'Local Growth System',
-    tagline: 'More calls, AI-ready, consistent growth.',
+    tagline: 'More calls, more visibility, a review system that runs itself.',
     price: '3,000',
     priceSuffix: '/mo',
     cta: 'Build Your System',
@@ -50,7 +50,7 @@ const packages = [
   {
     key: 'dominate',
     name: 'Growth Partner',
-    tagline: 'Own your market. Full system, fully managed.',
+    tagline: 'Paid ads, CRM, full AI workflows. We handle everything.',
     price: '4,500',
     priceSuffix: '/mo',
     cta: 'Become a Partner',
@@ -72,7 +72,7 @@ const packages = [
 const oneTimePackages = [
   {
     name: 'Website Buildout',
-    tagline: 'A better online foundation, fast.',
+    tagline: 'A site that works on mobile, with service pages, quote forms, and your real photos.',
     price: 'from $4,000',
     priceSuffix: 'one-time · no ongoing commitment',
     cta: 'Get a Quote',
@@ -351,7 +351,7 @@ export const Packages = () => {
       id="packages"
       eyebrow="Packages"
       title={<>Pick the plan that <span className="font-display-italic text-muted-foreground">fits your business.</span></>}
-      subtitle="Three monthly plans covering all four pillars: website, AI search visibility, social, and agentic workflows. No setup fees, no long contracts."
+      subtitle="Three monthly plans. Website, AI search, social, and follow-up automation. No setup fees, no contracts."
       className="!pb-12 sm:!pb-16"
     >
       {/* Mobile: snap carousel */}

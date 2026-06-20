@@ -6,9 +6,9 @@ import { ArrowUpRight } from 'lucide-react'
 import { ArcLight } from './ArcLight'
 
 const pillars = [
-  { n: '01', title: "Direct founders, not account managers", body: "You talk to us — not someone reading notes about you. Keveen and Jack are on every account personally. No handoffs, no layers, no client success manager. The people who built your strategy are the people doing the work." },
+  { n: '01', title: "Direct founders, not account managers", body: "You talk to us — not someone reading a brief about you. Keveen and Jack are on every account. No handoffs. The people who built your plan are the ones doing the work." },
   { n: '02', title: "We know your market", body: "We know the difference between a Newburyport tourist and a Gloucester local. Between a leaf-peeper weekend and a year-round North Shore customer. Strategy built for your actual market — not a generic playbook from an agency three states away." },
-  { n: '03', title: "Everything under one roof", body: "Brand, web, social, paid ads, SEO, AI search visibility. One team, one invoice, complete picture. No juggling vendors who don't talk to each other or blaming the 'other agency' when results are flat." },
+  { n: '03', title: "Everything under one roof", body: "Brand, web, social, paid ads, SEO, AI search visibility. One team, one invoice. No juggling vendors who don't talk to each other, or blaming the other agency when results are flat." },
 ]
 
 export const WhyDifferent = () => {
@@ -40,7 +40,7 @@ export const WhyDifferent = () => {
               <span className="font-display-italic text-muted-foreground">your market.</span>
             </h2>
             <p className="mt-7 text-[18px] text-muted-foreground leading-relaxed max-w-2xl">
-              Delko is two founders, both North Shore — no account managers, no handoffs. You talk to us directly, we know your town, and we do the actual work.
+              Delko is two founders, both connected to the area — no account managers, no handoffs. You talk to us directly, we know your town, and we do the work.
             </p>
           </motion.div>
 
@@ -80,7 +80,7 @@ export const WhyDifferent = () => {
             <div className="relative">
               <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-glow mb-2">Intentionally small</div>
               <p className="text-[18px] sm:text-[20px] font-bold tracking-[-0.025em] max-w-xl">
-                We serve two markets — North Shore and the Berkshires — and we plan to keep it that way. Staying small means we actually know who else is showing up in your town. That matters.
+                We serve two markets — North Shore and the Berkshires — and we&apos;re keeping it that way. Staying small means we know who else is showing up in your town.
               </p>
             </div>
             <a href="/about" className="relative inline-flex items-center gap-2 text-[14px] font-bold text-accent whitespace-nowrap hover:gap-3 transition-all duration-200">
