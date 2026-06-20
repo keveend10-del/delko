@@ -68,6 +68,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
       <head>
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         {/* Theme detection — runs before paint to avoid flash */}
         <script dangerouslySetInnerHTML={{ __html: `(function(){try{var p=window.location.pathname;if(p.startsWith('/admin')){document.documentElement.classList.add('dark');}else{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark');}}catch(e){}})();` }} />
         {/* Google Consent Mode v2 — defaults must be set before GA4 loads */}

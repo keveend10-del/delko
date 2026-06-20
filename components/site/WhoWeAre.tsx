@@ -55,8 +55,9 @@ export const WhoWeAre = () => (
                 src={f.photo}
                 alt={f.name}
                 fill
+                priority
                 className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 767px) calc(100vw - 40px), 600px"
               />
             ) : (
               <>

@@ -18,10 +18,6 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 }
 
-const stagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-}
 
 export const Section = ({
   id, eyebrow, title, subtitle, children,
@@ -30,33 +26,35 @@ export const Section = ({
   <section id={id} className={`relative py-10 sm:py-16 ${surface ? 'bg-surface/50' : ''} ${className}`}>
     <div className="container mx-auto px-5 sm:px-8">
       {!bare && (eyebrow || title || subtitle) && (
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-100px' }}
-          className={`max-w-3xl mb-8 ${align === 'center' ? 'mx-auto text-center' : ''}`}
-        >
+        <div className={`max-w-3xl mb-8 ${align === 'center' ? 'mx-auto text-center' : ''}`}>
           {eyebrow && (
-            <motion.div variants={fadeUp} className="eyebrow mb-6">{eyebrow}</motion.div>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-100px' }}
+              className="eyebrow mb-6"
+            >
+              {eyebrow}
+            </motion.div>
           )}
           {title && (
-            <motion.h2
-              variants={fadeUp}
-              className="text-[40px] sm:text-[58px] lg:text-[74px] font-bold leading-[1.0] tracking-[-0.04em]"
-            >
+            <h2 className="text-[40px] sm:text-[58px] lg:text-[74px] font-bold leading-[1.0] tracking-[-0.04em]">
               {title}
-            </motion.h2>
+            </h2>
           )}
           {subtitle && (
             <motion.p
               variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-100px' }}
               className="mt-6 text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-2xl"
             >
               {subtitle}
             </motion.p>
           )}
-        </motion.div>
+        </div>
       )}
       {children}
     </div>

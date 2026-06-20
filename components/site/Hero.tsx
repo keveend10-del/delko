@@ -6,18 +6,6 @@ import { Button } from '@/components/ui/Button'
 import { ArrowUpRight, MapPin, Star, Phone, TrendingUp } from 'lucide-react'
 import { trackCTAClick } from '@/lib/analytics'
 
-const headlineContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.11, delayChildren: 0.1 } },
-}
-
-const headlineLine = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(6px)' },
-  show: {
-    opacity: 1, y: 0, filter: 'blur(0px)',
-    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
-  },
-}
 
 const pillars = [
   {
@@ -178,26 +166,15 @@ export const Hero = () => {
             </span>
           </motion.div>
 
-          {/* Headline — overflow-visible so blur animation isn't clipped */}
-          <motion.div
-            variants={headlineContainer}
-            initial="hidden"
-            animate="show"
-            className="mb-5 overflow-visible"
-          >
-            <motion.h1
-              variants={headlineLine}
-              className="text-[72px] sm:text-[100px] lg:text-[128px] font-bold leading-[0.9] tracking-[-0.055em] text-foreground overflow-visible"
-            >
+          {/* Headline */}
+          <div className="mb-5 overflow-visible">
+            <h1 className="text-[72px] sm:text-[100px] lg:text-[128px] font-bold leading-[0.9] tracking-[-0.055em] text-foreground overflow-visible">
               Get found first.
-            </motion.h1>
-            <motion.h1
-              variants={headlineLine}
-              className="text-[72px] sm:text-[100px] lg:text-[128px] font-display-italic leading-[0.9] text-muted-foreground/60 overflow-visible"
-            >
+            </h1>
+            <h1 className="text-[72px] sm:text-[100px] lg:text-[128px] font-display-italic leading-[0.9] text-muted-foreground/60 overflow-visible">
               Get called more.
-            </motion.h1>
-          </motion.div>
+            </h1>
+          </div>
 
           {/* Subtitle */}
           <motion.p
