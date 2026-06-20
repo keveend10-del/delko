@@ -163,8 +163,13 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 mb-6"
+            className="inline-flex flex-wrap items-center justify-center gap-2 mb-6"
           >
+            <div className="glass rounded-full px-4 py-1.5 flex items-center gap-2">
+              <span className="text-[11px] font-medium tracking-[0.14em] text-foreground/70 uppercase">
+                Local SEO & Website Systems
+              </span>
+            </div>
             <div className="glass rounded-full px-4 py-1.5 flex items-center gap-2.5">
               <span className="relative flex h-1.5 w-1.5 shrink-0">
                 <span className="absolute inset-0 rounded-full bg-accent animate-dot" />
