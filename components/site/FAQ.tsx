@@ -142,7 +142,7 @@ export const FAQ = ({ limit }: { limit?: number } = {}) => {
     <Section
       id="faq"
       eyebrow="FAQ"
-      title={<>Questions we get <span className="font-display-italic text-muted-foreground">all the time.</span></>}
+      title={<>Questions we get<br /><span className="font-display-italic text-muted-foreground">all the time.</span></>}
       subtitle="Straight answers. No agency-speak."
       align="center"
     >

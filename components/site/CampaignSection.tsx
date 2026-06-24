@@ -39,7 +39,7 @@ export function CampaignSection() {
           >
             <div className="eyebrow mb-6 justify-center flex">Custom Campaigns</div>
             <h2 className="text-[40px] sm:text-[58px] lg:text-[70px] font-bold leading-[1.0] tracking-[-0.04em] mb-6">
-              Not sure where to start?{' '}
+              Not sure where to start?<br />
               <span className="font-display-italic text-muted-foreground">We'll build the plan.</span>
             </h2>
             <p className="text-[17px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">

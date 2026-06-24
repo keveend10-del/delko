@@ -160,7 +160,7 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
   <Section
     id="services"
     eyebrow="What We Do"
-    title={<>Four services. <span className="font-display-italic text-muted-foreground">One team.</span></>}
+    title={<>Four services.<br /><span className="font-display-italic text-muted-foreground">One team.</span></>}
     subtitle={compact ? undefined : 'Website, AI search, social, and follow-up — handled by two people who know your market.'}
     align="center"
   >

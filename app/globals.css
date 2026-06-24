@@ -198,7 +198,7 @@
   }
   .font-display-italic {
     font-family: var(--font-serif, 'Newsreader'), Georgia, serif;
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
     letter-spacing: -0.01em;
   }
