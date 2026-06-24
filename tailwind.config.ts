@@ -76,8 +76,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-plus-jakarta-sans)', 'Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['var(--font-instrument-serif)', 'Instrument Serif', 'Georgia', 'serif'],
-        serif: ['var(--font-instrument-serif)', 'Instrument Serif', 'Georgia', 'serif'],
+        display: ['var(--font-serif)', 'Newsreader', 'Georgia', 'serif'],
+        serif: ['var(--font-serif)', 'Newsreader', 'Georgia', 'serif'],
         mono: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'Menlo', 'monospace'],
       },
       boxShadow: {

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
+import { Plus_Jakarta_Sans, Newsreader, JetBrains_Mono } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from 'next/script'
 import { CookieConsent } from '@/components/site/CookieConsent'
@@ -12,11 +12,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: 'swap',
 })
 
-const instrumentSerif = Instrument_Serif({
+const newsreader = Newsreader({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['300', '400'],
   style: ['normal', 'italic'],
-  variable: '--font-instrument-serif',
+  variable: '--font-serif',
   display: 'swap',
 })
 
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
