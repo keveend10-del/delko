@@ -11,3 +11,4 @@ build
 *.log
 tsconfig.tsbuildinfo
 .env*.local
+.gstack/
