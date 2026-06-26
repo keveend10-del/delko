@@ -11,29 +11,29 @@ const pillars = [
   {
     icon: MapPin,
     n: '01',
-    title: 'Get Found',
-    desc: 'Google profile, local SEO, citations, AI visibility.',
+    title: 'Found Online',
+    desc: 'Google profile, local SEO, and AI search visibility — so customers find you before your competitors.',
     color: 'hsl(217 91% 60%)',
   },
   {
     icon: Star,
     n: '02',
-    title: 'Get Chosen',
-    desc: 'Better website, sharper offer, reviews, trust signals.',
+    title: 'Trusted Fast',
+    desc: 'A website and reputation that converts first impressions into booked calls.',
     color: 'hsl(260 80% 65%)',
   },
   {
     icon: Phone,
     n: '03',
-    title: 'Get Called',
-    desc: 'Lead capture, booking CTAs, missed-call text-back.',
+    title: 'Calls Come In',
+    desc: 'Lead capture, booking CTAs, and missed-call text-back that turn traffic into revenue.',
     color: 'hsl(145 60% 50%)',
   },
   {
     icon: TrendingUp,
     n: '04',
-    title: 'Stay Ahead',
-    desc: 'Follow-up automations, review requests, monthly reporting.',
+    title: 'Stays Working',
+    desc: 'Follow-up automations and monthly reporting so nothing falls through the cracks.',
     color: 'hsl(35 90% 58%)',
   },
 ]
@@ -169,10 +169,10 @@ export const Hero = () => {
           {/* Headline */}
           <div className="mb-5 overflow-visible">
             <h1 className="text-[72px] sm:text-[100px] lg:text-[128px] font-bold leading-[0.9] tracking-[-0.055em] text-foreground overflow-visible">
-              Get found first.
+              More local customers.
             </h1>
             <h1 className="text-[72px] sm:text-[100px] lg:text-[128px] font-display-italic leading-[0.9] text-muted-foreground/60 overflow-visible">
-              Get called more.
+              Less marketing guesswork.
             </h1>
           </div>
 
@@ -183,7 +183,7 @@ export const Hero = () => {
             transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="text-[17px] sm:text-[19px] text-muted-foreground leading-relaxed max-w-[560px] mx-auto mb-6"
           >
-            We fix the website, Google profile, reviews, and follow-up systems that are costing you calls.
+            We turn your website, Google profile, reviews, and follow-up into a customer acquisition system for local businesses.
           </motion.p>
 
           {/* CTAs */}
