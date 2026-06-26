@@ -168,7 +168,7 @@ export const Services = ({ compact = false }: { compact?: boolean }) => (
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } } }}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, amount: 0.01 }}
       className={`grid gap-4 sm:gap-5 ${compact ? 'sm:grid-cols-2 lg:grid-cols-2' : 'lg:grid-cols-3'}`}
     >
       {services.map((s, i) => (

@@ -63,7 +63,7 @@ const ServicesDropdown = () => {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1 px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-foreground/[0.05] transition-all duration-200"
+        className="flex items-center gap-1 px-4 py-3 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-foreground/[0.05] transition-all duration-200"
       >
         Services
         <ChevronDown size={13} className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
@@ -135,7 +135,7 @@ export const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
         >
-          <a href="/" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2 h-11">
             <img src="/favicon.svg" alt="Delko" className="h-6 w-6" />
             <span className="text-[13px] font-semibold tracking-tight">Delko</span>
           </a>
@@ -146,7 +146,7 @@ export const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
-                className="px-4 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-foreground/[0.05] transition-all duration-200"
+                className="px-4 py-3 text-[13px] font-medium text-muted-foreground hover:text-foreground rounded-full hover:bg-foreground/[0.05] transition-all duration-200"
               >
                 {l.label}
               </a>
@@ -155,10 +155,10 @@ export const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-1">
             <ThemeToggle />
-            <Button asChild variant="ghost" size="sm">
+            <Button asChild variant="ghost" size="sm" className="h-11">
               <a href="/portal/login">Client Portal</a>
             </Button>
-            <Button asChild variant="accent" size="sm">
+            <Button asChild variant="accent" size="sm" className="h-11">
               <a href="/audit" onClick={() => trackCTAClick('get_free_audit', 'navbar')}>Free Audit</a>
             </Button>
           </div>

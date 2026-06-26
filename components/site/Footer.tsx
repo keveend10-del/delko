@@ -30,7 +30,7 @@ export const Footer = () => (
               { label: 'Client Portal', href: '/portal/login' },
             ].map(({ label, href }) => (
               <li key={href}>
-                <a href={href} className="text-muted-foreground hover:text-accent transition-colors duration-200">{label}</a>
+                <a href={href} className="block py-2 text-muted-foreground hover:text-accent transition-colors duration-200">{label}</a>
               </li>
             ))}
           </ul>

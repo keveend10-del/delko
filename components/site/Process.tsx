@@ -17,6 +17,7 @@ export const Process = () => {
   const listRef = useRef<HTMLOListElement>(null)
   const { scrollYProgress } = useScroll({ target: listRef, offset: ['start 0.85', 'end 0.5'] })
   const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const shouldReduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   return (
     <Section
@@ -44,13 +45,13 @@ export const Process = () => {
           variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } } }}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, amount: 0.01 }}
           className="space-y-3"
         >
           {steps.map(({ n, icon: Icon, title, desc, href } : { n: string; icon: React.ElementType; title: string; desc: string; href?: string }) => (
             <motion.li
               key={n}
-              variants={{ hidden: { opacity: 0, x: -20 }, show: { opacity: 1, x: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } }}
+              variants={{ hidden: { opacity: 0, x: -20 }, show: { opacity: 1, x: 0, transition: { duration: shouldReduceMotion ? 0.01 : 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } } }}
               whileHover={{ x: 4, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } }}
               className="group relative sm:pl-20 py-7 sm:py-8 px-7 sm:px-0 glass-card rounded-xl sm:bg-transparent sm:border-transparent sm:shadow-none hover:glass-card sm:hover:bg-surface sm:hover:border-border sm:hover:shadow-[6px_6px_0px_rgba(0,0,0,0.35)] transition-all duration-300 sm:rounded-xl cursor-default"
             >

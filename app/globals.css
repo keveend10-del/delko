@@ -424,3 +424,8 @@
   body { background: white !important; color: black !important; }
   .print-section { page-break-inside: avoid; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow { animation: none !important; }
+  [data-framer-motion] { transition-duration: 0.01s !important; }
+}

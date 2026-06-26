@@ -20,7 +20,7 @@ const pillars = [
     n: '02',
     title: 'Trusted Fast',
     desc: 'A website and reputation that converts first impressions into booked calls.',
-    color: 'hsl(260 80% 65%)',
+    color: 'hsl(35 90% 58%)',
   },
   {
     icon: Phone,
@@ -34,7 +34,7 @@ const pillars = [
     n: '04',
     title: 'Stays Working',
     desc: 'Follow-up automations and monthly reporting so nothing falls through the cracks.',
-    color: 'hsl(35 90% 58%)',
+    color: 'hsl(160 60% 45%)',
   },
 ]
 
@@ -56,6 +56,7 @@ export const Hero = () => {
   const glowY = useTransform(scrollYProgress, [0, 1], [0, -160])
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 60])
   const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0])
+  const shouldReduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   return (
     <section ref={ref} id="top" className="relative flex flex-col pt-20 pb-10">
@@ -138,7 +139,7 @@ export const Hero = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.05, duration: 0.55 }}
+            transition={{ delay: 0.05, duration: shouldReduceMotion ? 0.01 : 0.55 }}
             className="flex items-center justify-center gap-3 mb-5"
           >
             <img src="/favicon.svg" alt="Delko" className="h-12 w-12" />
@@ -150,7 +151,7 @@ export const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: shouldReduceMotion ? 0.01 : 0.5 }}
             className="inline-flex items-center gap-3 mb-6"
           >
             <span className="text-[11px] font-medium tracking-[0.16em] text-foreground/60 uppercase">
@@ -180,7 +181,7 @@ export const Hero = () => {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            transition={{ delay: 0.5, duration: shouldReduceMotion ? 0.01 : 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="text-[17px] sm:text-[19px] text-muted-foreground leading-relaxed max-w-[560px] mx-auto mb-6"
           >
             We turn your website, Google profile, reviews, and follow-up into a customer acquisition system for local businesses.
@@ -190,7 +191,7 @@ export const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.6 }}
+            transition={{ delay: 0.65, duration: shouldReduceMotion ? 0.01 : 0.6 }}
             className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4"
           >
             <Button asChild variant="accent" size="xl">
@@ -207,7 +208,7 @@ export const Hero = () => {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            transition={{ delay: 0.8, duration: shouldReduceMotion ? 0.01 : 0.6 }}
             className="text-[12px] text-muted-foreground/45 tracking-wide mb-10"
           >
             Serving North Shore & Berkshire County · No contracts · No account managers
@@ -221,11 +222,13 @@ export const Hero = () => {
   )
 }
 
-const FourPillars = () => (
+const FourPillars = () => {
+  const shouldReduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  return (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
-    transition={{ delay: 0.85, duration: 0.8 }}
+    transition={{ delay: 0.85, duration: shouldReduceMotion ? 0.01 : 0.8 }}
     className="relative"
   >
     {/* Dashed connector line on desktop */}
@@ -247,7 +250,7 @@ const FourPillars = () => (
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
               delay: 0.9 + i * 0.08,
-              duration: 0.7,
+              duration: shouldReduceMotion ? 0.01 : 0.7,
               ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
             }}
             className="group relative rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-5 text-left hover:border-accent/30 transition-colors duration-300"
@@ -275,4 +278,5 @@ const FourPillars = () => (
       })}
     </div>
   </motion.div>
-)
+  )
+}

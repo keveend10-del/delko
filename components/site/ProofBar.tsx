@@ -12,11 +12,11 @@ export const ProofBar = () => (
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         className="py-6 sm:py-8 text-center"
       >
-        <div className="text-[13px] sm:text-[14px] font-semibold text-foreground/60 tracking-wide">
-          Case studies and first client results — coming soon
+        <div className="text-[13px] sm:text-[14px] font-semibold text-foreground/80 tracking-wide">
+          Built for local service businesses across North Shore and Berkshire County, MA.
         </div>
         <div className="text-[11px] text-muted-foreground/40 mt-1.5">
-          We&rsquo;re onboarding our first clients now. Real numbers on the way.
+          Month-to-month. No contracts. No account managers. Just results.
         </div>
       </motion.div>
     </div>

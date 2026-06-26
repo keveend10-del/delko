@@ -142,7 +142,7 @@ export function CookieConsent() {
               </button>
               <button
                 onClick={() => setShowModal(true)}
-                className="h-9 px-4 rounded-[10px] text-muted-foreground text-[13px] font-semibold transition-all hover:text-foreground hover:bg-foreground/[0.04]"
+                className="h-11 px-4 rounded-[10px] text-muted-foreground text-[13px] font-semibold transition-all hover:text-foreground hover:bg-foreground/[0.04]"
               >
                 Manage Cookies
               </button>

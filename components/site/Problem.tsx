@@ -3,10 +3,10 @@ import { Section } from './Section'
 import { Globe, Search, Star, MessageSquare } from 'lucide-react'
 
 const problems = [
-  { n: '01', icon: Search, title: 'Customers search differently now', sub: 'Customers aren\'t calling blindly anymore. They check Google, Maps, and AI tools before they pick up the phone. If you\'re not set up there, they find someone else.' },
-  { n: '02', icon: Star, title: 'Weak reviews and trust signals', sub: 'Thin reviews or unanswered feedback sends customers to your competitors before you even know they looked.' },
-  { n: '03', icon: Globe, title: 'Website loses leads, not wins them', sub: 'No clear call button. No booking link. Slow on mobile. Visitors leave without ever contacting you.' },
-  { n: '04', icon: MessageSquare, title: 'Leads fall through the cracks', sub: 'A missed call with no follow-up is a lost job. Most businesses don\'t know how many customers they\'ve already lost.' },
+  { n: '01', icon: Search, title: 'You\'re losing calls to more credible-looking competitors', sub: 'When someone searches what you do, a competitor with a better-looking presence wins the call — even if your work is better.' },
+  { n: '02', icon: Globe, title: 'Your website isn\'t converting the traffic you already have', sub: 'No clear call button. No booking link. Slow on mobile. Visitors leave without contacting you, and you never know they were there.' },
+  { n: '03', icon: Star, title: 'Word-of-mouth has a ceiling — digital reach doesn\'t', sub: 'Referrals are great until they slow down. Businesses with a strong online presence grow even when the phone isn\'t ringing.' },
+  { n: '04', icon: MessageSquare, title: 'Leads fall through the cracks', sub: 'A missed call with no follow-up is a lost job. Most businesses don\'t know how many customers they\'ve already lost this month.' },
 ]
 
 const cardVariants = {
@@ -18,8 +18,8 @@ export const Problem = () => (
   <Section
     id="problem"
     eyebrow="The gap"
-    title={<><span className="text-gradient-section">Your business is</span> <span className="font-display-italic text-muted-foreground/70">better</span> than what people find online.</>}
-    subtitle="Four reasons you're losing customers to businesses you're better than."
+    title={<><span className="text-gradient-section">Your business is</span> <span className="font-display-italic text-muted-foreground/70">better</span> than what customers find online.</>}
+    subtitle="Most local businesses earn most of their work through word-of-mouth. That works — until it doesn't. When someone searches for what you do, what they find is a half-finished website, a Google profile with three reviews, and a competitor who looks more put-together than they actually are. That's the gap. We close it."
     align="center"
   >
     <motion.div
