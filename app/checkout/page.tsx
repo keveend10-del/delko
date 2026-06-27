@@ -23,8 +23,10 @@ function CheckoutContent() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [businessName, setBusinessName] = useState('')
+  const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [submitted, setSubmitted] = useState(false)
 
   useEffect(() => {
     if (!PLAN_KEY_MAP[planParam]) router.replace('/checkout?plan=growth')
@@ -36,16 +38,16 @@ function CheckoutContent() {
     setError('')
 
     try {
-      const res = await fetch('/api/create-checkout-session', {
+      const res = await fetch('/api/submit-inquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan: packageKey, name, email, businessName }),
+        body: JSON.stringify({ plan: pkg.name, name, email, businessName, message }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error ?? 'Something went wrong')
-      window.location.href = data.url
+      setSubmitted(true)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to start checkout')
+      setError(err instanceof Error ? err.message : 'Failed to send inquiry')
       setLoading(false)
     }
   }
@@ -93,85 +95,114 @@ function CheckoutContent() {
             </div>
 
             <div className="rounded-xl border border-border bg-muted px-4 py-3 space-y-1.5 text-[12px] text-muted-foreground">
-              <p>· No setup fees. Cancel month-to-month.</p>
-              <p>· First charge today. Billed monthly thereafter.</p>
-              <p>· Ad spend billed directly to Google / Meta by you.</p>
+              <p>· No long-term contracts. Month-to-month.</p>
+              <p>· We'll reach out within 1 business day.</p>
+              <p>· Free strategy call before anything starts.</p>
             </div>
           </div>
 
           {/* Right: form */}
           <div className="lg:col-span-3">
             <div className="rounded-2xl border border-border bg-card p-7 sm:p-8">
-              <div className="mb-7">
-                <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-muted-foreground mb-1">Step 1 of 2</div>
-                <h2 className="text-xl font-bold tracking-tight">Tell us about your business</h2>
-                <p className="mt-1 text-[13px] text-muted-foreground">We'll set up your account, then you'll complete payment on Stripe's secure checkout page.</p>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-1.5">
-                  <label className="text-[12px] font-medium text-muted-foreground">Your name <span className="text-red-400">*</span></label>
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    required
-                    minLength={2}
-                    placeholder="Jane Smith"
-                    className={inputCls}
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-[12px] font-medium text-muted-foreground">Email address <span className="text-red-400">*</span></label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    required
-                    placeholder="jane@yourbusiness.com"
-                    className={inputCls}
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-[12px] font-medium text-muted-foreground">Business name <span className="text-red-400">*</span></label>
-                  <input
-                    type="text"
-                    value={businessName}
-                    onChange={e => setBusinessName(e.target.value)}
-                    required
-                    minLength={2}
-                    placeholder="Smith Plumbing & Heating"
-                    className={inputCls}
-                  />
-                </div>
-
-                {error && (
-                  <div className="rounded-xl bg-red-500/10 border border-red-500/20 px-4 py-3 text-[13px] text-red-400">
-                    {error}
+              {submitted ? (
+                <div className="flex flex-col items-center justify-center py-8 text-center gap-4">
+                  <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Check size={22} className="text-accent" />
                   </div>
-                )}
+                  <div>
+                    <h2 className="text-xl font-bold tracking-tight mb-1">Request received</h2>
+                    <p className="text-[13px] text-muted-foreground max-w-xs mx-auto">
+                      We'll be in touch within 1 business day to set up a quick call and walk you through next steps.
+                    </p>
+                  </div>
+                  <Link href="/" className="mt-2 text-[13px] text-accent hover:underline">
+                    Back to home
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  <div className="mb-7">
+                    <h2 className="text-xl font-bold tracking-tight">Tell us about your business</h2>
+                    <p className="mt-1 text-[13px] text-muted-foreground">We'll review your info and reach out to schedule a free strategy call.</p>
+                  </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full h-12 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[15px] disabled:opacity-60 hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2"
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 size={16} className="animate-spin" />
-                      Preparing checkout…
-                    </>
-                  ) : (
-                    `Continue to payment — ${formatCurrency(pkg.price)}/mo`
-                  )}
-                </button>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-1.5">
+                      <label className="text-[12px] font-medium text-muted-foreground">Your name <span className="text-red-400">*</span></label>
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                        required
+                        minLength={2}
+                        placeholder="Jane Smith"
+                        className={inputCls}
+                      />
+                    </div>
 
-                <p className="text-[11px] text-muted-foreground text-center leading-relaxed pt-1">
-                  You'll be redirected to Stripe's secure checkout page. We never store your card details.
-                </p>
-              </form>
+                    <div className="space-y-1.5">
+                      <label className="text-[12px] font-medium text-muted-foreground">Email address <span className="text-red-400">*</span></label>
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                        placeholder="jane@yourbusiness.com"
+                        className={inputCls}
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="text-[12px] font-medium text-muted-foreground">Business name <span className="text-red-400">*</span></label>
+                      <input
+                        type="text"
+                        value={businessName}
+                        onChange={e => setBusinessName(e.target.value)}
+                        required
+                        minLength={2}
+                        placeholder="Smith Plumbing & Heating"
+                        className={inputCls}
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="text-[12px] font-medium text-muted-foreground">Anything we should know? <span className="text-muted-foreground/50">(optional)</span></label>
+                      <textarea
+                        value={message}
+                        onChange={e => setMessage(e.target.value)}
+                        rows={3}
+                        placeholder="What's your biggest marketing challenge right now?"
+                        className="w-full rounded-xl bg-input border border-border px-4 py-3 text-[14px] text-foreground outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10 transition-all placeholder:text-muted-foreground resize-none"
+                      />
+                    </div>
+
+                    {error && (
+                      <div className="rounded-xl bg-red-500/10 border border-red-500/20 px-4 py-3 text-[13px] text-red-400">
+                        {error}
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full h-12 rounded-xl bg-accent text-[#0A0A0A] font-semibold text-[15px] disabled:opacity-60 hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2"
+                    >
+                      {loading ? (
+                        <>
+                          <Loader2 size={16} className="animate-spin" />
+                          Sending…
+                        </>
+                      ) : (
+                        'Request a call'
+                      )}
+                    </button>
+
+                    <p className="text-[11px] text-muted-foreground text-center leading-relaxed pt-1">
+                      No commitment. We'll talk through fit before anything moves forward.
+                    </p>
+                  </form>
+                </>
+              )}
             </div>
           </div>
 
